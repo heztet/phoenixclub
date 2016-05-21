@@ -23,4 +23,16 @@ class Events_model extends CI_Model {
 		$query = $this->db->get('phoenix_events');
 		return $query->row_array();
 	}
+
+	// Write new event to database
+	public function set_event()
+	{
+		$this->load->helper('url');
+
+		$data = array(
+			'Title' => $this->input->post('Title')
+			);
+
+		return $this->db->insert('phoenix_events', $data);
+	}
 }

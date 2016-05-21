@@ -43,4 +43,27 @@ class Events extends CI_Controller {
 		$this->load->view('events/view', $data);
 		$this->load->view('templates/footer', $data);
 	}
+
+	// Create event
+	public function create()
+	{
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$data['title'] = "Create event";
+
+		$this->form_validation->set_rules('Title', 'Title', 'required');
+
+		if ($this->form_validation->run() === FALSE)
+		{
+			$this->load->view('templates/header', $data);
+			$this->load->view('events/create');
+			$this->load->view('templates/footer');
+		}
+		else
+		{
+			$this->events_model->set_event();
+			$this->load->view('events/success');
+		}
+	}
 }
