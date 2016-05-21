@@ -29,10 +29,22 @@ class Events_model extends CI_Model {
 	{
 		$this->load->helper('url');
 
+		// Set up row data and insert into events table
 		$data = array(
 			'Title' => $this->input->post('Title')
 			);
+		$this->db->insert('phoenix_events', $data);
 
-		return $this->db->insert('phoenix_events', $data);
+		// Get Id in events table
+		$this->db->order_by('Id', 'desc');
+		$query = $this->db->get('phoenix_events');
+		$row = $query->row(0); // Get first row
+
+		// Update current event table with foreign key
+		$data = array(
+			'ForeignEventId' => $row->Id
+			);
+		$this->db->where('Id', 1);
+		return $this->db->update('phoenix_current_event', $data);
 	}
 }
