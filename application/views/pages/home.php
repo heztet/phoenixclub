@@ -12,6 +12,7 @@
 		<!--[if lte IE 8]><script src="home_assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="home_assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="home_assets/css/ie8.css" /><![endif]-->
+		<link rel='shortcut icon' type='image/x-icon' href='images/facivon.ico' />
 	</head>
 	<body class="homepage">
 		<div id="page-wrapper">
