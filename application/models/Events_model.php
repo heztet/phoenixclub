@@ -13,11 +13,14 @@ class Events_model extends CI_Model {
 	{
 		if ($Id == FALSE)
 		{
+			$this->db->order_by("DateCreated", "desc");
 			$query = $this->db->get('phoenix_events');
 			return $query->result_array();
 		}
 
-		$query = $this->db->get_where('phoenix_events', array('Id' => $Id));
+		$this->db->order_by("DateCreated", "desc");
+		$this->db->where('Id', $Id);
+		$query = $this->db->get('phoenix_events');
 		return $query->row_array();
 	}
 }

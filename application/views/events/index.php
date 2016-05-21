@@ -6,6 +6,7 @@
         <div class="main">
                 <?php echo $events_item['DateCreated']; ?>
         </div>
-        <p><a href="<?php echo site_url('news/'.$events_item['Id']); ?>">View article</a></p>a
+        <p><a href="<?php echo site_url('events/'.$events_item['Id']); ?>">Check in</a></p>
+        <hr />
 
 <?php endforeach; ?>
