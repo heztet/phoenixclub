@@ -53,5 +53,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['events/(:any)'] = 'events/view/$1';
 $route['events'] = 'events';
-$route['(:any)'] = 'pages/view/$1';
+$route['eboard'] = 'pages/view/eboard';
+$route['(:any)'] = 'events/view/$1';
 $route['default_controller'] = 'pages/view';
