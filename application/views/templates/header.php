@@ -1,7 +1,7 @@
+<!DOCTYPE HTML>
 <html>
 	<head>
-		<title>CodeIgniter Tutorial</title>
+		<title>Purdue Phoenix Club</title>
 	</head>
 	<body>
-		<h1><?php echo $title; ?></h1>
 	
