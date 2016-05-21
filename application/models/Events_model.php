@@ -8,16 +8,16 @@ class Events_model extends CI_Model {
 	}
 
 	// Load events from database
-	// Return either all events or specific event (if slug exists)
-	public function get_events($slug = FALSE)
+	// Return either all events or specific event (if Id exists)
+	public function get_events($Id = FALSE)
 	{
-		if ($slug == FALSE)
+		if ($Id == FALSE)
 		{
 			$query = $this->db->get('phoenix_events');
 			return $query->result_array();
 		}
 
-		$query = $this->db->get_where('phoenix_events', array('slug' => $slug));
+		$query = $this->db->get_where('phoenix_events', array('Id' => $Id));
 		return $query->row_array();
 	}
 }

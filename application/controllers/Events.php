@@ -12,18 +12,25 @@ class Events extends CI_Controller {
 	// Return all events
 	public function index()
 	{
-		$data['events'] = $this->events_model->get_events();
-		$data['title'] = 'Events list';
+		try {
+			$this->output->enable_profiler(TRUE);
+			$data['events'] = $this->events_model->get_events();
+			$data['title'] = 'Events list';
 
-		$this->load->view('templates/header', $data);
-		$this->load->view('events/index', $data);
-		$this->load->view('templates/footer', $data);
+			$this->load->view('templates/header', $data);
+			$this->load->view('events/index', $data);
+			$this->load->view('templates/footer', $data);
+		}
+		catch(Exception $e) {
+			show_error($e->getMessage());
+		}
+		
 	}
 
 	// Return specific event
-	public function view($slug = NULL)
+	public function view($Id = NULL)
 	{
-		$data['events_item'] = $this->events_model->get_events($slug);
+		$data['events_item'] = $this->events_model->get_events($Id);
 
 		if (empty($data['events_item']))
 		{

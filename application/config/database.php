@@ -73,14 +73,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mydb.ics.purdue.edu',
-	'username' => 'marinon',
-	'password' => 'database8',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
 	'database' => 'marinon',
-	'dbdriver' => 'mysql',
-	'dbprefix' => '',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => 'phoenix_',
 	'pconnect' => TRUE,
 	'db_debug' => TRUE, // (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
