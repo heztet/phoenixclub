@@ -4,7 +4,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 # To Do
 - [X] Implement HTML5 UP!'s ~Fractal~ Helios Template
 - [X] Populate template with Phoenix Club's info
-- [ ] Track GA attendance with a ~Rails~ Codeigniter app
+- [ ] Track GA attendance with a ~~Rails~~ Codeigniter app
 - [ ] Push to server!
 
 # Why Codeigniter?

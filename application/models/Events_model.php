@@ -45,6 +45,9 @@ class Events_model extends CI_Model {
 			'ForeignEventId' => $row->Id
 			);
 		$this->db->where('Id', 1);
-		return $this->db->update('phoenix_current_event', $data);
+		$this->db->update('phoenix_current_event', $data);
+		return $row->Id;
 	}
+
+	// Add student to event
 }
