@@ -107,6 +107,9 @@ class Events extends CI_Controller {
 		{
 			$this->events_model->set_student($cleanPUID);
 
+			// Check if student already exists
+			$studentView = student_exists($cleanPUID);
+
 			// Clear input data and recover event data
 			$data = [];
 			$data['events_item'] = $this->events_model->get_events($Id);
