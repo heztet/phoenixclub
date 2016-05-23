@@ -51,7 +51,7 @@ class Events_model extends CI_Model {
 	}
 
 	// Add student to event
-	public function check_in_student($puid)
+	public function set_student($puid)
 	{
 		$this->load->helper('url');
 

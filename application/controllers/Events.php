@@ -105,7 +105,7 @@ class Events extends CI_Controller {
 		// Add student to records if validation succeeds
 		if (($this->form_validation->run() === TRUE) and ($cleanPUID != '-1'))
 		{
-			$this->events_model->check_in_student($cleanPUID);
+			$this->events_model->set_student($cleanPUID);
 
 			// Clear input data and recover event data
 			$data = [];

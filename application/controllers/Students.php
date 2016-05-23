@@ -19,21 +19,4 @@ class Students extends CI_Controller {
 		$this->load->view('students/index', $data);
 		$this->load->view('templates/footer', $data);
 	}
-
-	// Return specific student
-	public function view($puid = NULL)
-	{
-		$data['students_item'] = $this->students_model->get_students($puid);
-
-		if (empty($data['students_item']))
-		{
-			show_404();
-		}
-
-		$data['StudentName'] = $data['students_item']['FirstName'].' '.$data['students_item']['LastName'];
-
-		$this->load->view('templates/header', $data);
-		$this->load->view('students/view', $data);
-		$this->load->view('templates/footer', $data);
-	}
 }
