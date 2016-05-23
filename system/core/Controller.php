@@ -77,11 +77,6 @@ class CI_Controller {
 
 		$this->load =& load_class('Loader', 'core');
 		$this->load->initialize();
-
-		// Enables profiler (debug) for every controller function
-		// Turn off before going live
-		$this->output->enable_profiler(TRUE);
-		
 		log_message('info', 'Controller Class Initialized');
 	}
 

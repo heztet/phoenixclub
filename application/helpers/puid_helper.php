@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-// Formats a PUID with one leading zero
-// Returns '-1' if input string is blank or not a number
-if ( ! function_exists('format_puid'))
+if ( ! function_exists('test_method'))
 {
+	// Formats a PUID with one leading zero
+	// Returns '-1' if input string is blank or not a number
     function format_puid($dirty = NULL)
     {
         $clean = '-1';

@@ -12,7 +12,7 @@ class Events extends CI_Controller {
 	// Return all events
 	public function index()
 	{
-		//$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
 		$data['events'] = $this->events_model->get_events();
 		$data['title'] = 'Events list';
 
@@ -71,11 +71,9 @@ class Events extends CI_Controller {
 	// Add student to event
 	public function add($Id = NULL)
 	{
-		$this->output->enable_profiler(TRUE);
 		// Helpers
 		$this->load->helper('form');
 		$this->load->helper('puid_helper');
-		$this->load->helper('student_helper');
 		$this->load->library('form_validation');
 
 		// Get event from id
@@ -104,16 +102,10 @@ class Events extends CI_Controller {
 		$this->form_validation->set_rules('EventId', 'Event', 'required');
 		$this->form_validation->set_rules('PUID', 'Student ID', 'required');
 
-		// Student view is not loaded by default
-		$studentView = FALSE;
-
 		// Add student to records if validation succeeds
 		if (($this->form_validation->run() === TRUE) and ($cleanPUID != '-1'))
 		{
 			$this->events_model->check_in_student($cleanPUID);
-
-			// Check if student already exists
-			$studentView = student_exists($cleanPUID);
 
 			// Clear input data and recover event data
 			$data = [];
@@ -127,15 +119,9 @@ class Events extends CI_Controller {
 			echo 'PUID Error!';
 		}
 
-		// Loads the add view (for the event) or the add view (for the student)
-		if ($studentView) {
-			// TODO: load the student view
-		}
-		else
-		{
-			$this->load->view('templates/header', $data);
-			$this->load->view('events/add', $data);
-			$this->load->view('templates/footer');
-		}
+		// Loads the add view (whether validation succeeded) 
+		$this->load->view('templates/header', $data);
+		$this->load->view('events/add', $data);
+		$this->load->view('templates/footer');
 	}
 }
