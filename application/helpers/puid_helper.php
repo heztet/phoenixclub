@@ -3,27 +3,26 @@
 if ( ! function_exists('test_method'))
 {
 	// Formats a PUID with one leading zero
-	// Returns an empty string if input string is blank or not a number
-    function format_puid($dirty = '')
+	// Returns '-1' if input string is blank or not a number
+    function format_puid($dirty = NULL)
     {
+        $clean = '-1';
     	// Exit if blank or NaN
-    	if (($dirty === '') or (!is_numeric($dirty)))
+    	if (($dirty === '') or (!is_numeric($dirty)) or ($dirty === NULL))
     	{
-    		return '';
+    		return $clean;
     	}
     	// Exit if length is incorrect
     	else if ((strlen($dirty) < 8) or (strlen($dirty) > 10))
     	{
-    		return '';
+    		return $clean;
     	}
 
-    	$clean = '';
-
-    	// Add zero
+    	// Add a zero
         if (strlen($dirty) === 8) {
         	$clean = '0'.$dirty;
         }
-        // Remove zero
+        // Remove a zero
         else if (strlen($dirty) === 10) {
         	$clean  = substr($dirty, 1, 10);
         }

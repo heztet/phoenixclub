@@ -87,20 +87,35 @@ class Events extends CI_Controller {
 		$data['title'] = 'Add student to '.$data['events_item']['Title'];
 		$data['EventId'] = $Id;
 
+		// Clean PUID input (if it exists)
+		if (($this->input->post('PUID')) != NULL)
+		{
+			$cleanPUID = format_puid($this->input->post('PUID'));
+		}
+		else
+		{
+			$cleanPUID = '';
+		}
+
 		// Validate inputs
 		$this->form_validation->set_rules('EventId', 'Event', 'required');
 		$this->form_validation->set_rules('PUID', 'Student ID', 'required');
 
 		// Add student to records if validation succeeds
-		if ($this->form_validation->run() === TRUE)
+		if (($this->form_validation->run() === TRUE) and ($cleanPUID != '-1'))
 		{
-			$this->events_model->set_student();
+			$this->events_model->set_student($cleanPUID);
 
 			// Clear input data and recover event data
 			$data = [];
 			$data['events_item'] = $this->events_model->get_events($Id);
 			$data['title'] = 'Add student to '.$data['events_item']['Title'];
 			$data['EventId'] = $Id;
+		}
+		// Checks that the input PUID has been submitted and is invalid
+		else if ($cleanPUID == '-1')
+		{
+			echo 'PUID Error!';
 		}
 
 		// Loads the add view (whether validation succeeded) 

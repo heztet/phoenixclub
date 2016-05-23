@@ -50,7 +50,7 @@ class Events_model extends CI_Model {
 	}
 
 	// Add student to event
-	public function set_student()
+	public function set_student($puid)
 	{
 		$this->load->helper('url');
 
@@ -65,14 +65,13 @@ class Events_model extends CI_Model {
 
 		// Insert info into record table
 		$data = array(
-			'PUID' => $this->input->post('PUID'),
+			'PUID' => $puid,
 			'EventId' => $eventId,
 			'PointDelta' => $points
 			);
 		$this->db->insert('phoenix_records', $data);
 
 		// Get student totals
-		$puid = $this->input->post('PUID');
 		$this->db->where('PUID', $puid);
 		$query = $this->db->get('phoenix_students');
 		$student = $query->row(0);
