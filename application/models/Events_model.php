@@ -65,9 +65,9 @@ class Events_model extends CI_Model {
 
 		// Insert info into record table
 		$data = array(
-			$PUID => $this->input->post('PUID'),
-			$EventId => $eventId,
-			$PointDelta => $points
+			'PUID' => $this->input->post('PUID'),
+			'EventId' => $eventId,
+			'PointDelta' => $points
 			);
 		$this->db->insert('phoenix_records', $data);
 
@@ -81,17 +81,18 @@ class Events_model extends CI_Model {
 
 		// Update student totals
 		$data = array(
-			$TotalEvents => $totalEvents + 1,
-			$TotalPoints => $totalPoints + $points
+			'TotalEvents' => $totalEvents + 1,
+			'TotalPoints' => $totalPoints + $points
 			);
 		$this->db->where('PUID', $puid);
 		$this->db->update('phoenix_students', $data);
 
 		// Update event totals
 		$data = array(
-			$TotalStudents => $totalStudents + 1
+			'TotalStudents' => $totalStudents + 1
 			);
 		$this->db->where('Id', $eventId);
 		$this->db->update('phoenix_events', $data);
+		return;
 	}
 }
