@@ -10,7 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="home_assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="../home_assets/css/main.css" />
+		<link rel="stylesheet" href="./home_assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="home_assets/css/ie8.css" /><![endif]-->
 		<link rel='shortcut icon' type='image/x-icon' href='images/facivon.ico' />
 	</head>
@@ -61,14 +61,14 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="../home_assets/js/jquery.min.js"></script>
-			<script src="../home_assets/js/jquery.dropotron.min.js"></script>
-			<script src="../home_assets/js/jquery.scrolly.min.js"></script>
-			<script src="../home_assets/js/jquery.onvisible.min.js"></script>
-			<script src="../home_assets/js/skel.min.js"></script>
-			<script src="../home_assets/js/util.js"></script>
+			<script src="./home_assets/js/jquery.min.js"></script>
+			<script src="./home_assets/js/jquery.dropotron.min.js"></script>
+			<script src="./home_assets/js/jquery.scrolly.min.js"></script>
+			<script src="./home_assets/js/jquery.onvisible.min.js"></script>
+			<script src="./home_assets/js/skel.min.js"></script>
+			<script src="./home_assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="home_assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="../home_assets/js/main.js"></script>
+			<script src="./home_assets/js/main.js"></script>
 
 	</body>
 </html>

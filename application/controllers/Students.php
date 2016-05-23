@@ -58,6 +58,7 @@ class Students extends CI_Controller {
 
 		$data['title'] = 'Add student';
 		$data['puid'] = $cleanPuid;
+		
 		// Display student add form
 		$this->load->view('templates/header', $data);
 		$this->load->view('students/add', $data);
