@@ -51,6 +51,7 @@ class Events extends CI_Controller {
 
 		// Validate inputs
 		$this->form_validation->set_rules('Title', 'Title', 'required');
+		$this->form_validation->set_rules('PointValue', 'Points', 'required');
 
 		// Return create view if inputs are invalid
 		if ($this->form_validation->run() === FALSE)

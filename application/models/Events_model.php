@@ -31,7 +31,8 @@ class Events_model extends CI_Model {
 
 		// Set up row data and insert into events table
 		$data = array(
-			'Title' => $this->input->post('Title')
+			'Title' => $this->input->post('Title'),
+			'PointValue' => $this->input->post('PointValue')
 			);
 		$this->db->insert('phoenix_events', $data);
 

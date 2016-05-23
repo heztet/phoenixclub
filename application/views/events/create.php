@@ -7,6 +7,9 @@
     <label for="Title">Title</label>
     <input type="input" name="Title" /><br />
 
+    <label for="PointValue">Points</label>
+    <input type="input" name="PointValue" /><br />
+
     <input type="submit" name="submit" value="Create news item" />
 
 </form>
