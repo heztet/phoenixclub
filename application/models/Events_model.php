@@ -76,8 +76,18 @@ class Events_model extends CI_Model {
 		$this->db->where('PUID', $puid);
 		$query = $this->db->get('phoenix_students');
 		$student = $query->row(0);
-		$totalEvents = $student->TotalEvents;
-		$totalPoints = $student->TotalPoints;
+		// If student doesn't exist, record the first event (they'll be added later)
+		if (is_object($student))
+		{
+			$totalEvents = $student->TotalEvents;
+			$totalPoints = $student->TotalPoints;
+		}
+		else
+		{
+			$totalEvents = 0;
+			$totalPoints = 0;
+		}
+		
 
 		// Update student totals
 		$data = array(

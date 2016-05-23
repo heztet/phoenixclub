@@ -104,7 +104,7 @@ class Events extends CI_Controller {
 		$this->form_validation->set_rules('PUID', 'Student ID', 'required');
 
 		// Student view is not loaded by default
-		$studentView = FALSE;
+		$alreadyStudent = FALSE;
 
 		// Add student to records if validation succeeds
 		if (($this->form_validation->run() === TRUE) and ($cleanPUID != '-1'))
@@ -112,8 +112,14 @@ class Events extends CI_Controller {
 			$this->events_model->set_student($cleanPUID);
 
 			// Check if student already exists
-			$studentView = student_exists($cleanPUID);
+			$alreadyStudent = student_exists($cleanPUID);
 			
+			// Redirect to add student if student doesn't exist
+			if (!$alreadyStudent)
+			{
+				redirect('./students/add/'.$cleanPUID);
+			}
+
 			// Clear input data and recover event data
 			$data = [];
 			$data['events_item'] = $this->events_model->get_events($Id);
@@ -126,15 +132,9 @@ class Events extends CI_Controller {
 			echo 'PUID Error!';
 		}
 
-		// Loads the add view (for the event) or the add view (for the student)
-		if ($studentView) {
-			// TODO: load the student view
-		}
-		else
-		{
-			$this->load->view('templates/header', $data);
-			$this->load->view('events/add', $data);
-			$this->load->view('templates/footer');
-		}
+		// Loads the add view for the event
+		$this->load->view('templates/header', $data);
+		$this->load->view('events/add', $data);
+		$this->load->view('templates/footer');
 	}
 }

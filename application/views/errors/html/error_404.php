@@ -59,6 +59,7 @@ p {
 	<div id="container">
 		<h1><?php echo $heading; ?></h1>
 		<?php echo $message; ?>
+		<p style="font-size: 12px;"><em>Seeing this page? Contact the <a href="mailto:marinon@purdue.edu">Phoenix Club Secretary for help.</a></em></p>
 	</div>
 </body>
 </html>
