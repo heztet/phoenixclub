@@ -50,4 +50,48 @@ class Events_model extends CI_Model {
 	}
 
 	// Add student to event
+	public function set_student()
+	{
+		$this->load->helper('url');
+
+		// Get the event's info
+		$eventId = $this->input->post('EventId');
+		$this->db->order_by('DateCreated', 'desc');
+		$this->db->where('Id', $eventId);
+		$query = $this->db->get('phoenix_events');
+		$event = $query->row(0);
+		$points = $event->PointValue;
+		$totalStudents = $event->TotalStudents;
+
+		// Insert info into record table
+		$data = array(
+			$PUID => $this->input->post('PUID'),
+			$EventId => $eventId,
+			$PointDelta => $points
+			);
+		$this->db->insert('phoenix_records', $data);
+
+		// Get student totals
+		$puid = $this->input->post('PUID');
+		$this->db->where('PUID', $puid);
+		$query = $this->db->get('phoenix_students');
+		$student = $query->row(0);
+		$totalEvents = $student->TotalEvents;
+		$totalPoints = $student->TotalPoints;
+
+		// Update student totals
+		$data = array(
+			$TotalEvents => $totalEvents + 1,
+			$TotalPoints => $totalPoints + $points
+			);
+		$this->db->where('PUID', $puid);
+		$this->db->update('phoenix_students', $data);
+
+		// Update event totals
+		$data = array(
+			$TotalStudents => $totalStudents + 1
+			);
+		$this->db->where('Id', $eventId);
+		$this->db->update('phoenix_events', $data);
+	}
 }

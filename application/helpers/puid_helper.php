@@ -9,12 +9,12 @@ if ( ! function_exists('test_method'))
     	// Exit if blank or NaN
     	if (($dirty === '') or (!is_numeric($dirty)))
     	{
-    		return 'nope!';
+    		return '';
     	}
     	// Exit if length is incorrect
     	else if ((strlen($dirty) < 8) or (strlen($dirty) > 10))
     	{
-    		return 'nope also!';
+    		return '';
     	}
 
     	$clean = '';

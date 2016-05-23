@@ -85,21 +85,23 @@ class Events extends CI_Controller {
 		}
 
 		$data['title'] = 'Add student to '.$data['events_item']['Title'];
+		$data['EventId'] = $Id;
 
 		// Validate inputs
+		$this->form_validation->set_rules('EventId', 'Event', 'required');
 		$this->form_validation->set_rules('PUID', 'Student ID', 'required');
 
 		// Return the add view if inputs are invalid
 		if ($this->form_validation->run() === FALSE)
 		{
 			$this->load->view('templates/header', $data);
-			$this->load->view('events/add/'.$Id);
+			$this->load->view('events/add', $data);
 			$this->load->view('templates/footer');
 		}
 		// Add student and reload the add view
 		else 
 		{
-			$this->events_model->add_student();
+			$this->events_model->set_student();
 			$this->add($Id = $Id);
 		}
 
