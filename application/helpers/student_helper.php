@@ -1,4 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+// Returns TRUE if student PUID already exists in student table
+// Returns FALSE otherwise
 if ( ! function_exists('student_exists'))
 {
     function student_exists($puid = '')

@@ -34,6 +34,7 @@ class Events extends CI_Controller {
 
 		$data['Title'] = $data['events_item']['Title'];
 		$data['events_item']['EventId'] = $Id;
+		$data['events_item']['redirectLink'] = 'events/add/'.$Id;
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('events/view', $data);
@@ -117,7 +118,7 @@ class Events extends CI_Controller {
 			// Redirect to add student if student doesn't exist
 			if (!$alreadyStudent)
 			{
-				redirect('./students/add/'.$cleanPUID);
+				redirect('./students/create/'.$cleanPUID);
 			}
 
 			// Clear input data and recover event data

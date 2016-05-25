@@ -37,11 +37,13 @@ class Students extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function add($puid = NULL)
+	public function create($puid = NULL)
 	{
 		// Helpers
 		$this->load->helper('puid_helper');
 		$this->load->helper('student_helper');
+		$this->load->helper('form');
+		$this->load->library('form_validation');
 
 		$cleanPuid = format_puid($puid);
 		$alreadyStudent = student_exists($cleanPuid); 
@@ -56,12 +58,25 @@ class Students extends CI_Controller {
 			show_error('This student has already been added');
 		}
 
-		$data['title'] = 'Add student';
+		$data['title'] = 'Create student';
 		$data['puid'] = $cleanPuid;
+
+		// Validate inputs
+		$this->form_validation->set_rules('FirstName', 'First name', 'required');
+		$this->form_validation->set_rules('LastName', 'Last name', 'required');
+		$this->form_validation->set_rules('Year', 'Year', 'required');
+		$this->form_validation->set_rules('Floor', 'Floor', 'required');
+		$this->form_validation->set_rules('Side', 'Side', 'required');
+
+		// Create student if if validation succeeds
+		if ($this->form_validation->run() === TRUE)
+		{
+			$this->students_model->create_student($cleanPUID);
+		}
 		
-		// Display student add form
+		// Display student create form
 		$this->load->view('templates/header', $data);
-		$this->load->view('students/add', $data);
+		$this->load->view('students/create', $data);
 		$this->load->view('templates/footer', $data);
 	}
 }

@@ -77,6 +77,10 @@ class CI_Controller {
 
 		$this->load =& load_class('Loader', 'core');
 		$this->load->initialize();
+
+		// Enable debug messages on all pages
+		// Set to false when going live
+		$this->output->enable_profiler(TRUE);
 		log_message('info', 'Controller Class Initialized');
 	}
 
