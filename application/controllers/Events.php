@@ -103,6 +103,8 @@ class Events extends CI_Controller {
 		// Validate inputs
 		$this->form_validation->set_rules('EventId', 'Event', 'required');
 		$this->form_validation->set_rules('PUID', 'Student ID', 'required');
+		$this->form_validation->set_rules('Title', 'Title', 'required|max_length[60]|is_unique[phoenix_events.Title]');
+		$this->form_validation->set_rules('PointValue', 'Points', 'required');
 
 		// Student view is not loaded by default
 		$alreadyStudent = FALSE;
@@ -110,7 +112,8 @@ class Events extends CI_Controller {
 		// Add student to records if validation succeeds
 		if (($this->form_validation->run() === TRUE) and ($cleanPUID != '-1'))
 		{
-			$this->events_model->set_student($cleanPUID);
+			// Add student and record totals
+			$totals = $this->events_model->set_student($cleanPUID);
 
 			// Check if student already exists
 			$alreadyStudent = student_exists($cleanPUID);
@@ -118,7 +121,9 @@ class Events extends CI_Controller {
 			// Redirect to add student if student doesn't exist
 			if (!$alreadyStudent)
 			{
-				redirect('./students/create/'.$cleanPUID);
+				$data = [];
+				$data['Totals'] = $totals;
+				redirect('./students/create/'.$cleanPUID, $data);
 			}
 
 			// Clear input data and recover event data

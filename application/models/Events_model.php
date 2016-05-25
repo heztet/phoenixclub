@@ -103,6 +103,12 @@ class Events_model extends CI_Model {
 			);
 		$this->db->where('Id', $eventId);
 		$this->db->update('phoenix_events', $data);
-		return;
+
+		// Return an array of the student's total events and points
+		$totals = array(
+			'Events' => $totalEvents,
+			'Points' => $totalPoints
+			);
+		return $totals;
 	}
 }

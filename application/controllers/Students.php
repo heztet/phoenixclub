@@ -60,18 +60,26 @@ class Students extends CI_Controller {
 
 		$data['title'] = 'Create student';
 		$data['puid'] = $cleanPuid;
+		// Set totals to 0 if they don't exist
+		if (empty($data['Totals']))
+		{
+			$data['Totals'] = array(
+				'Events' => 0,
+				'Points' =>0
+				);
+		}
 
-		// Validate inputs
+		// Validate inputs (Note: total events/points are handled in create_student)
 		$this->form_validation->set_rules('FirstName', 'First name', 'required');
 		$this->form_validation->set_rules('LastName', 'Last name', 'required');
-		$this->form_validation->set_rules('Year', 'Year', 'required');
-		$this->form_validation->set_rules('Floor', 'Floor', 'required');
-		$this->form_validation->set_rules('Side', 'Side', 'required');
+		$this->form_validation->set_rules('Year', 'Year', 'required|greater_than[0]|less_than[5]');
+		$this->form_validation->set_rules('Floor', 'Floor', 'required|greater_than[0]|less_than[9]');
+		$this->form_validation->set_rules('Side', 'Side', 'required|greater_than[0]|less_than[3]');
 
 		// Create student if if validation succeeds
-		if ($this->form_validation->run() === TRUE)
+		if (($this->form_validation->run() === TRUE) and ($cleanPUID != '-1'))
 		{
-			$this->students_model->create_student($cleanPUID);
+			$this->students_model->create_student();
 		}
 		
 		// Display student create form

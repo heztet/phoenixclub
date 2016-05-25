@@ -39,4 +39,7 @@
 		<option value="2">West</option>
 	</select>
 	<br />
+	
+	<?php echo form_hidden('TotalEvents', $Totals['Events'], 'id="TotalEvents'); ?>
+	<?php echo form_hidden('TotalPoints', $Totals['Points'], 'id="TotalPoints'); ?>
 </form>
