@@ -1,2 +1,0 @@
-- [ ] set_value in all forms with validation
-- [ ] individual form_error for each form field
