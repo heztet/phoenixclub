@@ -51,7 +51,7 @@ class Events extends CI_Controller {
 		$data['title'] = "Create event";
 
 		// Validate inputs
-		$this->form_validation->set_rules('Title', 'Title', 'required');
+		$this->form_validation->set_rules('Title', 'Title', 'required|max_length[60]|is_unique[phoenix_events.Title]');
 		$this->form_validation->set_rules('PointValue', 'Points', 'required');
 
 		// Return create view if inputs are invalid
@@ -103,7 +103,6 @@ class Events extends CI_Controller {
 		// Validate inputs
 		$this->form_validation->set_rules('EventId', 'Event', 'required');
 		$this->form_validation->set_rules('PUID', 'Student ID', 'required');
-		$this->form_validation->set_rules('Title', 'Title', 'required|max_length[60]|is_unique[phoenix_events.Title]');
 		$this->form_validation->set_rules('PointValue', 'Points', 'required');
 
 		// Student view is not loaded by default

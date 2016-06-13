@@ -53,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['students'] = 'students';
 $route['students/(:any)'] = 'students/view/$1';
 $route['events/create'] = 'events/create';
+$route['events/add/(:any)'] = 'events/add/$1';
 $route['events/(:any)'] = 'events/view/$1';
 $route['events'] = 'events';
 $route['eboard'] = 'pages/view/eboard';

@@ -5,6 +5,8 @@
 
 <?php echo form_open('events/add/'.$events_item['Id']); ?>
 	<?php echo form_hidden('EventId', $events_item['Id'], 'id="EventId"'); ?>
+	<?php echo form_hidden('PointValue', $events_item['PointValue']); ?>
+	
     <label for="PUID">PUID</label>
     <input type="input" name="PUID" /><br />
 
