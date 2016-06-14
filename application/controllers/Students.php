@@ -61,6 +61,7 @@ class Students extends CI_Controller {
 
 		$data['title'] = 'Create student';
 		$data['puid'] = $cleanPuid;
+
 		// Set totals to 0 if they don't exist
 		if (empty($data['Totals']))
 		{
@@ -78,10 +79,18 @@ class Students extends CI_Controller {
 		$this->form_validation->set_rules('Floor', 'Floor', 'required');
 		$this->form_validation->set_rules('Side', 'Side', 'required');
 
+		echo $data['EventId'];
+
 		// Create student if if validation succeeds
 		if (($this->form_validation->run() === TRUE) and ($cleanPuid != '-1'))
 		{
 			$this->students_model->create_student();
+
+			// Check if student comes from event
+
+				// Redirect to event checkin
+
+				// Otherwise redirect to homepage
 		}
 		
 		// Display student create form
