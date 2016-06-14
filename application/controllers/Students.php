@@ -48,6 +48,7 @@ class Students extends CI_Controller {
 		$cleanPuid = format_puid($puid);
 		$alreadyStudent = student_exists($cleanPuid); 
 
+
 		// Display error if PUID is invalid or student already exists
 		if ($cleanPuid == '-1')
 		{
@@ -70,6 +71,7 @@ class Students extends CI_Controller {
 		}
 
 		// Validate inputs (Note: total events/points are handled in create_student)
+		$this->form_validation->set_rules('PUID', 'PUID', 'required');
 		$this->form_validation->set_rules('FirstName', 'First name', 'required');
 		$this->form_validation->set_rules('LastName', 'Last name', 'required');
 		$this->form_validation->set_rules('Year', 'Year', 'required');

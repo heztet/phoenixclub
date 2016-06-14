@@ -32,6 +32,7 @@ class Students_model extends CI_Model {
 
 		// Get all post inputs
 		$puid = format_puid($this->input->post('PUID'));
+
 		$FirstName = $this->input->post('FirstName');
 		$LastName = $this->input->post('LastName');
 		$Year = $this->input->post('Year');
@@ -60,6 +61,22 @@ class Students_model extends CI_Model {
 		if (empty($this->input->post('TotalPoints')))
 		{
 			$TotalPoints = 0;
+		}
+
+		// Update totals (for when the student is created during event checkin)
+		// if event exists
+
+		if (! empty($data['EventId']))
+		{
+			$TotalEvents = $TotalEvents + 1;
+
+			// Get this event's point value (if it exists)
+			$this->db->order_by('DateCreated', 'desc');
+			$this->db->where('Id', $data['EventId']);
+			$query = $this->db->get('phoenix_events');
+			$event = $query->row(0);
+
+			$TotalPoints = $TotalPoints + $event->PointValue;
 		}
 
 		// Insert student into students table

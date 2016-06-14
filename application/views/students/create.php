@@ -3,9 +3,12 @@
 <?php echo validation_errors(); ?>
 
 <?php echo form_open('students/create/'.$puid); ?>
-	<?php echo form_hidden('TotalEvents', $Totals['Events'], 'id="TotalEvents'); ?>
-	<?php echo form_hidden('TotalPoints', $Totals['Points'], 'id="TotalPoints'); ?>
+	<?php echo form_hidden('TotalEvents', $Totals['Events'], 'id="TotalEvents"'); ?>
+	<?php echo form_hidden('TotalPoints', $Totals['Points'], 'id="TotalPoints"'); ?>
 
+	<!-- PUID has a hidden input (to be visible in Controller/Model)
+		 and a disabled input (to be visible to the user) -->
+	<?php echo form_hidden('PUID', $puid, 'id="PUID"'); ?>
 	<label for="PUID">PUID</label>
 	<?php echo '<input type="input" name="PUID" value="'.$puid.'" disabled />'; ?>
 	<br />
