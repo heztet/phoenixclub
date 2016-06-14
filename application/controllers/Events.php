@@ -122,7 +122,6 @@ class Events extends CI_Controller {
 			{
 				$data = [];
 				$data['Totals'] = $totals;
-				$data['EventId'] = $Id;
 				redirect('./students/create/'.$cleanPUID, $data);
 			}
 
@@ -141,6 +140,6 @@ class Events extends CI_Controller {
 		// Loads the add view for the event
 		$this->load->view('templates/header', $data);
 		$this->load->view('events/add', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/footer');
 	}
 }

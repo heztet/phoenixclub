@@ -65,6 +65,7 @@ class Students_model extends CI_Model {
 
 		// Update totals (for when the student is created during event checkin)
 		// if event exists
+
 		if (! empty($data['EventId']))
 		{
 			$TotalEvents = $TotalEvents + 1;
