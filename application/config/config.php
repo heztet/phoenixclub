@@ -35,7 +35,10 @@ $config['base_url'] = '/phoenixclub/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+
+// Set so that index.php isn't required
+// See https://stackoverflow.com/questions/19183311/codeigniter-removing-index-php-from-url
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
