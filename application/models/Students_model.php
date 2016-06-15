@@ -63,8 +63,8 @@ class Students_model extends CI_Model {
 			$TotalPoints = 0;
 		}
 
-		// Update totals (for when the student is created during event checkin)
-		// if event exists
+		// Update totals if event exists
+		// (for when the student is created during event checkin)
 		if ($eventId != NULL)
 		{
 			$TotalEvents = $TotalEvents + 1;

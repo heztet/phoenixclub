@@ -82,6 +82,19 @@ class Students extends CI_Controller {
 		if (($this->form_validation->run() === TRUE) and ($cleanPuid != '-1'))
 		{
 			$this->students_model->create_student($eventId);
+
+			// Redirect to event checkin if id is given
+			if ($eventId != NULL)
+			{
+				$data = [];
+				redirect('./events/add/'.$eventId);
+			}
+			// Else redirect to home page
+			else
+			{
+				$data = [];
+				redirect('../');
+			}
 		}
 		
 		// Create view form URL

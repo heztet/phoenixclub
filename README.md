@@ -5,8 +5,6 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [X] Implement HTML5 UP!'s ~Fractal~ Helios Template
 - [X] Populate template with Phoenix Club's info
 - [ ] Track GA attendance with a ~~Rails~~ Codeigniter app
-	- [ ] `set_value` in all forms with validation
-	- [ ] Individual `form_error` for each form field
 	- [ ] Bootstrap
 		- [ ] Header/footer
 		- [ ] Forms
