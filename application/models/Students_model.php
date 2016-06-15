@@ -24,7 +24,7 @@ class Students_model extends CI_Model {
 	}
 
 	// Add student to student table
-	public function create_student()
+	public function create_student($eventId = NULL)
 	{
 		// Helpers
 		$this->load->helper('url');
@@ -65,14 +65,13 @@ class Students_model extends CI_Model {
 
 		// Update totals (for when the student is created during event checkin)
 		// if event exists
-
-		if (! empty($data['EventId']))
+		if ($eventId != NULL)
 		{
 			$TotalEvents = $TotalEvents + 1;
 
 			// Get this event's point value (if it exists)
 			$this->db->order_by('DateCreated', 'desc');
-			$this->db->where('Id', $data['EventId']);
+			$this->db->where('Id', $eventId);
 			$query = $this->db->get('phoenix_events');
 			$event = $query->row(0);
 

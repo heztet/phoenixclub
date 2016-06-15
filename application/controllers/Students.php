@@ -37,7 +37,7 @@ class Students extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function create($puid = NULL)
+	public function create($puid = NULL, $eventId = NULL)
 	{
 		// Helpers
 		$this->load->helper('puid_helper');
@@ -47,7 +47,6 @@ class Students extends CI_Controller {
 
 		$cleanPuid = format_puid($puid);
 		$alreadyStudent = student_exists($cleanPuid); 
-
 
 		// Display error if PUID is invalid or student already exists
 		if ($cleanPuid == '-1')
@@ -61,6 +60,7 @@ class Students extends CI_Controller {
 
 		$data['title'] = 'Create student';
 		$data['puid'] = $cleanPuid;
+		
 		// Set totals to 0 if they don't exist
 		if (empty($data['Totals']))
 		{
@@ -81,9 +81,17 @@ class Students extends CI_Controller {
 		// Create student if if validation succeeds
 		if (($this->form_validation->run() === TRUE) and ($cleanPuid != '-1'))
 		{
-			$this->students_model->create_student();
+			$this->students_model->create_student($eventId);
 		}
 		
+		// Create view form URL
+		$data['formUrl'] = 'students/create/';
+		$data['formUrl'] = $data['formUrl'].$cleanPuid;
+		if ($eventId != NULL)
+		{
+			$data['formUrl'] = $data['formUrl'].'/'.$eventId;
+		}
+
 		// Display student create form
 		$this->load->view('templates/header', $data);
 		$this->load->view('students/create', $data);

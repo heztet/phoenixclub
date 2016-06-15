@@ -122,6 +122,7 @@ class Events extends CI_Controller {
 			{
 				$data = [];
 				$data['Totals'] = $totals;
+				$_SESSION['flash'] = $Id; // Saves event id for creating student
 				redirect('./students/create/'.$cleanPUID, $data);
 			}
 
