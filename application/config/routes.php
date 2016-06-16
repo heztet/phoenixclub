@@ -59,5 +59,5 @@ $route['events/add/(:any)'] = 'events/add/$1';
 $route['events/(:any)'] = 'events/view/$1';
 $route['events'] = 'events';
 $route['eboard'] = 'pages/view/eboard';
+$route['contact'] = 'pages/view/contact';
 $route['(:any)'] = 'events/view/$1';
-$route['default_controller'] = 'pages/view';

@@ -7,8 +7,8 @@
 
 		<title>Purdue Phoenix Club</title>
 
-		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Bootstrap CDN -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -26,13 +26,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="https://getbootstrap.com/examples/starter-template/#">Project name</a>
+					<a class="navbar-brand" href="../">Phoenix Club</a>
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="https://getbootstrap.com/examples/starter-template/#">Home</a></li>
-						<li><a href="https://getbootstrap.com/examples/starter-template/#about">About</a></li>
-						<li><a href="https://getbootstrap.com/examples/starter-template/#contact">Contact</a></li>
+						<li><a href="../events">Events</a></li>
+						<li><a href="../events/create">Create</a></li>
+						<li><a href="../contact">Contact</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
