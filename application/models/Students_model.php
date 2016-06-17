@@ -87,6 +87,8 @@ class Students_model extends CI_Model {
 			'Year' => $Year,
 			'TotalEvents' => $TotalEvents,
 			'TotalPoints' => $TotalPoints
+			// DateCreated is CURRENTTIME datatime by default
+			// IsCurrent is TRUE by default
 			);
 		$this->db->insert('phoenix_students', $data);
 	}

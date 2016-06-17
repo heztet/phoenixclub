@@ -112,4 +112,12 @@ class Events_model extends CI_Model {
 			);
 		return $totals;
 	}
+
+	// Get the number of current events
+	public function get_event_amount()
+	{
+		$query = $this->db->where('IsCurrentYear', 1);
+		$total = $query->count();
+		return $total;
+	}
 }

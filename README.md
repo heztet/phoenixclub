@@ -11,6 +11,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 		- [ ] Pretty forms
 		- [ ] Table view of all events
 		- [ ] Table view of student leaderboard
+		- [ ] Fix footer not staying on the bottom
 	- [ ] [User Authentication](http://community-auth.com/)
 - [ ] Push to server!
 
