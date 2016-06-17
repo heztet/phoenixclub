@@ -13,6 +13,9 @@
 		<link rel="stylesheet" href="./home_assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="home_assets/css/ie8.css" /><![endif]-->
 		<link rel='shortcut icon' type='image/x-icon' href='images/facivon.ico' />
+
+		<!-- Google Analytics -->
+		<?php include_once('application/views/partials/analytics_tracking.php'); ?>
 	</head>
 	<body class="homepage">
 		<div id="page-wrapper">
