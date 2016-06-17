@@ -7,10 +7,11 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [X] Track GA attendance with a ~~Rails~~ Codeigniter app
 - [ ] Bells and whistles
 	- [ ] Bootstrap
-		- [X] Pretty deader/footer
+		- [X] Pretty header/footer
 		- [ ] Pretty forms
 		- [ ] Table view of all events
-		- [ ] Table view of student leaderboard
+		- [X] Table view of student leaderboard
+		- [ ] Progress bars for student leaderboard
 		- [ ] Fix footer not staying on the bottom
 	- [ ] [User Authentication](http://community-auth.com/)
 - [ ] Push to server!

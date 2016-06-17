@@ -1,13 +1,24 @@
 <h2><?php echo $title; ?></h2>
 
-<?php foreach ($students as $s): ?>
+<!-- Leaderboard table -->
+<table class="table table-hover">
+	<!-- Header -->
+	<tr>
+		<th>Name</th>
+		<th>Floor</th>
+		<th>Year</th>
+		<th>Total Points</th>
+		<th>Total Events</th>
+	</tr>
 
-	<h3><?php echo $s['FirstName'].$s['LastName']; ?></h3>
-	<div class='main'>
-		<?php echo 'Points: '.$s['TotalPoints']; ?>
-		<br />
-		<?php echo 'Events: '.$s['TotalEvents']; ?>
-		<hr />
-	</div>
+	<?php foreach ($students as $s): ?>
+		<tr>
+			<td><?php echo $s['FirstName'].$s['LastName']; ?></td>
+			<td><?php echo $s['Floor']; ?></td>
+			<td><?php echo $s['Year']; ?></td>
+			<td><?php echo $s['TotalPoints']; ?></td>
+			<td><?php echo $s['TotalEvents']; ?></td>
+		</tr>
+	<?php endforeach; ?>
 
-<?php endforeach; ?>
+</table>
