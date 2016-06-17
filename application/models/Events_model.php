@@ -33,6 +33,8 @@ class Events_model extends CI_Model {
 		$data = array(
 			'Title' => $this->input->post('Title'),
 			'PointValue' => $this->input->post('PointValue')
+			// IsCurrentYear is TRUE by default
+			// DateCreated datetime is CURRENTTIME by default
 			);
 		$this->db->insert('phoenix_events', $data);
 
@@ -87,7 +89,6 @@ class Events_model extends CI_Model {
 			$totalEvents = 0;
 			$totalPoints = 0;
 		}
-		
 
 		// Update student totals
 		$data = array(
