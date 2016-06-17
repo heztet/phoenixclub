@@ -78,6 +78,7 @@ class Events_model extends CI_Model {
 		$this->db->where('PUID', $puid);
 		$query = $this->db->get('phoenix_students');
 		$student = $query->row(0);
+
 		// If student doesn't exist, record the first event (they'll be added later)
 		if (is_object($student))
 		{
@@ -114,10 +115,28 @@ class Events_model extends CI_Model {
 	}
 
 	// Get the number of current events
-	public function get_event_amount()
+	public function amount_current_events()
 	{
-		$query = $this->db->where('IsCurrentYear', 1);
-		$total = $query->count();
+		$this->db->where('IsCurrentYear', 1);
+		$query = $this->db->get('phoenix_events');
+		$total = $query->num_rows();
 		return $total;
+	}
+
+	// Get the sum of points for all current events
+	public function amount_current_points()
+	{
+		$this->db->where('IsCurrentYear', 1);
+		$query = $this->db->get('phoenix_events');
+		$events = $query->result_array();
+
+		// Sum point values
+		$totalPoints = 0;
+		foreach ($events as $e)
+		{
+			$totalPoints = $totalPoints + $e['PointValue'];
+		}
+
+		return $totalPoints;
 	}
 }

@@ -92,4 +92,45 @@ class Students_model extends CI_Model {
 			);
 		$this->db->insert('phoenix_students', $data);
 	}
+
+	// Adds each student's year as a string
+	// If the argument is called $arr, the YearString is called as $arr[x][0]['YearString']
+	public function append_year_string($studentArr = array())
+	{
+		$newArr = array();
+
+		foreach ($studentArr as $student)
+		{
+
+			// Get year int/string
+			$yearInt = $student['Year'];
+
+			switch ($yearInt)
+			{
+				case 1:
+					$yearStr = 'Freshman';
+					break;
+				case 2:
+					$yearStr = 'Sophomore';
+					break;
+				case 3:
+					$yearStr = 'Junior';
+					break;
+				case 4:
+					$yearStr = 'Senior';
+					break;
+				default:
+					$yearStr = '#Error#';
+			}
+
+			$yearArr = array('YearString' => $yearStr);
+
+			// Append to the student's array
+			array_push($student, $yearArr);
+			// Append to overall array
+			array_push($newArr, $student);
+		}
+
+		return $newArr;
+	}
 }
