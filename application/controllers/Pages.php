@@ -55,7 +55,6 @@ class Pages extends CI_Controller {
 		$data['EventsPossible'] = $this->events_model->amount_current_events();
 		$data['PointsPossible'] = $this->events_model->amount_current_points();
 
-
     	// Load the page
     	$this->load->view('templates/header', $data);
     	$this->load->view('pages/leaderboard', $data);

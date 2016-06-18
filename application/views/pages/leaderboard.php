@@ -22,9 +22,9 @@
 				<?php $percent = ($num / $PointsPossible) * 100; ?>
 				<div class="progress">
 					<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="<?php echo $num; ?>" aria-valuemin="0" aria-valuemax="<?php echo $PointsPossible; ?>" style="width:<?php echo $percent; ?>%">
-	   				</div>
-	   				<span><?php echo $num.' / '.$PointsPossible.' points'; ?></span>
-	   			</div>
+					</div>
+					<span><?php echo $num.' / '.$PointsPossible.' points'; ?></span>
+				</div>
 	   		</td>
 	   		<td>
 				<?php $num = $s['TotalEvents']; ?>
@@ -33,10 +33,8 @@
 					<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="<?php echo $num; ?>" aria-valuemin="0" aria-valuemax="<?php echo $EventsPossible; ?>" style="width:<?php echo $percent; ?>%">
 	   				</div>
 	   				<span><?php echo $num.' / '.$EventsPossible.' events'; ?></span>
-	   				
 	   			</div>
 	   		</td>
-			<td><?php echo $s['TotalEvents']; ?></td>
 		</tr>
 	<?php endforeach; ?>
 

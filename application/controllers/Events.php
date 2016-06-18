@@ -12,7 +12,6 @@ class Events extends CI_Controller {
 	// Return all events
 	public function index()
 	{
-		$this->output->enable_profiler(TRUE);
 		$data['events'] = $this->events_model->get_events();
 		$data['title'] = 'Events list';
 
