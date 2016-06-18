@@ -12,7 +12,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 		- [X] Table view of all events
 		- [X] Table view of student leaderboard
 		- [X] Progress bars for student leaderboard
-		- [ ] Add a 'close event' form
+		- [X] Add a 'close event' form
 		- [ ] Fix footer not staying on the bottom
 	- [ ] User Authentication using [Community-Auth](http://community-auth.com/)
 - [ ] Push to server!

@@ -25,6 +25,7 @@ CREATE TABLE `phoenix_events` (
   `PointValue` int(11) NOT NULL,
   `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsCurrentYear` tinyint(1) NOT NULL DEFAULT '1',
+  `IsOpen` tinyint(1) NOT NULL DEFAULT '1',
   `TotalStudents` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -55,6 +56,7 @@ CREATE TABLE `phoenix_students` (
   `Floor` varchar(3) NOT NULL,
   `Year` int(11) NOT NULL,
   `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `IsCurrent` tinyint(1) NOT NULL DEFAULT '1',
   `TotalEvents` int(11) NOT NULL DEFAULT '0',
   `TotalPoints` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

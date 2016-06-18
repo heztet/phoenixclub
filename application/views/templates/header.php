@@ -29,13 +29,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="../">Phoenix Club</a>
+					<a class="navbar-brand" href="/phoenixclub">Phoenix Club</a>
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="../events">Events</a></li>
-						<li><a href="../events/create">Create</a></li>
-						<li><a href="../contact">Contact</a></li>
+						<li><a href="/phoenixclub/events">Events</a></li>
+						<li><a href="/phoenixclub/events/create">Create</a></li>
+						<li><a href="/phoenixclub/contact">Contact</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>

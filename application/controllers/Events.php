@@ -13,7 +13,10 @@ class Events extends CI_Controller {
 	public function index()
 	{
 		$data['events'] = $this->events_model->get_events();
-		$data['title'] = 'Events list';
+
+		// Set title
+		$currentYear = '2016-2017';
+		$data['title'] = 'Events for '.$currentYear;
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('events/index', $data);
@@ -85,6 +88,11 @@ class Events extends CI_Controller {
 		{
 			show_404();
 		}
+		// Error page if event is closed
+		else if ($data['events_item']['IsOpen'] == 0)
+		{
+			show_error("This event is closed");
+		}
 
 		$data['title'] = 'Add student to '.$data['events_item']['Title'];
 		$data['EventId'] = $Id;
@@ -140,5 +148,45 @@ class Events extends CI_Controller {
 		$this->load->view('templates/header', $data);
 		$this->load->view('events/add', $data);
 		$this->load->view('templates/footer');
+	}
+
+	// Close an event to checking in
+	public function close($Id = NULL)
+	{
+		// Check that event exists and is open
+		$data['events_item'] = $this->events_model->get_events($Id);		
+
+		// 404 if id not found
+		if (empty($data['events_item']))
+		{
+			show_404();
+		}
+		// Set messgae if event is closed
+		else if ($data['events_item']['IsOpen'] == 0)
+		{
+			$data['CloseMessage'] = "This event is already closed";
+		}
+		// Close event
+		else
+		{
+			$data['title'] = "Close event: ".$data['events_item']['Title'];
+
+			// Close event
+			$success = $this->events_model->close_event($Id);
+
+			if ($success)
+			{
+				$data['CloseMessage'] = "Event was closed successfully";
+			}
+			else
+			{
+				$data['CloseMessage'] = "There was an issue with closing the event. Please try again.";
+			}
+		}
+
+		// Load close.php
+		$this->load->view('templates/header', $data);
+		$this->load->view('events/close', $data);
+		$this->load->view('templates/footer', $data);
 	}
 }

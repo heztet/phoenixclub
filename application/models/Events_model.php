@@ -34,6 +34,7 @@ class Events_model extends CI_Model {
 			'Title' => $this->input->post('Title'),
 			'PointValue' => $this->input->post('PointValue')
 			// IsCurrentYear is TRUE by default
+			// IsOpen is TRUE by default
 			// DateCreated datetime is CURRENTTIME by default
 			);
 		$this->db->insert('phoenix_events', $data);
@@ -61,6 +62,7 @@ class Events_model extends CI_Model {
 		$eventId = $this->input->post('EventId');
 		$this->db->order_by('DateCreated', 'desc');
 		$this->db->where('Id', $eventId);
+		$this->db->where('IsOpen', 1);
 		$query = $this->db->get('phoenix_events');
 		$event = $query->row(0);
 		$points = $event->PointValue;
@@ -112,6 +114,44 @@ class Events_model extends CI_Model {
 			'Points' => $totalPoints
 			);
 		return $totals;
+	}
+
+	// Close an open event given an id
+	// Returns 1 if successful, 0 if not
+	public function close_event($id)
+	{
+		// Check that event exists
+		$this->db->where('Id', $id);
+		$this->db->where('IsOpen', 1);
+		$query = $this->db->get('phoenix_events');
+		$event = $query->row(0);
+
+		if (empty($event))
+		{
+			return 0;
+		}
+		else
+		{
+			// Update event IsOpen to 0
+			$data = array('IsOpen' => 0);
+			$this->db->where('Id', $id);
+			$this->db->update('phoenix_events', $data);
+
+			// Check that event is closed
+			$this->db->where('Id', $id);
+			$this->db->where('IsOpen', 0);
+			$query = $this->db->get('phoenix_events');
+			$event = $query->row(0);
+
+			if (empty($event))
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;
+			}
+		}
 	}
 
 	// Get the number of current events
