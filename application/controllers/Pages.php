@@ -49,7 +49,7 @@ class Pages extends CI_Controller {
     	// Add year string to each student
 		$this->load->model('students_model');
 		$data['students'] = $this->students_model->append_year_string($data['students']);
-
+        
 		// Get total points and events possible
 		$this->load->model('events_model');
 		$data['EventsPossible'] = $this->events_model->amount_current_events();

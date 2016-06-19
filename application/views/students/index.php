@@ -8,7 +8,7 @@
 		<th>Floor</th>
 		<th>Year</th>
 	</tr>
-	<?php print_r($students);?>
+	
 	<!-- Items -->
 	<?php foreach ($students as $s): ?>
 		<tr>

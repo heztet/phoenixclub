@@ -14,7 +14,8 @@ class Students extends CI_Controller {
 	{
 		// Get all students and format their year
 		$data['students'] = $this->students_model->get_students();
-		$data['title'] = 'Students list';
+		$data['students'] = $this->students_model->append_year_string($data['students']);
+		$data['title'] = 'Students';
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('students/index', $data);
