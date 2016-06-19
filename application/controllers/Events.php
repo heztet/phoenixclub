@@ -94,8 +94,9 @@ class Events extends CI_Controller {
 			show_error("This event is closed");
 		}
 
-		$data['title'] = 'Add student to '.$data['events_item']['Title'];
+		$data['title'] = $data['events_item']['Title'];
 		$data['EventId'] = $Id;
+		$data['CleanPuidError'] = 0;
 
 		// Clean PUID input (if it exists)
 		if (($this->input->post('PUID')) != NULL)
@@ -116,6 +117,7 @@ class Events extends CI_Controller {
 		$alreadyStudent = FALSE;
 
 		// Add student to records if validation succeeds
+		$data['AddedStudent'] = 0;
 		if (($this->form_validation->run() === TRUE) and ($cleanPUID != '-1'))
 		{
 			// Add student and record totals
@@ -137,17 +139,18 @@ class Events extends CI_Controller {
 			$data['events_item'] = $this->events_model->get_events($Id);
 			$data['title'] = 'Add student to '.$data['events_item']['Title'];
 			$data['EventId'] = $Id;
+			$data['AddedStudent'] = 1;
 		}
 		// Checks that the input PUID has been submitted and is invalid
 		else if ($cleanPUID == '-1')
 		{
-			echo 'PUID Error!';
+			$data['CleanPuidError'] = 1;
 		}
 
 		// Loads the add view for the event
 		$this->load->view('templates/header', $data);
 		$this->load->view('events/add', $data);
-		$this->load->view('templates/footer');
+		$this->load->view('templates/footer', $data);
 	}
 
 	// Close an event to checking in

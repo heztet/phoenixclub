@@ -87,12 +87,14 @@ class Students extends CI_Controller {
 			if ($eventId != NULL)
 			{
 				$data = [];
+				$data['AddedStudent'] = 1;
 				redirect('./events/add/'.$eventId);
 			}
 			// Else redirect to home page
 			else
 			{
 				$data = [];
+				$data['AddedStudent'] = 0;
 				redirect('../');
 			}
 		}
