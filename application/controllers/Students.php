@@ -12,6 +12,7 @@ class Students extends CI_Controller {
 	// Return all students
 	public function index()
 	{
+		// Get all students and format their year
 		$data['students'] = $this->students_model->get_students();
 		$data['title'] = 'Students list';
 
@@ -23,6 +24,7 @@ class Students extends CI_Controller {
 	// Return specific student
 	public function view($puid = NULL)
 	{
+		// Retrieve student and format their year
 		$data['students_item'] = $this->students_model->get_students($puid);
 		
 		if (empty($data['students_item']))

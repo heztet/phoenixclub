@@ -15,6 +15,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 		- [X] Add a 'close event' form
 		- [ ] Fix footer not staying on the bottom
 	- [ ] User Authentication using [Community-Auth](http://community-auth.com/)
+	- [ ] Add option to archive students/events
 - [ ] Push to server!
 
 # Why Codeigniter?

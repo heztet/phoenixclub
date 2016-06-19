@@ -29,3 +29,5 @@
 	    
 	<?php endforeach; ?>
 </table>
+
+<a href="#" type="button" class="btn btn-danger">Archive all events</a>

@@ -13,6 +13,7 @@ class Students_model extends CI_Model {
 		if ($puid == FALSE)
 		{
 			$this->db->order_by('LastName');
+			$this->db->where('IsCurrent', 1);
 			$query = $this->db->get('phoenix_students');
 			return $query->result_array();
 		}
@@ -20,7 +21,11 @@ class Students_model extends CI_Model {
 		$this->db->order_by('DateCreated', 'desc');
 		$this->db->where('PUID', $puid);
 		$query = $this->db->get('phoenix_students');
-		return $query->row_array();
+		$students = $query->row_array();
+
+		// Add year string to each student
+		$students = $this->append_year_string($students);
+		return $students;
 	}
 
 	// Add student to student table
@@ -99,11 +104,12 @@ class Students_model extends CI_Model {
 	{
 		$newArr = array();
 
-		foreach ($studentArr as $student)
+		// Check if only one student
+		if (! empty($studentArr['PUID']))
 		{
-
-			// Get year int/string
-			$yearInt = $student['Year'];
+			// Copy the input student
+			$newArr = $studentArr;
+			$yearInt = $studentArr['Year'];
 
 			switch ($yearInt)
 			{
@@ -125,12 +131,45 @@ class Students_model extends CI_Model {
 
 			$yearArr = array('YearString' => $yearStr);
 
-			// Append to the student's array
-			array_push($student, $yearArr);
-			// Append to overall array
-			array_push($newArr, $student);
+			// Append to the student's array copy
+			array_push($newArr, $yearArr);
 		}
+		// Otherwise loop through all students
+		else
+		{
+			foreach ($studentArr as $student)
+			{
 
+				// Get year int/string
+				$yearInt = $student['Year'];
+
+				switch ($yearInt)
+				{
+					case 1:
+						$yearStr = 'Freshman';
+						break;
+					case 2:
+						$yearStr = 'Sophomore';
+						break;
+					case 3:
+						$yearStr = 'Junior';
+						break;
+					case 4:
+						$yearStr = 'Senior';
+						break;
+					default:
+						$yearStr = '#Error#';
+				}
+
+				$yearArr = array('YearString' => $yearStr);
+
+				// Append to the student's array
+				array_push($student, $yearArr);
+				// Append to overall array
+				array_push($newArr, $student);
+			}
+		}
+		
 		return $newArr;
 	}
 }

@@ -1,6 +1,6 @@
 <h2><?php echo $title; ?></h2>
 
-<!-- Events table -->
+<!-- Students table -->
 <table class="table table-hover">
 	<!-- Header -->
 	<tr>
@@ -8,7 +8,7 @@
 		<th>Floor</th>
 		<th>Year</th>
 	</tr>
-
+	<?php print_r($students);?>
 	<!-- Items -->
 	<?php foreach ($students as $s): ?>
 		<tr>
@@ -19,3 +19,5 @@
 
 	<?php endforeach; ?>
 </table>
+
+<a href="#" type="button" class="btn btn-danger">Archive all students</a>
