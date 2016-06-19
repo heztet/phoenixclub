@@ -1,10 +1,15 @@
 		</div><!-- /.container -->
 
-		<footer class="footer">
-			<div class="container">
-				<p class="text-muted"><em><a href="https://nickymarino.com">Nicky Marino</a> &copy; <?php echo date("Y");?></em></p>
+		<br />
+		<br />
+		<div class="footer navbar navbar-default navbar-bottom">
+		<br />
+			<div class="container center-block">
+				<div class="vertical-center">
+					<p class="text-muted"><em>Phoenix Club &copy; <?php echo date("Y");?> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Designed by <a href="https://nickymarino.com">Nicky Marino</a></em></p>
+				</div>
 			</div>
-		</footer>
+		</div>
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="/phoenixclub/js/bootstrap.min.js"></script>
