@@ -10,12 +10,12 @@ if ( ! function_exists('test_method'))
     	// Exit if blank or NaN
     	if (($dirty === '') or (!is_numeric($dirty)) or ($dirty === NULL))
     	{
-    		return $clean;
+    		return '-1';
     	}
     	// Exit if length is incorrect
     	else if ((strlen($dirty) < 8) or (strlen($dirty) > 10))
     	{
-    		return $clean;
+    		return '-1';
     	}
 
     	// Add a zero
@@ -24,7 +24,15 @@ if ( ! function_exists('test_method'))
         }
         // Remove a zero
         else if (strlen($dirty) === 10) {
-        	$clean  = substr($dirty, 1, 10);
+            // Check that first two digits are a zero
+            if (substr($dirty, 0, 2) == '00')
+            {
+                $clean = substr($dirty, 1, 10);  
+            }
+            else
+            {
+                return '-1';
+            }    	
         }
         // No formatting required
         else {

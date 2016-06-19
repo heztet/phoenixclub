@@ -1,14 +1,21 @@
 <h2><?php echo $title; ?></h2>
 
-<?php foreach ($students as $students_item): ?>
+<!-- Events table -->
+<table class="table table-hover">
+	<!-- Header -->
+	<tr>
+		<th>Name</th>
+		<th>Floor</th>
+		<th>Year</th>
+	</tr>
 
-        <h3><?php echo $students_item['PUID']; ?></h3>
-        <div class="main">
-                <?php echo $students_item['DateCreated']; ?>
-        </div>
-        <!--
-        <p><a href="<?php echo site_url('events/'.$events_item['Id']); ?>">Check in</a></p>
-        -->
-        <hr />
+	<!-- Items -->
+	<?php foreach ($students as $s): ?>
+		<tr>
+			<td><?php echo $s['FirstName'].' '.$s['LastName']; ?></td>
+			<td><?php echo $s['Floor']; ?></td>
+			<td><?php echo $s[0]['YearString']; ?></td>
+		</tr>
 
-<?php endforeach; ?>
+	<?php endforeach; ?>
+</table>
