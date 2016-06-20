@@ -51,9 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $route['students'] = 'students';
-$route['students/(:any)'] = 'students/view/$1';
 $route['students/create/(:num)/(:num)'] = 'students/create/$1/$2';
 $route['students/create/(:num)/(:any)'] = 'students/create/$1'; // Returns to students/create if not num
+$route['students/archive'] = 'students/archive';
+$route['students/(:num)'] = 'students/view/$1';
 $route['events/create'] = 'events/create';
 $route['events/archive'] = 'events/archive';
 $route['events/add/(:any)'] = 'events/add/$1';

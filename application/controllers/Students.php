@@ -10,13 +10,23 @@ class Students extends CI_Controller {
 	}
 
 	// Return all students
-	public function index()
+	public function index($success = NULL, $message = NULL)
 	{
 		// Get all students and format their year
 		$data['students'] = $this->students_model->get_students();
 		$data['students'] = $this->students_model->append_year_string($data['students']);
 		$data['title'] = 'Students';
 
+		// Message if exists
+		if ($message != NULL)
+		{
+			$data['message'] = $message;
+		}
+		if ($success != NULL)
+		{
+			$data['success'] = $success;
+		}
+		
 		$this->load->view('templates/header', $data);
 		$this->load->view('students/index', $data);
 		$this->load->view('templates/footer', $data);
@@ -114,5 +124,26 @@ class Students extends CI_Controller {
 		$this->load->view('templates/header', $data);
 		$this->load->view('students/create', $data);
 		$this->load->view('templates/footer', $data);
+	}
+
+	// Archive all students (set IsCurrent to FALSE)
+	public function archive()
+	{
+		// Archive
+		$success = $this->students_model->archive_students();
+
+		// Set success message
+		if ($success)
+		{
+			$message = "Students were archived successfully";
+		}
+		else
+		{
+			$message = "Students could not be archived";
+		}
+
+		// Load students index
+		// Loads the add view for the event
+		$this->index($success, $message);
 	}
 }
