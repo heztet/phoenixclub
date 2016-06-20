@@ -6,14 +6,14 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [X] Populate template with Phoenix Club's info
 - [X] Track GA attendance with a ~~Rails~~ Codeigniter app
 - [ ] Bells and whistles
-	- [ ] Bootstrap
+	- [X] Bootstrap
 		- [X] Pretty header/footer
-		- [ ] Pretty forms
+		- [X] Pretty forms
 		- [X] Table view of all events
 		- [X] Table view of student leaderboard
 		- [X] Progress bars for student leaderboard
 		- [X] Add a 'close event' form
-		- [ ] Fix footer not staying on the bottom
+		- [X] Fix footer not staying on the bottom
 	- [ ] User Authentication using [Community-Auth](http://community-auth.com/)
 	- [ ] Add option to archive students/events
 - [ ] Push to server!

@@ -7,13 +7,14 @@ class Events_model extends CI_Model {
 		$this->load->database();
 	}
 
-	// Load events from database
+	// Load current events from database
 	// Return either all events or specific event (if Id exists)
 	public function get_events($Id = FALSE)
 	{
 		if ($Id == FALSE)
 		{
 			$this->db->order_by("DateCreated", "desc");
+			$this->db->where('IsCurrentYear', 1);
 			$query = $this->db->get('phoenix_events');
 			return $query->result_array();
 		}
@@ -178,5 +179,36 @@ class Events_model extends CI_Model {
 		}
 
 		return $totalPoints;
+	}
+
+	// Archive all current events
+	public function archive_events()
+	{
+		// Get current time
+		// Timestamp is in NewYork time
+		$now = new DateTime(null, new DateTimeZone('America/New_York'));
+		$time = $now->format('Y-m-d H:i:s'); // MySQL datetime format
+
+		// Update events where IsCurrentYear = TRUE
+		$data = array(
+			'IsCurrentYear' => 0,
+			'DateArchived' => $time
+			);
+		$this->db->where('IsCurrentYear', 1);
+		$this->db->update('phoenix_events', $data);
+
+		// Check that no events are current
+		$this->db->where('IsCurrentYear', 1);
+		$query = $this->db->get('phoenix_events');
+
+		// Return whether query has any results
+		if (empty($query))
+		{
+			return 0;
+		}
+		else
+		{
+			return 1;
+		}
 	}
 }

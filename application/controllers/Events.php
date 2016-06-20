@@ -10,13 +10,23 @@ class Events extends CI_Controller {
 	}
 
 	// Return all events
-	public function index()
+	public function index($success = NULL, $message = NULL)
 	{
 		$data['events'] = $this->events_model->get_events();
 
 		// Set title
 		$currentYear = '2016-2017';
 		$data['title'] = 'Events for '.$currentYear;
+
+		// Message if exists
+		if ($message != NULL)
+		{
+			$data['message'] = $message;
+		}
+		if ($success != NULL)
+		{
+			$data['success'] = $success;
+		}
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('events/index', $data);
@@ -191,5 +201,26 @@ class Events extends CI_Controller {
 		$this->load->view('templates/header', $data);
 		$this->load->view('events/close', $data);
 		$this->load->view('templates/footer', $data);
+	}
+
+	// Archive all events (set IsCurrentYear to FALSE)
+	public function archive()
+	{
+		// Archive
+		$success = $this->events_model->archive_events();
+
+		// Set success message
+		if ($success)
+		{
+			$message = "Events were archived successfully";
+		}
+		else
+		{
+			$message = "Events could not be archived";
+		}
+
+		// Load events index
+		// Loads the add view for the event
+		$this->index($success, $message);
 	}
 }
