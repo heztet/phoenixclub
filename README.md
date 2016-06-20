@@ -5,7 +5,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [X] Implement HTML5 UP!'s ~Fractal~ Helios Template
 - [X] Populate template with Phoenix Club's info
 - [X] Track GA attendance with a ~~Rails~~ Codeigniter app
-- [ ] Bells and whistles
+- [X] Bells and whistles
 	- [X] Bootstrap
 		- [X] Pretty header/footer
 		- [X] Pretty forms
@@ -14,9 +14,8 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 		- [X] Progress bars for student leaderboard
 		- [X] Add a 'close event' form
 		- [X] Fix footer not staying on the bottom
-	- [ ] User Authentication using [Community-Auth](http://community-auth.com/)
-	- [ ] Add option to archive students/events
-- [ ] Push to server!
+	- [X] Add option to archive students/events
+- [X] Push to server!
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use; I only had to download it and put it in the proper folder.
