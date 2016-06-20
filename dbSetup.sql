@@ -25,6 +25,7 @@ CREATE TABLE `phoenix_events` (
   `PointValue` int(11) NOT NULL,
   `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsCurrentYear` tinyint(1) NOT NULL DEFAULT '1',
+  `DateArchived` datetime DEFAULT NULL,
   `IsOpen` tinyint(1) NOT NULL DEFAULT '1',
   `TotalStudents` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -57,6 +58,7 @@ CREATE TABLE `phoenix_students` (
   `Year` int(11) NOT NULL,
   `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsCurrent` tinyint(1) NOT NULL DEFAULT '1',
+  `DateArchived` datetime DEFAULT NULL,
   `TotalEvents` int(11) NOT NULL DEFAULT '0',
   `TotalPoints` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -103,12 +105,12 @@ ALTER TABLE `phoenix_current_event`
 -- AUTO_INCREMENT for table `phoenix_events`
 --
 ALTER TABLE `phoenix_events`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `phoenix_records`
 --
 ALTER TABLE `phoenix_records`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4735;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4740;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
