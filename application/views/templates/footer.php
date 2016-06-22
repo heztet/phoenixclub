@@ -12,6 +12,6 @@
 		</div>
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="/phoenixclub/js/bootstrap.min.js"></script>
+		<script src="<?php echo $this->config->item('base_url').'js/bootstrap.min.js'; ?>"></script>
 	</body>
 </html>

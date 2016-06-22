@@ -34,6 +34,7 @@ class Students_model extends CI_Model {
 		// Helpers
 		$this->load->helper('url');
 		$this->load->helper('puid_helper');
+		$this->load->helper('form');
 
 		// Get all post inputs
 		$puid = format_puid($this->input->post('PUID'));
@@ -58,15 +59,17 @@ class Students_model extends CI_Model {
 		// Combine floor and side
 		$FloorStr = $Floor.$Side;
 
+		
 		// Set totals to 0 if not in post
-		if (empty($this->input->post('TotalEvents')))
+		if (! ($this->input->post('TotalEvents')))
 		{
 			$TotalEvents = 0;
 		}
-		if (empty($this->input->post('TotalPoints')))
+		if (! ($this->input->post('TotalPoints')))
 		{
 			$TotalPoints = 0;
 		}
+		
 
 		// Update totals if event exists
 		// (for when the student is created during event checkin)

@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-
+/*
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
@@ -95,14 +95,15 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+*/
 
 // Settings for Purdue directory
-/*
+
 $db['default']['hostname'] = 'mydb.ics.purdue.edu';
 
-$db['default']['username'] = ''; // Add these fields
-$db['default']['password'] = ''; // Add these fields
-$db['default']['database'] = ''; // Add these fields
+$db['default']['username'] = 'marinon'; // Add these fields
+$db['default']['password'] = 'database8'; // Add these fields
+$db['default']['database'] = 'marinon'; // Add these fields
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = 'phoenix_';
 $db['default']['pconnect'] = TRUE;
@@ -114,4 +115,3 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-*/

@@ -8,7 +8,7 @@
 		<title>Purdue Phoenix Club</title>
 
 		<!-- Bootstrap -->
-		<link rel="stylesheet" type="text/css" href="/phoenixclub/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo $this->config->item('base_url').'css/bootstrap.css'; ?>">
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -29,13 +29,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/phoenixclub">Phoenix Club</a>
+					<a class="navbar-brand" href="<?php echo site_url('/'); ?>">Phoenix Club</a>
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="/phoenixclub/events">Events</a></li>
-						<li><a href="/phoenixclub/events/create">Create</a></li>
-						<li><a href="/phoenixclub/contact">Contact</a></li>
+						<li><a href="<?php echo site_url('events/'); ?>">Events</a></li>
+						<li><a href="<?php echo site_url('events/create'); ?>">Create</a></li>
+						<li><a href="<?php echo site_url('contact'); ?>">Contact</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>

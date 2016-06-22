@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '/phoenixclub/';
+$config['base_url'] = 'https://web.ics.purdue.edu/~marinon/phoenixclub/';
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ $config['base_url'] = '/phoenixclub/';
 
 // Set so that index.php isn't required
 // See https://stackoverflow.com/questions/19183311/codeigniter-removing-index-php-from-url
-$config['index_page'] = '';
+$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ $config['index_page'] = '';
 |
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
-$config['uri_protocol']	= 'REQUEST_URI';
+$config['uri_protocol']	= 'AUTO';
 
 /*
 |--------------------------------------------------------------------------
