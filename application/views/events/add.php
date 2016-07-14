@@ -22,7 +22,7 @@
 	<div class="form-group">
 	    <label for="PUID" class="col-sm-2 control-label">PUID</label>
 	    <div class="col-sm-10">
-			<input type="input" class="form-control" name="PUID" value="<?php echo set_value('PUID'); ?>" />
+			<input type="input" class="form-control" name="PUID" value="<?php echo ($AdddedStudent == 1) ? "" : set_value('PUID'); ?>" autofocus />
 		</div> 
 	</div>
 	<div class="form-group">
