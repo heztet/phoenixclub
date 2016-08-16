@@ -59,8 +59,9 @@ class Events_model extends CI_Model {
 	{
 		$this->load->helper('url');
 
-		// Get the event's info
 		$eventId = $this->input->post('EventId');
+
+		// Get the event's info
 		$this->db->order_by('DateCreated', 'desc');
 		$this->db->where('Id', $eventId);
 		$this->db->where('IsOpen', 1);
@@ -68,6 +69,19 @@ class Events_model extends CI_Model {
 		$event = $query->row(0);
 		$points = $event->PointValue;
 		$totalStudents = $event->TotalStudents;
+
+		// Check that student hasn't already been added to this event
+		$this->db->order_by('Timestamp', 'desc');
+		$this->db->where('PUID', $puid);
+		$this->db->where('EventId', $eventId);
+		$query = $this->db->get('phoenix_records');
+		$record = $query->row(0);
+		
+		// Return -1 if student has already been added to this event
+		if (is_object($record))
+		{
+			return -1;
+		}
 
 		// Insert info into record table
 		$data = array(

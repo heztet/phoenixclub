@@ -7,11 +7,11 @@
 <br />
 
 <?php echo validation_errors('<p class="bg-danger">'); ?>
-<?php if (!empty($CleanPuidError) AND ($CleanPuidError == 1)) : ?>
+<?php if (!empty($CleanPuidError) and ($CleanPuidError == 1)) : ?>
 	<p class="bg-danger">You must use a valid PUID</p>
-<?php endif; ?>
-
-<?php if ($AddedStudent == 1) : ?>
+<?php elseif (!empty($AlreadyAdded) and ($AlreadyAdded == 1)) : ?>
+	<p class = "bg-danger">Student has already been added to this event</p>
+<?php elseif ($AddedStudent == 1) : ?>
 	<p class="bg-success">Student added successfully!</p>
 <?php endif; ?>
 

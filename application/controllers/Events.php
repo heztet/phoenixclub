@@ -128,7 +128,7 @@ class Events extends CI_Controller {
 
 		// Did not add student by default
 		$data['AddedStudent'] = 0;
-		// Check for AddedStudent in $_SESSION (from create student)
+		// Check for AddedStudent argument (redirect from create student)
 		if (!is_null($AddedStudent) and ($AddedStudent == 1)) {
 			$data['AddedStudent'] = 1;
 		}
@@ -139,7 +139,14 @@ class Events extends CI_Controller {
 			// Add student and record totals
 			$totals = $this->events_model->set_student($cleanPUID);
 
-			// Check if student already exists
+			// Error out if student has already been added
+			if ($totals == -1)
+			{
+				$data['AlreadyAdded'] = 1;
+			}
+			else
+			{
+				// Check if student already exists
 			$alreadyStudent = student_exists($cleanPUID);
 			
 			// Redirect to add student if student doesn't exist
@@ -156,6 +163,7 @@ class Events extends CI_Controller {
 			$data['title'] = 'Add student to '.$data['events_item']['Title'];
 			$data['EventId'] = $Id;
 			$data['AddedStudent'] = 1;
+			}	
 		}
 		// Checks that the input PUID has been submitted and is invalid
 		else if ($cleanPUID == '-1')
