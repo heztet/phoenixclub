@@ -99,11 +99,10 @@ $db['default'] = array(
 
 // Settings for Purdue directory
 
-$db['default']['hostname'] = 'mydb.ics.purdue.edu';
-
-$db['default']['username'] = 'marinon'; // Add these fields
-$db['default']['password'] = 'database8'; // Add these fields
-$db['default']['database'] = 'marinon'; // Add these fields
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '';
+$db['default']['database'] = 'marinon';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = 'phoenix_';
 $db['default']['pconnect'] = TRUE;

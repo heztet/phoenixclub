@@ -22,5 +22,7 @@ Originally I was going to build a Rails app, but Purdue's web servers only suppo
 
 # Help! How do I put this in production mode?
 - In `application/config/config.php`, set `$config['log_threshold'] = 1;`
+- In `application/config/config.php`, set `$config['base_url'] = '<DATABASE_URL>';`
+- In `application/config/database.php`, set each of the database variables that are set as blank
 - In `system/core/Controller.php`, set `$this->output->enable_profiler(FALSE);`
 - In `index.php`, change `define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');` to `define('ENVIRONMENT', 'production');`
