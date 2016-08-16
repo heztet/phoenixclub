@@ -26,7 +26,7 @@
 	<div class="form-group">
 	    <label for="FirstName" class="col-sm-2 control-label">First Name</label>
 	    <div class="col-sm-10">
-			<input type="input" class="form-control" name="FirstName" value="<?php echo set_value('FirstName'); ?>" />
+			<input type="input" class="form-control" name="FirstName" value="<?php echo set_value('FirstName'); ?>" autofocus />
 		</div> 
 	</div>
 	<div class="form-group">

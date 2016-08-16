@@ -82,7 +82,7 @@ class Events extends CI_Controller {
 	}
 
 	// Add student to event
-	public function add($Id = NULL)
+	public function add($Id = NULL, $AddedStudent = NULL)
 	{
 		// Helpers
 		$this->load->helper('form');
@@ -126,8 +126,14 @@ class Events extends CI_Controller {
 		// Student view is not loaded by default
 		$alreadyStudent = FALSE;
 
-		// Add student to records if validation succeeds
+		// Did not add student by default
 		$data['AddedStudent'] = 0;
+		// Check for AddedStudent in $_SESSION (from create student)
+		if (!is_null($AddedStudent) and ($AddedStudent == 1)) {
+			$data['AddedStudent'] = 1;
+		}
+
+		// Add student to records if validation succeeds
 		if (($this->form_validation->run() === TRUE) and ($cleanPUID != '-1'))
 		{
 			// Add student and record totals
