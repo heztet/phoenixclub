@@ -142,7 +142,7 @@ class Events extends CI_Controller {
 			// Error out if student has already been added
 			if ($totals == -1)
 			{
-				$data['AlreadyAdded'] = 1;
+				$data['AlreadyAddedError'] = 1;
 			}
 			else
 			{
