@@ -9,27 +9,32 @@ class Students extends CI_Controller {
 		$this->load->helper('url_helper');
 	}
 
-	// Return all students
+	// Return all students -> turned off for security reasons
 	public function index($success = NULL, $message = NULL)
 	{
-		// Get all students and format their year
-		$data['students'] = $this->students_model->get_students();
-		$data['students'] = $this->students_model->append_year_string($data['students']);
-		$data['title'] = 'Students';
-
-		// Message if exists
-		if ($message != NULL)
-		{
-			$data['message'] = $message;
-		}
-		if ($success != NULL)
-		{
-			$data['success'] = $success;
-		}
+		// Error out
+		show_error('This page is not currently availiable');
 		
-		$this->load->view('templates/header', $data);
-		$this->load->view('students/index', $data);
-		$this->load->view('templates/footer', $data);
+		/* Don't enable anyone to see a list of all students (security issue)
+			// Get all students and format their year
+			$data['students'] = $this->students_model->get_students();
+			$data['students'] = $this->students_model->append_year_string($data['students']);
+			$data['title'] = 'Students';
+
+			// Message if exists
+			if ($message != NULL)
+			{
+				$data['message'] = $message;
+			}
+			if ($success != NULL)
+			{
+				$data['success'] = $success;
+			}
+			
+			$this->load->view('templates/header', $data);
+			$this->load->view('students/index', $data);
+			$this->load->view('templates/footer', $data);
+		*/
 	}
 
 	// Return specific student
