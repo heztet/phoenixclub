@@ -55,11 +55,11 @@ class Students_model extends CI_Model {
 			default:
 				$Side = 'X';
 		}
+		$IsRA = $this->input->post('IsRA');
 		
 		// Combine floor and side
 		$FloorStr = $Floor.$Side;
 
-		
 		// Set totals to 0 if not in post
 		if (! ($this->input->post('TotalEvents')))
 		{
@@ -69,20 +69,28 @@ class Students_model extends CI_Model {
 		{
 			$TotalPoints = 0;
 		}
-		
 
-		// Update totals if event exists
+		// Update student point totals and event's TotalNonRAs if event exists
 		// (for when the student is created during event checkin)
 		if ($eventId != NULL)
 		{
 			$TotalEvents = $TotalEvents + 1;
 
-			// Get this event's point value (if it exists)
+			// Get this event
 			$this->db->order_by('DateCreated', 'desc');
 			$this->db->where('Id', $eventId);
 			$query = $this->db->get('phoenix_events');
 			$event = $query->row(0);
 
+			// Update event's TotalNonRAs if studnet isn't RA
+			if (! $IsRA)
+			{
+				$this->db->set('TotalNonRAs', $event->TotalNonRAs + 1);
+				$this->db->where('Id', $eventId);
+				$this->db->update('phoenix_events');
+			}
+			
+			// Calculate student's points
 			$TotalPoints = $TotalPoints + $event->PointValue;
 		}
 
@@ -93,6 +101,7 @@ class Students_model extends CI_Model {
 			'LastName' => $LastName,
 			'Floor' => $FloorStr,
 			'Year' => $Year,
+			'IsRA' => $IsRA,
 			'TotalEvents' => $TotalEvents,
 			'TotalPoints' => $TotalPoints
 			// DateCreated is CURRENTTIME datatime by default

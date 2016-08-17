@@ -55,6 +55,7 @@ class Students extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+	// Create a student with the given PUID and an optional eventId they checked into
 	public function create($puid = NULL, $eventId = NULL)
 	{
 		// Helpers

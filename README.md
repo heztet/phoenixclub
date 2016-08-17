@@ -3,7 +3,12 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 
 # To Do for v1.1
 - [X] Check that students aren't already checked into event
-- [ ] Fade out error/success messages when checking in students
+- [X] Fade out error/success messages when checking in students
+- [ ] Check for quorum when checking in students for event
+	- [ ] Increment `TotalNonRAs` when entering known student
+	- [ ] Increment `TotalNonRAs` **after** creating students for specific event
+- [ ] Display quorum when checking in students
+- [ ] Fix student views (eg, when the student id is `index.php/12345678` instead of `index.php/012345678`)
 - [ ] Add an easy way to start a new year for events
 
 # Why Codeigniter?

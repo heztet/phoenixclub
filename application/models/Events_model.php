@@ -69,6 +69,7 @@ class Events_model extends CI_Model {
 		$event = $query->row(0);
 		$points = $event->PointValue;
 		$totalStudents = $event->TotalStudents;
+		$totalNonRAs = $event->TotalNonRAs;
 
 		// Check that student hasn't already been added to this event
 		$this->db->order_by('Timestamp', 'desc');
@@ -101,11 +102,19 @@ class Events_model extends CI_Model {
 		{
 			$totalEvents = $student->TotalEvents;
 			$totalPoints = $student->TotalPoints;
+			$IsRA = $student->IsRA;
 		}
 		else
 		{
 			$totalEvents = 0;
 			$totalPoints = 0;
+			$IsRA = -1;
+		}
+
+		// Calculate event's new TotalNonRAs
+		if ($IsRa == 0)
+		{
+			$TotalNonRAs = $totalNonRAs + 1;
 		}
 
 		// Update student totals
@@ -115,10 +124,11 @@ class Events_model extends CI_Model {
 			);
 		$this->db->where('PUID', $puid);
 		$this->db->update('phoenix_students', $data);
-
+		
 		// Update event totals
 		$data = array(
-			'TotalStudents' => $totalStudents + 1
+			'TotalStudents' => $totalStudents + 1,
+			'TotalNonRAs' => $totalNonRAs
 			);
 		$this->db->where('Id', $eventId);
 		$this->db->update('phoenix_events', $data);
