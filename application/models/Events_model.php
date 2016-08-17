@@ -45,12 +45,14 @@ class Events_model extends CI_Model {
 		$query = $this->db->get('phoenix_events');
 		$row = $query->row(0); // Get first row
 
+		/*
 		// Update current event table with foreign key
 		$data = array(
 			'ForeignEventId' => $row->Id
 			);
 		$this->db->where('Id', 1);
 		$this->db->update('phoenix_current_event', $data);
+		*/
 		return $row->Id;
 	}
 
@@ -112,7 +114,7 @@ class Events_model extends CI_Model {
 		}
 
 		// Calculate event's new TotalNonRAs
-		if ($IsRa == 0)
+		if ($IsRA == 0)
 		{
 			$TotalNonRAs = $totalNonRAs + 1;
 		}

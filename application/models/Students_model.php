@@ -10,6 +10,17 @@ class Students_model extends CI_Model {
 	// Return either all students or specific student (if PUID is given)
 	public function get_students($puid = FALSE)
 	{
+		// Helpers
+		$this->load->helper('puid_helper');
+
+		$puid = format_puid($puid);
+
+		// Return -1 for invalid puid
+		if ($puid == -1)
+		{
+			return -1;
+		}
+
 		if ($puid == FALSE)
 		{
 			$this->db->order_by('LastName');
@@ -25,6 +36,7 @@ class Students_model extends CI_Model {
 
 		// Add year string to each student
 		$students = $this->append_year_string($students);
+		
 		return $students;
 	}
 

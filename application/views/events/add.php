@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-sm-10">
-		<h2><?php echo 'Add students to: '.$title; ?></h2>
+		<h2><?php echo '"'.$title.'" Check-in'; ?></h2>
 	</div>
 </div>
 <br />
@@ -8,11 +8,23 @@
 
 <?php echo validation_errors('<p class="bg-danger">'); ?>
 <?php if (!empty($CleanPuidError) and ($CleanPuidError == 1)) : ?>
-	<p class="bg-danger fade-message" id="CleanPuidError">You must use a valid PUID</p>
+	<div class="row">
+		<div class="col-sm-3">
+			<p class="bg-danger fade-message" id="CleanPuidError" style="padding: 3px 0px 3px 0px;">You must use a valid PUID</p>
+		</div>
+	</div>
 <?php elseif (!empty($AlreadyAddedError) and ($AlreadyAddedError == 1)) : ?>
-	<p class="bg-danger fade-message" id="AlreadyAddedError">Student has already been added to this event</p>
+	<div class="row">
+		<div class="col-sm-4">
+			<p class="bg-danger fade-message" id="AlreadyAddedError" style="padding: 3px 0px 3px 0px;">Student has already been added to this event</p>
+		</div>
+	</div>
 <?php elseif ($AddedStudent == 1) : ?>
-	<p class="bg-success fade-message" id="AddedStudent">Student added successfully!</p>
+	<div class="row">
+		<div class="col-sm-4">
+			<p class="bg-success fade-message" id="AddedStudent" style="padding: 3px 0px 3px 0px;">Student added successfully!</p>
+		</div>
+	</div>
 <?php endif; ?>
 
 <?php echo form_open('events/add/'.$events_item['Id'], 'class="form-horizontal"'); ?>
@@ -22,7 +34,7 @@
 	<div class="form-group">
 	    <label for="PUID" class="col-sm-2 control-label">PUID</label>
 	    <div class="col-sm-10">
-			<input type="input" class="form-control" name="PUID" value="<?php echo ($AddedStudent == 1) ? "" : set_value('PUID'); ?>" autofocus />
+			<label><input type="input" class="form-control" name="PUID" autofocus /></label>
 		</div> 
 	</div>
 	<div class="form-group">

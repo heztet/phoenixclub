@@ -15,7 +15,7 @@ class Students extends CI_Controller {
 		// Error out
 		show_error('This page is not currently availiable');
 		
-		/* Don't enable anyone to see a list of all students (security issue)
+		/* Don't allow anyone to see a list of all students (security issue)
 			// Get all students and format their year
 			$data['students'] = $this->students_model->get_students();
 			$data['students'] = $this->students_model->append_year_string($data['students']);
@@ -40,19 +40,24 @@ class Students extends CI_Controller {
 	// Return specific student
 	public function view($puid = NULL)
 	{
-		// Retrieve student and format their year
-		$data['students_item'] = $this->students_model->get_students($puid);
+		// Error out
+		show_error('This page is not currently availiable');
 		
-		if (empty($data['students_item']))
-		{
-			show_404();
-		}
+		/* Don't allow anyone to view a student based on PUID (security issue)
+			// Retrieve student and format their year
+			$data['students_item'] = $this->students_model->get_students($puid);
+			
+			if (empty($data['students_item']) or ($data['students_item'] == -1))
+			{
+				show_404();
+			}
 
-		$data['StudentName'] = $data['students_item']['FirstName'].' '.$data['students_item']['LastName'];
+			$data['StudentName'] = $data['students_item']['FirstName'].' '.$data['students_item']['LastName'];
 
-		$this->load->view('templates/header', $data);
-		$this->load->view('students/view', $data);
-		$this->load->view('templates/footer', $data);
+			$this->load->view('templates/header', $data);
+			$this->load->view('students/view', $data);
+			$this->load->view('templates/footer', $data);
+		*/
 	}
 
 	// Create a student with the given PUID and an optional eventId they checked into
