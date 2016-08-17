@@ -6,7 +6,7 @@
 		<br />
 			<div class="container center-block">
 				<div class="vertical-center">
-					<p class="text-muted"><em>Phoenix Club &copy; <?php echo date("Y");?> | Designed by <a href="https://nickymarino.com">Nicky Marino</a></em></p>
+					<p class="text-muted"><em>Phoenix Club &copy; <?php echo date("Y");?> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Designed by <a href="https://nickymarino.com">Nicky Marino</a></em></p>
 				</div>
 			</div>
 		</div>
