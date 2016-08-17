@@ -28,13 +28,13 @@
 <?php endif; ?>
 
 <?php echo form_open('events/add/'.$events_item['Id'], 'class="form-horizontal"'); ?>
-	
 	<?php echo form_hidden('EventId', $events_item['Id'], 'id="EventId"'); ?>
 	<?php echo form_hidden('PointValue', $events_item['PointValue']); ?>
+
 	<div class="form-group">
 	    <label for="PUID" class="col-sm-2 control-label">PUID</label>
-	    <div class="col-sm-10">
-			<label><input type="input" class="form-control" name="PUID" autofocus /></label>
+	    <div class="col-sm-4">
+			<input type="input" class="form-control" name="PUID" autofocus />
 		</div> 
 	</div>
 	<div class="form-group">

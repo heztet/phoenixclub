@@ -101,8 +101,9 @@ class Students extends CI_Controller {
 		$this->form_validation->set_rules('Year', 'Year', 'required');
 		$this->form_validation->set_rules('Floor', 'Floor', 'required');
 		$this->form_validation->set_rules('Side', 'Side', 'required');
+		$this->form_validation->set_rules('IsRA', 'RA Checkbox', 'required');
 
-		// Create student if if validation succeeds
+		// Create student if validation succeeds
 		if (($this->form_validation->run() === TRUE) and ($cleanPuid != '-1'))
 		{
 			$this->students_model->create_student($eventId);

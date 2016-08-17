@@ -67,7 +67,8 @@ class Students_model extends CI_Model {
 			default:
 				$Side = 'X';
 		}
-		$IsRA = $this->input->post('IsRA');
+		$IsRA = (int) $this->input->post('IsRA');
+		log_message('debug', 'IsRA: '.($IsRA));
 		
 		// Combine floor and side
 		$FloorStr = $Floor.$Side;

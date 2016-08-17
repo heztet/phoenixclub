@@ -10,6 +10,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [ ] Display quorum when checking in students
 - [X] Fix student views (eg, when the student id is `index.php/12345678` instead of `index.php/012345678`)
 - [ ] Add an easy way to start a new year for events
+- [ ] Fix `/index.php` not having the correct site links
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use; I only had to download it and put it in the proper folder.
