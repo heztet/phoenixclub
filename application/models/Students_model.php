@@ -67,8 +67,6 @@ class Students_model extends CI_Model {
 			default:
 				$Side = 'X';
 		}
-		$IsRA = (int) $this->input->post('IsRA');
-		log_message('debug', 'IsRA: '.($IsRA));
 		
 		// Combine floor and side
 		$FloorStr = $Floor.$Side;
@@ -95,14 +93,6 @@ class Students_model extends CI_Model {
 			$query = $this->db->get('phoenix_events');
 			$event = $query->row(0);
 
-			// Update event's TotalNonRAs if studnet isn't RA
-			if (! $IsRA)
-			{
-				$this->db->set('TotalNonRAs', $event->TotalNonRAs + 1);
-				$this->db->where('Id', $eventId);
-				$this->db->update('phoenix_events');
-			}
-			
 			// Calculate student's points
 			$TotalPoints = $TotalPoints + $event->PointValue;
 		}
@@ -114,7 +104,6 @@ class Students_model extends CI_Model {
 			'LastName' => $LastName,
 			'Floor' => $FloorStr,
 			'Year' => $Year,
-			'IsRA' => $IsRA,
 			'TotalEvents' => $TotalEvents,
 			'TotalPoints' => $TotalPoints
 			// DateCreated is CURRENTTIME datatime by default

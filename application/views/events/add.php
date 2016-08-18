@@ -6,6 +6,7 @@
 <br />
 <br />
 
+<!-- 
 <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 <script>
 	// Run when window is loaded
@@ -22,6 +23,7 @@
 		}
 	};
 </script>
+-->
 
 <?php echo validation_errors('<p class="bg-danger">'); ?>
 <?php if (!empty($CleanPuidError) and ($CleanPuidError == 1)) : ?>

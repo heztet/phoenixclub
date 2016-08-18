@@ -18,6 +18,25 @@
 
 		<!-- Google Analytics -->
 		<?php include_once('application/views/partials/analytics_tracking.php'); ?>
+
+		<!-- Fading JS -->
+		<script>
+			// Fade all elements with "fade-message"
+			function fadeElements() {
+				// Get all elements with "fade-message"
+				var elementsToFade = document.getElementsByClassName("fade-message");
+				// FadeOut each element
+				if (elementsToFade != undefined) {
+					[].forEach.call(elementsToFade, function(element) {
+						$(element).fadeOut();
+					});
+				}
+			}
+			// Run when window is loaded
+			window.onload = function() {
+				setTimeout(fadeElements, 1500);
+			}
+		</script>
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top">

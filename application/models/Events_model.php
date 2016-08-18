@@ -104,19 +104,11 @@ class Events_model extends CI_Model {
 		{
 			$totalEvents = $student->TotalEvents;
 			$totalPoints = $student->TotalPoints;
-			$IsRA = $student->IsRA;
 		}
 		else
 		{
 			$totalEvents = 0;
 			$totalPoints = 0;
-			$IsRA = -1;
-		}
-
-		// Calculate event's new TotalNonRAs
-		if ($IsRA == 0)
-		{
-			$TotalNonRAs = $totalNonRAs + 1;
 		}
 
 		// Update student totals

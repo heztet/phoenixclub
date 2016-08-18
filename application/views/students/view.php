@@ -13,6 +13,5 @@
 		<td><?php echo $students_item['FirstName'].' '.$students_item['LastName']; ?></td>
 		<td><?php echo $students_item['Floor']; ?></td>
 		<td><?php echo $students_item[0]['YearString']; ?></td>
-		<td><input type="checkbox" disabled="disabled" <?php echo ($students_item['IsRA']) ? '': 'checked="checked"'?> /></td>
 	</tr>
 </table>

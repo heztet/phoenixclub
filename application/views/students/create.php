@@ -70,12 +70,6 @@
 			</select>
 		</div> 
 	</div>
-	<div class="form-group">
-	    <label for='Side' class="col-sm-2 control-label">RA?</label>
-	    <div class="col-sm-10">
-			<input type="checkbox" name="IsRA" id="IsRA" value="1" />
-		</div> 
-	</div>
     <div class="form-group">
 		<div class="col-sm-10 col-sm-offset-2">
     		<button type="submit" class="btn btn-primary">Create</button>
