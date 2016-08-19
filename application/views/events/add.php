@@ -6,25 +6,6 @@
 <br />
 <br />
 
-<!-- 
-<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-<script>
-	// Run when window is loaded
-	window.onload = function() {
-		// Get all elements with "fade-message"
-		var elementsToFade = document.getElementsByClassName("fade-message");
-		// Fade elements after specified time period
-		if (elementsToFade != undefined) {
-			setTimeout(x = 1, 1000);
-
-			[].forEach.call(elementsToFade, function(element) {
-				element.fadeOut();
-			});
-		}
-	};
-</script>
--->
-
 <?php echo validation_errors('<p class="bg-danger">'); ?>
 <?php if (!empty($CleanPuidError) and ($CleanPuidError == 1)) : ?>
 	<div class="row">
