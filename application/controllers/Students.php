@@ -107,12 +107,12 @@ class Students extends CI_Controller {
 		}
 
 		// Validate inputs (Note: total events/points are handled in create_student)
-		$this->form_validation->set_rules('PUID', 'PUID', 'required');
-		$this->form_validation->set_rules('FirstName', 'First name', 'required');
-		$this->form_validation->set_rules('LastName', 'Last name', 'required');
-		$this->form_validation->set_rules('Year', 'Year', 'required');
-		$this->form_validation->set_rules('Floor', 'Floor', 'required');
-		$this->form_validation->set_rules('Side', 'Side', 'required');
+		$this->form_validation->set_rules('PUID', 'PUID', 'required|natural');
+		$this->form_validation->set_rules('FirstName', 'First name', 'required|alpha');
+		$this->form_validation->set_rules('LastName', 'Last name', 'required|alpha');
+		$this->form_validation->set_rules('Year', 'Year', 'required|natural');
+		$this->form_validation->set_rules('Floor', 'Floor', 'required|natural');
+		$this->form_validation->set_rules('Side', 'Side', 'required|natural|greater_than[0]|less_than[3]');
 
 		// Create student if validation succeeds
 		if (($this->form_validation->run() === TRUE) and ($cleanPuid != '-1'))
