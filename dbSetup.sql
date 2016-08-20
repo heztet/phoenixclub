@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2016 at 12:57 AM
+-- Generation Time: Aug 20, 2016 at 05:06 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -39,6 +39,18 @@ CREATE TABLE `phoenix_events` (
   `IsOpen` tinyint(1) NOT NULL DEFAULT '1',
   `TotalStudents` int(11) NOT NULL DEFAULT '0',
   `TotalNonRAs` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phoenix_globals`
+--
+
+DROP TABLE IF EXISTS `phoenix_globals`;
+CREATE TABLE `phoenix_globals` (
+  `Variable` varchar(256) NOT NULL,
+  `Value` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -88,6 +100,12 @@ ALTER TABLE `phoenix_events`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- Indexes for table `phoenix_globals`
+--
+ALTER TABLE `phoenix_globals`
+  ADD PRIMARY KEY (`Variable`);
+
+--
 -- Indexes for table `phoenix_records`
 --
 ALTER TABLE `phoenix_records`
@@ -108,12 +126,12 @@ ALTER TABLE `phoenix_students`
 -- AUTO_INCREMENT for table `phoenix_events`
 --
 ALTER TABLE `phoenix_events`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `phoenix_records`
 --
 ALTER TABLE `phoenix_records`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4753;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4762;
 
 --
 -- Metadata
@@ -125,12 +143,30 @@ USE `phpmyadmin`;
 --
 
 --
+-- Metadata for phoenix_globals
+--
+
+--
 -- Metadata for phoenix_records
 --
 
 --
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'marinon', 'phoenix_records', '{"sorted_col":"`phoenix_records`.`Timestamp` DESC"}', '2016-08-17 19:42:05');
+
+--
 -- Metadata for phoenix_students
 --
+
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'marinon', 'phoenix_students', '{"sorted_col":"`phoenix_students`.`DateCreated` DESC"}', '2016-08-17 20:28:03');
 
 --
 -- Metadata for marinon

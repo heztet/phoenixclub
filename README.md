@@ -17,3 +17,4 @@ Originally I was going to build a Rails app, but Purdue's web servers only suppo
 - In `application/config/database.php`, set each of the database variables that are set as blank
 - In `system/core/Controller.php`, set `$this->output->enable_profiler(FALSE);`
 - In `index.php`, change `define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');` to `define('ENVIRONMENT', 'production');`
+- Rum `dbSetup.sql` (you can also remove the `AUTO_INCREMENT=<num>` as well)
