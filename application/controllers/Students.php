@@ -34,13 +34,12 @@ class Students extends CI_Controller {
 			$data['title'] = 'Students';
 
 			// Message if exists
-			if ($message != NULL)
-			{
-				$data['message'] = $message;
-			}
 			if ($success != NULL)
 			{
 				$data['success'] = $success;
+			if ($message != NULL)
+			{
+				$data['message'] = $message;
 			}
 			
 			$this->load->view('templates/header', $data);

@@ -5,6 +5,7 @@
 </div>
 
 <h4>Submit this form with the right password to reset all events for the next academic year.</h4>
+
 <?php if (!empty($WrongPasswordError) and ($WrongPasswordError == 1)) : ?>
 	<div class="row">
 		<div class="col-sm-3">
