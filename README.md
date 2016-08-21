@@ -5,7 +5,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [X] Check that students aren't already checked into event
 - [X] Fade out error/success messages when checking in students
 - [X] Fix student views (eg, when the student id is `index.php/12345678` instead of `index.php/012345678`)
-- [ ] Add an easy way to start a new year for events
+- [X] Add an easy way to start a new year for events
 - [X] Fix `/index.php` not having the correct site links
 
 # Why Codeigniter?
