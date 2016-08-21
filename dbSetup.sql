@@ -3,13 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2016 at 05:06 PM
+-- Generation Time: Aug 21, 2016 at 04:38 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,7 +26,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `phoenix_events`
 --
 
-DROP TABLE IF EXISTS `phoenix_events`;
 CREATE TABLE `phoenix_events` (
   `Id` int(11) NOT NULL,
   `Title` varchar(200) NOT NULL,
@@ -37,8 +34,7 @@ CREATE TABLE `phoenix_events` (
   `IsCurrentYear` tinyint(1) NOT NULL DEFAULT '1',
   `DateArchived` datetime DEFAULT NULL,
   `IsOpen` tinyint(1) NOT NULL DEFAULT '1',
-  `TotalStudents` int(11) NOT NULL DEFAULT '0',
-  `TotalNonRAs` int(11) NOT NULL DEFAULT '0'
+  `TotalStudents` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -47,7 +43,6 @@ CREATE TABLE `phoenix_events` (
 -- Table structure for table `phoenix_globals`
 --
 
-DROP TABLE IF EXISTS `phoenix_globals`;
 CREATE TABLE `phoenix_globals` (
   `Variable` varchar(256) NOT NULL,
   `Value` varchar(256) NOT NULL
@@ -59,7 +54,6 @@ CREATE TABLE `phoenix_globals` (
 -- Table structure for table `phoenix_records`
 --
 
-DROP TABLE IF EXISTS `phoenix_records`;
 CREATE TABLE `phoenix_records` (
   `Id` int(11) NOT NULL,
   `PUID` varchar(9) NOT NULL,
@@ -74,17 +68,14 @@ CREATE TABLE `phoenix_records` (
 -- Table structure for table `phoenix_students`
 --
 
-DROP TABLE IF EXISTS `phoenix_students`;
 CREATE TABLE `phoenix_students` (
   `PUID` varchar(9) NOT NULL,
   `FirstName` varchar(40) NOT NULL,
   `LastName` varchar(60) NOT NULL,
   `Floor` varchar(3) NOT NULL,
   `Year` int(11) NOT NULL,
-  `IsRA` int(11) NOT NULL DEFAULT '0',
   `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsCurrent` tinyint(1) NOT NULL DEFAULT '1',
-  `DateArchived` datetime DEFAULT NULL,
   `TotalEvents` int(11) NOT NULL DEFAULT '0',
   `TotalPoints` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -126,53 +117,12 @@ ALTER TABLE `phoenix_students`
 -- AUTO_INCREMENT for table `phoenix_events`
 --
 ALTER TABLE `phoenix_events`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `phoenix_records`
 --
 ALTER TABLE `phoenix_records`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4762;
-
---
--- Metadata
---
-USE `phpmyadmin`;
-
---
--- Metadata for phoenix_events
---
-
---
--- Metadata for phoenix_globals
---
-
---
--- Metadata for phoenix_records
---
-
---
--- Dumping data for table `pma__table_uiprefs`
---
-
-INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
-('root', 'marinon', 'phoenix_records', '{"sorted_col":"`phoenix_records`.`Timestamp` DESC"}', '2016-08-17 19:42:05');
-
---
--- Metadata for phoenix_students
---
-
---
--- Dumping data for table `pma__table_uiprefs`
---
-
-INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
-('root', 'marinon', 'phoenix_students', '{"sorted_col":"`phoenix_students`.`DateCreated` DESC"}', '2016-08-17 20:28:03');
-
---
--- Metadata for marinon
---
-COMMIT;
-
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
