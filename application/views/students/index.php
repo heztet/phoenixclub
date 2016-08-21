@@ -32,4 +32,6 @@
 	<?php endforeach; ?>
 </table>
 
-<a href="<?php echo site_url('students/archive'); ?>" type="button" class="btn btn-danger">Archive all students</a>
+<?php /*
+	<a href="<?php echo site_url('students/archive'); ?>" type="button" class="btn btn-danger">Archive all students</a>
+*/?>

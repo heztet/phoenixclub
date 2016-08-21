@@ -6,15 +6,21 @@
 
 <h4>Submit this form with the right password to reset all events for the next academic year.</h4>
 
-<?php if (!empty($WrongPasswordError) and ($WrongPasswordError == 1)) : ?>
+<?php echo validation_errors('<p class="bg-danger">'); ?>
+<?php if (!empty($resetFailure) and ($resetFailure == 1)) : ?>
 	<div class="row">
 		<div class="col-sm-3">
-			<p class="bg-danger fade-message" id="WrongPasswordError" style="padding: 3px 0px 3px 0px;">Incorrect password</p>
+			<p class="bg-danger fade-message" id="ResetFailure" style="padding: 3px 0px 3px 0px;">Bad password: could not reset</p>
+		</div>
+	</div>
+<?php elseif (!empty($resetSuccess) and ($resetSuccess) == 1) : ?>
+	<div class="row">
+		<div class="col-sm-3">
+			<p class="bg-success fade-message" id="ResetSuccess" style="padding: 3px 0px 3px 0px;">Success! Ready for next year.</p>
 		</div>
 	</div>
 <?php endif; ?>
-
-<?php echo form_open('admin/reset', 'class="form-horizontal"'); ?>
+<?php echo form_open('admin/index', 'class="form-horizontal"'); ?>
 	<div class="form-group">
 	    <label for="Password" class="col-sm-2 control-label">Password</label>
 	    <div class="col-sm-4">

@@ -1,5 +1,5 @@
 <?php
-class Events_model extends CI_Model {
+class Admin_model extends CI_Model {
 
 	// Load database
 	public function __construct()
@@ -13,7 +13,7 @@ class Events_model extends CI_Model {
 		$this->load->helper('url');
 
 		// Get the password from the post
-		$password = format_puid($this->input->post('Password'));
+		$password = $this->input->post('Password');
 
 		// Check that the password matches
 		$this->db->where('Variable', 'ResetKey');
@@ -28,9 +28,16 @@ class Events_model extends CI_Model {
 		}
 
 		// Archive all current events
-
+		// Set sql statement
+		$now = new DateTime(null, new DateTimeZone('America/New_York'));
+		$time = $now->format('Y-m-d H:i:s'); // MySQL datetime format
+		$sql = 'UPDATE phoenix_events SET IsCurrentYear=0, DateArchived="'.$time.'", IsOpen=0 WHERE IsCurrentYear=1';
+		log_message('debug', 'db sql: '.$sql);
+		$this->db->query($sql);
 
 		// Delete all students
+		$this->db->where('PUID !=', 'NULL');
+		$this->db->delete('phoenix_students');
 
 		// Success
 		return 0;

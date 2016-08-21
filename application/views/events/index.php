@@ -41,4 +41,6 @@
 	<?php endforeach; ?>
 </table>
 
-<a href="<?php echo site_url('events/archive'); ?>" type="button" class="btn btn-danger">Archive all events</a>
+<?php /*
+	<a href="<?php echo site_url('events/archive'); ?>" type="button" class="btn btn-danger">Archive all events</a>
+*/?>

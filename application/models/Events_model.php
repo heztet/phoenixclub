@@ -71,7 +71,6 @@ class Events_model extends CI_Model {
 		$event = $query->row(0);
 		$points = $event->PointValue;
 		$totalStudents = $event->TotalStudents;
-		$totalNonRAs = $event->TotalNonRAs;
 
 		// Check that student hasn't already been added to this event
 		$this->db->order_by('Timestamp', 'desc');
@@ -122,7 +121,6 @@ class Events_model extends CI_Model {
 		// Update event totals
 		$data = array(
 			'TotalStudents' => $totalStudents + 1,
-			'TotalNonRAs' => $totalNonRAs
 			);
 		$this->db->where('Id', $eventId);
 		$this->db->update('phoenix_events', $data);
@@ -200,6 +198,7 @@ class Events_model extends CI_Model {
 	}
 
 	// Archive all current events
+	// Depreciated by resetting through admin/index
 	public function archive_events()
 	{
 		// Get current time

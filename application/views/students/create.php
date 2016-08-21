@@ -51,9 +51,17 @@
 	    <div class="col-sm-10">
 			<select name='Floor' class="form-control">
 				<?php
-					foreach (range(1, 8) as $num)
+					foreach (range(0, 8) as $num)
 					{
-						echo "<option value='".$num."'>";
+						if ($num == 1) // 1 should be the default value
+						{
+							echo "<option selected='selected' value='".$num."'>";
+						}
+						else
+						{
+							echo "<option value='".$num."'>";
+						}
+
 						echo $num;
 						echo "</option>";
 					}
