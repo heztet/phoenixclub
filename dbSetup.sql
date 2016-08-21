@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2016 at 04:38 PM
+-- Generation Time: Aug 21, 2016 at 06:55 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -47,6 +47,13 @@ CREATE TABLE `phoenix_globals` (
   `Variable` varchar(256) NOT NULL,
   `Value` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `phoenix_globals`
+--
+
+INSERT INTO `phoenix_globals` (`Variable`, `Value`) VALUES
+('ResetKey', 'CHANGE_THIS');
 
 -- --------------------------------------------------------
 
@@ -117,12 +124,12 @@ ALTER TABLE `phoenix_students`
 -- AUTO_INCREMENT for table `phoenix_events`
 --
 ALTER TABLE `phoenix_events`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `phoenix_records`
 --
 ALTER TABLE `phoenix_records`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
