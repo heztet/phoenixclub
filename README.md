@@ -4,6 +4,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 # To Do for v1.1
 - [ ] Better form validation messages
 - [ ] Put footer information in header
+- [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use; I only had to download it and put it in the proper folder.
