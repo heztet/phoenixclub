@@ -2,11 +2,8 @@
 Since the Phoneix Club's website was last updated in 2006, I've decided that I'm going to re-work it for HTML5. Basically, I want to make it look aesthetically pleasing and have ways for people to get in contact with our club.
 
 # To Do for v1.1
-- [X] Check that students aren't already checked into event
-- [X] Fade out error/success messages when checking in students
-- [X] Fix student views (eg, when the student id is `index.php/12345678` instead of `index.php/012345678`)
-- [X] Add an easy way to start a new year for events
-- [X] Fix `/index.php` not having the correct site links
+- [ ] Better form validation messages
+- [ ] Put footer information in header
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use; I only had to download it and put it in the proper folder.

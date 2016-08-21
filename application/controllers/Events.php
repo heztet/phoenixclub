@@ -63,7 +63,9 @@ class Events extends CI_Controller {
 		$data['title'] = "Create event";
 
 		// Validate inputs
-		$this->form_validation->set_rules('Title', 'Title', 'required|max_length[60]|is_unique[phoenix_events.Title]');
+		$this->form_validation->set_rules('Title', 'Title', 
+										  'required|max_length[60]|is_unique[phoenix_events.Title]',
+										  array('is_unique' => 'There\'s already an event with that %s'));
 		$this->form_validation->set_rules('PointValue', 'Points', 'required');
 
 		// Return create view if inputs are invalid
