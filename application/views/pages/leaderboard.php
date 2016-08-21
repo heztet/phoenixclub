@@ -23,8 +23,8 @@
 				<div class="progress">
 					<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="<?php echo $num; ?>" aria-valuemin="0" aria-valuemax="<?php echo $PointsPossible; ?>" style="width:<?php echo $percent; ?>%">
 					</div>
-					<span><?php echo $num.' / '.$PointsPossible.' points'; ?></span>
 				</div>
+				<span><?php echo $num.' / '.$PointsPossible.' points'; ?></span>
 	   		</td>
 	   		<td>
 				<?php $num = $s['TotalEvents']; ?>
@@ -32,10 +32,9 @@
 				<div class="progress">
 					<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="<?php echo $num; ?>" aria-valuemin="0" aria-valuemax="<?php echo $EventsPossible; ?>" style="width:<?php echo $percent; ?>%">
 	   				</div>
-	   				<span><?php echo $num.' / '.$EventsPossible.' events'; ?></span>
 	   			</div>
+	   			<span><?php echo $num.' / '.$EventsPossible.' events'; ?></span>
 	   		</td>
 		</tr>
 	<?php endforeach; ?>
-
 </table>
