@@ -52,8 +52,10 @@
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="<?php echo site_url('events/'); ?>">Events</a></li>
-						<li><a href="<?php echo site_url('events/create'); ?>">Create</a></li>
+						<?php if (empty($IsLeaderboard) or ($IsLeaderboard == 0)) : ?>
+							<li><a href="<?php echo site_url('events/'); ?>">Events</a></li>
+							<li><a href="<?php echo site_url('events/create'); ?>">Create</a></li>
+						<?php endif ; ?>
 						<li><a href="<?php echo site_url('contact'); ?>">Contact</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->

@@ -40,20 +40,27 @@ class Pages extends CI_Controller {
 
     public function leaderboard($data = NULL)
     {
+        $this->load->model('students_model');
+        $this->load->model('events_model');
+
     	$data['title'] = 'Leaderboard';
+        $data['IsLeaderboard'] = 1;
 
     	// Get students in order of points descending
-    	$numStudents = 30;
+    	$numStudents = 5;
     	$data['students'] = $this->pages_model->get_student_leaderboard($numStudents);
 
     	// Add year string to each student
-		$this->load->model('students_model');
 		$data['students'] = $this->students_model->append_year_string($data['students']);
         
 		// Get total points and events possible
-		$this->load->model('events_model');
 		$data['EventsPossible'] = $this->events_model->amount_current_events();
 		$data['PointsPossible'] = $this->events_model->amount_current_points();
+
+        // Add floor stats
+        $data['floors'] = $this->pages_model->get_floor_leaderboard();
+        $data['sides'] = $this->pages_model->get_side_leaderboard();
+
 
     	// Load the page
     	$this->load->view('templates/header', $data);
