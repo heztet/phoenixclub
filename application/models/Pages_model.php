@@ -35,4 +35,31 @@ class Pages_model extends CI_Model {
 			return $result;
 		}
 	}
+
+	// Return array of all floors (by TotalPoints DESC)
+	public function get_floor_leaderboard()
+	{
+		$result = array();
+
+		foreach (range(1, 8) as $floorNum)
+		{
+			$this->db->select_sum('TotalPoints');
+			$this->db->where('Floor', $floorNum);
+			$query = $this->db->get('phoenix_students');
+			$floor = $query->row(0);
+
+			if (is_object($query))
+			{
+				$floorArray = array(
+					'Floor' => $floorNum,
+					'TotalPoints' => $floor->'TotalPoints'
+				);
+				array_push($result, $floorArray);
+			}
+		}
+
+		return $result;
+	}
+
+	// Return array of both sides (by TotalPoints DESC)
 }
