@@ -1,3 +1,6 @@
+-- Create Side
+ALTER TABLE  `phoenix_students` ADD  `Side` VARCHAR( 2 ) NOT NULL AFTER  `Floor` ;
+
 -- Get Side
 UPDATE phoenix_students SET Side='E' WHERE Floor LIKE '%E';
 UPDATE phoenix_students SET Side='W' WHERE Floor LIKE '%W';

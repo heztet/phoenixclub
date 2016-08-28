@@ -46,13 +46,13 @@ class Pages_model extends CI_Model {
 			$this->db->select_sum('TotalPoints');
 			$this->db->where('Floor', $floorNum);
 			$query = $this->db->get('phoenix_students');
-			$floor = $query->row(0);
+			$floor = $query->result();
 
-			if (is_object($query))
+			if (is_object($floor))
 			{
 				$floorArray = array(
 					'Floor' => $floorNum,
-					'TotalPoints' => $floor->'TotalPoints'
+					'TotalPoints' => $floor[0]
 				);
 				array_push($result, $floorArray);
 			}
@@ -62,4 +62,40 @@ class Pages_model extends CI_Model {
 	}
 
 	// Return array of both sides (by TotalPoints DESC)
+	public function get_side_leaderboard()
+	{
+		$result = array();
+
+		// 'E' side
+		$this->db->select_sum('TotalPoints');
+		$this->db->where('Side', 'E');
+		$query = $this->db->get('phoenix_students');
+		$side = $query->result();
+
+		if (is_object($side))
+		{
+			$sideArray = array(
+				'Side' => 'E',
+				'TotalPoints' => $floor[0]
+			);
+			array_push($result, $floorArray);
+		}
+
+		// 'W' side
+		$this->db->select_sum('TotalPoints');
+		$this->db->where('Side', 'W');
+		$query = $this->db->get('phoenix_students');
+		$side = $query->result();
+
+		if (is_object($side))
+		{
+			$sideArray = array(
+				'Side' => 'W',
+				'TotalPoints' => $side[0]
+			);
+			array_push($result, $sideArray);
+		}
+
+		return $result;
+	}
 }
