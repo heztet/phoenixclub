@@ -13,6 +13,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [ ] Add floor/side breakdowns to `index.php/leaderboard`
 - [ ] Remove header links on `index.php/leaderboard`
 - [ ] Add aggregate stats for specific events (such as `events/stats/<id>`)
+- [X] Split Floor/Side information for students
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use; I only had to download it and put it in the proper folder.

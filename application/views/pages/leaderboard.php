@@ -15,7 +15,7 @@
 	<?php foreach ($students as $s): ?>
 		<tr>
 			<td><?php echo $s['FirstName'].' '.$s['LastName']; ?></td>
-			<td><?php echo $s['Floor']; ?></td>
+			<td><?php echo $s['Floor'].$s['Side']; ?></td>
 			<td><?php echo $s[0]['YearString']; ?></td>
 			<td>
 				<?php $num = $s['TotalPoints']; ?>

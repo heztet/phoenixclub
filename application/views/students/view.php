@@ -4,6 +4,7 @@
 	<tr>
 		<th>Name</th>
 		<th>Floor</th>
+		<th>Side</th>
 		<th>Year</th>
 		<th>RA?</th>
 	</tr>
@@ -12,6 +13,7 @@
 	<tr>
 		<td><?php echo $students_item['FirstName'].' '.$students_item['LastName']; ?></td>
 		<td><?php echo $students_item['Floor']; ?></td>
+		<td><?php echo $students_item['Side']; ?></td>
 		<td><?php echo $students_item[0]['YearString']; ?></td>
 	</tr>
 </table>

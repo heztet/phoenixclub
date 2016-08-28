@@ -65,11 +65,8 @@ class Students_model extends CI_Model {
 				$Side = 'W';
 				break;
 			default:
-				$Side = 'X';
+				$Side = 'Err';
 		}
-		
-		// Combine floor and side
-		$FloorStr = $Floor.$Side;
 
 		// Set totals to 0 if not in post
 		if (! ($this->input->post('TotalEvents')))
@@ -102,7 +99,8 @@ class Students_model extends CI_Model {
 			'PUID' => $puid,
 			'FirstName' => $FirstName,
 			'LastName' => $LastName,
-			'Floor' => $FloorStr,
+			'Floor' => $Floor,
+			'Side' => $Side,
 			'Year' => $Year,
 			'TotalEvents' => $TotalEvents,
 			'TotalPoints' => $TotalPoints
