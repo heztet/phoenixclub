@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2016 at 06:55 PM
+-- Generation Time: Aug 28, 2016 at 08:43 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -48,13 +48,6 @@ CREATE TABLE `phoenix_globals` (
   `Value` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `phoenix_globals`
---
-
-INSERT INTO `phoenix_globals` (`Variable`, `Value`) VALUES
-('ResetKey', 'CHANGE_THIS');
-
 -- --------------------------------------------------------
 
 --
@@ -79,7 +72,8 @@ CREATE TABLE `phoenix_students` (
   `PUID` varchar(9) NOT NULL,
   `FirstName` varchar(40) NOT NULL,
   `LastName` varchar(60) NOT NULL,
-  `Floor` varchar(3) NOT NULL,
+  `Floor` int(3) NOT NULL,
+  `Side` varchar(2) NOT NULL,
   `Year` int(11) NOT NULL,
   `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsCurrent` tinyint(1) NOT NULL DEFAULT '1',
@@ -124,12 +118,12 @@ ALTER TABLE `phoenix_students`
 -- AUTO_INCREMENT for table `phoenix_events`
 --
 ALTER TABLE `phoenix_events`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `phoenix_records`
 --
 ALTER TABLE `phoenix_records`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

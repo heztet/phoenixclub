@@ -30,10 +30,11 @@
 		    <td><?php echo date_format(date_create($e['DateCreated']), 'm/d/Y g:i A'); ?></td>
 		    <td align="center"><?php echo $e['PointValue']; ?></td>
 		    <td align="center"><?php echo $e['TotalStudents']; ?></td>
-		    <td><a href="<?php echo site_url('events/add/'.$e['Id']); ?>" type="button" class="btn btn-primary">Check in</a></td>
 		    <?php if ($e['IsOpen'] == 1) : ?>
+		    	<td><a href="<?php echo site_url('events/add/'.$e['Id']); ?>" type="button" class="btn btn-primary">Check in</a></td>
 		    	<td><a href="<?php echo site_url('events/close/'.$e['Id']); ?>" type="button" class="btn btn-danger">Close</a></td>
 		    <?php else : ?>
+		    	<td>Closed</td>
 		    	<td>Closed</td>
 		    <?php endif; ?>
 		</tr>
