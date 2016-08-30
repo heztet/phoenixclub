@@ -62,4 +62,23 @@ class Pages_model extends CI_Model {
 	}
 
 	// Return array of both sides (by TotalPoints DESC)
+	public function get_side_leaderboard()
+	{
+		$result = array();
+
+		// East side
+		$this->db->select_sum('TotalPoints');
+		$this->db->where('Side', 'E');
+		$query = $this->db->get('phoenix_students');
+		$floor = $query->row(0);
+
+		if (is_object($query))
+		{
+			$floorArray = array(
+				'Floor' => $floorNum,
+				'TotalPoints' => $floor->'TotalPoints'
+			);
+			array_push($result, $floorArray);
+		}
+	}
 }
