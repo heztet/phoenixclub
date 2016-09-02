@@ -5,7 +5,6 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [ ] Redesign home page
 	- [ ] New theme
 	- [ ] Actual content about hillenbrand
-	- [ ] 
 - [ ] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
 - [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
 - [X] Change student first/last names to allow non-alpha characters (ex: space, underscore, etc.)
@@ -13,6 +12,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [X] Remove header links on `index.php/leaderboard`
 - [ ] Add aggregate stats for specific events (such as `events/stats/<id>`)
 - [X] Split Floor/Side information for students
+- [X] Fix main page and add Constitution
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use; I only had to download it and put it in the proper folder.
