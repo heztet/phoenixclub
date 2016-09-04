@@ -65,7 +65,6 @@ class Pages_model extends CI_Model {
 	public function get_side_leaderboard()
 	{
 		$result = array();
-
 		// 'E' side
 		$this->db->select_sum('TotalPoints');
 		$this->db->where('Side', 'E');

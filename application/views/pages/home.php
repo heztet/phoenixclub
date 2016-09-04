@@ -38,6 +38,7 @@
 								<li><a href="#">Home</a></li>
 								<li><a href="https://www.facebook.com/groups/211869608867628/?fref=phoenix_club_website">Facebook</a></li>
 								<li><a href="https://twitter.com/_phoenixclub">Twitter</a></li>
+								<li><a href="#">Constitution</a></li>
 								<!-- <li><a href="index.php/eboard">E-Board</a></li> -->
 							</ul>
 						</nav>
