@@ -1,6 +1,27 @@
 <h2><?php echo $title; ?></h2>
 
+<h3>Floors</h3>
+<!-- Floor table -->
+<table class="table table-hover">
+	<!-- Header -->
+	<tr>
+		<th>Place</th>
+		<th>Floor</th>
+		<th>Total Points</th>
+	</tr>
 
+	<!-- Items -->
+	<?php $count = 1; ?>
+	<?php foreach ($floors as $f): ?>
+		<tr>
+			<td><?php echo $count; $count += 1; ?></td>
+			<td><?php echo $f['Floor'] ?></td>
+			<td><?php echo $f['TotalPoints']; ?></td>
+		</tr>
+	<?php endforeach; ?>
+</table>
+
+<?php /*
 <h3>Top Students</h3>
 <!-- Student table -->
 <table class="table table-hover">
@@ -40,23 +61,4 @@
 		</tr>
 	<?php endforeach; ?>
 </table>
-
-<h3>Floors</h3>
-<!-- Floor table -->
-<table class="table table-hover">
-	<!-- Header -->
-	<tr>
-		<th>Floor</th>
-		<th>Total Points</th>
-	</tr>
-
-	<!-- Items -->
-	<?php foreach ($floors as $f): ?>
-		<tr>
-			<td><?php echo $f['Floor'] ?></td>
-			<td>
-				<?php $num = $f['TotalPoints']; ?>
-	   		</td>
-		</tr>
-	<?php endforeach; ?>
-</table>
+*/ ?>
