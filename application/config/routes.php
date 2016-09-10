@@ -62,6 +62,7 @@ $route['events/close/(:any)'] = 'events/close/$1';
 $route['events/(:any)'] = 'events/view/$1';
 $route['events'] = 'events';
 $route['admin'] = 'admin';
+$route['rollcall'] = 'rollcall';
 //$route['eboard'] = 'pages/view/eboard';
 //$route['contact'] = 'pages/view/contact';
 $route['(:any)'] = 'pages/view/$1';
