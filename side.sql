@@ -1,4 +1,0 @@
-SELECT 
-	SUM(CASE WHEN Side = 'E' THEN 1 ELSE 0 END) AS 'E',
-	SUM(CASE WHEN Side = 'W' THEN 1 ELSE 0 END) AS 'W'
-FROM phoenix_students;

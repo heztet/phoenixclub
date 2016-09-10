@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2016 at 08:43 PM
+-- Generation Time: Sep 10, 2016 at 04:44 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -35,6 +35,17 @@ CREATE TABLE `phoenix_events` (
   `DateArchived` datetime DEFAULT NULL,
   `IsOpen` tinyint(1) NOT NULL DEFAULT '1',
   `TotalStudents` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phoenix_floors`
+--
+
+CREATE TABLE `phoenix_floors` (
+  `Floor` varchar(256) NOT NULL,
+  `TotalPoints` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -92,6 +103,12 @@ ALTER TABLE `phoenix_events`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- Indexes for table `phoenix_floors`
+--
+ALTER TABLE `phoenix_floors`
+  ADD PRIMARY KEY (`Floor`);
+
+--
 -- Indexes for table `phoenix_globals`
 --
 ALTER TABLE `phoenix_globals`
@@ -118,12 +135,12 @@ ALTER TABLE `phoenix_students`
 -- AUTO_INCREMENT for table `phoenix_events`
 --
 ALTER TABLE `phoenix_events`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `phoenix_records`
 --
 ALTER TABLE `phoenix_records`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

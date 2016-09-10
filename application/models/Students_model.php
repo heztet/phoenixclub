@@ -72,13 +72,15 @@ class Students_model extends CI_Model {
 		if (! ($this->input->post('TotalEvents')))
 		{
 			$TotalEvents = 0;
+			$FloorDelta = 0;
 		}
 		if (! ($this->input->post('TotalPoints')))
 		{
 			$TotalPoints = 0;
+			$FloorDelta = 0;
 		}
 
-		// Update student point totals and event's TotalNonRAs if event exists
+		// Update student point totals and event's totals if event exists
 		// (for when the student is created during event checkin)
 		if ($eventId != NULL)
 		{
@@ -92,6 +94,8 @@ class Students_model extends CI_Model {
 
 			// Calculate student's points
 			$TotalPoints = $TotalPoints + $event->PointValue;
+
+			$FloorDelta = $event->PointValue;
 		}
 
 		// Insert student into students table
@@ -104,10 +108,22 @@ class Students_model extends CI_Model {
 			'Year' => $Year,
 			'TotalEvents' => $TotalEvents,
 			'TotalPoints' => $TotalPoints
-			// DateCreated is CURRENTTIME datatime by default
-			// IsCurrent is TRUE by default
 			);
 		$this->db->insert('phoenix_students', $data);
+
+		// Get floor points
+		$floorString = $Floor.$Side;
+		$this->db->where('Floor', $floorString);
+		$query = $this->db->get('phoenix_floors');
+		$floor = $query->row(0);
+		$floorPoints = $floor->TotalPoints;
+
+		// Update floor points
+		$data = array(
+			'TotalPoints' => $floorPoints + $FloorDelta
+			);
+		$this->db->where('Floor', $floorString);
+		$this->db->update('phoenix_floors', $data);
 	}
 
 	// Adds each student's year as a string

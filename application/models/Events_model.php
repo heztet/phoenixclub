@@ -45,8 +45,9 @@ class Events_model extends CI_Model {
 		$query = $this->db->get('phoenix_events');
 		$row = $query->row(0); // Get first row
 
-		/*
+		
 		// Update current event table with foreign key
+		/*
 		$data = array(
 			'ForeignEventId' => $row->Id
 			);
@@ -124,6 +125,20 @@ class Events_model extends CI_Model {
 			);
 		$this->db->where('Id', $eventId);
 		$this->db->update('phoenix_events', $data);
+
+		// Get floor points
+		$floorString = $student->Floor.$student->Side;
+		$this->db->where('Floor', $floorString);
+		$query = $this->db->get('phoenix_floors');
+		$floor = $query->row(0);
+		$floorPoints = $floor->TotalPoints;
+
+		// Update floor points
+		$data = array(
+			'TotalPoints' => $floorPoints + $points
+			);
+		$this->db->where('Floor', $floorString);
+		$this->db->update('phoenix_floors', $data);
 
 		// Return an array of the student's total events and points
 		$totals = array(
