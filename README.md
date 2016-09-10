@@ -1,14 +1,13 @@
 # Welcome to Phoenix Club!
 Since the Phoneix Club's website was last updated in 2006, I've decided that I'm going to re-work it for HTML5. Basically, I want to make it look aesthetically pleasing and have ways for people to get in contact with our club.
 
-# To Do for v2.1
+# To Do for v2.3
 - [ ] Redesign home page
 	- [ ] New theme
 	- [ ] Actual content about hillenbrand
 - [ ] Fix main page errors about getting content (HTTP/HTTPS issue)
 - [ ] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
 - [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
-- [ ] Add floor breakdowns to `index.php/leaderboard`
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use; I only had to download it and put it in the proper folder.
