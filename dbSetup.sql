@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2016 at 04:44 AM
+-- Generation Time: Sep 10, 2016 at 05:40 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -76,6 +76,19 @@ CREATE TABLE `phoenix_records` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `phoenix_rollcalls`
+--
+
+CREATE TABLE `phoenix_rollcalls` (
+  `Id` int(11) NOT NULL,
+  `Floor` varchar(256) NOT NULL,
+  `PointDelta` int(11) NOT NULL DEFAULT '0',
+  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `phoenix_students`
 --
 
@@ -122,6 +135,12 @@ ALTER TABLE `phoenix_records`
   ADD KEY `PUID` (`PUID`);
 
 --
+-- Indexes for table `phoenix_rollcalls`
+--
+ALTER TABLE `phoenix_rollcalls`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Indexes for table `phoenix_students`
 --
 ALTER TABLE `phoenix_students`
@@ -141,6 +160,11 @@ ALTER TABLE `phoenix_events`
 --
 ALTER TABLE `phoenix_records`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `phoenix_rollcalls`
+--
+ALTER TABLE `phoenix_rollcalls`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
