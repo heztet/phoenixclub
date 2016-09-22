@@ -5,17 +5,18 @@
 <table class="table table-hover">
 	<!-- Header -->
 	<tr>
+		<th>Place</th>
 		<th>Floor</th>
 		<th>Total Points</th>
 	</tr>
 
 	<!-- Items -->
+	<?php $count = 1; ?>
 	<?php foreach ($floors as $f): ?>
 		<tr>
+			<td><?php echo $count; $count += 1; ?></td>
 			<td><?php echo $f['Floor'] ?></td>
-			<td>
-				<?php $num = $f['TotalPoints']; ?>
-	   		</td>
+			<td><?php echo $f['TotalPoints']; ?></td>
 		</tr>
 	<?php endforeach; ?>
 </table>

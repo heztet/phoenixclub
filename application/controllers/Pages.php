@@ -58,7 +58,6 @@ class Pages extends CI_Controller {
 
         // Add floor stats
         $data['floors'] = $this->pages_model->get_floor_leaderboard();
-        $data['sides'] = $this->pages_model->get_side_leaderboard();
 
 
     	// Load the page
