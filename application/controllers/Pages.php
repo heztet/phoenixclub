@@ -47,8 +47,7 @@ class Pages extends CI_Controller {
         $data['IsLeaderboard'] = 1;
 
     	// Get students in order of points descending
-    	$numStudents = 5;
-    	$data['students'] = $this->pages_model->get_student_leaderboard($numStudents);
+    	$data['students'] = $this->pages_model->get_student_leaderboard();
 
     	// Add year string to each student
 		$data['students'] = $this->students_model->append_year_string($data['students']);
