@@ -8,6 +8,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [ ] Fix main page errors about getting content (HTTP/HTTPS issue)
 - [ ] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
 - [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
+- [ ] Page to add senators (for indiv./floor points)
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use; I only had to download it and put it in the proper folder.
