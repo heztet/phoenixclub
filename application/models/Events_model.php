@@ -60,6 +60,8 @@ class Events_model extends CI_Model {
 	// Add student to event
 	public function set_student($puid)
 	{
+		$BANQUET_MIN = 5;
+
 		$this->load->helper('url');
 
 		$eventId = $this->input->post('EventId');
@@ -111,10 +113,21 @@ class Events_model extends CI_Model {
 			$totalPoints = 0;
 		}
 
+		// Check for banquet eligibility
+		if ($totalPoints + $points >= $BANQUET_MIN)
+		{
+			$banquetEligible = 1;
+		}
+		else
+		{
+			$banquetEligible = 0;
+		}
+
 		// Update student totals
 		$data = array(
 			'TotalEvents' => $totalEvents + 1,
-			'TotalPoints' => $totalPoints + $points
+			'TotalPoints' => $totalPoints + $points,
+			'banquetEligible' => $banquetEligible
 			);
 		$this->db->where('PUID', $puid);
 		$this->db->update('phoenix_students', $data);
