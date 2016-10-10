@@ -1,6 +1,3 @@
-<h2><?php echo $title; ?></h2>
-
-<?php /*
 <!-- Students table -->
 <?php if (! empty($message)) : ?>
 	<?php if (empty($success)) : ?>
@@ -32,7 +29,3 @@
 
 	<?php endforeach; ?>
 </table>
-
-<?php /*
-	<a href="<?php echo site_url('students/archive'); ?>" type="button" class="btn btn-danger">Archive all students</a>
-*/?>

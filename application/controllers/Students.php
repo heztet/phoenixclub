@@ -12,6 +12,8 @@ class Students extends CI_Controller {
 	// Return all students
 	public function index($success = NULL, $message = NULL)
 	{
+		/* Don't allow anyone to see a list of all students (security issue)
+
 		// Get all students and format their year
 		$data['students'] = $this->students_model->get_students();
 		$data['students'] = $this->students_model->append_year_string($data['students']);
@@ -27,7 +29,7 @@ class Students extends CI_Controller {
 			$data['success'] = $success;
 		}
 		
-		/* Don't allow anyone to see a list of all students (security issue)
+		
 			// Get all students and format their year
 			$data['students'] = $this->students_model->get_students();
 			$data['students'] = $this->students_model->append_year_string($data['students']);
@@ -46,6 +48,7 @@ class Students extends CI_Controller {
 			$this->load->view('students/index', $data);
 			$this->load->view('templates/footer', $data);
 		*/
+		show_404();
 	}
 
 	// Return specific student

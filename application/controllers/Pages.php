@@ -59,10 +59,33 @@ class Pages extends CI_Controller {
         // Add floor stats
         $data['floors'] = $this->pages_model->get_floor_leaderboard();
 
-
     	// Load the page
     	$this->load->view('templates/header', $data);
     	$this->load->view('pages/leaderboard', $data);
     	$this->load->view('templates/footer', $data);
+    }
+
+    public function banquet($data = NULL)
+    {
+        $this->load->model('students_model');
+
+        // Get all students and format their year
+        $data['students'] = $this->students_model->get_banquet_students();
+        $data['students'] = $this->students_model->append_year_string($data['students']);
+        $data['title'] = 'Students';
+
+        // Message if exists
+        if ($message != NULL)
+        {
+            $data['message'] = $message;
+        }
+        if ($success != NULL)
+        {
+            $data['success'] = $success;
+        }
+        
+        $this->load->view('templates/header', $data);
+        $this->load->view('pages/banquet', $data);
+        $this->load->view('templates/footer', $data);
     }
 }
