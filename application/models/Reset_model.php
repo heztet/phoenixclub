@@ -42,4 +42,44 @@ class Reset_model extends CI_Model {
 		// Success
 		return 0;
 	}
+
+	public function reset_semester()
+	{
+		$BANQUET_MIN = 5;
+
+		$this->load->helper('url');
+
+		// Get the password from the post
+		$password = $this->input->post('Password');
+
+		// Check that the password matches
+		$this->db->where('Variable', 'ResetKey');
+		$this->db->where('Value', $password);
+		$query = $this->db->get('phoenix_globals');
+		$row = $query->row(0);
+
+		// Return error (-1) if password is incorrect
+		if (! is_object($row))
+		{
+			return -1;
+		}
+
+		// Set BanquetEligible
+		$sql = 'UPDATE phoenix_students SET BanquetEligible=1 WHERE (BanquetEligible=0 AND TotalPoints>'.$BANQUET_MIN.')';
+		log_message('debug', 'db sql: '.$sql);
+		$this->db->query($sql);
+
+		// Set TotalEvents/TotalPoints to 0 for students
+		$sql = 'UPDATE phoenix_students SET TotalEvents=0, TotalPoints=0';
+		log_message('debug', 'db sql: '.$sql);
+		$this->db->query($sql);
+
+		// Reset floor points
+		$sql = 'UPDATE phoenix_floors SET TotalPoints=0';
+		log_message('debug', 'db sql: '.$sql);
+		$this->db->query($sql);
+
+		// Success
+		return 0;
+	}
 }

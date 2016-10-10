@@ -107,11 +107,11 @@ class Reset extends CI_Controller {
 		{
 			log_message('error', 'Reset failure exception: '.$e->getMessage());
 			$data['resetSuccess'] = 0;
+
 			$data['resetFailure'] = 1;
 		}
-
 		$this->load->view('templates/header', $data);
-		$this->load->view('reset/year', $data);
+		$this->load->view('reset/semester', $data);
 		$this->load->view('templates/footer', $data);
 	}
 }

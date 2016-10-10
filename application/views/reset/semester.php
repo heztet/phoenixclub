@@ -4,7 +4,7 @@
 	</div>
 </div>
 
-<h4>Submit this form with the right password to reset all events for the next academic year.</h4>
+<h4>Submit this form with the right password to reset all events for the next semester.</h4>
 
 <?php echo validation_errors('<p class="bg-danger">'); ?>
 <?php if (!empty($resetFailure) and ($resetFailure == 1)) : ?>
@@ -16,11 +16,11 @@
 <?php elseif (!empty($resetSuccess) and ($resetSuccess) == 1) : ?>
 	<div class="row">
 		<div class="col-sm-3">
-			<p class="bg-success fade-message" id="ResetSuccess" style="padding: 3px 0px 3px 0px;">Success! Ready for next year.</p>
+			<p class="bg-success fade-message" id="ResetSuccess" style="padding: 3px 0px 3px 0px;">Success! Ready for next semester.</p>
 		</div>
 	</div>
 <?php endif; ?>
-<?php echo form_open('reset/year', 'class="form-horizontal"'); ?>
+<?php echo form_open('reset/semester', 'class="form-horizontal"'); ?>
 	<div class="form-group">
 	    <label for="Password" class="col-sm-2 control-label">Password</label>
 	    <div class="col-sm-4">
