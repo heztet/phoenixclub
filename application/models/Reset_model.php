@@ -1,5 +1,5 @@
 <?php
-class Admin_model extends CI_Model {
+class Reset_model extends CI_Model {
 
 	// Load database
 	public function __construct()
@@ -8,7 +8,7 @@ class Admin_model extends CI_Model {
 	}
 
 	// Archive all events and wipe student data for upcoming school year
-	public function reset_tables()
+	public function reset_year()
 	{
 		$this->load->helper('url');
 
