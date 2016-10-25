@@ -40,6 +40,7 @@
 								<li><a href="https://twitter.com/_phoenixclub">Twitter</a></li>
 								<li><a href="#">Constitution</a></li>
 								<!-- <li><a href="index.php/eboard">E-Board</a></li> -->
+								<li><a href="<?php echo site_url('leaderboard/'); ?>">Points</a></li>
 							</ul>
 						</nav>
 
