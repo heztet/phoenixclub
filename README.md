@@ -13,6 +13,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [ ] Button to reset floor points
 - [ ] Newsletter section (and form to add newsletters)
 - [ ] Save floor/side on failed password for /rollcall
+- [ ] URL Shortener
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use; I only had to download it and put it in the proper folder.
