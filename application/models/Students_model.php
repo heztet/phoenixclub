@@ -24,7 +24,6 @@ class Students_model extends CI_Model {
 		if ($puid == FALSE)
 		{
 			$this->db->order_by('LastName');
-			$this->db->where('IsCurrent', 1);
 			$query = $this->db->get('phoenix_students');
 			return $query->result_array();
 		}

@@ -61,6 +61,7 @@ $route['events/add/(:any)'] = 'events/add/$1';
 $route['events/close/(:any)'] = 'events/close/$1';
 $route['events/(:any)'] = 'events/view/$1';
 $route['events'] = 'events';
+$route['newsletter'] = 'newsletter';
 $route['reset/year'] = 'reset/year';
 $route['reset/semester'] = 'reset/semester';
 $route['reset'] = 'reset';
