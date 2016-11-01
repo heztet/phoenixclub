@@ -193,7 +193,8 @@ class Events extends CI_Controller {
 		// Set messgae if event is closed
 		else if ($data['events_item']['IsOpen'] == 0)
 		{
-			$data['CloseMessage'] = "This event is already closed";
+			$data['message'] = "This event is already closed";
+			$data['success'] = -1;
 		}
 		// Close event
 		else
@@ -205,18 +206,18 @@ class Events extends CI_Controller {
 
 			if ($success)
 			{
-				$data['CloseMessage'] = "Event was closed successfully";
+				$data['message'] = "Event was closed successfully";
+				$data['success'] = 1;
 			}
 			else
 			{
-				$data['CloseMessage'] = "There was an issue with closing the event. Please try again.";
+				$data['message'] = "There was an issue with closing the event. Please try again.";
+				$data['success'] = 0;
 			}
 		}
 
-		// Load close.php
-		$this->load->view('templates/header', $data);
-		$this->load->view('events/close', $data);
-		$this->load->view('templates/footer', $data);
+		// Load index with message/success
+		$this->index($data['success'], $data['message']);
 	}
 
 	// Archive all events (set IsCurrentYear to FALSE)

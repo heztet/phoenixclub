@@ -4,11 +4,23 @@
 	<?php if (empty($success)) : ?>
 		<p><?php echo $message; ?></p>
 	<?php elseif ($success == 1) : ?>
-		<p class="bg-success"><?php echo $message; ?></p>
+		<div class="row">
+			<div class="col-sm-3">
+				<p class="bg-success fade-message" id="CleanPuidError" style="padding: 3px 0px 3px 0px;"><?php echo $message; ?></p>
+			</div>
+		</div>
 	<?php elseif ($success == 0) : ?>
-		<p class="bg-danger"><?php echo $message; ?></p>
+		<div class="row">
+			<div class="col-sm-3">
+				<p class="bg-danger fade-message" id="CleanPuidError" style="padding: 3px 0px 3px 0px;"><?php echo $message; ?></p>
+			</div>
+		</div>
 	<?php else : ?>
-		<p class="bg-warning"><?php echo $message; ?></p>
+		<div class="row">
+			<div class="col-sm-3">
+				<p class="bg-warning fade-message" id="CleanPuidError" style="padding: 3px 0px 3px 0px;"><?php echo $message; ?></p>
+			</div>
+		</div>
 	<?php endif; ?>
 <?php endif; ?>
 <!-- Events table -->
