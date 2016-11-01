@@ -11,8 +11,9 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [ ] Page to add senators (for indiv./floor points)
 - [ ] End of year feature -> erase points, record whether student had >= a certain amount of points
 - [ ] Button to reset floor points
-- [ ] Newsletter section (and form to add newsletters)
-- [ ] Save floor/side on failed password for /rollcall
+- [X] Newsletter section
+- [ ] Newsletter form
+- [ ] ~~Save floor/side on failed password for /rollcall~~
 - [ ] URL Shortener
 - [ ] User management
 	- [ ] https://github.com/trafficinc/CodeIgniter-Authit
