@@ -21,4 +21,22 @@ class Newsletter extends CI_Controller {
 		$this->load->view('newsletter/index', $data);
 		$this->load->view('templates/footer', $data);
 	}
+
+	// Redirect to specified newsletter
+	public function view($id = NULL)
+	{
+		if ($id == NULL)
+		{
+			redirect('newsletter/index', 'refresh');
+		}
+
+		$link = $this->newsletter_model->get_newsletter_link($id);
+
+		if (empty($link))
+		{
+			show_404();
+		}
+		
+		redirect(prep_url($link), 'refresh');
+	}
 }

@@ -24,6 +24,20 @@ class Newsletter_model extends CI_Model {
 		return $newsletter;
 	}
 
+	public function get_newsletter_link($id = NULL)
+	{
+		if ($id == NULL)
+		{
+			return NULL;
+		}
+
+		$this->db->order_by('DateCreated', 'desc');
+		$this->db->where('Id', $id);
+		$query = $this->db->get('phoenix_newsletters');
+		$row = $query->row();
+		return $row->Link;
+	}
+
 	// TODO
 	public function destroy_newsletters()
 	{
