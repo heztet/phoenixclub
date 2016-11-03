@@ -50,23 +50,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+/* STUDENTS */
 $route['students'] = 'students';
 $route['students/create/(:num)/(:num)'] = 'students/create/$1/$2';
 $route['students/create/(:num)/(:any)'] = 'students/create/$1'; // Returns to students/create if not num
 $route['students/archive'] = 'students/archive';
 $route['students/(:num)'] = 'students/view/$1';
+
+/* EVENTS */
 $route['events/create'] = 'events/create';
 $route['events/archive'] = 'events/archive';
 $route['events/add/(:any)'] = 'events/add/$1';
 $route['events/close/(:any)'] = 'events/close/$1';
 $route['events/(:any)'] = 'events/view/$1';
 $route['events'] = 'events';
+
+/* NEWSLETTER */
 $route['newsletter'] = 'newsletter';
-$route['newsletter/(:num)'] = 'newsletter/view/$1';
 $route['newsletter/add'] = 'newsletter/add';
+$route['newsletter/(:num)'] = 'newsletter/view/$1';
+
+/* RESET */
 $route['reset/year'] = 'reset/year';
 $route['reset/semester'] = 'reset/semester';
 $route['reset'] = 'reset';
+
+/* MISC */
 $route['rollcall'] = 'rollcall';
 //$route['eboard'] = 'pages/view/eboard';
 //$route['contact'] = 'pages/view/contact';

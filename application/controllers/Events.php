@@ -65,15 +65,19 @@ class Events extends CI_Controller {
 		// Validate inputs
 		$this->form_validation->set_rules('Title', 'Title', 
 										  'required|max_length[60]|is_unique[phoenix_events.Title]',
+										  array('required' => 'You need to have a %s'),
+										  array('max_length' => '%s can only be 60 characters or less'),
 										  array('is_unique' => 'There\'s already an event with that %s'));
-		$this->form_validation->set_rules('PointValue', 'Points', 'required|greater_than[-1]|less_than[15]');
+		$this->form_validation->set_rules('PointValue', 'Points',
+										  'required|greater_than[-1]|less_than[15]',
+										  array('required' => 'You need to have a %s'));
 
 		// Return create view if inputs are invalid
 		if ($this->form_validation->run() === FALSE)
 		{
 			$this->load->view('templates/header', $data);
-			$this->load->view('events/create');
-			$this->load->view('templates/footer');
+			$this->load->view('events/create', $data);
+			$this->load->view('templates/footer', $data);
 		}
 		// Load new event view
 		else
