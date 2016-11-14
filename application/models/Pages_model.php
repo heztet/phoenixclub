@@ -12,7 +12,6 @@ class Pages_model extends CI_Model {
 	{
 		// Get all current students
 		$this->db->order_by('TotalPoints', 'desc');
-		$this->db->where('IsCurrent', 1);
 		$query = $this->db->get('phoenix_students');
 		$allStudents = $query->result_array();
 		$totalStudents = $query->num_rows();
