@@ -2,7 +2,7 @@
 
 		<br />
 		<br />
-		<div class="footer navbar navbar-default navbar-bottom">
+		<div class="footer navbar navbar-default navbar-fixed-bottom">
 		<br />
 			<div class="container center-block">
 				<div class="vertical-center">
