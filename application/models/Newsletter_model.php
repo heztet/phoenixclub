@@ -24,6 +24,7 @@ class Newsletter_model extends CI_Model {
 		return $newsletter;
 	}
 
+	// Return the URL for a newsletter by ID
 	public function get_newsletter_link($id = NULL)
 	{
 		if ($id == NULL)
@@ -36,6 +37,25 @@ class Newsletter_model extends CI_Model {
 		$query = $this->db->get('phoenix_newsletters');
 		$row = $query->row();
 		return $row->Link;
+	}
+
+	// Create a newsletter
+	public function set_newsletter() {
+		// Helpers
+		$this->load->helper('url');
+		$this->load->helper('form');
+
+		// Get post inputs
+		$title = $this->input->post('Title');
+		$link = $this->input->post('Link');
+		$cleanLink = prep_url($link);
+
+		// Insert newsletter
+		$data = array(
+			'Title' => $title,
+			'Link' => $link
+			);
+		$this->db->insert('phoenix_newsletters', $data);
 	}
 
 	// TODO

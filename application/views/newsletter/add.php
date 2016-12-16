@@ -6,7 +6,7 @@
 <br />
 <br />
 
-<?php echo validation_errors('<p class="bg-danger">'); ?>
+<?php echo validation_errors('<p class="bg-danger fade-message">'); ?>
 
 <?php echo form_open('newsletter/add', 'class="form-horizontal"'); ?>
 	<div class="form-group">

@@ -51,13 +51,14 @@ class Newsletter extends CI_Controller {
 		$data['title'] = "Create newsletter";
 
 		// Validate inputs
-		$this->form_validation->set_rules('Title', 'Title', 
+		$this->form_validation->set_rules('Title', 'title', 
 										  'required|max_length[60]|is_unique[phoenix_newsletters.Title]',
 										  array('required' => 'You need to have a %s'),
 										  array('max_length' => '%s can only be 60 characters or less'),
 										  array('is_unique' => 'There\'s already an event with that %s'));
-		$this->form_validation->set_rules('Link', 'Link', 'required',
-										  array('required' => 'You need to have a %s'));
+		$this->form_validation->set_rules('Link', 'link', 'required|valid_url',
+										  array('required' => 'You need to have a %s'),
+										  array('valid_url' => 'You need a valid url for your %s.'));
 
 		// Return create view if inputs are invalid
 		if ($this->form_validation->run() === FALSE)
@@ -66,7 +67,7 @@ class Newsletter extends CI_Controller {
 			$this->load->view('newsletter/add', $data);
 			$this->load->view('templates/footer', $data);
 		}
-		// Return to newsletter index
+		// Create newsletter and return to newsletter index
 		else
 		{
 			$result = $this->newsletter_model->set_newsletter();
