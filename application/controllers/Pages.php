@@ -29,9 +29,14 @@ class Pages extends CI_Controller {
         {
         	$this->leaderboard($data);
         }
-        // Load header/footer otherwise
         else
         {
+            // Simple header for contact page
+            if ($page == 'contact') {
+                $data['SimpleHeader'] = 1;
+            }
+            
+            // Load header/footer otherwise
         	$this->load->view('templates/header', $data);
         	$this->load->view('pages/'.$page, $data);
         	$this->load->view('templates/footer', $data);
@@ -44,7 +49,7 @@ class Pages extends CI_Controller {
         $this->load->model('events_model');
 
     	$data['title'] = 'Leaderboard';
-        $data['IsLeaderboard'] = 1;
+        $data['SimpleHeader'] = 1;
 
     	// Get students in order of points descending
     	$data['students'] = $this->pages_model->get_student_leaderboard();

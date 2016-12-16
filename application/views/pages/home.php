@@ -26,9 +26,9 @@
 					<!-- Inner -->
 						<div class="inner">
 							<header>
-								<h1><a href="index.php" id="logo">Phoenix Club</a></h1>
+								<h1><a href="<?php echo $this->config->item('base_url'); ?>" id="logo">Phoenix Club</a></h1>
 								<hr />
-								<p>Make Hillenbrand Great Again</p>
+								<p>Purdue Hillenbrand Hall Phoenix Club</p>
 							</header>
 						</div>
 
@@ -65,13 +65,13 @@
 		</div>
 
 		<!-- Scripts -->
-		<script src="./home_assets/js/jquery.min.js"></script>
-		<script src="./home_assets/js/jquery.dropotron.min.js"></script>
-		<script src="./home_assets/js/jquery.scrolly.min.js"></script>
-		<script src="./home_assets/js/jquery.onvisible.min.js"></script>
-		<script src="./home_assets/js/skel.min.js"></script>
-		<script src="./home_assets/js/util.js"></script>
-		<!--[if lte IE 8]><script src="home_assets/js/ie/respond.min.js"></script><![endif]-->
-		<script src="./home_assets/js/main.js"></script>
+		<script src="<?php echo $this->config->item('base_url').'home_assets/js/jquery.min.js'; ?>"></script>
+		<script src="<?php echo $this->config->item('base_url').'home_assets/js/jquery.dropotron.min.js'; ?>"></script>
+		<script src="<?php echo $this->config->item('base_url').'home_assets/js/jquery.scrolly.min.js'; ?>"></script>
+		<script src="<?php echo $this->config->item('base_url').'home_assets/js/jquery.onvisible.min.js'; ?>"></script>
+		<script src="<?php echo $this->config->item('base_url').'home_assets/js/skel.min.js'; ?>"></script>
+		<script src="<?php echo $this->config->item('base_url').'home_assets/js/util.js'; ?>"></script>
+		<!--[if lte IE 8]><script src="<?php echo $this->config->item('base_url').'home_assets/js/ie/respond.min.js'; ?>"></script><![endif]-->
+		<script src="<?php echo $this->config->item('base_url').'home_assets/js/main.js'; ?>"></script>
 	</body>
 </html>

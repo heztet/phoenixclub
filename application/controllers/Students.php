@@ -9,70 +9,7 @@ class Students extends CI_Controller {
 		$this->load->helper('url_helper');
 	}
 
-	// Return all students
-	public function index($success = NULL, $message = NULL)
-	{
-		/* Don't allow anyone to see a list of all students (security issue)
-
-		// Get all students and format their year
-		$data['students'] = $this->students_model->get_students();
-		$data['students'] = $this->students_model->append_year_string($data['students']);
-		$data['title'] = 'Students';
-
-		// Message if exists
-		if ($message != NULL)
-		{
-			$data['message'] = $message;
-		}
-		if ($success != NULL)
-		{
-			$data['success'] = $success;
-		}
-		
-		
-			// Get all students and format their year
-			$data['students'] = $this->students_model->get_students();
-			$data['students'] = $this->students_model->append_year_string($data['students']);
-			$data['title'] = 'Students';
-
-			// Message if exists
-			if ($success != NULL)
-			{
-				$data['success'] = $success;
-			if ($message != NULL)
-			{
-				$data['message'] = $message;
-			}
-			
-			$this->load->view('templates/header', $data);
-			$this->load->view('students/index', $data);
-			$this->load->view('templates/footer', $data);
-		*/
-		show_404();
-	}
-
-	// Return specific student
-	public function view($puid = NULL)
-	{
-		// Error out
-		show_error('This page is not currently availiable');
-		
-		/* Don't allow anyone to view a student based on PUID (security issue)
-			// Retrieve student and format their year
-			$data['students_item'] = $this->students_model->get_students($puid);
-			
-			if (empty($data['students_item']) or ($data['students_item'] == -1))
-			{
-				show_404();
-			}
-
-			$data['StudentName'] = $data['students_item']['FirstName'].' '.$data['students_item']['LastName'];
-
-			$this->load->view('templates/header', $data);
-			$this->load->view('students/view', $data);
-			$this->load->view('templates/footer', $data);
-		*/
-	}
+	// Note: student index and view pages have been removed
 
 	// Create a student with the given PUID and an optional eventId they checked into
 	public function create($puid = NULL, $eventId = NULL)

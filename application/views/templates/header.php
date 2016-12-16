@@ -52,7 +52,7 @@
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<?php if (empty($IsLeaderboard) or ($IsLeaderboard == 0)) : ?>
+						<?php if (empty($SimpleHeader) or ($SimpleHeader == 0)) : ?>
 							<li><a href="<?php echo site_url('events/'); ?>">Events</a></li>
 							<li><a href="<?php echo site_url('events/create'); ?>">Create</a></li>
 						<?php endif ; ?>

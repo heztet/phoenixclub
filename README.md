@@ -13,16 +13,14 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [ ] Button to reset floor points
 - [X] Newsletter section
 - [ ] Newsletter form
-- [ ] ~~Save floor/side on failed password for /rollcall~~
 - [ ] URL Shortener
-
 - [ ] User management
 	- [ ] https://github.com/trafficinc/CodeIgniter-Authit
 	- [ ] http://community-auth.com/documentation
 	- [ ] http://benedmunds.com/ion_auth/
-- [ ] VITAL: FIX CONTACT PAGE
-- [ ] VITAL: Fix SimpleHeader for Contact/Leaderboard
-- [ ] VITAL: Fix PhoenixClub link on home page (and slogan)
+- [X] VITAL: FIX CONTACT PAGE
+- [X] VITAL: Fix SimpleHeader for Contact/Leaderboard
+- [X] VITAL: Fix PhoenixClub link on home page (and slogan)
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use; I only had to download it and put it in the proper folder.
