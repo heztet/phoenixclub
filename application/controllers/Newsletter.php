@@ -15,6 +15,7 @@ class Newsletter extends CI_Controller {
 
 		$data['title'] = 'Newsletters';
 		$data['newsletters'] = $this->newsletter_model->get_newsletters();
+		$data['SimpleHeader'] = 1;
 
 		// Display page
 		$this->load->view('templates/header', $data);
