@@ -2,7 +2,7 @@
 Since the Phoneix Club's website was last updated in 2006, I've decided that I'm going to re-work it for HTML5. Basically, I want to make it look aesthetically pleasing and have ways for people to get in contact with our club.
 
 # To Do for v2.3
-- [X] ~~Redesign home page~~ no longer needed (maybe enable [Canva integration](https://www.canva.com/))
+- [X] ~~Redesign home page (maybe enable [Canva integration](https://www.canva.com/))~~ no longer needed
 - [X] Fix main page errors about getting content (HTTP/HTTPS issue)
 - [ ] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
 - [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
@@ -12,7 +12,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [X] Newsletter section
 - [X] Newsletter form
 - [X] ~~URL Shortener~~ no longer needed
-- [ ] User management
+- [ ] User management options:
 	- [ ] https://github.com/trafficinc/CodeIgniter-Authit
 	- [ ] http://community-auth.com/documentation
 	- [ ] http://benedmunds.com/ion_auth/
@@ -21,7 +21,7 @@ Since the Phoneix Club's website was last updated in 2006, I've decided that I'm
 - [X] VITAL: Fix PhoenixClub link on home page (and slogan)
 
 # Why Codeigniter?
-Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use; I only had to download it and put it in the proper folder.
+Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use.
 
 # Help! How do I put this in production mode?
 - In `application/config/config.php`, set `$config['log_threshold'] = 1;`
@@ -30,4 +30,4 @@ Originally I was going to build a Rails app, but Purdue's web servers only suppo
 - In `system/core/Controller.php`, set `$this->output->enable_profiler(FALSE);`
 - In `index.php`, change `define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');` to `define('ENVIRONMENT', 'production');`
 - Rum `dbSetup.sql` (you can also remove the `AUTO_INCREMENT=<num>` as well)
-- Add a value for `ResetKey` in `phoenix_globals`
+- Add a value for `ResetYearKey`, `ResetSemesterKey`, `ResetFloorKey`, and `RollcallKey` in `phoenix_globals`

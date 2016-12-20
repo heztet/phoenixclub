@@ -1018,8 +1018,8 @@ body .markdown-body
 <p>Since the Phoneix Club&rsquo;s website was last updated in 2006, I&rsquo;ve decided that I&rsquo;m going to re-work it for HTML5. Basically, I want to make it look aesthetically pleasing and have ways for people to get in contact with our club.</p>
 <h1 id="to-do-for-v23"><a name="user-content-to-do-for-v23" href="#to-do-for-v23" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>To Do for v2.3</h1>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled checked> <del>Redesign home page</del> no longer needed (maybe enable <a href="https://www.canva.com/">Canva integration</a>)</li>
-<li class="task-list-item"><input type="checkbox" disabled> Fix main page errors about getting content (HTTP/HTTPS issue)</li>
+<li class="task-list-item"><input type="checkbox" disabled checked> <del>Redesign home page (maybe enable <a href="https://www.canva.com/">Canva integration</a>)</del> no longer needed</li>
+<li class="task-list-item"><input type="checkbox" disabled checked> Fix main page errors about getting content (HTTP/HTTPS issue)</li>
 <li class="task-list-item"><input type="checkbox" disabled> Better form validation messages (ex: &ldquo;You did not have a <field>&ldquo;, &ldquo;<Field> cannot have <this>&ldquo;)</li>
 <li class="task-list-item"><input type="checkbox" disabled> Better grid system for forms (make most of the form elements way smaller for large screens)</li>
 <li class="task-list-item"><input type="checkbox" disabled> Page to add senators (for indiv./floor points)</li>
@@ -1028,7 +1028,7 @@ body .markdown-body
 <li class="task-list-item"><input type="checkbox" disabled checked> Newsletter section</li>
 <li class="task-list-item"><input type="checkbox" disabled checked> Newsletter form</li>
 <li class="task-list-item"><input type="checkbox" disabled checked> <del>URL Shortener</del> no longer needed</li>
-<li class="task-list-item"><input type="checkbox" disabled> User management<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled> User management options:<ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled> <a href="https://github.com/trafficinc/CodeIgniter-Authit">https://github.com/trafficinc/CodeIgniter-Authit</a></li>
 <li class="task-list-item"><input type="checkbox" disabled> <a href="http://community-auth.com/documentation">http://community-auth.com/documentation</a></li>
 <li class="task-list-item"><input type="checkbox" disabled> <a href="http://benedmunds.com/ion_auth/">http://benedmunds.com/ion_auth/</a></li>
@@ -1039,7 +1039,7 @@ body .markdown-body
 <li class="task-list-item"><input type="checkbox" disabled checked> VITAL: Fix PhoenixClub link on home page (and slogan)</li>
 </ul>
 <h1 id="why-codeigniter"><a name="user-content-why-codeigniter" href="#why-codeigniter" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Why Codeigniter?</h1>
-<p>Originally I was going to build a Rails app, but Purdue&rsquo;s web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use; I only had to download it and put it in the proper folder.</p>
+<p>Originally I was going to build a Rails app, but Purdue&rsquo;s web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use.</p>
 <h1 id="help-how-do-i-put-this-in-production-mode"><a name="user-content-help-how-do-i-put-this-in-production-mode" href="#help-how-do-i-put-this-in-production-mode" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Help! How do I put this in production mode?</h1>
 <ul>
 <li>In <code>application/config/config.php</code>, set <code>$config['log_threshold'] = 1;</code></li>
@@ -1048,5 +1048,5 @@ body .markdown-body
 <li>In <code>system/core/Controller.php</code>, set <code>$this-&gt;output-&gt;enable_profiler(FALSE);</code></li>
 <li>In <code>index.php</code>, change <code>define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');</code> to <code>define('ENVIRONMENT', 'production');</code></li>
 <li>Rum <code>dbSetup.sql</code> (you can also remove the <code>AUTO_INCREMENT=&lt;num&gt;</code> as well)</li>
-<li>Add a value for <code>ResetKey</code> in <code>phoenix_globals</code></li>
+<li>Add a value for <code>ResetYearKey</code>, <code>ResetSemesterKey</code>, <code>ResetFloorKey</code>, and <code>RollcallKey</code> in <code>phoenix_globals</code></li>
 </ul></article></body></html>

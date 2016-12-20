@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `phoenix_events` (
   `IsOpen` tinyint(1) NOT NULL DEFAULT '1',
   `TotalStudents` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -52,6 +52,29 @@ CREATE TABLE IF NOT EXISTS `phoenix_floors` (
   PRIMARY KEY (`Floor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Table values for table 'phoenix_floors'
+--
+
+INSERT INTO phoenix_floors (Floor, TotalPoints)
+               VALUES
+                           ("1E", 0),
+                           ("2E", 0),
+                           ("3E", 0),
+                           ("4E", 0),
+                           ("5E", 0),
+                           ("6E", 0),
+                           ("7E", 0),
+                           ("8E", 0),
+                           ("1W", 0),
+                           ("2W", 0),
+                           ("3W", 0),
+                           ("4W", 0),
+                           ("5W", 0),
+                           ("6W", 0),
+                           ("7W", 0),
+                           ("8W", 0);
+
 -- --------------------------------------------------------
 
 --
@@ -64,6 +87,17 @@ CREATE TABLE IF NOT EXISTS `phoenix_globals` (
   `Value` varchar(256) NOT NULL,
   PRIMARY KEY (`Variable`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table rows for 'phoenix_globals'
+--
+
+INSERT INTO phoenix_globals (Variable, Value)
+                            VALUES
+                            ("ResetFloorsKey", NULL),
+                            ("ResetSemesterKey", NULL),
+                            ("ResetYearKey", NULL),
+                            ("RollcallKey", NULL);
 
 -- --------------------------------------------------------
 
@@ -95,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `phoenix_records` (
   `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`),
   KEY `PUID` (`PUID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=690 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -110,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `phoenix_rollcalls` (
   `PointDelta` int(11) NOT NULL DEFAULT '0',
   `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
