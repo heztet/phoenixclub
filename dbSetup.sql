@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `phoenix_floors` (
 --
 
 INSERT INTO phoenix_floors (Floor, TotalPoints)
-               VALUES
+                           VALUES
                            ("1E", 0),
                            ("2E", 0),
                            ("3E", 0),

@@ -55,7 +55,7 @@ class Reset extends CI_Controller {
 		}
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('reset/floor', $data);
+		$this->load->view('reset/floors', $data);
 		$this->load->view('templates/footer', $data);
 	}
 

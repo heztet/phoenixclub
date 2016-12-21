@@ -31,6 +31,10 @@ class Reset_model extends CI_Model {
 		$this->db->where('PUID !=', 'NULL');
 		$this->db->delete('phoenix_students');
 
+		$sql = 'UPDATE phoenix_floors SET TotalPoints=0 WHERE (Floor Is Not Null);';
+		log_message('debug', 'db sql: '.$sql);
+		$this->db->query($sql);
+
 		// Success
 		return 0;
 	}
