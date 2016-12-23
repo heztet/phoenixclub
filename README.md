@@ -2,6 +2,7 @@
 Since the Phoneix Club's website was last updated in 2006, I've decided that I'm going to re-work it for HTML5. Basically, I want to make it look aesthetically pleasing and have ways for people to get in contact with our club.
 
 # To Do for v2.3
+- [ ] Add destroy_newsletters to reset year
 - [ ] End of semester feature -> erase points, record whether student had >= a certain amount of points
 - [ ] Page to add senators (for indiv./floor points)
 - [ ] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
