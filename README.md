@@ -3,7 +3,7 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.3
 - [X] Add destroy_newsletters to reset year
-- [ ] End of semester feature -> erase points, record whether student had >= a certain amount of points
+- [X] End of semester feature -> erase points, record whether student had >= a certain amount of points
 - [ ] Page to add senators (for indiv./floor points)
 - [ ] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
 - [ ] Use `global_helper` for password comparing (currently open to SQL injections)

@@ -17,10 +17,11 @@ if ( ! function_exists('get_banquet_amount'))
         // Get first student by given PUID
         $helper->db->where('Variable', 'BanquetAmount');
         $query = $helper->db->get('globals');
-        $value = $query->row(0);
-        
+        $result = $query->row(0);
+        $value = $result->Value;
+
         // Return whether student exists
-        if (is_object($value))
+        if (!empty($value))
         {
             return $value;
         }

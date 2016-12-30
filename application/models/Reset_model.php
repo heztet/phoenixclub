@@ -33,7 +33,6 @@ class Reset_model extends CI_Model {
 		$this->db->delete('phoenix_students');
 
 		$sql = 'UPDATE phoenix_floors SET TotalPoints=0 WHERE (Floor Is Not Null);';
-		log_message('debug', 'db sql: '.$sql);
 		$this->db->query($sql);
 
 		// Success
@@ -49,9 +48,9 @@ class Reset_model extends CI_Model {
 
 		// Get minimum amount needed for banquet
 		$BANQUET_MIN = get_banquet_amount();
-		log_message('debug', 'banquet min: '.$BANQUET_MIN);
-		if (!is_object($BANQUET_MIN))
+		if (empty($BANQUET_MIN))
 		{
+			log_message('debug', 'ERROR: Failed to reset semester: no BanquetAmount');
 			return -1;
 		}
 
@@ -72,22 +71,24 @@ class Reset_model extends CI_Model {
 
 		// Set BanquetEligible
 		$sql = 'UPDATE phoenix_students SET BanquetEligible=1 WHERE (BanquetEligible=0 AND TotalPoints>'.$BANQUET_MIN.')';
-		log_message('debug', 'db sql: '.$sql);
 		$this->db->query($sql);
 
 		// Move TotalPoints to LastSemesterPoints
 		$sql = 'UPDATE phoenix_students SET LastSemesterPoints=TotalPoints';
-		log_message('debug', 'db sql: '.$sql);
 		$this->db->query($sql);
 
 		// Set TotalEvents/TotalPoints to 0 for students
 		$sql = 'UPDATE phoenix_students SET TotalEvents=0, TotalPoints=0';
-		log_message('debug', 'db sql: '.$sql);
 		$this->db->query($sql);
 
 		// Reset floor points
 		$sql = 'UPDATE phoenix_floors SET TotalPoints=0';
-		log_message('debug', 'db sql: '.$sql);
+		$this->db->query($sql);
+
+		// Archive events
+		$now = new DateTime(null, new DateTimeZone('America/New_York'));
+		$time = $now->format('Y-m-d H:i:s'); // MySQL datetime format
+		$sql = 'UPDATE phoenix_events SET IsCurrentYear=0, DateArchived="'.$time.'", IsOpen=0 WHERE IsCurrentYear=1';
 		$this->db->query($sql);
 
 		// Success
@@ -115,11 +116,9 @@ class Reset_model extends CI_Model {
 		}
 
 		// Archive all current events
-		// Set sql statement
 		$now = new DateTime(null, new DateTimeZone('America/New_York'));
 		$time = $now->format('Y-m-d H:i:s'); // MySQL datetime format
 		$sql = 'UPDATE phoenix_events SET IsCurrentYear=0, DateArchived="'.$time.'", IsOpen=0 WHERE IsCurrentYear=1';
-		log_message('debug', 'db sql: '.$sql);
 		$this->db->query($sql);
 
 		// Delete all students
@@ -129,6 +128,14 @@ class Reset_model extends CI_Model {
 		// Delete all newsletters
 		$this->db->where('Id !=', 'NULL');
 		$this->db->delete('phoenix_newsletters');
+
+		// Reset floor points
+		$sql = 'UPDATE phoenix_floors SET TotalPoints=0';
+		$this->db->query($sql);
+
+		// Delete records
+		$this->db->where('Id !=', 'NULL');
+		$this->db->delete('phoenix_records');
 
 		// Success
 		return 0;
