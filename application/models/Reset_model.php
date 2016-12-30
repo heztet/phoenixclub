@@ -112,6 +112,10 @@ class Reset_model extends CI_Model {
 		$this->db->where('PUID !=', 'NULL');
 		$this->db->delete('phoenix_students');
 
+		// Delete all newsletters
+		$this->db->where('Id !=', 'NULL');
+		$this->db->delete('phoenix_newsletters');
+
 		// Success
 		return 0;
 	}

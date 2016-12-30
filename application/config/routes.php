@@ -67,6 +67,7 @@ $route['events'] = 'events';
 
 /* NEWSLETTER */
 $route['newsletter'] = 'newsletter';
+$route['newsletters'] = 'newsletter'; // Just in case someone pluralizes it
 $route['newsletter/add'] = 'newsletter/add';
 $route['newsletter/(:num)'] = 'newsletter/view/$1';
 

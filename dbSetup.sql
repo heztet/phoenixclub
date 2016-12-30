@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.0.9
--- http://www.phpmyadmin.net
---
--- Host: mydb.ics.purdue.edu
--- Generation Time: Dec 15, 2016 at 08:25 PM
--- Server version: 5.5.52-log
--- PHP Version: 5.4.23
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -15,10 +6,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-
---
--- Database: `hillclub`
---
 
 -- --------------------------------------------------------
 
@@ -97,7 +84,8 @@ INSERT INTO phoenix_globals (Variable, Value)
                             ("ResetFloorsKey", NULL),
                             ("ResetSemesterKey", NULL),
                             ("ResetYearKey", NULL),
-                            ("RollcallKey", NULL);
+                            ("RollcallKey", NULL),
+                            ("BanquetAmount", NULL);
 
 -- --------------------------------------------------------
 
@@ -163,6 +151,7 @@ CREATE TABLE IF NOT EXISTS `phoenix_students` (
   `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsCurrent` tinyint(1) NOT NULL DEFAULT '1',
   `BanquetEligible` tinyint(1) NOT NULL DEFAULT '0',
+  `LastSemesterPoints` INT NULL DEFAULT NULL,
   `TotalEvents` int(11) NOT NULL DEFAULT '0',
   `TotalPoints` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`PUID`)

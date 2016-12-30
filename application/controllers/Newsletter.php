@@ -48,7 +48,7 @@ class Newsletter extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$data['title'] = "Create newsletter";
+		$data['title'] = "Add newsletter";
 
 		// Validate inputs
 		$this->form_validation->set_rules('Title', 'title', 
