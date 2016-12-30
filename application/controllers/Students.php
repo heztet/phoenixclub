@@ -6,7 +6,7 @@ class Students extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('students_model');
-		$this->load->helper('url_helper');
+		$this->load->helper('url');
 	}
 
 	// Note: student index and view pages have been removed
@@ -15,8 +15,8 @@ class Students extends CI_Controller {
 	public function create($puid = NULL, $eventId = NULL)
 	{
 		// Helpers
-		$this->load->helper('puid_helper');
-		$this->load->helper('student_helper');
+		$this->load->helper('puid');
+		$this->load->helper('student');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 

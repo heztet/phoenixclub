@@ -8,7 +8,7 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 	- [ ] Remove '_helper' from `$this->load->helper()`
 	- [ ] Remove IsCurrent column for students
 	- [ ] Properly use `$this->db->dbprefix()` ([example](https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter))
-- [ ] User management options:
+- [ ] User management:
 	- [ ] https://github.com/trafficinc/CodeIgniter-Authit
 	- [ ] http://community-auth.com/documentation
 	- [ ] http://benedmunds.com/ion_auth/
@@ -23,7 +23,6 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 - [X] Add destroy_newsletters to reset year
 - [X] End of semester feature -> erase points, record whether student had >= a certain amount of points
 - [X] Use `global_helper` for password comparing (currently open to SQL injections)
-- [ ] Add `/banquet` page and add banquet eligibility to `leaderboard`
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use.

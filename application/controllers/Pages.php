@@ -6,17 +6,11 @@ class Pages extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('pages_model');
-		$this->load->helper('url_helper');
+		$this->load->helper('url');
 	}
 
     public function view($page = 'home')
     {
-    	if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
-        {
-                // Whoops, we don't have a page for that!
-                show_404();
-        }
-
         $data['title'] = ucfirst($page); // Capitalize the first letter
 
         // Main (home) page has custom headers and footers
@@ -68,29 +62,5 @@ class Pages extends CI_Controller {
     	$this->load->view('templates/header', $data);
     	$this->load->view('pages/leaderboard', $data);
     	$this->load->view('templates/footer', $data);
-    }
-
-    public function banquet($data = NULL)
-    {
-        $this->load->model('students_model');
-
-        // Get all students and format their year
-        $data['students'] = $this->pages_model->get_banquet_students();
-        $data['students'] = $this->students_model->append_year_string($data['students']);
-        $data['title'] = 'Banquet';
-
-        // Message if exists
-        if ($message != NULL)
-        {
-            $data['message'] = $message;
-        }
-        if ($success != NULL)
-        {
-            $data['success'] = $success;
-        }
-        
-        $this->load->view('templates/header', $data);
-        $this->load->view('pages/banquet', $data);
-        $this->load->view('templates/footer', $data);
     }
 }

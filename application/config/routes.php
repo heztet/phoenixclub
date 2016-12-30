@@ -79,6 +79,6 @@ $route['reset'] = 'reset';
 /* MISC */
 $route['rollcall'] = 'rollcall';
 //$route['eboard'] = 'pages/view/eboard';
-//$route['contact'] = 'pages/view/contact';
+$route['contact'] = 'pages/view/contact';
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view';

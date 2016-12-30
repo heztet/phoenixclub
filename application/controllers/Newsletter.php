@@ -12,7 +12,6 @@ class Newsletter extends CI_Controller {
 	// Return all newsletters
 	public function index()
 	{
-
 		$data['title'] = 'Newsletters';
 		$data['newsletters'] = $this->newsletter_model->get_newsletters();
 		$data['SimpleHeader'] = 1;

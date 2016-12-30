@@ -5,7 +5,7 @@ class Rollcall extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('rollcall_model');
-		$this->load->helper('url_helper');
+		$this->load->helper('url');
 	}
 
 	public function index()
