@@ -6,19 +6,22 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 - [ ] End of semester feature -> erase points, record whether student had >= a certain amount of points
 - [ ] Page to add senators (for indiv./floor points)
 - [ ] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
-- [ ] Remove IsCurrent column for students
-- [ ] Properly use `$this->db->dbprefix()` ([example](https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter))
+- [ ] Use `global_helper` for password comparing (currently open to SQL injections)
+- [ ] Refactoring and consistent coding:
+	- [ ] Remove '_helper' from `$this->load->helper()`
+	- [ ] Remove IsCurrent column for students
+	- [ ] Properly use `$this->db->dbprefix()` ([example](https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter))
 - [ ] User management options:
 	- [ ] https://github.com/trafficinc/CodeIgniter-Authit
 	- [ ] http://community-auth.com/documentation
 	- [ ] http://benedmunds.com/ion_auth/
 - [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
-- [X] ~~Redesign home page (maybe enable [Canva integration](https://www.canva.com/))~~ no longer needed
+- [ ] ~~Redesign home page (maybe enable [Canva integration](https://www.canva.com/))~~ no longer needed
 - [X] Fix main page errors about getting content (HTTP/HTTPS issue)
 - [X] Button to reset floor points
 - [X] Newsletter section
 - [X] Newsletter form
-- [X] ~~URL Shortener~~ no longer needed
+- [ ] ~~URL Shortener~~ no longer needed
 - [X] VITAL: FIX CONTACT PAGE
 - [X] VITAL: Fix SimpleHeader for Contact/Leaderboard
 - [X] VITAL: Fix PhoenixClub link on home page (and slogan)

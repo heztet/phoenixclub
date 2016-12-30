@@ -1015,14 +1015,20 @@ body .markdown-body
   }
 }
 </style><title>README</title></head><body><article class="markdown-body"><h1 id="welcome-to-phoenix-club"><a name="user-content-welcome-to-phoenix-club" href="#welcome-to-phoenix-club" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Welcome to Phoenix Club!</h1>
-<p>Since the Phoneix Club&rsquo;s website was last updated in 2006, I&rsquo;ve decided that I&rsquo;m going to re-work it for HTML5. Basically, I want to make it look aesthetically pleasing and have ways for people to get in contact with our club.</p>
+<p>This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.</p>
 <h1 id="to-do-for-v23"><a name="user-content-to-do-for-v23" href="#to-do-for-v23" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>To Do for v2.3</h1>
 <ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked> Add destroy_newsletters to reset year</li>
 <li class="task-list-item"><input type="checkbox" disabled> End of semester feature -&gt; erase points, record whether student had &gt;= a certain amount of points</li>
 <li class="task-list-item"><input type="checkbox" disabled> Page to add senators (for indiv./floor points)</li>
 <li class="task-list-item"><input type="checkbox" disabled> Better form validation messages (ex: &ldquo;You did not have a <field>&ldquo;, &ldquo;<Field> cannot have <this>&ldquo;)</li>
+<li class="task-list-item"><input type="checkbox" disabled> Use <code>global_helper</code> for password comparing (currently open to SQL injections)</li>
+<li class="task-list-item"><input type="checkbox" disabled> Refactoring and consistent coding:<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Remove &lsquo;_helper&rsquo; from <code>$this-&gt;load-&gt;helper()</code></li>
 <li class="task-list-item"><input type="checkbox" disabled> Remove IsCurrent column for students</li>
 <li class="task-list-item"><input type="checkbox" disabled> Properly use <code>$this-&gt;db-&gt;dbprefix()</code> (<a href="https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter">example</a>)</li>
+</ul>
+</li>
 <li class="task-list-item"><input type="checkbox" disabled> User management options:<ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled> <a href="https://github.com/trafficinc/CodeIgniter-Authit">https://github.com/trafficinc/CodeIgniter-Authit</a></li>
 <li class="task-list-item"><input type="checkbox" disabled> <a href="http://community-auth.com/documentation">http://community-auth.com/documentation</a></li>
@@ -1030,12 +1036,12 @@ body .markdown-body
 </ul>
 </li>
 <li class="task-list-item"><input type="checkbox" disabled> Better grid system for forms (make most of the form elements way smaller for large screens)</li>
-<li class="task-list-item"><input type="checkbox" disabled checked> <del>Redesign home page (maybe enable <a href="https://www.canva.com/">Canva integration</a>)</del> no longer needed</li>
+<li class="task-list-item"><input type="checkbox" disabled> <del>Redesign home page (maybe enable <a href="https://www.canva.com/">Canva integration</a>)</del> no longer needed</li>
 <li class="task-list-item"><input type="checkbox" disabled checked> Fix main page errors about getting content (HTTP/HTTPS issue)</li>
 <li class="task-list-item"><input type="checkbox" disabled checked> Button to reset floor points</li>
 <li class="task-list-item"><input type="checkbox" disabled checked> Newsletter section</li>
 <li class="task-list-item"><input type="checkbox" disabled checked> Newsletter form</li>
-<li class="task-list-item"><input type="checkbox" disabled checked> <del>URL Shortener</del> no longer needed</li>
+<li class="task-list-item"><input type="checkbox" disabled> <del>URL Shortener</del> no longer needed</li>
 <li class="task-list-item"><input type="checkbox" disabled checked> VITAL: FIX CONTACT PAGE</li>
 <li class="task-list-item"><input type="checkbox" disabled checked> VITAL: Fix SimpleHeader for Contact/Leaderboard</li>
 <li class="task-list-item"><input type="checkbox" disabled checked> VITAL: Fix PhoenixClub link on home page (and slogan)</li>

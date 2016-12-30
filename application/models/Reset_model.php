@@ -10,6 +10,7 @@ class Reset_model extends CI_Model {
 	// Reset all floor points
 	public function reset_floors()
 	{
+		// Helpers
 		$this->load->helper('url');
 
 		// Get the password from the post
@@ -42,9 +43,17 @@ class Reset_model extends CI_Model {
 	// Set all students' points to zero and record which students are eligible for the banquet
 	public function reset_semester()
 	{
-		$BANQUET_MIN = 5;
-
+		// Helpers
+		$this->load->helper('globals');
 		$this->load->helper('url');
+
+		// Get minimum amount needed for banquet
+		$BANQUET_MIN = get_banquet_amount();
+		log_message('debug', 'banquet min: '.$BANQUET_MIN);
+		if (!is_object($BANQUET_MIN))
+		{
+			return -1;
+		}
 
 		// Get the password from the post
 		$password = $this->input->post('Password');
@@ -63,6 +72,11 @@ class Reset_model extends CI_Model {
 
 		// Set BanquetEligible
 		$sql = 'UPDATE phoenix_students SET BanquetEligible=1 WHERE (BanquetEligible=0 AND TotalPoints>'.$BANQUET_MIN.')';
+		log_message('debug', 'db sql: '.$sql);
+		$this->db->query($sql);
+
+		// Move TotalPoints to LastSemesterPoints
+		$sql = 'UPDATE phoenix_students SET LastSemesterPoints=TotalPoints';
 		log_message('debug', 'db sql: '.$sql);
 		$this->db->query($sql);
 

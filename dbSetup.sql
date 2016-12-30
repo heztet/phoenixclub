@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `phoenix_students` (
   `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsCurrent` tinyint(1) NOT NULL DEFAULT '1',
   `BanquetEligible` tinyint(1) NOT NULL DEFAULT '0',
-  `LastSemesterPoints` INT NULL DEFAULT NULL,
+  `LastSemesterPoints` int(11) NOT NULL DEFAULT '0',
   `TotalEvents` int(11) NOT NULL DEFAULT '0',
   `TotalPoints` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`PUID`)
