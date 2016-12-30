@@ -26,4 +26,16 @@ class Pages_model extends CI_Model {
 		$query = $this->db->get('phoenix_floors');
 		return $query->result_array();
 	}
+
+	// Return array of banquet-eligible students
+	public function get_student_banquet()
+	{
+		// Get all current students
+		$this->db->order_by('LastName');
+		$this->db->where('BanquetEligible', 1);
+		$query = $this->db->get('phoenix_students');
+		$students = $query->result_array();
+		log_message('debug', 'Banquet: '.print_r($students));
+		return $students;
+	}
 }

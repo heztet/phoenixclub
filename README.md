@@ -1,13 +1,13 @@
 # Welcome to Phoenix Club!
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
-# To Do for v2.3
-- [ ] Page to add senators (for indiv./floor points)
+# To Do for v3.0
+- [ ] `/banquet` page
 - [ ] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
 - [ ] Refactoring and consistent coding:
-	- [ ] Remove '_helper' from `$this->load->helper()`
+	- [X] Remove '_helper' from `$this->load->helper()`
 	- [ ] Remove IsCurrent column for students
-	- [ ] Properly use `$this->db->dbprefix()` ([example](https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter))
+	- ~~[ ] Properly use `$this->db->dbprefix()` ([example](https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter))~~
 - [ ] User management:
 	- [ ] https://github.com/trafficinc/CodeIgniter-Authit
 	- [ ] http://community-auth.com/documentation

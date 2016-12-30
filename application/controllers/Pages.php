@@ -63,4 +63,25 @@ class Pages extends CI_Controller {
     	$this->load->view('pages/leaderboard', $data);
     	$this->load->view('templates/footer', $data);
     }
+
+    public function banquet($data = NULL)
+    {
+        $this->load->model('students_model');
+
+        $data['title'] = 'Banquet';
+        $data['SimpleHeader'] = 1;
+
+        // Get students in order of points descending
+        log_message('debug', 'Im here');
+        $data['students'] = $this->pages_model->get_student_banquet();
+        log_message('debug', 'Im here too');
+
+        // Add year string to each student
+        $data['students'] = $this->students_model->append_year_string($data['students']);
+
+        // Load the page
+        $this->load->view('templates/header', $data);
+        $this->load->view('pages/banquet', $data);
+        $this->load->view('templates/footer', $data);
+    }
 }
