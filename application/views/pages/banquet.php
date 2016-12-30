@@ -1,15 +1,4 @@
-<!-- Students table -->
-<?php if (! empty($message)) : ?>
-	<?php if (empty($success)) : ?>
-		<p><?php echo $message; ?></p>
-	<?php elseif ($success == 1) : ?>
-		<p class="bg-success"><?php echo $message; ?></p>
-	<?php elseif ($success == 0) : ?>
-		<p class="bg-danger"><?php echo $message; ?></p>
-	<?php else : ?>
-		<p class="bg-warning"><?php echo $message; ?></p>
-	<?php endif; ?>
-<?php endif; ?>
+<p>Listed below are the students eligible to attend our End of the Year Banquet. If you are not on this list and believe you should be, please Phoneix Club at <a href="mailto:hillenbrand.phoenixclub@gmail.com">Hillenbrand.PhoenixClub@gmail.com</a>.
 
 <table class="table table-hover">
 	<!-- Header -->

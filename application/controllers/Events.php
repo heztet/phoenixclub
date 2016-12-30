@@ -6,7 +6,7 @@ class Events extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('events_model');
-		$this->load->helper('url_helper');
+		$this->load->helper('url');
 	}
 
 	// Return all events
@@ -92,8 +92,8 @@ class Events extends CI_Controller {
 	{
 		// Helpers
 		$this->load->helper('form');
-		$this->load->helper('puid_helper');
-		$this->load->helper('student_helper');
+		$this->load->helper('puid');
+		$this->load->helper('student');
 		$this->load->library('form_validation');
 
 		// Get event from id

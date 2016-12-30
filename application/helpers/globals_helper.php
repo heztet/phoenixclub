@@ -3,19 +3,22 @@
 // Gets values from the globals table
 // Each function will return NULL if value isn't found
 
-// Gets BanquetAmount
-if ( ! function_exists('get_banquet_amount'))
+// Gets a specified value
+if ( ! function_exists('get_global'))
 {
-    function get_banquet_amount()
+    function get_global($column_name = NULL)
     {
-        // Controller instance (to load database and queries)
-        $helper =& get_instance();
-
         // Load database
+        $helper =& get_instance();
         $helper->load->database();
 
-        // Get first student by given PUID
-        $helper->db->where('Variable', 'BanquetAmount');
+        // Check for no column
+        if (is_null($column_name))
+        {
+            return NULL;
+        }
+
+        $helper->db->where('Variable', $column_name);
         $query = $helper->db->get('globals');
         $result = $query->row(0);
         $value = $result->Value;

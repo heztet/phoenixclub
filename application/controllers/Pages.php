@@ -75,9 +75,9 @@ class Pages extends CI_Controller {
         $this->load->model('students_model');
 
         // Get all students and format their year
-        $data['students'] = $this->students_model->get_banquet_students();
+        $data['students'] = $this->pages_model->get_banquet_students();
         $data['students'] = $this->students_model->append_year_string($data['students']);
-        $data['title'] = 'Students';
+        $data['title'] = 'Banquet';
 
         // Message if exists
         if ($message != NULL)

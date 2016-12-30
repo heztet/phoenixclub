@@ -14,7 +14,6 @@ class Pages_model extends CI_Model {
 		$this->db->order_by('TotalPoints', 'desc');
 		$query = $this->db->get('phoenix_students');
 		$allStudents = $query->result_array();
-		$totalStudents = $query->num_rows();
 
 		// Return all students or specific number
 		return $allStudents;
@@ -28,17 +27,14 @@ class Pages_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	// Return either all students eligible for banquet
-	public function get__banquet_students()
+	// Return all students eligible for banquet
+	public function get_banquet_students()
 	{
-		$this->db->order_by('DateCreated', 'desc');
-		$this->db->where('PUID', $puid);
+		$this->db->order_by('LastName');
 		$this->db->where('BanquetEligible', 1);
 		$query = $this->db->get('phoenix_students');
-		$students = $query->row_array();
-
-		// Add year string to each student
-		$students = $this->append_year_string($students);
+		
+		$students = $query->result_array;
 		
 		return $students;
 	}

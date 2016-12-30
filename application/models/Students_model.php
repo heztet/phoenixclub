@@ -199,35 +199,4 @@ class Students_model extends CI_Model {
 		
 		return $newArr;
 	}
-
-	// Archive all current students
-	public function archive_students()
-	{
-		// Get current time
-		// Timestamp is in NewYork time
-		$now = new DateTime(null, new DateTimeZone('America/New_York'));
-		$time = $now->format('Y-m-d H:i:s'); // MySQL datetime format
-
-		// Update students where IsCurrent = TRUE
-		$data = array(
-			'IsCurrent' => 0,
-			'DateArchived' => $time
-			);
-		$this->db->where('IsCurrent', 1);
-		$this->db->update('phoenix_students', $data);
-
-		// Check that no students are current
-		$this->db->where('IsCurrent', 1);
-		$query = $this->db->get('phoenix_students');
-
-		// Return whether query has any results
-		if (empty($query))
-		{
-			return 0;
-		}
-		else
-		{
-			return 1;
-		}
-	}
 }

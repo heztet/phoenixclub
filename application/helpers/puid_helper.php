@@ -19,11 +19,13 @@ if ( ! function_exists('format_puid'))
     	}
 
     	// Add a zero
-        if (strlen($dirty) === 8) {
+        if (strlen($dirty) === 8)
+        {
         	$clean = '0'.$dirty;
         }
         // Remove a zero
-        else if (strlen($dirty) === 10) {
+        else if (strlen($dirty) === 10)
+        {
             // Check that first two digits are a zero
             if (substr($dirty, 0, 2) == '00')
             {
@@ -35,7 +37,8 @@ if ( ! function_exists('format_puid'))
             }    	
         }
         // No formatting required
-        else {
+        else
+        {
         	$clean = $dirty;
         }
 

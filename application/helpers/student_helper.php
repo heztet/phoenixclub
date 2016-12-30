@@ -33,3 +33,45 @@ if ( ! function_exists('student_exists'))
         }
     }   
 }
+
+// Sets all students as banquet eligible or not
+if ( ! function_exists('banquet_check'))
+{
+    function banquet_check($min_points = -1)
+    {
+        // Controller instance (to load database and queries)
+        $helper =& get_instance();
+        $helper->load->database();
+
+        $sql = 'UPDATE phoenix_students SET BanquetEligible=1 WHERE (BanquetEligible=0 AND TotalPoints>'.$min_points.');';
+        $helper->db->query($sql);
+    }   
+}
+
+// Set all students to zero points
+if ( ! function_exists('reset_student_points'))
+{
+    function reset_student_points()
+    {
+        // Load database
+        $helper =& get_instance();
+        $helper->load->database();
+
+        $sql = 'UPDATE phoenix_students SET TotalEvents=0, TotalPoints=0';
+        $helper->db->query($sql);
+    }
+}
+
+// Delete all students
+if ( ! function_exists('delete_students'))
+{
+    function delete_students()
+    {
+        // Load database
+        $helper =& get_instance();
+        $helper->load->database();
+
+        $helper->db->where('PUID !=', 'NULL');
+        $helper->db->delete('phoenix_students');
+    }
+}

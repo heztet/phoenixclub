@@ -11,29 +11,23 @@ class Reset_model extends CI_Model {
 	public function reset_floors()
 	{
 		// Helpers
-		$this->load->helper('url');
+		$this->load->helper(array('url',
+								  'globals',
+								  'floor')
+		);
 
 		// Get the password from the post
 		$password = $this->input->post('Password');
 
-		// Check that the password matches
-		$this->db->where('Variable', 'ResetFloorsKey');
-		$this->db->where('Value', $password);
-		$query = $this->db->get('phoenix_globals');
-		$row = $query->row(0);
-
-		// Return error (-1) if password is incorrect
-		if (! is_object($row))
+		// Check password
+		$correct_pass = get_global('ResetFloorsKey');
+		if (strcmp($password, $correct_pass) != 0)
 		{
+			log_message('error', 'reset_floor failed due to incorrect password');
 			return -1;
 		}
 
-		// Set all floors to zero points
-		$this->db->where('PUID !=', 'NULL');
-		$this->db->delete('phoenix_students');
-
-		$sql = 'UPDATE phoenix_floors SET TotalPoints=0 WHERE (Floor Is Not Null);';
-		$this->db->query($sql);
+		reset_floor_points();
 
 		// Success
 		return 0;
@@ -43,53 +37,36 @@ class Reset_model extends CI_Model {
 	public function reset_semester()
 	{
 		// Helpers
-		$this->load->helper('globals');
-		$this->load->helper('url');
-
-		// Get minimum amount needed for banquet
-		$BANQUET_MIN = get_banquet_amount();
-		if (empty($BANQUET_MIN))
-		{
-			log_message('debug', 'ERROR: Failed to reset semester: no BanquetAmount');
-			return -1;
-		}
+		$this->load->helper(array('url',
+								  'globals',
+								  'student',
+								  'event',
+								  'floor')
+		);
 
 		// Get the password from the post
 		$password = $this->input->post('Password');
 
-		// Check that the password matches
-		$this->db->where('Variable', 'ResetSemesterKey');
-		$this->db->where('Value', $password);
-		$query = $this->db->get('phoenix_globals');
-		$row = $query->row(0);
-
-		// Return error (-1) if password is incorrect
-		if (! is_object($row))
+		// Check password
+		$correct_pass = get_global('ResetSemesterKey');
+		if (strcmp($password, $correct_pass) != 0)
 		{
+			log_message('error', 'reset_semester failed due to incorrect password');
 			return -1;
 		}
 
-		// Set BanquetEligible
-		$sql = 'UPDATE phoenix_students SET BanquetEligible=1 WHERE (BanquetEligible=0 AND TotalPoints>'.$BANQUET_MIN.')';
-		$this->db->query($sql);
+		// Get minimum amount needed for banquet
+		$banquet_min = get_global('BanquetAmount');
+		if (empty($banquet_min))
+		{
+			log_message('error', 'Failed to reset semester: no BanquetAmount in globals');
+			return -1;
+		}
 
-		// Move TotalPoints to LastSemesterPoints
-		$sql = 'UPDATE phoenix_students SET LastSemesterPoints=TotalPoints';
-		$this->db->query($sql);
-
-		// Set TotalEvents/TotalPoints to 0 for students
-		$sql = 'UPDATE phoenix_students SET TotalEvents=0, TotalPoints=0';
-		$this->db->query($sql);
-
-		// Reset floor points
-		$sql = 'UPDATE phoenix_floors SET TotalPoints=0';
-		$this->db->query($sql);
-
-		// Archive events
-		$now = new DateTime(null, new DateTimeZone('America/New_York'));
-		$time = $now->format('Y-m-d H:i:s'); // MySQL datetime format
-		$sql = 'UPDATE phoenix_events SET IsCurrentYear=0, DateArchived="'.$time.'", IsOpen=0 WHERE IsCurrentYear=1';
-		$this->db->query($sql);
+		banquet_check($banquet_min);
+		reset_student_points();
+		reset_floor_points();
+		archive_events();
 
 		// Success
 		return 0;
@@ -98,45 +75,33 @@ class Reset_model extends CI_Model {
 	// Archive all events and wipe student data for upcoming school year
 	public function reset_year()
 	{
-		$this->load->helper('url');
+		// Helpers
+		$this->load->helper(array('url',
+								  'globals',
+								  'student',
+								  'event',
+								  'floor',
+								  'newsletter',
+								  'records')
+		);
 
 		// Get the password from the post
 		$password = $this->input->post('Password');
 
-		// Check that the password matches
-		$this->db->where('Variable', 'ResetYearKey');
-		$this->db->where('Value', $password);
-		$query = $this->db->get('phoenix_globals');
-		$row = $query->row(0);
-
-		// Return error (-1) if password is incorrect
-		if (! is_object($row))
+		// Check password
+		$correct_pass = get_global('ResetYearKey');
+		if (strcmp($password, $correct_pass) != 0)
 		{
+			log_message('error', 'reset_year failed due to incorrect password');
 			return -1;
 		}
 
-		// Archive all current events
-		$now = new DateTime(null, new DateTimeZone('America/New_York'));
-		$time = $now->format('Y-m-d H:i:s'); // MySQL datetime format
-		$sql = 'UPDATE phoenix_events SET IsCurrentYear=0, DateArchived="'.$time.'", IsOpen=0 WHERE IsCurrentYear=1';
-		$this->db->query($sql);
-
-		// Delete all students
-		$this->db->where('PUID !=', 'NULL');
-		$this->db->delete('phoenix_students');
-
-		// Delete all newsletters
-		$this->db->where('Id !=', 'NULL');
-		$this->db->delete('phoenix_newsletters');
-
-		// Reset floor points
-		$sql = 'UPDATE phoenix_floors SET TotalPoints=0';
-		$this->db->query($sql);
-
-		// Delete records
-		$this->db->where('Id !=', 'NULL');
-		$this->db->delete('phoenix_records');
-
+		archive_events();
+		delete_students();
+		reset_floor_points();
+		delete_newsletters();
+		delete_records();
+		
 		// Success
 		return 0;
 	}
