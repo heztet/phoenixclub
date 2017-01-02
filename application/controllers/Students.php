@@ -49,6 +49,7 @@ class Students extends CI_Controller {
 		$this->form_validation->set_rules('PUID', 'PUID', 'required');
 		$this->form_validation->set_rules('FirstName', 'First name', 'required');
 		$this->form_validation->set_rules('LastName', 'Last name', 'required');
+		$this->form_validation->set_rules('Email', 'Email', 'valid_email');
 		$this->form_validation->set_rules('Year', 'Year', 'required');
 		$this->form_validation->set_rules('Floor', 'Floor', 'required');
 		$this->form_validation->set_rules('Side', 'Side', 'required|greater_than[-1]|less_than[3]');
@@ -86,26 +87,5 @@ class Students extends CI_Controller {
 		$this->load->view('templates/header', $data);
 		$this->load->view('students/create', $data);
 		$this->load->view('templates/footer', $data);
-	}
-
-	// Archive all students (set IsCurrent to FALSE)
-	public function archive()
-	{
-		// Archive
-		$success = $this->students_model->archive_students();
-
-		// Set success message
-		if ($success)
-		{
-			$message = "Students were archived successfully";
-		}
-		else
-		{
-			$message = "Students could not be archived";
-		}
-
-		// Load students index
-		// Loads the add view for the event
-		$this->index($success, $message);
 	}
 }

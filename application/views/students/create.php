@@ -36,6 +36,12 @@
 		</div> 
 	</div>
 	<div class="form-group">
+	    <label for="Email" class="col-sm-2 control-label">Email</label>
+	    <div class="col-sm-10">
+			<input type="input" class="form-control" name="Email" value="<?php echo set_value('Email'); ?>" />
+		</div> 
+	</div>
+	<div class="form-group">
 	    <label for='Year' class="col-sm-2 control-label">Year</label>
 	    <div class="col-sm-10">
 			<select name='Year' class="form-control">

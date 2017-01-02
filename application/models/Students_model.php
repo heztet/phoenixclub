@@ -53,6 +53,7 @@ class Students_model extends CI_Model {
 
 		$FirstName = $this->input->post('FirstName');
 		$LastName = $this->input->post('LastName');
+		$Email = $this->input->post('Email');
 		$Year = $this->input->post('Year');
 		$Floor = $this->input->post('Floor');
 		$SideNum = $this->input->post('Side');
@@ -103,6 +104,7 @@ class Students_model extends CI_Model {
 			'PUID' => $puid,
 			'FirstName' => $FirstName,
 			'LastName' => $LastName,
+			'Email' => $Email,
 			'Floor' => $Floor,
 			'Side' => $Side,
 			'Year' => $Year,
