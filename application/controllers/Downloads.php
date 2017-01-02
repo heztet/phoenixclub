@@ -10,13 +10,12 @@ class Downloads extends CI_Controller {
 		$this->load->helper('download');
 	}
 
-	// Download students that are eligible for banquet
+	// Download students that are eligible for banquet (excluding PUID)
 	public function banquet()
 	{
 		$this->load->dbutil();
-		$this->load->helper('file');
 		$students = $this->downloads_model->get_banquet_students();
 		$students_csv = $this->dbutil->csv_from_result($students);
-		write_file('test_csv.csv', $students_csv);
+		force_download('banquet_eligible_students.csv', $students_csv);
 	}
 }
