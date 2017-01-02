@@ -3,9 +3,12 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.2
 - [ ] User management:
-	- [ ] https://github.com/trafficinc/CodeIgniter-Authit
-	- [ ] http://benedmunds.com/ion_auth/
-	- ~~[ ] http://community-auth.com/documentation~~
+	- [ ] Pick framework
+		- [X] https://github.com/trafficinc/CodeIgniter-Authit
+		- ~~[ ] http://benedmunds.com/ion_auth/~~
+		- ~~[ ] http://community-auth.com/documentation~~
+	- [ ] Unhash passwords (necessary for revolving-door club and no ability to email)
+	- [ ] Remove extra bits
 - [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
 - [X] Fix main page errors about getting content (HTTP/HTTPS issue)
 - [X] Button to reset floor points

@@ -80,6 +80,7 @@ $route['reset'] = 'reset';
 $route['downloads'] = 'downloads';
 $route['downloads/(:any)'] = 'downloads/$1';
 
+/* AUTH */
 $route['auth'] = 'auth';
 $route['auth/(:any)'] = 'auth/$1';
 
