@@ -3,7 +3,7 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.2
 - [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
-- [ ] Better form validation messages
+- [X] Better form validation messages
 - [X] Fix main page errors about getting content (HTTP/HTTPS issue)
 - [X] Button to reset floor points
 - [X] Newsletter section

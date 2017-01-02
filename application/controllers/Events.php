@@ -76,10 +76,14 @@ class Events extends CI_Controller {
 										  'required|max_length[60]|is_unique[phoenix_events.Title]',
 										  array('required' => 'You need to have a %s'),
 										  array('max_length' => '%s can only be 60 characters or less'),
-										  array('is_unique' => 'There\'s already an event with that %s'));
+										  array('is_unique' => 'There\'s already an event with that %s')
+										  );
 		$this->form_validation->set_rules('PointValue', 'Points',
 										  'required|greater_than[-1]|less_than[15]',
-										  array('required' => 'You need to have a %s'));
+										  array('required' => 'You need to have a %s'),
+										  array('greater_than' => '%s must be greater than -1'),
+										  array('less_than' => '%s must be less than 15')
+										  );
 
 		// Return create view if inputs are invalid
 		if ($this->form_validation->run() === FALSE)
