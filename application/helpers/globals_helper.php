@@ -2,6 +2,7 @@
 
 // Gets values from the globals table
 // Each function will return NULL if value isn't found
+// Note: globals is the only helper with a plural name in case global_helper is used by the system
 
 // Gets a specified value
 if ( ! function_exists('get_global'))

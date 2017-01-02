@@ -30,6 +30,9 @@ class Pages_model extends CI_Model {
 	// Return array of banquet-eligible students
 	public function get_banquet_students()
 	{
+		$this->load->helper('student');
+		banquet_check();
+
 		// Get all current students
 		$this->db->order_by('LastName');
 		$this->db->where('BanquetEligible', 1);

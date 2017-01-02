@@ -1,11 +1,11 @@
 # Welcome to Phoenix Club!
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
-# To Do for v3.0
+# To Do for v2.2
 - [X] `/banquet` page (basic)
 - [X] Add ability to download CSV of banquet eligible students
 - [X] Add ability to download all students (without PUID!)
-- [ ] Check for BanquetEligiblity when checking-in and creating students
+- [X] Check for BanquetEligiblity when checking-in and creating students
 - [ ] Add email address to student (warning message when not registered?)
 - [ ] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
 - [ ] Refactoring and consistent coding:

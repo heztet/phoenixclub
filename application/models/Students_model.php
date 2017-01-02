@@ -44,7 +44,8 @@ class Students_model extends CI_Model {
 	{
 		// Helpers
 		$this->load->helper('url');
-		$this->load->helper('puid_helper');
+		$this->load->helper('puid');
+		$this->load->helper('student');
 		$this->load->helper('form');
 
 		// Get all post inputs
@@ -109,6 +110,9 @@ class Students_model extends CI_Model {
 			'TotalPoints' => $TotalPoints
 			);
 		$this->db->insert('phoenix_students', $data);
+
+		// Check banquet eligibility
+		banquet_check($puid);
 
 		// Get floor points
 		$floorString = $Floor.$Side;

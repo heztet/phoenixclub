@@ -121,7 +121,7 @@ class Events extends CI_Controller {
 		}
 		else
 		{
-			$cleanPUID = '';
+			$cleanPUID = ''; // No PUID given means load without an error
 		}
 
 		// Validate inputs

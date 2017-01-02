@@ -21,7 +21,7 @@ if ( ! function_exists('student_exists'))
         $helper->db->where('PUID', $puid);
         $query = $helper->db->get('phoenix_students');
         $student = $query->row(0);
-        
+
         // Return whether student exists
         if (($puid != -1) and (is_object($student)) and ($student->PUID != ''))
         {
@@ -31,21 +31,35 @@ if ( ! function_exists('student_exists'))
         {
             return FALSE;
         }
-    }   
+    }
 }
 
-// Sets all students as banquet eligible or not
+// Sets student(s) as banquet eligible or not
+// Checks only clean_puid if given
 if ( ! function_exists('banquet_check'))
 {
-    function banquet_check($min_points = -1)
+    function banquet_check($clean_puid = NULL)
     {
         // Controller instance (to load database and queries)
         $helper =& get_instance();
         $helper->load->database();
+        $helper->load->helper('globals');
 
-        $sql = 'UPDATE phoenix_students SET BanquetEligible=1 WHERE (BanquetEligible=0 AND TotalPoints>'.$min_points.');';
+        $banquet_min = get_global('BanquetAmount');
+
+        // Build query
+        $sql = 'UPDATE phoenix_students SET BanquetEligible=1 WHERE (BanquetEligible=0 AND TotalPoints>'.$banquet_min;
+
+        if ($clean_puid)
+        {
+            $sql .= ' AND PUID='.$clean_puid;
+        }
+
+        $sql .= ');';
+
+        // Run query
         $helper->db->query($sql);
-    }   
+    }
 }
 
 // Set all students to zero points

@@ -66,6 +66,7 @@ class Pages extends CI_Controller {
     public function banquet($data = NULL)
     {
         $this->load->model('students_model');
+        $this->load->helper('student');
 
         $data['title'] = 'Banquet';
         $data['SimpleHeader'] = 1;

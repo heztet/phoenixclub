@@ -20,6 +20,9 @@ class Downloads_model extends CI_Model {
 	// Return query of banquet-eligible students (excluding PUID)
 	public function get_banquet_students()
 	{
+		$this->load->helper('student');
+		banquet_check();
+		
 		// Get all current students
 		$this->db->select('FirstName AS "First Name", LastName AS "Last Name", Email, Floor, Side, YearString AS "Year"');
 		$this->db->join('phoenix_year_conversion', 'phoenix_students.Year = phoenix_year_conversion.YearNumber');

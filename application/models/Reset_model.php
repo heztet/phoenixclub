@@ -63,7 +63,7 @@ class Reset_model extends CI_Model {
 			return -1;
 		}
 
-		banquet_check($banquet_min);
+		banquet_check();
 		reset_student_points();
 		reset_floor_points();
 		archive_events();

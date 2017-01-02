@@ -45,15 +45,6 @@ class Events_model extends CI_Model {
 		$query = $this->db->get('phoenix_events');
 		$row = $query->row(0); // Get first row
 
-		
-		// Update current event table with foreign key
-		/*
-		$data = array(
-			'ForeignEventId' => $row->Id
-			);
-		$this->db->where('Id', 1);
-		$this->db->update('phoenix_current_event', $data);
-		*/
 		return $row->Id;
 	}
 
@@ -114,7 +105,7 @@ class Events_model extends CI_Model {
 			$totalPoints = 0;
 		}
 
-		// Check for banquet eligibility
+		// Check for banquet eligibility (not needed anymore)
 		if ($totalPoints + $points >= $banquet_min)
 		{
 			$banquetEligible = 1;
@@ -132,6 +123,9 @@ class Events_model extends CI_Model {
 			);
 		$this->db->where('PUID', $puid);
 		$this->db->update('phoenix_students', $data);
+
+		// Check student banquet eligibility
+		banquet_check($puid);
 		
 		// Update event totals
 		$data = array(
