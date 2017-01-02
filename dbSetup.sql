@@ -150,7 +150,6 @@ CREATE TABLE IF NOT EXISTS `phoenix_students` (
   `Side` varchar(2) NOT NULL,
   `Year` int(11) NOT NULL,
   `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `IsCurrent` tinyint(1) NOT NULL DEFAULT '1',
   `BanquetEligible` tinyint(1) NOT NULL DEFAULT '0',
   `LastSemesterPoints` int(11) NOT NULL DEFAULT '0',
   `TotalEvents` int(11) NOT NULL DEFAULT '0',

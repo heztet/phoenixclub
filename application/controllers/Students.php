@@ -9,8 +9,6 @@ class Students extends CI_Controller {
 		$this->load->helper('url');
 	}
 
-	// Note: student index and view pages have been removed
-
 	// Create a student with the given PUID and an optional eventId they checked into
 	public function create($puid = NULL, $eventId = NULL)
 	{

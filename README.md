@@ -2,12 +2,6 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.2
-- [X] `/banquet` page (basic)
-- [X] Add ability to download CSV of banquet eligible students
-- [X] Add ability to download all students (without PUID!)
-- [X] Check for BanquetEligiblity when checking-in and creating students
-- [ ] Add email address to student (warning message when not registered?)
-- [ ] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
 - [ ] Refactoring and consistent coding:
 	- [X] Remove '_helper' from `$this->load->helper()`
 	- [ ] Remove IsCurrent column for students
@@ -27,6 +21,12 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 - [X] Add destroy_newsletters to reset year
 - [X] End of semester feature -> erase points, record whether student had >= a certain amount of points
 - [X] Use `global_helper` for password comparing (currently open to SQL injections)
+- [X] `/banquet` page (basic)
+- [X] Add ability to download CSV of banquet eligible students
+- [X] Add ability to download all students (without PUID!)
+- [X] Check for BanquetEligiblity when checking-in and creating students
+- [X] Add email address to student (warning message when not registered?)
+- [X] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use.
