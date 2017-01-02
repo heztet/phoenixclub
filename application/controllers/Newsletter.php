@@ -54,10 +54,12 @@ class Newsletter extends CI_Controller {
 										  'required|max_length[60]|is_unique[phoenix_newsletters.Title]',
 										  array('required' => 'You need to have a %s'),
 										  array('max_length' => '%s can only be 60 characters or less'),
-										  array('is_unique' => 'There\'s already an event with that %s'));
+										  array('is_unique' => 'There\'s already an event with that %s')
+										  );
 		$this->form_validation->set_rules('Link', 'link', 'required|valid_url',
 										  array('required' => 'You need to have a %s'),
-										  array('valid_url' => 'You need a valid url for your %s.'));
+										  array('valid_url' => 'You need a valid url for your %s.')
+										  );
 
 		// Return create view if inputs are invalid
 		if ($this->form_validation->run() === FALSE)

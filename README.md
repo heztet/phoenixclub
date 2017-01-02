@@ -7,6 +7,7 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 	- [ ] http://community-auth.com/documentation
 	- [ ] http://benedmunds.com/ion_auth/
 - [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
+- [X] Better form validation messages
 - [X] Fix main page errors about getting content (HTTP/HTTPS issue)
 - [X] Button to reset floor points
 - [X] Newsletter section
