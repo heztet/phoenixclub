@@ -76,6 +76,10 @@ $route['reset/year'] = 'reset/year';
 $route['reset/semester'] = 'reset/semester';
 $route['reset'] = 'reset';
 
+/* DOWNLOADS */
+$route['downloads'] = 'downloads';
+$route['downloads/(:any)'] = 'downloads/$1';
+
 /* STANDALONE OR CUSTOM PAGES */
 $route['rollcall'] = 'rollcall';
 $route['leaderboard'] = 'pages/leaderboard';

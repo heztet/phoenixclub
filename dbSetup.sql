@@ -145,6 +145,7 @@ CREATE TABLE IF NOT EXISTS `phoenix_students` (
   `PUID` varchar(9) NOT NULL,
   `FirstName` varchar(40) NOT NULL,
   `LastName` varchar(60) NOT NULL,
+  `Email` varchar(256) DEFAULT NULL,
   `Floor` int(3) NOT NULL,
   `Side` varchar(2) NOT NULL,
   `Year` int(11) NOT NULL,
