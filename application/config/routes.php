@@ -76,9 +76,12 @@ $route['reset/year'] = 'reset/year';
 $route['reset/semester'] = 'reset/semester';
 $route['reset'] = 'reset';
 
-/* MISC */
+/* STANDALONE OR CUSTOM PAGES */
 $route['rollcall'] = 'rollcall';
-//$route['eboard'] = 'pages/view/eboard';
+$route['leaderboard'] = 'pages/leaderboard';
+$route['banquet'] = 'pages/banquet';
 $route['contact'] = 'pages/view/contact';
+
+/* DEFAULT ROUTING */
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view';

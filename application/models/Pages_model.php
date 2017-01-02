@@ -35,7 +35,6 @@ class Pages_model extends CI_Model {
 		$this->db->where('BanquetEligible', 1);
 		$query = $this->db->get('phoenix_students');
 		$students = $query->result_array();
-		log_message('debug', 'Banquet: '.print_r($students));
 		return $students;
 	}
 }

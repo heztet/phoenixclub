@@ -27,7 +27,6 @@
 	<!-- Header -->
 	<tr>
 		<th>Name</th>
-		<th><!-- Banquet Eligibility --> </th>
 		<th>Total Points</th>
 		<th>Total Events</th>
 	</tr>
@@ -36,7 +35,6 @@
 	<?php foreach ($students as $s): ?>
 		<tr>
 			<td><?php echo $s['FirstName'].' '.$s['LastName']; ?></td>
-			<td><?php echo $s['BanquetEligible'] ? '<span class="glyphicon glyphicon-check"></span>': ''; ?></td>
 			<td><?php echo $s['TotalPoints']; ?></td>
 	   		<td><?php echo $s['TotalEvents']; ?></td>
 		</tr>

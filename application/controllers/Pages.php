@@ -11,25 +11,25 @@ class Pages extends CI_Controller {
 
     public function view($page = 'home')
     {
+		// Check that page exists
+		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
+		{
+			show_404();
+		}
         $data['title'] = ucfirst($page); // Capitalize the first letter
+
+		// Simple header for contact page
+		if ($page == 'contact') {
+			$data['SimpleHeader'] = 1;
+		}
 
         // Main (home) page has custom headers and footers
         if ($page == 'home')
         {
         	$this->load->view('pages/'.$page, $data);
         }
-        // Leaderboard has its own controller
-        else if ($page == 'leaderboard')
-        {
-        	$this->leaderboard($data);
-        }
         else
         {
-            // Simple header for contact page
-            if ($page == 'contact') {
-                $data['SimpleHeader'] = 1;
-            }
-            
             // Load header/footer otherwise
         	$this->load->view('templates/header', $data);
         	$this->load->view('pages/'.$page, $data);
@@ -50,7 +50,7 @@ class Pages extends CI_Controller {
 
     	// Add year string to each student
 		$data['students'] = $this->students_model->append_year_string($data['students']);
-        
+
 		// Get total points and events possible
 		$data['EventsPossible'] = $this->events_model->amount_current_events();
 		$data['PointsPossible'] = $this->events_model->amount_current_points();
@@ -72,10 +72,10 @@ class Pages extends CI_Controller {
         $data['SimpleHeader'] = 1;
 
         // Get students in order of points descending
-        log_message('debug', 'Im here');
+        log_message('error', 'Im here');
         $data['students'] = $this->pages_model->get_student_banquet();
         log_message('debug', 'Im here too');
-
+        log_message('debug', 'Im here too');
         // Add year string to each student
         $data['students'] = $this->students_model->append_year_string($data['students']);
 

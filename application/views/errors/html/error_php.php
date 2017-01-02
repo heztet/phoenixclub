@@ -30,4 +30,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <?php endif ?>
 
+<p style="font-size: 12px;"><em>Seeing this page? Contact us at <a href="mailto:Hillenbrand.PhoenixClub@gmail.com">Hillenbrand.PhoenixClub@gmail.com</a> for help.</em></p>
+
 </div>

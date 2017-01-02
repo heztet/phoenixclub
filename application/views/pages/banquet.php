@@ -1,5 +1,5 @@
-<h2><?php echo $title; ?></h2>
-
+<p>The following students are eligible to be invited to the End of Year banquet:</p>
+<br />
 <!-- Student table -->
 <table class="table table-hover">
 	<!-- Items -->

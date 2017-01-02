@@ -2,16 +2,20 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v3.0
-- [ ] `/banquet` page
+- [X] `/banquet` page (basic)
+- [ ] Add ability to download CSV of banquet eligible students
+- [ ] Add ability to download all students (without PUID!)
+- [ ] Check for BanquetEligiblity when checking in students
+- [ ] Add email address to student (warning message when not registered?)
 - [ ] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
 - [ ] Refactoring and consistent coding:
-	- [X] Remove '_helper' from `$this->load->helper()`
-	- [ ] Remove IsCurrent column for students
-	- ~~[ ] Properly use `$this->db->dbprefix()` ([example](https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter))~~
+- [X] Remove '_helper' from `$this->load->helper()`
+- [ ] Remove IsCurrent column for students
+- ~~[ ] Properly use `$this->db->dbprefix()` ([example](https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter))~~
 - [ ] User management:
-	- [ ] https://github.com/trafficinc/CodeIgniter-Authit
-	- [ ] http://community-auth.com/documentation
-	- [ ] http://benedmunds.com/ion_auth/
+- [ ] https://github.com/trafficinc/CodeIgniter-Authit
+- [ ] http://community-auth.com/documentation
+- [ ] http://benedmunds.com/ion_auth/
 - [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
 - [X] Fix main page errors about getting content (HTTP/HTTPS issue)
 - [X] Button to reset floor points
