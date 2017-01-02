@@ -25,6 +25,3 @@ function user($key = '')
 	if($key && isset($user->$key)) return $user->$key;
 	return $user;
 }
-
-/* End of file: authit_helper.php */
-/* Location: application/helpers/authit_helper.php */

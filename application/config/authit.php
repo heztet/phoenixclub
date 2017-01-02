@@ -11,6 +11,3 @@
 $config['authit_users_table'] = 'users';
 $config['authit_password_min_length'] = 4;
 $config['authit_test_emails'] = true;
-
-/* End of file: Authit.php */
-/* Location: application/config/Authit.php */

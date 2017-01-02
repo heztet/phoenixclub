@@ -55,7 +55,7 @@ class Authit_model extends CI_Model {
 	{
 		$data = array(
 			'email' => filter_var($email, FILTER_SANITIZE_EMAIL),
-			'password' => $password, // Should be hashed
+			'password' => $password,
 			'created' => date('Y-m-d H:i:s')
 		);
 		$this->db->insert($this->users_table, $data);
@@ -85,6 +85,3 @@ class Authit_model extends CI_Model {
 	}
 	
 }
-
-/* End of file: Authit_model.php */
-/* Location: application/models/Authit_model.php */
