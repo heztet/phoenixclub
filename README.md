@@ -2,10 +2,6 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.2
-- [ ] Refactoring and consistent coding:
-	- [X] Remove '_helper' from `$this->load->helper()`
-	- [ ] Remove IsCurrent column for students
-	- ~~[ ] Properly use `$this->db->dbprefix()` ([example](https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter))~~
 - [ ] User management:
 	- [ ] https://github.com/trafficinc/CodeIgniter-Authit
 	- [ ] http://community-auth.com/documentation
@@ -27,6 +23,10 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 - [X] Check for BanquetEligiblity when checking-in and creating students
 - [X] Add email address to student (warning message when not registered?)
 - [X] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
+- [X] Refactoring and consistent coding:
+	- [X] Remove '_helper' from `$this->load->helper()`
+	- [X] Remove IsCurrent column for students
+	- ~~[ ] Properly use `$this->db->dbprefix()` ([example](https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter))~~
 
 # Why Codeigniter?
 Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use.
