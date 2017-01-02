@@ -157,6 +157,27 @@ CREATE TABLE IF NOT EXISTS `phoenix_students` (
   PRIMARY KEY (`PUID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phoenix_year_conversion`
+--
+
+CREATE TABLE `phoenix_year_conversion` (
+  `YearNumber` int(11) NOT NULL,
+  `YearString` varchar(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `phoenix_year_conversion`
+--
+
+INSERT INTO `phoenix_year_conversion` (`YearNumber`, `YearString`) VALUES
+(1, 'Freshman'),
+(2, 'Sophomore'),
+(3, 'Junior'),
+(4, 'Senior');
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

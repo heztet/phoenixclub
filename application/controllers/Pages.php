@@ -47,7 +47,6 @@ class Pages extends CI_Controller {
 
     	// Get students in order of points descending
     	$data['students'] = $this->pages_model->get_student_leaderboard();
-
     	// Add year string to each student
 		$data['students'] = $this->students_model->append_year_string($data['students']);
 
@@ -72,10 +71,7 @@ class Pages extends CI_Controller {
         $data['SimpleHeader'] = 1;
 
         // Get students in order of points descending
-        log_message('error', 'Im here');
-        $data['students'] = $this->pages_model->get_student_banquet();
-        log_message('debug', 'Im here too');
-        log_message('debug', 'Im here too');
+        $data['students'] = $this->pages_model->get_banquet_students();
         // Add year string to each student
         $data['students'] = $this->students_model->append_year_string($data['students']);
 
