@@ -80,6 +80,9 @@ $route['reset'] = 'reset';
 $route['downloads'] = 'downloads';
 $route['downloads/(:any)'] = 'downloads/$1';
 
+$route['auth'] = 'auth';
+$route['auth/(:any)'] = 'auth/$1';
+
 /* STANDALONE OR CUSTOM PAGES */
 $route['rollcall'] = 'rollcall';
 $route['leaderboard'] = 'pages/leaderboard';
