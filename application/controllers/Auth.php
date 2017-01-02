@@ -23,19 +23,16 @@ class Auth extends CI_Controller {
 
 	public function index()
 	{
-		if(! logged_in())
+		if(!logged_in())
 		{
 			redirect('auth/login');
 		}
-		else
-		{
-			redirect('auth/dash');
-		}
+		
+		redirect('auth/dash');
 	}
 
 	public function login()
 	{
-		// Go to dash if already logged in
 		if(logged_in())
 		{
 			redirect('auth/dash');

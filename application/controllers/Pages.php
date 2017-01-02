@@ -65,6 +65,8 @@ class Pages extends CI_Controller {
 
     public function banquet($data = NULL)
     {
+        require_login();
+        
         $this->load->model('students_model');
         $this->load->helper('student');
 

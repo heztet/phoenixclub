@@ -9,9 +9,23 @@ class Reset extends CI_Controller {
 		$this->load->helper('url');
 	}
 
+	// Return all events
+	public function index()
+	{
+		require_login();
+
+		$data['title'] = "Reset Tools";
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('reset/index', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
 	// Reset point values
 	public function floors()
 	{
+		require_login();
+
 		// Helpers
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -59,19 +73,11 @@ class Reset extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-	// Return all events
-	public function index()
-	{
-		$data['title'] = "Reset Tools";
-
-		$this->load->view('templates/header', $data);
-		$this->load->view('reset/index', $data);
-		$this->load->view('templates/footer', $data);
-	}
-
 	// Reset semester points
 	public function semester()
 	{
+		require_login();
+
 		// Helpers
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -122,6 +128,8 @@ class Reset extends CI_Controller {
 	// Reset year points/students
 	public function year()
 	{
+		require_login();
+		
 		// Helpers
 		$this->load->helper('form');
 		$this->load->library('form_validation');

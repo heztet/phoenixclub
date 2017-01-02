@@ -19,14 +19,6 @@ class Reset_model extends CI_Model {
 		// Get the password from the post
 		$password = $this->input->post('Password');
 
-		// Check password
-		$correct_pass = get_global('ResetFloorsKey');
-		if (strcmp($password, $correct_pass) != 0)
-		{
-			log_message('error', 'reset_floor failed due to incorrect password');
-			return -1;
-		}
-
 		reset_floor_points();
 
 		// Success
@@ -46,14 +38,6 @@ class Reset_model extends CI_Model {
 
 		// Get the password from the post
 		$password = $this->input->post('Password');
-
-		// Check password
-		$correct_pass = get_global('ResetSemesterKey');
-		if (strcmp($password, $correct_pass) != 0)
-		{
-			log_message('error', 'reset_semester failed due to incorrect password');
-			return -1;
-		}
 
 		// Get minimum amount needed for banquet
 		$banquet_min = get_global('BanquetAmount');
@@ -87,14 +71,6 @@ class Reset_model extends CI_Model {
 
 		// Get the password from the post
 		$password = $this->input->post('Password');
-
-		// Check password
-		$correct_pass = get_global('ResetYearKey');
-		if (strcmp($password, $correct_pass) != 0)
-		{
-			log_message('error', 'reset_year failed due to incorrect password');
-			return -1;
-		}
 
 		archive_events();
 		delete_students();

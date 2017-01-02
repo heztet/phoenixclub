@@ -12,6 +12,8 @@ class Students extends CI_Controller {
 	// Create a student with the given PUID and an optional eventId they checked into
 	public function create($puid = NULL, $eventId = NULL)
 	{
+		require_login();
+		
 		// Helpers
 		$this->load->helper('puid');
 		$this->load->helper('student');

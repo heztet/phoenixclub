@@ -43,6 +43,8 @@ class Newsletter extends CI_Controller {
 	// Create newsletter
 	public function add()
 	{
+		require_login();
+		
 		// Helpers
 		$this->load->helper('form');
 		$this->load->library('form_validation');

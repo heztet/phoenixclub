@@ -81,10 +81,6 @@ CREATE TABLE IF NOT EXISTS `phoenix_globals` (
 
 INSERT INTO phoenix_globals (Variable, Value)
                             VALUES
-                            ("ResetFloorsKey", NULL),
-                            ("ResetSemesterKey", NULL),
-                            ("ResetYearKey", NULL),
-                            ("RollcallKey", NULL),
                             ("BanquetAmount", NULL);
 
 -- --------------------------------------------------------
@@ -183,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `phoenix_year_conversion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `phoenix_year_conversion`
+-- Table rows for table `phoenix_year_conversion`
 --
 
 INSERT INTO `phoenix_year_conversion` (`YearNumber`, `YearString`) VALUES

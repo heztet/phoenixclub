@@ -10,6 +10,8 @@ class Rollcall extends CI_Controller {
 
 	public function index()
 	{
+		require_login();
+		
 		// Helpers
 		$this->load->helper('form');
 		$this->load->library('form_validation');

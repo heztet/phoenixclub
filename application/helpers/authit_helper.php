@@ -16,6 +16,17 @@ function logged_in()
 	return $CI->authit->logged_in();
 }
 
+function require_login()
+{
+	$CI =& get_instance();
+	$CI->load->library('authit');
+
+	if(!logged_in())
+	{
+		redirect('auth/login');
+	}
+}
+
 function user($key = '')
 {
 	$CI =& get_instance();
