@@ -10,9 +10,10 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 	- [X] Unhash passwords (necessary for revolving-door club and no ability to email)
 	- [X] Remove extra bits
 	- [X] Update views for login/dash
+	- [X] Update admin tools to require login
 	- [ ] Update header for login/logout
-	- [ ] Update admin tools to require login
 - [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
+- [ ] Better form validation messages
 - [X] Fix main page errors about getting content (HTTP/HTTPS issue)
 - [X] Button to reset floor points
 - [X] Newsletter section
@@ -34,14 +35,10 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 	- [X] Remove IsCurrent column for students
 	- ~~[ ] Properly use `$this->db->dbprefix()` ([example](https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter))~~
 
-# Why Codeigniter?
-Originally I was going to build a Rails app, but Purdue's web servers only support mysql and PHP. I chose Codeigniter because it was the simplest PHP framework to use.
-
 # Help! How do I put this in production mode?
 - In `application/config/config.php`, set `$config['log_threshold'] = 1;`
 - In `application/config/config.php`, set `$config['base_url'] = '<WEBSITE_URL>';`
 - In `application/config/database.php`, set each of the database variables that are set as blank
-- In `system/core/Controller.php`, set `$this->output->enable_profiler(FALSE);`
 - In `index.php`, change `define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');` to `define('ENVIRONMENT', 'production');`
 - Rum `dbSetup.sql` (you can also remove the `AUTO_INCREMENT=<num>` as well)
-- Add a value for `ResetYearKey`, `ResetSemesterKey`, `ResetFloorKey`, and `RollcallKey` in `phoenix_globals`
+- Add a value for `BanquetAmount` in `phoenix_globals`
