@@ -2,16 +2,6 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.2
-- [ ] User management:
-	- [X] Pick framework
-		- [X] https://github.com/trafficinc/CodeIgniter-Authit
-		- ~~[ ] http://benedmunds.com/ion_auth/~~
-		- ~~[ ] http://community-auth.com/documentation~~
-	- [X] Unhash passwords (necessary for revolving-door club and no ability to email)
-	- [X] Remove extra bits
-	- [X] Update views for login/dash
-	- [X] Update admin tools to require login
-	- [ ] Update header for login/logout
 - [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
 - [ ] Better form validation messages
 - [X] Fix main page errors about getting content (HTTP/HTTPS issue)
@@ -34,7 +24,17 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 	- [X] Remove '_helper' from `$this->load->helper()`
 	- [X] Remove IsCurrent column for students
 	- ~~[ ] Properly use `$this->db->dbprefix()` ([example](https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter))~~
-
+- [X] User management:
+	- [X] Pick framework
+		- [X] https://github.com/trafficinc/CodeIgniter-Authit
+		- ~~[ ] http://benedmunds.com/ion_auth/~~
+		- ~~[ ] http://community-auth.com/documentation~~
+	- [X] Unhash passwords (necessary for revolving-door club and no ability to email)
+	- [X] Remove extra bits
+	- [X] Update views for login/dash
+	- [X] Update admin tools to require login
+	- [X] Update header for login/logout
+	
 # Help! How do I put this in production mode?
 - In `application/config/config.php`, set `$config['log_threshold'] = 1;`
 - In `application/config/config.php`, set `$config['base_url'] = '<WEBSITE_URL>';`
