@@ -41,24 +41,35 @@
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top">
 			<div class="container">
+				<!-- Brand: Phoenix Club -->
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
 					<a class="navbar-brand" href="<?php echo site_url('/'); ?>">Phoenix Club</a>
 				</div>
+				<!-- /Brand -->
+
 				<div id="navbar" class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<?php if (empty($SimpleHeader) or ($SimpleHeader == 0)) : ?>
+					<?php /* Different header options if logged in */ ?>
+					<?php if (isset($username)) : ?>
+					<ul class="nav navbar-nav navbar-left">
 							<li><a href="<?php echo site_url('events/'); ?>">Events</a></li>
 							<li><a href="<?php echo site_url('events/create'); ?>">Create</a></li>
-						<?php endif ; ?>
-						<li><a href="<?php echo site_url('contact'); ?>">Contact</a></li>
-					</ul>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="<?php echo site_url('dash'); ?>"><?php echo $username; ?></a>
+							<li>
+								<p class="navbar-btn">
+									<a href="<?php echo site_url('auth/logout'); ?>" class="btn btn-danger" role="button">Log out</a>
+								</p>
+							</li>
+						<ul>
+					<?php else : ?>
+						<ul class="nav navbar-nav">
+							<li><a href="<?php echo site_url('contact'); ?>">Contact</a></li>
+						</ul>
+					<?php endif ; ?>
 				</div><!--/.nav-collapse -->
+
 			</div>
     	</nav>
 

@@ -7,12 +7,14 @@ class Reset extends CI_Controller {
 		parent::__construct();
 		$this->load->model('reset_model');
 		$this->load->helper('url');
+		$this->load->helper('authit');
 	}
 
 	// Return all events
 	public function index()
 	{
 		require_login();
+        $data['username'] = username();
 
 		$data['title'] = "Reset Tools";
 
@@ -25,6 +27,7 @@ class Reset extends CI_Controller {
 	public function floors()
 	{
 		require_login();
+        $data['username'] = username();
 
 		// Helpers
 		$this->load->helper('form');
@@ -77,6 +80,7 @@ class Reset extends CI_Controller {
 	public function semester()
 	{
 		require_login();
+        $data['username'] = username();
 
 		// Helpers
 		$this->load->helper('form');
@@ -129,6 +133,7 @@ class Reset extends CI_Controller {
 	public function year()
 	{
 		require_login();
+        $data['username'] = username();
 		
 		// Helpers
 		$this->load->helper('form');

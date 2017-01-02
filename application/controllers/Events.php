@@ -14,6 +14,7 @@ class Events extends CI_Controller {
 	public function index($success = NULL, $message = NULL)
 	{
 		require_login();
+		$data['username'] = username();
 
 		$data['events'] = $this->events_model->get_events();
 
@@ -40,6 +41,7 @@ class Events extends CI_Controller {
 	public function view($Id = NULL)
 	{
 		require_login();
+		$data['username'] = username();
 
 		$data['events_item'] = $this->events_model->get_events($Id);
 
@@ -61,6 +63,7 @@ class Events extends CI_Controller {
 	public function create()
 	{
 		require_login();
+		$data['username'] = username();
 
 		// Helpers
 		$this->load->helper('form');
@@ -97,6 +100,7 @@ class Events extends CI_Controller {
 	public function add($Id = NULL, $AddedStudent = NULL)
 	{
 		require_login();
+		$data['username'] = username();
 
 		// Helpers
 		$this->load->helper('form');
@@ -195,6 +199,7 @@ class Events extends CI_Controller {
 	public function close($Id = NULL)
 	{
 		require_login();
+		$data['username'] = username();
 
 		// Check that event exists and is open
 		$data['events_item'] = $this->events_model->get_events($Id);		
@@ -238,6 +243,7 @@ class Events extends CI_Controller {
 	public function archive()
 	{
 		require_login();
+		$data['username'] = username();
 		
 		// Archive
 		$success = $this->events_model->archive_events();

@@ -16,6 +16,7 @@ class Downloads extends CI_Controller {
 	public function students()
 	{
 		require_login();
+		$data['username'] = username();
 
 		$students = $this->downloads_model->get_all_students();
 		$students_csv = $this->dbutil->csv_from_result($students);
@@ -26,6 +27,7 @@ class Downloads extends CI_Controller {
 	public function banquet()
 	{
 		require_login();
+		$data['username'] = username();
 
 		$students = $this->downloads_model->get_banquet_students();
 		$students_csv = $this->dbutil->csv_from_result($students);

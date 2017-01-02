@@ -36,3 +36,11 @@ function user($key = '')
 	if($key && isset($user->$key)) return $user->$key;
 	return $user;
 }
+
+function username($key = '')
+{
+	$CI =& get_instance();
+	$CI->load->library('session');
+
+	return (user()->username);
+}

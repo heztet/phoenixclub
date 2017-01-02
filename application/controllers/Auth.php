@@ -23,10 +23,8 @@ class Auth extends CI_Controller {
 
 	public function index()
 	{
-		if(!logged_in())
-		{
-			redirect('auth/login');
-		}
+		require_login();
+		$data['username'] = username();
 		
 		redirect('auth/dash');
 	}
@@ -64,10 +62,8 @@ class Auth extends CI_Controller {
 
 	public function logout()
 	{
-		if(!logged_in())
-		{
-			redirect('auth/login');
-		}
+		require_login();
+		$data['username'] = username();
 
 		// Redirect to your logged out landing page here
 		$this->authit->logout('/');
@@ -75,10 +71,8 @@ class Auth extends CI_Controller {
 
 	public function dash()
 	{
-		if(!logged_in())
-		{
-			redirect('auth/login');
-		}
+		require_login();
+		$data['username'] = username();
 
 		$data['title'] = 'Dashboard';
 		$data['links'] = array('View events' => 'events',

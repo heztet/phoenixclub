@@ -7,6 +7,8 @@ class Newsletter extends CI_Controller {
 		parent::__construct();
 		$this->load->model('newsletter_model');
 		$this->load->helper('url_helper');
+		$this->load->helper('authit');
+
 	}
 
 	// Return all newsletters
@@ -44,6 +46,7 @@ class Newsletter extends CI_Controller {
 	public function add()
 	{
 		require_login();
+		$data['username'] = username();
 		
 		// Helpers
 		$this->load->helper('form');
