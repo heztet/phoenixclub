@@ -9,7 +9,8 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 		- ~~[ ] http://community-auth.com/documentation~~
 	- [X] Unhash passwords (necessary for revolving-door club and no ability to email)
 	- [X] Remove extra bits
-	- [ ] Update views for login/dash
+	- [X] Update views for login/dash
+	- [ ] Update header for login/logout
 	- [ ] Update admin tools to require login
 - [ ] Better grid system for forms (make most of the form elements way smaller for large screens)
 - [X] Fix main page errors about getting content (HTTP/HTTPS issue)

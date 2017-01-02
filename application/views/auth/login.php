@@ -1,23 +1,35 @@
-<html>
-<head>
-	<title>Login</title>
-</head>
-<body>
+<div class="row">
+    <div class="col-sm-10">
+        <h2>Login</h2>
+    </div>
+</div>
+<br />
+<br />
 
-	<p><a href="<?php echo site_url('auth/signup'); ?>">Sign Up</a> | <a href="<?php echo site_url('auth/forgot'); ?>">Forgot Password?</a></p>
+<?php echo validation_errors('<p class="bg-danger fade-message" style="padding: 3px 3px 3px 3px;">'); ?>
 
-	<?php 
-    if($error) echo '<p class="error">'. $error .'</p>';
-    echo form_open(); 
-    echo form_label('Username', 'username') .'<br />';
-    echo form_input(array('name' => 'username', 'value' => set_value('username'))) .'<br />';
-    echo form_error('email');
-    echo form_label('Password', 'password') .'<br />';
-    echo form_password(array('name' => 'password', 'value' => set_value('password'))) .'<br />';
-    echo form_error('password');
-    echo form_submit(array('type' => 'submit', 'value' => 'Login'));
-    echo form_close();
-    ?>
+<?php if($error): ?>
+    <?php echo '<p class="bg-danger fade-message" style="padding: 3px 3px 3px 3px;">'.$error.'</p>';?>
+<?php endif; ?>
 
-</body>
-</html>
+<div class="row">
+<?php echo form_open('auth/login', 'class="form-horizontal"'); ?>
+    <div class="form-group">
+        <label for="username" class="col-sm-2 control-label">Username</label>
+        <div class="col-sm-10">
+           <input type="input" class="form-control" name="username" value="<?php echo set_value('username'); ?>" autofocus />
+        </div> 
+    </div>
+    <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+           <input type="password" class="form-control" name="password" value="" autofocus />
+        </div> 
+    </div>
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </div>
+</form>
+</div>

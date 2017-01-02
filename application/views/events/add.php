@@ -1,12 +1,13 @@
 <div class="row">
 	<div class="col-sm-10">
-		<h2><?php echo '"'.$title.'" Check-in'; ?></h2>
+		<h2><?php echo 'Check in for: '.$title; ?></h2>
 	</div>
 </div>
 <br />
 <br />
 
-<?php echo validation_errors('<p class="bg-danger">'); ?>
+<?php echo validation_errors('<p class="bg-danger fade-message" style="padding: 3px 3px 3px 3px;">'); ?>
+
 <?php if (!empty($CleanPuidError) and ($CleanPuidError == 1)) : ?>
 	<div class="row">
 		<div class="col-sm-3">

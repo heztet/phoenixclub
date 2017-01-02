@@ -31,7 +31,8 @@ class Authit {
 	public function login($username, $password)
 	{
 		$user = $this->CI->authit_model->get_user_by_username($username);
-		if($user){
+		if($user)
+		{
 			if(strcmp($password, $user->password) == 0){
 				unset($user->password);
 				$this->CI->session->set_userdata(array(
@@ -49,7 +50,8 @@ class Authit {
 	public function logout($redirect = false)
 	{
 		$this->CI->session->sess_destroy();
-		if($redirect){
+		if($redirect)
+		{
 			$this->CI->load->helper('url');
 			redirect($redirect, 'refresh');
 		}
