@@ -37,15 +37,15 @@ class Auth extends CI_Controller {
 		$this->load->helper('form');
 		$data['error'] = false;
 		 
-		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		
 		if($this->form_validation->run()){
-			if($this->authit->login(set_value('email'), set_value('password'))){
+			if($this->authit->login(set_value('username'), set_value('password'))){
 				// Redirect to your logged in landing page here
 				redirect('auth/dash');
 			} else {
-				$data['error'] = 'Your email address and/or password is incorrect.';
+				$data['error'] = 'Your username and/or password is incorrect.';
 			}
 		}
 		
@@ -64,7 +64,7 @@ class Auth extends CI_Controller {
 	{
 		if(!logged_in()) redirect('auth/login');
 		
-		echo 'Hi, '. user('email') .'. You have successfully  logged in. <a href="'. site_url('auth/logout') .'">Logout</a>';
+		echo 'Hi, '. user('username') .'. You have successfully  logged in. <a href="'. site_url('auth/logout') .'">Logout</a>';
 	}
 	
 	/**
@@ -73,14 +73,14 @@ class Auth extends CI_Controller {
 	 * @param string $email the submitted email
 	 * @return boolean returns false on error
 	 */
-	public function email_exists($email)
+	public function username_exists($username)
 	{
 		$this->load->model('authit_model');
 		 
-		if($this->authit_model->get_user_by_email($email)){
+		if($this->authit_model->get_user_by_username($username)){
 			return true;
 		} else {
-			$this->form_validation->set_message('email_exists', 'We couldn\'t find that email address in our system.');
+			$this->form_validation->set_message('username_exists', 'We couldn\'t find that username in our system.');
 			return false;
 		}
 	}

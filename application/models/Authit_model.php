@@ -31,9 +31,9 @@ class Authit_model extends CI_Model {
 		return false;
 	}
 	
-	public function get_user_by_email($email)
+	public function get_user_by_username($username)
 	{
-		$query = $this->db->get_where($this->users_table, array('email' => $email));
+		$query = $this->db->get_where($this->users_table, array('username' => $username));
 		if($query->num_rows()) return $query->row();
 		return false;
 	}
@@ -54,7 +54,7 @@ class Authit_model extends CI_Model {
 	public function create_user($email, $password)
 	{
 		$data = array(
-			'email' => filter_var($email, FILTER_SANITIZE_EMAIL),
+			'username' => $username,
 			'password' => $password,
 			'created' => date('Y-m-d H:i:s')
 		);
@@ -77,7 +77,7 @@ class Authit_model extends CI_Model {
 	{
 		$this->load->dbforge();
 		$this->dbforge->add_field('id');
-		$this->dbforge->add_field('email VARCHAR(200) NOT NULL');
+		$this->dbforge->add_field('username VARCHAR(200) NOT NULL');
 		$this->dbforge->add_field('password VARCHAR(200) NOT NULL');
 		$this->dbforge->add_field('created DATETIME NOT NULL');
 		$this->dbforge->add_field('last_login DATETIME NOT NULL');

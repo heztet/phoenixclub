@@ -28,9 +28,9 @@ class Authit {
 		return $this->CI->session->userdata('logged_in');
 	}
 	
-	public function login($email, $password)
+	public function login($username, $password)
 	{
-		$user = $this->CI->authit_model->get_user_by_email($email);
+		$user = $this->CI->authit_model->get_user_by_username($username);
 		if($user){
 			if(strcmp($password, $user->password) == 0){
 				unset($user->password);
