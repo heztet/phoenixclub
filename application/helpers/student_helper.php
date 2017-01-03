@@ -76,6 +76,20 @@ if ( ! function_exists('reset_student_points'))
     }
 }
 
+// Set LastSemesterPoints as TotalPoints
+if ( ! function_exists('update_last_semester_points'))
+{
+    function update_last_semester_points()
+    {
+        // Load database
+        $helper =& get_instance();
+        $helper->load->database();
+
+        $sql = 'UPDATE phoenix_students SET LastSemesterPoints=TotalPoints';
+        $helper->db->query($sql);
+    }
+}
+
 // Delete all students
 if ( ! function_exists('delete_students'))
 {
