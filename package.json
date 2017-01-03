@@ -1,0 +1,23 @@
+{
+  "name": "phoenixclub",
+  "version": "2.1s",
+  "description": "Hillenbrand Hall website",
+  "keywords": [
+    "phoenixclub",
+    "php",
+    "server",
+    "webserver",
+    "web-server",
+    "http"
+  ],
+  "author": {
+    "name": "Nicky Marino",
+    "email": "nicky.s.marino@gmail.com",
+    "url": "nickymarino.com"
+  },
+  "repository": "heztet/phoenixclub",
+  "license": "MIT",
+  "dependencies": {
+    "codeigniter-authit": "1.0.0"
+  }
+}
