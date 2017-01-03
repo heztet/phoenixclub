@@ -1,41 +1,6 @@
 # Welcome to Phoenix Club!
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
-# To Do for v2.2
-- [ ] Update `LastSemesterPoints` when reseting
-- [X] Better grid system for forms (make most of the form elements way smaller for large screens)
-- [X] Better form validation messages
-- [X] Fix main page errors about getting content (HTTP/HTTPS issue)
-- [X] Button to reset floor points
-- [X] Newsletter section
-- [X] Newsletter form
-- [X] VITAL: FIX CONTACT PAGE
-- [X] VITAL: Fix SimpleHeader for Contact/Leaderboard
-- [X] VITAL: Fix PhoenixClub link on home page (and slogan)
-- [X] Add destroy_newsletters to reset year
-- [X] End of semester feature -> erase points, record whether student had >= a certain amount of points
-- [X] Use `global_helper` for password comparing (currently open to SQL injections)
-- [X] `/banquet` page (basic)
-- [X] Add ability to download CSV of banquet eligible students
-- [X] Add ability to download all students (without PUID!)
-- [X] Check for BanquetEligiblity when checking-in and creating students
-- [X] Add email address to student (warning message when not registered?)
-- [X] Better form validation messages (ex: "You did not have a <field>", "<Field> cannot have <this>")
-- [X] Refactoring and consistent coding:
-	- [X] Remove '_helper' from `$this->load->helper()`
-	- [X] Remove IsCurrent column for students
-	- ~~[ ] Properly use `$this->db->dbprefix()` ([example](https://stackoverflow.com/questions/16021367/adding-table-prefix-to-join-in-codeigniter))~~
-- [X] User management:
-	- [X] Pick framework
-		- [X] https://github.com/trafficinc/CodeIgniter-Authit
-		- ~~[ ] http://benedmunds.com/ion_auth/~~
-		- ~~[ ] http://community-auth.com/documentation~~
-	- [X] Unhash passwords (necessary for revolving-door club and no ability to email)
-	- [X] Remove extra bits
-	- [X] Update views for login/dash
-	- [X] Update admin tools to require login
-	- [X] Update header for login/logout
-
 # To Do for v2.3
 - [ ] Login redirects to original destination
 - [ ] Quick point adder on `/students` if logged in
