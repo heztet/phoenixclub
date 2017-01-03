@@ -66,7 +66,7 @@ class Reset_model extends CI_Model {
 								  'event',
 								  'floor',
 								  'newsletter',
-								  'records')
+								  'record')
 		);
 
 		// Get the password from the post

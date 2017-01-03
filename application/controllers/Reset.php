@@ -11,12 +11,23 @@ class Reset extends CI_Controller {
 	}
 
 	// Return all events
-	public function index()
+	public function index($success = NULL)
 	{
 		require_login();
         $data['username'] = username();
 
 		$data['title'] = "Reset Tools";
+
+		if ((!is_null($success)) and ($success))
+		{
+			$data['resetSuccess'] = 1;
+			$data['resetFailure'] = 0;
+		}
+		elseif ((!is_null($success)) and (!$success))
+		{
+			$data['resetSuccess'] = 0;
+			$data['resetFailure'] = 1;			
+		}
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('reset/index', $data);
@@ -27,53 +38,30 @@ class Reset extends CI_Controller {
 	public function floors()
 	{
 		require_login();
-        $data['username'] = username();
-
-		// Helpers
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-		
-		$data['title'] = "Reset Floor Points";
+        $data['username'] = username();		
 		
 		try 
 		{
-			// Check that password is filled out
-			$this->form_validation->set_rules('Password', 'Password', 'required');
+			// Reset
+			$result = $this->reset_model->reset_floors();
 
-			// Reset tables if validation succeeds
-			if ($this->form_validation->run() === TRUE)
+			// Add success/failure modal to $data
+			if ($result == 0)
 			{
-				// Reset
-				$result = $this->reset_model->reset_floors();
-
-				// Add success/failure modal to $data
-				if ($result == 0)
-				{
-					$data['resetSuccess'] = 1;
-					$data['resetFailure'] = 0;
-				}
-				else {
-					$data['resetSuccess'] = 0;
-					$data['resetFailure'] = 1;
-				}
+				$success = TRUE;
 			}
-			// No success/failure 
-			else
-			{
-				$data['resetSuccess'] = 0;
-				$data['resetFailure'] = 0;
+			else {
+				$success = FALSE;
 			}
 		}
 		catch (Exception $e)
 		{
 			log_message('error', 'Reset failure: '.$e->getMessage());
-			$data['resetSuccess'] = 0;
-			$data['resetFailure'] = 1;
+			$success = FALSE;
 		}
 
-		$this->load->view('templates/header', $data);
-		$this->load->view('reset/floors', $data);
-		$this->load->view('templates/footer', $data);
+		// Go back to index
+		redirect('reset/index/'.$success);
 	}
 
 	// Reset semester points
@@ -82,51 +70,29 @@ class Reset extends CI_Controller {
 		require_login();
         $data['username'] = username();
 
-		// Helpers
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-		
-		$data['title'] = "Reset Semester";
-		
-		try 
+		try
 		{
-			// Check that password is filled out
-			$this->form_validation->set_rules('Password', 'Password', 'required');
+			// Reset
+			$result = $this->reset_model->reset_semester();
 
-			// Reset tables if validation succeeds
-			if ($this->form_validation->run() === TRUE)
+			// Add success/failure modal to $data
+			if ($result == 0)
 			{
-				// Reset
-				$result = $this->reset_model->reset_semester();
-
-				// Add success/failure modal to $data
-				if ($result == 0)
-				{
-					$data['resetSuccess'] = 1;
-					$data['resetFailure'] = 0;
-				}
-				else {
-					$data['resetSuccess'] = 0;
-					$data['resetFailure'] = 1;
-				}
+				$success = TRUE;
 			}
-			// No success/failure 
 			else
 			{
-				$data['resetSuccess'] = 0;
-				$data['resetFailure'] = 0;
+				$success = FALSE;
 			}
 		}
 		catch (Exception $e)
 		{
 			log_message('error', 'Reset failure: '.$e->getMessage());
-			$data['resetSuccess'] = 0;
-
-			$data['resetFailure'] = 1;
+			$success = FALSE;
 		}
-		$this->load->view('templates/header', $data);
-		$this->load->view('reset/semester', $data);
-		$this->load->view('templates/footer', $data);
+
+		// Go back to index
+		redirect('reset/index/'.$success);
 	}
 
 	// Reset year points/students
@@ -135,50 +101,29 @@ class Reset extends CI_Controller {
 		require_login();
         $data['username'] = username();
 		
-		// Helpers
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-		
 		$data['title'] = "Reset Year";
 		
 		try 
 		{
-			// Check that password is filled out
-			$this->form_validation->set_rules('Password', 'Password', 'required');
+			// Reset
+			$result = $this->reset_model->reset_year();
 
-			// Reset tables if validation succeeds
-			if ($this->form_validation->run() === TRUE)
+			// Add success/failure modal to $data
+			if ($result == 0)
 			{
-				// Reset
-				$result = $this->reset_model->reset_year();
-
-				// Add success/failure modal to $data
-				if ($result == 0)
-				{
-					$data['resetSuccess'] = 1;
-					$data['resetFailure'] = 0;
-				}
-				else {
-					$data['resetSuccess'] = 0;
-					$data['resetFailure'] = 1;
-				}
+				$success = TRUE;
 			}
-			// No success/failure 
-			else
-			{
-				$data['resetSuccess'] = 0;
-				$data['resetFailure'] = 0;
+			else {
+				$success = FALSE;
 			}
 		}
 		catch (Exception $e)
 		{
 			log_message('error', 'Reset failure: '.$e->getMessage());
-			$data['resetSuccess'] = 0;
-			$data['resetFailure'] = 1;
+			$success = FALSE;
 		}
 
-		$this->load->view('templates/header', $data);
-		$this->load->view('reset/year', $data);
-		$this->load->view('templates/footer', $data);
+		// Go back to index
+		redirect('reset/index/'.$success);
 	}
 }
