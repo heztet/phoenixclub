@@ -39,7 +39,6 @@ class Pages extends CI_Controller {
         $this->load->model('events_model');
 
     	$data['title'] = 'Leaderboard';
-        $data['SimpleHeader'] = 1;
 
     	// Get students in order of points descending
     	$data['students'] = $this->pages_model->get_student_leaderboard();
@@ -65,7 +64,6 @@ class Pages extends CI_Controller {
         $data['username'] = username();
 
         $data['title'] = 'Banquet';
-        $data['SimpleHeader'] = 1;
         
         $this->load->model('students_model');
         $this->load->helper('student');

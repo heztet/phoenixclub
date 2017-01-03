@@ -4,7 +4,8 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 # To Do for v2.3
 - [ ] Login redirects to original destination
 - [ ] Quick point adder on `/students` if logged in
-- [ ] Check that going to `/banquet` or `/downloads/banquet` will always run `banquet_check`
+- [X] Correctly calculate `BanquetEligible`
+- [X] Check that going to `/banquet` or `/downloads/banquet` will always run `banquet_check`
 	
 # Help! How do I put this in production mode?
 - In `application/config/config.php`, set `$config['log_threshold'] = 1;`
