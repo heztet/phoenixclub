@@ -160,12 +160,13 @@ CREATE TABLE IF NOT EXISTS `phoenix_students` (
 --
 DROP TABLE IF EXISTS `phoenix_users`;
 CREATE TABLE IF NOT EXISTS `phoenix_users` (
-  `id` int(9) NOT NULL,
+  `id` int(9) NOT NULL AUTO_INCREMENT,
   `username` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_login` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_login` datetime NOT NULL
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 -- --------------------------------------------------------
 
@@ -176,6 +177,7 @@ DROP TABLE IF EXISTS `phoenix_year_conversion`;
 CREATE TABLE IF NOT EXISTS `phoenix_year_conversion` (
   `YearNumber` int(11) NOT NULL,
   `YearString` varchar(16) NOT NULL
+  PRIMARY KEY (`YearNumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

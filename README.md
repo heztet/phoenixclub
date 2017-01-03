@@ -2,6 +2,7 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.2
+- [ ] Update `LastSemesterPoints` when reseting
 - [X] Better grid system for forms (make most of the form elements way smaller for large screens)
 - [X] Better form validation messages
 - [X] Fix main page errors about getting content (HTTP/HTTPS issue)
@@ -34,11 +35,16 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 	- [X] Update views for login/dash
 	- [X] Update admin tools to require login
 	- [X] Update header for login/logout
+
+# To Do for v2.3
+- [ ] Login redirects to original destination
+- [ ] Quick point adder on `/students` if logged in
+- [ ] Check that going to `/banquet` or `/downloads/banquet` will always run `banquet_check`
 	
 # Help! How do I put this in production mode?
 - In `application/config/config.php`, set `$config['log_threshold'] = 1;`
 - In `application/config/config.php`, set `$config['base_url'] = '<WEBSITE_URL>';`
 - In `application/config/database.php`, set each of the database variables that are set as blank
 - In `index.php`, change `define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');` to `define('ENVIRONMENT', 'production');`
-- Rum `dbSetup.sql` (you can also remove the `AUTO_INCREMENT=<num>` as well)
+- Run `dbSetup.sql` (you can also remove the `AUTO_INCREMENT=<num>` as well)
 - Add a value for `BanquetAmount` in `phoenix_globals`
