@@ -7,6 +7,7 @@ class Pages extends CI_Controller {
 		parent::__construct();
 		$this->load->model('pages_model');
 		$this->load->helper('url');
+        $this->load->helper('authit');
 	}
 
     public function view($page = 'home')
@@ -18,19 +19,14 @@ class Pages extends CI_Controller {
 		}
         $data['title'] = ucfirst($page); // Capitalize the first letter
 
-		// Simple header for contact page
-		if ($page == 'contact') {
-			$data['SimpleHeader'] = 1;
-		}
-
         // Main (home) page has custom headers and footers
         if ($page == 'home')
         {
         	$this->load->view('pages/'.$page, $data);
         }
+        // Load header/footer otherwise
         else
         {
-            // Load header/footer otherwise
         	$this->load->view('templates/header', $data);
         	$this->load->view('pages/'.$page, $data);
         	$this->load->view('templates/footer', $data);
@@ -65,11 +61,14 @@ class Pages extends CI_Controller {
 
     public function banquet($data = NULL)
     {
-        $this->load->model('students_model');
-        $this->load->helper('student');
+        require_login();
+        $data['username'] = username();
 
         $data['title'] = 'Banquet';
         $data['SimpleHeader'] = 1;
+        
+        $this->load->model('students_model');
+        $this->load->helper('student');
 
         // Get students in order of points descending
         $data['students'] = $this->pages_model->get_banquet_students();

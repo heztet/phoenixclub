@@ -6,7 +6,7 @@
 <br />
 <br />
 
-<?php echo validation_errors('<p class="bg-danger">'); ?>
+<?php echo validation_errors('<p class="bg-danger fade-message" style="padding: 3px 3px 3px 3px;">'); ?>
 
 <?php echo form_open($formUrl, 'class="form-horizontal"'); ?>
 	<!-- Hidden Inputs -->
@@ -73,7 +73,7 @@
 					}
 				?>
 			</select>
-		</div> 
+		</div>
 	</div>
 	<div class="form-group">
 	    <label for='Side' class="col-sm-2 control-label">Side</label>

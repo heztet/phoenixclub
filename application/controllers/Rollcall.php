@@ -6,10 +6,14 @@ class Rollcall extends CI_Controller {
 		parent::__construct();
 		$this->load->model('rollcall_model');
 		$this->load->helper('url');
+		$this->load->helper('authit');
 	}
 
 	public function index()
 	{
+		require_login();
+        $data['username'] = username();
+		
 		// Helpers
 		$this->load->helper('form');
 		$this->load->library('form_validation');

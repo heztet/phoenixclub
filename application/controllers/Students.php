@@ -7,11 +7,15 @@ class Students extends CI_Controller {
 		parent::__construct();
 		$this->load->model('students_model');
 		$this->load->helper('url');
+		$this->load->helper('authit');
 	}
 
 	// Create a student with the given PUID and an optional eventId they checked into
 	public function create($puid = NULL, $eventId = NULL)
 	{
+		require_login();
+        $data['username'] = username();
+		
 		// Helpers
 		$this->load->helper('puid');
 		$this->load->helper('student');

@@ -81,10 +81,6 @@ CREATE TABLE IF NOT EXISTS `phoenix_globals` (
 
 INSERT INTO phoenix_globals (Variable, Value)
                             VALUES
-                            ("ResetFloorsKey", NULL),
-                            ("ResetSemesterKey", NULL),
-                            ("ResetYearKey", NULL),
-                            ("RollcallKey", NULL),
                             ("BanquetAmount", NULL);
 
 -- --------------------------------------------------------
@@ -160,23 +156,37 @@ CREATE TABLE IF NOT EXISTS `phoenix_students` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `phoenix_users`
+--
+DROP TABLE IF EXISTS `phoenix_users`;
+CREATE TABLE IF NOT EXISTS `phoenix_users` (
+  `id` int(9) NOT NULL,
+  `username` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_login` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `phoenix_year_conversion`
 --
-
-CREATE TABLE `phoenix_year_conversion` (
+DROP TABLE IF EXISTS `phoenix_year_conversion`;
+CREATE TABLE IF NOT EXISTS `phoenix_year_conversion` (
   `YearNumber` int(11) NOT NULL,
   `YearString` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `phoenix_year_conversion`
+-- Table rows for table `phoenix_year_conversion`
 --
 
 INSERT INTO `phoenix_year_conversion` (`YearNumber`, `YearString`) VALUES
-(1, 'Freshman'),
-(2, 'Sophomore'),
-(3, 'Junior'),
-(4, 'Senior');
+                                      (1, 'Freshman'),
+                                      (2, 'Sophomore'),
+                                      (3, 'Junior'),
+                                      (4, 'Senior');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

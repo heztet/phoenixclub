@@ -7,11 +7,15 @@ class Events extends CI_Controller {
 		parent::__construct();
 		$this->load->model('events_model');
 		$this->load->helper('url');
+		$this->load->helper('authit');
 	}
 
 	// Return all events
 	public function index($success = NULL, $message = NULL)
 	{
+		require_login();
+		$data['username'] = username();
+
 		$data['events'] = $this->events_model->get_events();
 
 		// Set title
@@ -36,6 +40,8 @@ class Events extends CI_Controller {
 	// Return specific event
 	public function view($Id = NULL)
 	{
+		require_login();
+		$data['username'] = username();
 
 		$data['events_item'] = $this->events_model->get_events($Id);
 
@@ -56,6 +62,9 @@ class Events extends CI_Controller {
 	// Create event
 	public function create()
 	{
+		require_login();
+		$data['username'] = username();
+
 		// Helpers
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -94,6 +103,9 @@ class Events extends CI_Controller {
 	// Add student to event
 	public function add($Id = NULL, $AddedStudent = NULL)
 	{
+		require_login();
+		$data['username'] = username();
+
 		// Helpers
 		$this->load->helper('form');
 		$this->load->helper('puid');
@@ -190,6 +202,9 @@ class Events extends CI_Controller {
 	// Close an event to checking in
 	public function close($Id = NULL)
 	{
+		require_login();
+		$data['username'] = username();
+
 		// Check that event exists and is open
 		$data['events_item'] = $this->events_model->get_events($Id);		
 
@@ -231,6 +246,9 @@ class Events extends CI_Controller {
 	// Archive all events (set IsCurrentYear to FALSE)
 	public function archive()
 	{
+		require_login();
+		$data['username'] = username();
+		
 		// Archive
 		$success = $this->events_model->archive_events();
 

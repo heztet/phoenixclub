@@ -19,18 +19,6 @@ class Rollcall_model extends CI_Model {
 		$floor = $this->input->post('Floor');
 		$side = $this->input->post('Side');
 
-		// Check that the password matches
-		$this->db->where('Variable', 'RollcallKey');
-		$this->db->where('Value', $password);
-		$query = $this->db->get('phoenix_globals');
-		$row = $query->row(0);
-
-		// Return error (-1) if password is incorrect
-		if (! is_object($row))
-		{
-			return -1;
-		}
-
 		// Get floor 
 		$floorString = $floor.$side;
 		$this->db->where('Floor', $floorString);
