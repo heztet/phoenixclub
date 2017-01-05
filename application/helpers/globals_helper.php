@@ -19,15 +19,15 @@ if ( ! function_exists('get_global'))
             return NULL;
         }
 
+        // Get row in globals
         $helper->db->where('Variable', $column_name);
         $query = $helper->db->get('globals');
         $result = $query->row(0);
-        $value = $result->Value;
 
-        // Return whether student exists
-        if (!empty($value))
+        // Return result
+        if (!empty($result))
         {
-            return $value;
+            return $result->Value;
         }
         else
         {

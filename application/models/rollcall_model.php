@@ -10,14 +10,20 @@ class Rollcall_model extends CI_Model {
 	// Record rollcall for the floor
 	public function record_rollcall()
 	{
-		$this->load->helper('url');
-
-		$POINTS_PER_ROLLCALL = 5;
+		$this->load->helper(array('url',
+								  'globals'));
 
 		// Get post data
-		$password = $this->input->post('Password');
 		$floor = $this->input->post('Floor');
 		$side = $this->input->post('Side');
+
+		// Check for rollcall points
+		$points_per_rollcall = get_global('RollcallAmount');
+		if (empty($points_per_rollcall))
+		{
+			log_message('error', 'Failed to record rollcall: no RollcallAmount in globals');
+			return -1;
+		}
 
 		// Get floor 
 		$floorString = $floor.$side;
@@ -28,7 +34,7 @@ class Rollcall_model extends CI_Model {
 
 		// Update floor points
 		$data = array(
-			'TotalPoints' => $floorPoints + $POINTS_PER_ROLLCALL
+			'TotalPoints' => $floorPoints + $points_per_rollcall
 			);
 		$this->db->where('Floor', $floorString);
 		$this->db->update('phoenix_floors', $data);
@@ -36,7 +42,7 @@ class Rollcall_model extends CI_Model {
 		// Record update
 		$data = array(
 			'Floor' => $floorString,
-			'PointDelta' => $POINTS_PER_ROLLCALL
+			'PointDelta' => $points_per_rollcall
 			);
 		$this->db->insert('phoenix_rollcalls', $data);
 

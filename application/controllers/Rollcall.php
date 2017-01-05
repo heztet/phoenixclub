@@ -23,7 +23,8 @@ class Rollcall extends CI_Controller {
 		try 
 		{
 			// Check that password is filled out
-			$this->form_validation->set_rules('Password', 'Password', 'required');
+			$this->form_validation->set_rules('Floor', 'Floor', 'required');
+			$this->form_validation->set_rules('Side', 'Side', 'required');
 
 			// Reset tables if validation succeeds
 			if ($this->form_validation->run() === TRUE)

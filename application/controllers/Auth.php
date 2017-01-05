@@ -75,13 +75,26 @@ class Auth extends CI_Controller {
 		$data['username'] = username();
 
 		$data['title'] = 'Dashboard';
-		$data['links'] = array('View events' => 'events',
-							   'Create an event' => 'events/create',
-							   'Record a rollcall winner' => 'rollcall',
-							   'Add a newsletter' => 'newsletter/add',
-							   'View leaderboard' => 'leaderboard',
-							   'Reset for next year or semester' => 'reset'
-		);
+		$data['buttons'] = array('View events' => 'events',
+							     'Create an event' => 'events/create',
+							     'Record a rollcall winner' => 'rollcall',
+							     'Add a newsletter' => 'newsletter/add',
+							     'View leaderboard' => 'leaderboard',
+							     'Reset for next year or semester' => 'reset'
+						   );
+		$data['links'] = array('events' => 'List of all events',
+							   'events/create' => 'Create a new event',
+							   'newsletter' => 'List of all newsletters',
+							   'newsletter/add' => 'Add a new newsletter',
+							   'banquet' => 'List of students eligible for the banquet',
+							   'leaderboard' => 'Leaderboard of floors and students',
+							   'reset' => 'Reset floors, semester, or year points',
+							   'rollcall' => 'Record who won a rollcall and add points to that floor',
+							   'students' => 'List of students to add points (upcoming)',
+							   'downloads/students' => 'Download student data as CSV',
+							   'downloads/banquet' => 'Download banquet-eligible students as CSV'
+						 );
+
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('auth/dash', $data);

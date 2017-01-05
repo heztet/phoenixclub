@@ -2,13 +2,14 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.3
-- [ ] List of links on user dash
 - [ ] Login redirects to original destination
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
-- [ ] Make newsletters optionally visible on `/newsletter`
 - [X] Correctly calculate `BanquetEligible`
 - [X] Check that going to `/banquet` or `/downloads/banquet` will always run `banquet_check`
 - [X] `/database` redirect
+- [X] List of links on user dash
+- [X] Remove password from rollcalls
+- [X] Rollcall uses `Rollcall` value in `phoenix_globals`
 	
 # Help! How do I put this in production mode?
 - In `application/config/config.php`, set `$config['log_threshold'] = 1;`

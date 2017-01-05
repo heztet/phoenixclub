@@ -10,7 +10,7 @@
 <?php if (!empty($rollFailure) and ($rollFailure == 1)) : ?>
 	<div class="row">
 		<div class="col-sm-3">
-			<p class="bg-danger fade-message" id="ResetFailure" style="padding: 3px 0px 3px 0px;">Invalid password: Rollcall not recorded</p>
+			<p class="bg-danger fade-message" id="ResetFailure" style="padding: 3px 0px 3px 0px;">Error: Rollcall not recorded</p>
 		</div>
 	</div>
 <?php elseif (!empty($rollSuccess) and ($rollSuccess) == 1) : ?>
@@ -51,12 +51,6 @@
 				<option selected='selected' value='E'>E</option>
 				<option value='W'>W</option>
 			</select>
-		</div> 
-	</div>
-	<div class="form-group">
-	    <label for="Password" class="col-sm-2 control-label">Password</label>
-	    <div class="col-sm-4">
-			<input type="password" class="form-control" name="Password" />
 		</div> 
 	</div>
 	<div class="form-group">

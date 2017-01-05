@@ -16,9 +16,6 @@ class Reset_model extends CI_Model {
 								  'floor')
 		);
 
-		// Get the password from the post
-		$password = $this->input->post('Password');
-
 		reset_floor_points();
 
 		// Success
@@ -35,9 +32,6 @@ class Reset_model extends CI_Model {
 								  'event',
 								  'floor')
 		);
-
-		// Get the password from the post
-		$password = $this->input->post('Password');
 
 		// Get minimum amount needed for banquet
 		$banquet_min = get_global('BanquetAmount');
@@ -69,9 +63,6 @@ class Reset_model extends CI_Model {
 								  'newsletter',
 								  'record')
 		);
-
-		// Get the password from the post
-		$password = $this->input->post('Password');
 
 		archive_events();
 		delete_students();

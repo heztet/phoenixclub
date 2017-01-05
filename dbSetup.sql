@@ -81,7 +81,8 @@ CREATE TABLE IF NOT EXISTS `phoenix_globals` (
 
 INSERT INTO phoenix_globals (Variable, Value)
                             VALUES
-                            ("BanquetAmount", NULL);
+                            ("BanquetAmount", NULL),
+                            ("RollcallAmount", NULL);
 
 -- --------------------------------------------------------
 
