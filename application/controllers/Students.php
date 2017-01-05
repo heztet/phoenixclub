@@ -10,6 +10,31 @@ class Students extends CI_Controller {
 		$this->load->helper('authit');
 	}
 
+	// List all students
+	public function index($success = NULL, $message = NULL)
+	{
+		require_login();
+		$data['username'] = username();
+
+		$data['title'] = 'Students';
+		$data['students'] = $this->students_model->get_students();
+		log_message('debug', 'no here');
+
+		if ($success != NULL)
+		{
+			$data['success'] = $success;
+		}
+		if ($message != NULL)
+		{
+			$data['message'] = $message;
+		}
+		echo print_r($data['students']);
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('students/index', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
 	// Create a student with the given PUID and an optional eventId they checked into
 	public function create($puid = NULL, $eventId = NULL)
 	{
