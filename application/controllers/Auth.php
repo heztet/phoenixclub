@@ -92,7 +92,8 @@ class Auth extends CI_Controller {
 							   'rollcall' => 'Record who won a rollcall and add points to that floor',
 							   'students' => 'List of students to add points (upcoming)',
 							   'downloads/students' => 'Download student data as CSV',
-							   'downloads/banquet' => 'Download banquet-eligible students as CSV'
+							   'downloads/banquet' => 'Download banquet-eligible students as CSV',
+							   'database' => 'Go to the database'
 						 );
 
 		
