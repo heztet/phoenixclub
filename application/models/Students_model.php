@@ -13,25 +13,29 @@ class Students_model extends CI_Model {
 		// Helpers
 		$this->load->helper('puid_helper');
 
-		$puid = format_puid($puid);
+		// Return all students
+		if ($puid == FALSE)
+		{
+			$this->db->order_by('LastName');
+			$query = $this->db->get('phoenix_students');
+			$students = $query->result_array();
+			
+			// Add year string to each student
+			$students = $this->append_year_string($students);
+			return $students;
+		}
 
+		$puid = format_puid($puid);
 		// Return -1 for invalid puid
 		if ($puid == -1)
 		{
 			return -1;
 		}
 
-		if ($puid == FALSE)
-		{
-			$this->db->order_by('LastName');
-			$query = $this->db->get('phoenix_students');
-			return $query->result_array();
-		}
-
 		$this->db->order_by('DateCreated', 'desc');
 		$this->db->where('PUID', $puid);
 		$query = $this->db->get('phoenix_students');
-		$students = $query->row_array();
+		$students = $query->result_array();
 
 		// Add year string to each student
 		$students = $this->append_year_string($students);
