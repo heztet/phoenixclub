@@ -12,11 +12,19 @@ class Pages extends CI_Controller {
 
     public function view($page = 'home')
     {
+        // Check for 'database'
+        if ($page == 'database')
+        {
+            require_login();
+            $this->load->database();
+            redirect($this->db->website);
+        }
 		// Check that page exists
-		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
+		elseif ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
 		{
 			show_404();
 		}
+
         $data['title'] = ucfirst($page); // Capitalize the first letter
 
         // Main (home) page has custom headers and footers

@@ -76,6 +76,7 @@ $query_builder = TRUE;
 // Settings for Purdue directory
 
 $db['default']['hostname'] = 'localhost';
+$db['default']['website'] = 'http://localhost/phpmyadmin';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '';
 $db['default']['database'] = 'marinon';
