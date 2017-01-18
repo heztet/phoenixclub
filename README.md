@@ -4,7 +4,6 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 # To Do for v2.3
 - [ ] Login redirects to original destination
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
-- [ ] Downloads for students have LastSemesterPoints
 - [ ] Unvalidate user if logged in for a set amount of time
 - [ ] Show student email when logged in
 - [X] Correctly calculate `BanquetEligible`
@@ -14,6 +13,8 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 - [X] Remove password from rollcalls
 - [X] Rollcall uses `Rollcall` value in `phoenix_globals`
 - [X] Fix footer link
+- [X] Downloads for students have LastSemesterPoints
+
 
 # develop vs. production
 - The `develop` branch is where changes are staged for production
