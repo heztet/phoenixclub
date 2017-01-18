@@ -4,6 +4,7 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 # To Do for v2.3
 - [ ] Login redirects to original destination
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
+- [ ] Downloads for students have LastSemesterPoints
 - [X] Correctly calculate `BanquetEligible`
 - [X] Check that going to `/banquet` or `/downloads/banquet` will always run `banquet_check`
 - [X] `/database` redirect
