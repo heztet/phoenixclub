@@ -4,6 +4,7 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 # To Do for v2.3
 - [ ] Login redirects to original destination
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
+- [ ] Quick point adder uses `phoenix_records`
 - [ ] Unvalidate user if logged in for a set amount of time
 - [ ] Show student email when logged in
 - [X] Correctly calculate `BanquetEligible`

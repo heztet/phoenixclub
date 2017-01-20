@@ -12,6 +12,7 @@ class Pages_model extends CI_Model {
 	{
 		// Get all current students
 		$this->db->order_by('TotalPoints', 'desc');
+		$this->db->where('TotalPoints > ', '0');
 		$query = $this->db->get('phoenix_students');
 		$allStudents = $query->result_array();
 
