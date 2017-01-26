@@ -41,6 +41,8 @@
 								<!-- <li><a href="index.php/eboard">E-Board</a></li> -->
 								<li><a href="<?php echo site_url('leaderboard/'); ?>">Points</a></li>
 								<li><a href="<?php echo site_url('newsletter/'); ?>">Notes/Newsletter</a></li>
+								<li><a href="http://www.tinyurl.com/PCRequestForm">GA Request</a></li>
+								<li><a href="https://drive.google.com/file/d/0B8-AgzNZaI_HRDZRMksyUnZYT2c/view?usp=sharing">Checkout</a></li>
 							</ul>
 						</nav>
 
