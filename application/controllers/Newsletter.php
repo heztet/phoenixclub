@@ -14,6 +14,8 @@ class Newsletter extends CI_Controller {
 	// Return all newsletters
 	public function index()
 	{
+		$data['username'] = username();
+
 		$data['title'] = 'Minute Notes & Newsletters';
 		$data['newsletters'] = $this->newsletter_model->get_newsletters();
 

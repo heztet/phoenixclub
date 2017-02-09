@@ -2,13 +2,15 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.3
+- [ ] Phone number column for `phoenix_students`
 - [ ] Login redirects to original destination
-- [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
-- [ ] Quick point adder uses `phoenix_records`
 - [ ] Show student email when logged in
+- [ ] Event types (check-in vs sign-up)
 - [ ] Newsletter changes
 	 - [ ] Change to `/documents`
-	 - [ ] 
+	 - [ ] Have document types (Newsletters, Bills, etc.)
+- [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
+- [ ] Quick point adder uses `phoenix_records`
 - [X] Correctly calculate `BanquetEligible`
 - [X] Check that going to `/banquet` or `/downloads/banquet` will always run `banquet_check`
 - [X] `/database` redirect
