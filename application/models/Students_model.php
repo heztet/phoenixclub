@@ -43,6 +43,25 @@ class Students_model extends CI_Model {
 		return $students;
 	}
 
+	// Return all students associated with an event (using records table)
+	public function get_students_for_event($event_id = NULL) {
+		if (is_null($event_id))
+		{
+			return NULL;
+		}
+
+		//$this->db->select('phoenix_students.PUID, phoenix_records.PUID, FirstName, LastName, Email, Floor, Side, Timestamp, Year');
+		$this->db->join('phoenix_records', 'phoenix_students.PUID = phoenix_records.PUID');
+		$this->db->order_by('Timestamp');
+		$query = $this->db->get('phoenix_students');
+		$students = $query->result_array();
+
+		// Add year string to each student
+		$students = $this->append_year_string($students);
+
+		return $students;
+	}
+
 	// Add student to student table
 	public function create_student($eventId = NULL)
 	{

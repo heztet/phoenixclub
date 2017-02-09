@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `phoenix_users` (
   `username` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
   `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_login` datetime NOT NULL
+  `last_login` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
@@ -177,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `phoenix_users` (
 DROP TABLE IF EXISTS `phoenix_year_conversion`;
 CREATE TABLE IF NOT EXISTS `phoenix_year_conversion` (
   `YearNumber` int(11) NOT NULL,
-  `YearString` varchar(16) NOT NULL
+  `YearString` varchar(16) NOT NULL,
   PRIMARY KEY (`YearNumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

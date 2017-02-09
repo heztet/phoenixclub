@@ -43,6 +43,9 @@ class Events extends CI_Controller {
 		require_login();
 		$data['username'] = username();
 
+		// Helpers
+		$this->load->model('students_model');
+
 		$data['events_item'] = $this->events_model->get_events($Id);
 
 		if (empty($data['events_item']))
@@ -53,6 +56,7 @@ class Events extends CI_Controller {
 		$data['Title'] = $data['events_item']['Title'];
 		$data['events_item']['EventId'] = $Id;
 		$data['events_item']['redirectLink'] = 'events/add/'.$Id;
+		$data['students'] = $this->students_model->get_students_for_event($Id);
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('events/view', $data);

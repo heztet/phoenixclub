@@ -19,6 +19,10 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 - [X] Rollcall uses `Rollcall` value in `phoenix_globals`
 - [X] Fix footer link
 - [X] Downloads for students have LastSemesterPoints
+- [X] Event viewer
+	- [X] Add student list
+	- [X] Add download button
+- [X] Download student data for specific events
 
 
 # Branch descriptions

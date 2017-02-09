@@ -38,7 +38,7 @@
 	<!-- Items -->
 	<?php foreach ($events as $e): ?>
 		<tr>
-			<td><?php echo $e['Title']; ?></td>
+			<td><a href="<?php echo site_url('events/'.$e['Id']); ?>"><?php echo $e['Title']; ?></a></td>
 		    <td><?php echo date_format(date_create($e['DateCreated']), 'm/d/Y g:i A'); ?></td>
 		    <td align="center"><?php echo $e['PointValue']; ?></td>
 		    <td align="center"><?php echo $e['TotalStudents']; ?></td>

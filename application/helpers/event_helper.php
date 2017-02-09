@@ -15,3 +15,29 @@ if ( ! function_exists('archive_events'))
         $helper->db->query($sql);
     }
 }
+
+// Return event title
+if ( ! function_exists('get_event_title'))
+{
+    function get_event_title($id)
+    {
+        if (is_null($id))
+        {
+            return "";
+        }
+
+        // Load database
+        $helper =& get_instance();
+        $helper->load->database();
+
+        $helper->db->where('Id', $id);
+        $query = $helper->db->get('phoenix_events');
+        
+        if ((!isset($query)) || (!isset($query->row(0)->Title)))
+        {
+            return "";
+        }
+
+        return $query->row(0)->Title;
+    }
+}

@@ -33,4 +33,30 @@ class Downloads extends CI_Controller {
 		$students_csv = $this->dbutil->csv_from_result($students);
 		force_download('banquet_eligible_students.csv', $students_csv);
 	}
+
+	// Download all events
+	// If $id is given, download student data for that event
+	public function events($id = NULL)
+	{
+		require_login();
+		$data['username'] = username();
+
+		if (is_null($id))
+		{
+			$data = $this->downloads_model->get_all_events();
+			$filename = 'events.csv';
+		}
+		else 
+		{
+			$data = $this->downloads_model->get_students_for_event($id);
+
+			$this->load->helper('event');
+			$event_name= get_event_title($id);
+			$filename = 'Students from '.$event_name.'.csv';
+			$filename = str_replace(' ', '_', $filename);	 
+		}
+
+		$data_csv = $this->dbutil->csv_from_result($data);
+		force_download($filename, $data_csv);
+	}
 }
