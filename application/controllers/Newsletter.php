@@ -28,6 +28,8 @@ class Newsletter extends CI_Controller {
 	// Redirect to specified newsletter
 	public function view($id = NULL)
 	{
+		$data['username'] = username();
+		
 		if ($id == NULL)
 		{
 			redirect('newsletter/index', 'refresh');

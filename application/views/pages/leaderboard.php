@@ -27,6 +27,10 @@
 	<!-- Header -->
 	<tr>
 		<th>Name</th>
+		<?php if(isset($username)) : ?>
+			<th>Email</th>
+			<th>Phone</th>
+		<?php endif; ?>
 		<th>Total Points</th>
 		<th>Total Events</th>
 	</tr>
@@ -35,6 +39,10 @@
 	<?php foreach ($students as $s): ?>
 		<tr>
 			<td><?php echo $s['FirstName'].' '.$s['LastName']; ?></td>
+			<?php if(isset($username)) : ?>
+				<td><?php echo $s['Email']; ?></td>
+				<td><?php echo $s['Phone']; ?></td>
+			<?php endif; ?>
 			<td><?php echo $s['TotalPoints']; ?></td>
 	   		<td><?php echo $s['TotalEvents']; ?></td>
 		</tr>

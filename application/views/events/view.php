@@ -32,7 +32,7 @@
 <?php if (count($students) > 0) : ?>
 	<br>
 	
-	<a href="<?php echo site_url('downloads/events/'.$events_item['Id']); ?>" type="button" class="btn btn-primary">Download</a>
+	<a href="<?php echo site_url('downloads/events/'.$events_item['Id']); ?>" type="button" class="btn btn-primary">Download students</a>
 
 	<br><br>
 
@@ -44,6 +44,7 @@
 			<th>Year</th>
 			<th>Floor</th>
 			<th>Email</th>
+			<th>Phone</th>
 			<th>Timestamp</th>
 		</tr>
 		
@@ -54,6 +55,7 @@
 				<td><?php echo $s[0]['YearString']; ?></td>
 				<td><?php echo $s['Floor'].$s['Side']; ?></td>
 				<td><?php echo $s['Email']; ?></td>
+				<td><?php echo $s['Phone']; ?></td>
 				<td><?php echo $s['Timestamp']; ?></td>
 			</tr>
 

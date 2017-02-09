@@ -12,6 +12,8 @@ class Pages extends CI_Controller {
 
     public function view($page = 'home')
     {
+        $data['username'] = username();
+        
         // Check for 'database'
         if ($page == 'database')
         {
@@ -43,6 +45,8 @@ class Pages extends CI_Controller {
 
     public function leaderboard($data = NULL)
     {
+        $data['username'] = username();
+
         $this->load->model('students_model');
         $this->load->model('events_model');
 

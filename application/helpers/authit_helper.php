@@ -42,5 +42,11 @@ function username($key = '')
 	$CI =& get_instance();
 	$CI->load->library('session');
 
+	// Return nothing if not logged in
+	if (user() == NULL)
+	{
+		return;
+	}
+
 	return (user()->username);
 }

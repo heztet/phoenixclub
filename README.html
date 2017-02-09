@@ -1019,14 +1019,15 @@ body .markdown-body
 <h1 id="to-do-for-v23"><a name="user-content-to-do-for-v23" href="#to-do-for-v23" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>To Do for v2.3</h1>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled> Login redirects to original destination</li>
-<li class="task-list-item"><input type="checkbox" disabled> Quick point-adder (or link to point-adder) on <code>/students</code> if logged in</li>
-<li class="task-list-item"><input type="checkbox" disabled> Quick point adder uses <code>phoenix_records</code></li>
-<li class="task-list-item"><input type="checkbox" disabled> Show student email when logged in</li>
+<li class="task-list-item"><input type="checkbox" disabled> Event types (check-in vs sign-up)</li>
 <li class="task-list-item"><input type="checkbox" disabled> Newsletter changes<ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled> Change to <code>/documents</code></li>
-<li class="task-list-item"><input type="checkbox" disabled> </li>
+<li class="task-list-item"><input type="checkbox" disabled> Have document types (Newsletters, Bills, etc.)</li>
 </ul>
 </li>
+<li class="task-list-item"><input type="checkbox" disabled> Quick point-adder (or link to point-adder) on <code>/students</code> if logged in</li>
+<li class="task-list-item"><input type="checkbox" disabled> Quick point adder uses <code>phoenix_records</code></li>
+<li class="task-list-item"><input type="checkbox" disabled> Ability to edit student (besides PUID)</li>
 <li class="task-list-item"><input type="checkbox" disabled checked> Correctly calculate <code>BanquetEligible</code></li>
 <li class="task-list-item"><input type="checkbox" disabled checked> Check that going to <code>/banquet</code> or <code>/downloads/banquet</code> will always run <code>banquet_check</code></li>
 <li class="task-list-item"><input type="checkbox" disabled checked> <code>/database</code> redirect</li>
@@ -1035,8 +1036,16 @@ body .markdown-body
 <li class="task-list-item"><input type="checkbox" disabled checked> Rollcall uses <code>Rollcall</code> value in <code>phoenix_globals</code></li>
 <li class="task-list-item"><input type="checkbox" disabled checked> Fix footer link</li>
 <li class="task-list-item"><input type="checkbox" disabled checked> Downloads for students have LastSemesterPoints</li>
+<li class="task-list-item"><input type="checkbox" disabled checked> Event viewer<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked> Add student list</li>
+<li class="task-list-item"><input type="checkbox" disabled checked> Add download button</li>
 </ul>
-<h1 id="develop-vs-production"><a name="user-content-develop-vs-production" href="#develop-vs-production" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>develop vs. production</h1>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled checked> Download student data for specific events</li>
+<li class="task-list-item"><input type="checkbox" disabled checked> Phone number column for <code>phoenix_students</code></li>
+<li class="task-list-item"><input type="checkbox" disabled checked> Show student email/phone on leaderboard when logged in</li>
+</ul>
+<h1 id="branch-descriptions"><a name="user-content-branch-descriptions" href="#branch-descriptions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Branch descriptions</h1>
 <ul>
 <li>The <code>develop</code> branch is where changes are staged for production</li>
 <li>The <code>production</code> branch is what the Phoenix Club server is currently running</li>

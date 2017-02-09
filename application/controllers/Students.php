@@ -76,6 +76,7 @@ class Students extends CI_Controller {
 		$this->form_validation->set_rules('FirstName', 'First name', 'required');
 		$this->form_validation->set_rules('LastName', 'Last name', 'required');
 		$this->form_validation->set_rules('Email', 'Email', 'valid_email');
+		$this->form_validation->set_rules('Phone', 'Phone number', 'required|regex_match[/^[0-9]{10}$/]'); // 10 digit number
 		$this->form_validation->set_rules('Year', 'Year', 'required');
 		$this->form_validation->set_rules('Floor', 'Floor', 'required');
 		$this->form_validation->set_rules('Side', 'Side', 'required|greater_than[-1]|less_than[3]');
