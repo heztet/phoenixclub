@@ -27,10 +27,11 @@
 	</tr>
 </table> 
 
+<h4>Students for this event:</h4>
+
 <?php if (count($students) > 0) : ?>
 	<br>
-
-	<h4>Students for this event:</h4>
+	
 	<a href="<?php echo site_url('downloads/events/'.$events_item['Id']); ?>" type="button" class="btn btn-primary">Download</a>
 
 	<br><br>
@@ -58,4 +59,6 @@
 
 		<?php endforeach; ?>
 	</table>
+<?php else : ?>
+	<p style="color: #808080;"><i>No students for this event</i></p>	
 <?php endif; ?>

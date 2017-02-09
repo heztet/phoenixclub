@@ -53,6 +53,7 @@ class Students_model extends CI_Model {
 		//$this->db->select('phoenix_students.PUID, phoenix_records.PUID, FirstName, LastName, Email, Floor, Side, Timestamp, Year');
 		$this->db->join('phoenix_records', 'phoenix_students.PUID = phoenix_records.PUID');
 		$this->db->order_by('Timestamp');
+		$this->db->where('EventId', $event_id);
 		$query = $this->db->get('phoenix_students');
 		$students = $query->result_array();
 
