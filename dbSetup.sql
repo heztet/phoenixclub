@@ -1,3 +1,12 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Feb 10, 2017 at 04:47 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.23
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -5,7 +14,13 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `marinon`
+--
+CREATE DATABASE IF NOT EXISTS `marinon` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `marinon`;
 
 -- --------------------------------------------------------
 
@@ -14,17 +29,16 @@ SET time_zone = "+00:00";
 --
 
 DROP TABLE IF EXISTS `phoenix_events`;
-CREATE TABLE IF NOT EXISTS `phoenix_events` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `phoenix_events` (
+  `Id` int(11) NOT NULL,
   `Title` varchar(200) NOT NULL,
   `PointValue` int(11) NOT NULL,
   `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsCurrentYear` tinyint(1) NOT NULL DEFAULT '1',
   `DateArchived` datetime DEFAULT NULL,
   `IsOpen` tinyint(1) NOT NULL DEFAULT '1',
-  `TotalStudents` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `TotalStudents` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -33,34 +47,32 @@ CREATE TABLE IF NOT EXISTS `phoenix_events` (
 --
 
 DROP TABLE IF EXISTS `phoenix_floors`;
-CREATE TABLE IF NOT EXISTS `phoenix_floors` (
+CREATE TABLE `phoenix_floors` (
   `Floor` varchar(256) NOT NULL,
-  `TotalPoints` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`Floor`)
+  `TotalPoints` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Table values for table 'phoenix_floors'
+-- Dumping data for table `phoenix_floors`
 --
 
-INSERT INTO phoenix_floors (Floor, TotalPoints)
-                           VALUES
-                           ("1E", 0),
-                           ("2E", 0),
-                           ("3E", 0),
-                           ("4E", 0),
-                           ("5E", 0),
-                           ("6E", 0),
-                           ("7E", 0),
-                           ("8E", 0),
-                           ("1W", 0),
-                           ("2W", 0),
-                           ("3W", 0),
-                           ("4W", 0),
-                           ("5W", 0),
-                           ("6W", 0),
-                           ("7W", 0),
-                           ("8W", 0);
+INSERT INTO `phoenix_floors` (`Floor`, `TotalPoints`) VALUES
+('1E', 6),
+('1W', 0),
+('2E', 0),
+('2W', 0),
+('3E', 0),
+('3W', 0),
+('4E', 0),
+('4W', 0),
+('5E', 0),
+('5W', 0),
+('6E', 0),
+('6W', 0),
+('7E', 0),
+('7W', 0),
+('8E', 0),
+('8W', 0);
 
 -- --------------------------------------------------------
 
@@ -69,20 +81,18 @@ INSERT INTO phoenix_floors (Floor, TotalPoints)
 --
 
 DROP TABLE IF EXISTS `phoenix_globals`;
-CREATE TABLE IF NOT EXISTS `phoenix_globals` (
+CREATE TABLE `phoenix_globals` (
   `Variable` varchar(256) NOT NULL,
-  `Value` varchar(256) NOT NULL,
-  PRIMARY KEY (`Variable`)
+  `Value` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Table rows for 'phoenix_globals'
+-- Dumping data for table `phoenix_globals`
 --
 
-INSERT INTO phoenix_globals (Variable, Value)
-                            VALUES
-                            ("BanquetAmount", NULL),
-                            ("RollcallAmount", NULL);
+INSERT INTO `phoenix_globals` (`Variable`, `Value`) VALUES
+('BanquetAmount', '5'),
+('RollcallAmount', '5');
 
 -- --------------------------------------------------------
 
@@ -91,13 +101,12 @@ INSERT INTO phoenix_globals (Variable, Value)
 --
 
 DROP TABLE IF EXISTS `phoenix_newsletters`;
-CREATE TABLE IF NOT EXISTS `phoenix_newsletters` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `phoenix_newsletters` (
+  `Id` int(11) NOT NULL,
   `Title` varchar(255) DEFAULT NULL,
   `Link` varchar(1023) DEFAULT NULL,
-  `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -106,15 +115,13 @@ CREATE TABLE IF NOT EXISTS `phoenix_newsletters` (
 --
 
 DROP TABLE IF EXISTS `phoenix_records`;
-CREATE TABLE IF NOT EXISTS `phoenix_records` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `phoenix_records` (
+  `Id` int(11) NOT NULL,
   `PUID` varchar(9) NOT NULL,
   `EventId` int(11) NOT NULL,
   `PointDelta` int(11) NOT NULL,
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`Id`),
-  KEY `PUID` (`PUID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -123,13 +130,12 @@ CREATE TABLE IF NOT EXISTS `phoenix_records` (
 --
 
 DROP TABLE IF EXISTS `phoenix_rollcalls`;
-CREATE TABLE IF NOT EXISTS `phoenix_rollcalls` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `phoenix_rollcalls` (
+  `Id` int(11) NOT NULL,
   `Floor` varchar(256) NOT NULL,
   `PointDelta` int(11) NOT NULL DEFAULT '0',
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -138,11 +144,12 @@ CREATE TABLE IF NOT EXISTS `phoenix_rollcalls` (
 --
 
 DROP TABLE IF EXISTS `phoenix_students`;
-CREATE TABLE IF NOT EXISTS `phoenix_students` (
+CREATE TABLE `phoenix_students` (
   `PUID` varchar(9) NOT NULL,
   `FirstName` varchar(40) NOT NULL,
   `LastName` varchar(60) NOT NULL,
-  `Email` varchar(256) DEFAULT NULL,
+  `Email` varchar(256) DEFAULT '-',
+  `Phone` varchar(12) DEFAULT '-',
   `Floor` int(3) NOT NULL,
   `Side` varchar(2) NOT NULL,
   `Year` int(11) NOT NULL,
@@ -150,8 +157,7 @@ CREATE TABLE IF NOT EXISTS `phoenix_students` (
   `BanquetEligible` tinyint(1) NOT NULL DEFAULT '0',
   `LastSemesterPoints` int(11) NOT NULL DEFAULT '0',
   `TotalEvents` int(11) NOT NULL DEFAULT '0',
-  `TotalPoints` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`PUID`)
+  `TotalPoints` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -159,38 +165,133 @@ CREATE TABLE IF NOT EXISTS `phoenix_students` (
 --
 -- Table structure for table `phoenix_users`
 --
+
 DROP TABLE IF EXISTS `phoenix_users`;
-CREATE TABLE IF NOT EXISTS `phoenix_users` (
-  `id` int(9) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `phoenix_users` (
+  `id` int(9) NOT NULL,
   `username` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_login` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_login` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `phoenix_users`
+--
+
+INSERT INTO `phoenix_users` (`id`, `username`, `password`, `created`, `last_login`) VALUES
+(1, 'admin', 'admin', '2017-02-09 04:35:24', '2017-02-10 04:43:02');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `phoenix_year_conversion`
 --
+
 DROP TABLE IF EXISTS `phoenix_year_conversion`;
-CREATE TABLE IF NOT EXISTS `phoenix_year_conversion` (
+CREATE TABLE `phoenix_year_conversion` (
   `YearNumber` int(11) NOT NULL,
-  `YearString` varchar(16) NOT NULL,
-  PRIMARY KEY (`YearNumber`)
+  `YearString` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Table rows for table `phoenix_year_conversion`
+-- Dumping data for table `phoenix_year_conversion`
 --
 
 INSERT INTO `phoenix_year_conversion` (`YearNumber`, `YearString`) VALUES
-                                      (1, 'Freshman'),
-                                      (2, 'Sophomore'),
-                                      (3, 'Junior'),
-                                      (4, 'Senior');
+(1, 'Freshman'),
+(2, 'Sophomore'),
+(3, 'Junior'),
+(4, 'Senior');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `phoenix_events`
+--
+ALTER TABLE `phoenix_events`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `phoenix_floors`
+--
+ALTER TABLE `phoenix_floors`
+  ADD PRIMARY KEY (`Floor`);
+
+--
+-- Indexes for table `phoenix_globals`
+--
+ALTER TABLE `phoenix_globals`
+  ADD PRIMARY KEY (`Variable`);
+
+--
+-- Indexes for table `phoenix_newsletters`
+--
+ALTER TABLE `phoenix_newsletters`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `phoenix_records`
+--
+ALTER TABLE `phoenix_records`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `PUID` (`PUID`);
+
+--
+-- Indexes for table `phoenix_rollcalls`
+--
+ALTER TABLE `phoenix_rollcalls`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `phoenix_students`
+--
+ALTER TABLE `phoenix_students`
+  ADD PRIMARY KEY (`PUID`);
+
+--
+-- Indexes for table `phoenix_users`
+--
+ALTER TABLE `phoenix_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `phoenix_year_conversion`
+--
+ALTER TABLE `phoenix_year_conversion`
+  ADD PRIMARY KEY (`YearNumber`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `phoenix_events`
+--
+ALTER TABLE `phoenix_events`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `phoenix_newsletters`
+--
+ALTER TABLE `phoenix_newsletters`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `phoenix_records`
+--
+ALTER TABLE `phoenix_records`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `phoenix_rollcalls`
+--
+ALTER TABLE `phoenix_rollcalls`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `phoenix_users`
+--
+ALTER TABLE `phoenix_users`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

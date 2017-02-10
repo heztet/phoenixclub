@@ -2,8 +2,6 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.3
-- [ ] Event types (check-in vs sign-up)
-- [ ] Update db SQL
 - [ ] Newsletter changes
 	 - [ ] Change to `/documents`
 	 - [ ] Have document types (Newsletters, Bills, etc.)
@@ -36,4 +34,5 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 - In `application/config/database.php`, set each of the database variables that are set as blank
 - In `index.php`, change `define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');` to `define('ENVIRONMENT', 'production');`
 - Run `dbSetup.sql` (you can also remove the `AUTO_INCREMENT=<num>` as well)
-- Add a value for `BanquetAmount` in `phoenix_globals`
+- Change the values for `BanquetAmount` and `RollcallAmount` in `phoenix_globals`
+- Change the username/password in `phoenix_users`
