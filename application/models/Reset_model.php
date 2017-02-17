@@ -60,14 +60,14 @@ class Reset_model extends CI_Model {
 								  'student',
 								  'event',
 								  'floor',
-								  'newsletter',
+								  'document',
 								  'record')
 		);
 
 		archive_events();
 		delete_students();
 		reset_floor_points();
-		delete_newsletters();
+		delete_documents();
 		delete_records();
 		
 		// Success

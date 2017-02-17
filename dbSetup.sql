@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2017 at 04:47 AM
+-- Generation Time: Feb 17, 2017 at 05:56 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -19,8 +19,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `marinon`
 --
-CREATE DATABASE IF NOT EXISTS `marinon` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `marinon`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phoenix_documents`
+--
+
+DROP TABLE IF EXISTS `phoenix_documents`;
+CREATE TABLE `phoenix_documents` (
+  `Id` int(11) NOT NULL,
+  `Title` varchar(255) DEFAULT NULL,
+  `Link` varchar(1023) DEFAULT NULL,
+  `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -52,28 +64,6 @@ CREATE TABLE `phoenix_floors` (
   `TotalPoints` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `phoenix_floors`
---
-
-INSERT INTO `phoenix_floors` (`Floor`, `TotalPoints`) VALUES
-('1E', 6),
-('1W', 0),
-('2E', 0),
-('2W', 0),
-('3E', 0),
-('3W', 0),
-('4E', 0),
-('4W', 0),
-('5E', 0),
-('5W', 0),
-('6E', 0),
-('6W', 0),
-('7E', 0),
-('7W', 0),
-('8E', 0),
-('8W', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -93,20 +83,6 @@ CREATE TABLE `phoenix_globals` (
 INSERT INTO `phoenix_globals` (`Variable`, `Value`) VALUES
 ('BanquetAmount', '5'),
 ('RollcallAmount', '5');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `phoenix_newsletters`
---
-
-DROP TABLE IF EXISTS `phoenix_newsletters`;
-CREATE TABLE `phoenix_newsletters` (
-  `Id` int(11) NOT NULL,
-  `Title` varchar(255) DEFAULT NULL,
-  `Link` varchar(1023) DEFAULT NULL,
-  `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -209,6 +185,12 @@ INSERT INTO `phoenix_year_conversion` (`YearNumber`, `YearString`) VALUES
 --
 
 --
+-- Indexes for table `phoenix_documents`
+--
+ALTER TABLE `phoenix_documents`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Indexes for table `phoenix_events`
 --
 ALTER TABLE `phoenix_events`
@@ -225,12 +207,6 @@ ALTER TABLE `phoenix_floors`
 --
 ALTER TABLE `phoenix_globals`
   ADD PRIMARY KEY (`Variable`);
-
---
--- Indexes for table `phoenix_newsletters`
---
-ALTER TABLE `phoenix_newsletters`
-  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `phoenix_records`
@@ -268,14 +244,14 @@ ALTER TABLE `phoenix_year_conversion`
 --
 
 --
+-- AUTO_INCREMENT for table `phoenix_documents`
+--
+ALTER TABLE `phoenix_documents`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `phoenix_events`
 --
 ALTER TABLE `phoenix_events`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `phoenix_newsletters`
---
-ALTER TABLE `phoenix_newsletters`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `phoenix_records`

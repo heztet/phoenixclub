@@ -78,14 +78,14 @@ class Auth extends CI_Controller {
 		$data['buttons'] = array('View events' => 'events',
 							     'Create an event' => 'events/create',
 							     'Record a rollcall winner' => 'rollcall',
-							     'Add a newsletter' => 'newsletter/add',
+							     'Add a document' => 'documents/add',
 							     'View leaderboard' => 'leaderboard',
 							     'Reset for next year or semester' => 'reset'
 						   );
 		$data['links'] = array('events' => 'List of all events',
 							   'events/create' => 'Create a new event',
-							   'newsletter' => 'List of all newsletters',
-							   'newsletter/add' => 'Add a new newsletter',
+							   'documents' => 'List of all documents',
+							   'documents/add' => 'Add a new documents',
 							   'banquet' => 'List of students eligible for the banquet',
 							   'leaderboard' => 'Leaderboard of floors and students',
 							   'reset' => 'Reset floors, semester, or year points',

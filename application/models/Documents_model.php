@@ -1,5 +1,5 @@
 <?php
-class Newsletter_model extends CI_Model {
+class Documents_model extends CI_Model {
 
 	// Load database
 	public function __construct()
@@ -7,25 +7,25 @@ class Newsletter_model extends CI_Model {
 		$this->load->database();
 	}
 
-	// Return either all newsletters or a specific one
-	public function get_newsletters($id = NULL)
+	// Return either all documents or a specific one
+	public function get_documents($id = NULL)
 	{
 		if ($id == NULL)
 		{
 			$this->db->order_by('DateCreated', 'desc');
-			$query = $this->db->get('phoenix_newsletters');
+			$query = $this->db->get('phoenix_documents');
 			return $query->result_array();
 		}
 
 		$this->db->order_by('DateCreated', 'desc');
 		$this->db->where('Id', $id);
-		$query = $this->db->get('phoenix_newsletters');
-		$newsletter = $query->row_array();
-		return $newsletter;
+		$query = $this->db->get('phoenix_documents');
+		$document = $query->row_array();
+		return $document;
 	}
 
-	// Return the URL for a newsletter by ID
-	public function get_newsletter_link($id = NULL)
+	// Return the URL for a document by ID
+	public function get_document_link($id = NULL)
 	{
 		if ($id == NULL)
 		{
@@ -34,13 +34,13 @@ class Newsletter_model extends CI_Model {
 
 		$this->db->order_by('DateCreated', 'desc');
 		$this->db->where('Id', $id);
-		$query = $this->db->get('phoenix_newsletters');
+		$query = $this->db->get('phoenix_document');
 		$row = $query->row();
 		return $row->Link;
 	}
 
-	// Create a newsletter
-	public function set_newsletter() {
+	// Create a document
+	public function set_document() {
 		// Helpers
 		$this->load->helper('url');
 		$this->load->helper('form');
@@ -50,17 +50,11 @@ class Newsletter_model extends CI_Model {
 		$link = $this->input->post('Link');
 		$cleanLink = prep_url($link);
 
-		// Insert newsletter
+		// Insert document
 		$data = array(
 			'Title' => $title,
 			'Link' => $link
 			);
-		$this->db->insert('phoenix_newsletters', $data);
-	}
-
-	// TODO
-	public function destroy_newsletters()
-	{
-
+		$this->db->insert('phoenix_documents', $data);
 	}
 }
