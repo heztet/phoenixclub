@@ -4,7 +4,7 @@
 <?php if (isset($username)) : ?>
 	<div class="row">
 		<div class="col-md-7">
-			<a href="<?php echo site_url('newsletter/add'); ?>" class="btn btn-primary" role="button">Add newsletter</a>
+			<a href="<?php echo site_url('documents/add'); ?>" class="btn btn-primary" role="button">Add document</a>
 		</div>
 	</div>
 	<br>
@@ -12,13 +12,13 @@
 
 <div class="row">
 	<div class="col-md-7">
-		<!-- Newsletter table -->
+		<!-- Document table -->
 		<table class="table table-hover">
 			<!-- Items -->
-			<?php foreach ($newsletters as $n): ?>
+			<?php foreach ($documents as $d): ?>
 				<tr>
 					<td>
-						<?php echo '<a href="'.prep_url($n['Link']).'">'.$n['Title'].'</a>' ?>
+						<?php echo '<a href="'.prep_url($d['Link']).'">'.$d['Title'].'</a>' ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>

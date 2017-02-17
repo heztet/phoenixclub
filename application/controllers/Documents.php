@@ -1,40 +1,40 @@
 <?php
-class Newsletter extends CI_Controller {
+class Documents extends CI_Controller {
 
 	// Construct controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('newsletter_model');
+		$this->load->model('documents_model');
 		$this->load->helper('url_helper');
 		$this->load->helper('authit');
 
 	}
 
-	// Return all newsletters
+	// Return all documents
 	public function index()
 	{
 		$data['username'] = username();
 		$data['title'] = 'Minutes, Newsletters, and Other Documents';
-		$data['newsletters'] = $this->newsletter_model->get_newsletters();
+		$data['documents'] = $this->documents_model->get_documents();
 
 		// Display page
 		$this->load->view('templates/header', $data);
-		$this->load->view('newsletter/index', $data);
+		$this->load->view('documents/index', $data);
 		$this->load->view('templates/footer', $data);
 	}
 
-	// Redirect to specified newsletter
+	// Redirect to specified document
 	public function view($id = NULL)
 	{
 		$data['username'] = username();
 		
 		if ($id == NULL)
 		{
-			redirect('newsletter/index', 'refresh');
+			redirect('documents/index', 'refresh');
 		}
 
-		$link = $this->newsletter_model->get_newsletter_link($id);
+		$link = $this->documents_model->get_document_link($id);
 
 		if (empty($link))
 		{
@@ -44,7 +44,7 @@ class Newsletter extends CI_Controller {
 		redirect(prep_url($link), 'refresh');
 	}
 
-	// Create newsletter
+	// Create document
 	public function add()
 	{
 		require_login();
@@ -54,11 +54,11 @@ class Newsletter extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$data['title'] = "Add newsletter";
+		$data['title'] = "Add a document";
 
 		// Validate inputs
 		$this->form_validation->set_rules('Title', 'title', 
-										  'required|max_length[60]|is_unique[phoenix_newsletters.Title]',
+										  'required|max_length[60]|is_unique[phoenix_documents.Title]',
 										  array('required' => 'You need to have a %s'),
 										  array('max_length' => '%s can only be 60 characters or less'),
 										  array('is_unique' => 'There\'s already an event with that %s')
@@ -72,13 +72,13 @@ class Newsletter extends CI_Controller {
 		if ($this->form_validation->run() === FALSE)
 		{
 			$this->load->view('templates/header', $data);
-			$this->load->view('newsletter/add', $data);
+			$this->load->view('documents/add', $data);
 			$this->load->view('templates/footer', $data);
 		}
-		// Create newsletter and return to newsletter index
+		// Create document and return to document index
 		else
 		{
-			$result = $this->newsletter_model->set_newsletter();
+			$result = $this->documents_model->set_document();
 			$this->index();
 		}
 	}

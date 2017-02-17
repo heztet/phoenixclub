@@ -65,11 +65,11 @@ $route['events/close/(:any)'] = 'events/close/$1';
 $route['events/(:any)'] = 'events/view/$1';
 $route['events'] = 'events';
 
-/* NEWSLETTER */
-$route['newsletter'] = 'newsletter';
-$route['newsletters'] = 'newsletter'; // Just in case someone pluralizes it
-$route['newsletter/add'] = 'newsletter/add';
-$route['newsletter/(:num)'] = 'newsletter/view/$1';
+/* DOCUMENTS */
+$route['newsletter'] = 'documents';
+$route['documents'] = 'documents';
+$route['documents/add'] = 'documents/add';
+$route['documents/(:num)'] = 'documents/view/$1';
 
 /* RESET */
 $route['reset/year'] = 'reset/year';

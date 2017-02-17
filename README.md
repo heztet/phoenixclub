@@ -2,9 +2,7 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.3
-- [ ] Newsletter changes
-	 - [ ] Change to `/documents`
-	 - [ ] Have document types (Newsletters, Bills, etc.)
+- [ ] `downloads` main page
 - [ ] Login redirects to original destination
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
 - [ ] Quick point adder uses `phoenix_records`
@@ -23,6 +21,7 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 - [X] Download student data for specific events
 - [X] Phone number column for `phoenix_students`
 - [X] Show student email/phone on `leaderboard` when logged in
+- [X] Newsletter changes
 
 # Branch descriptions
 - The `develop` branch is where changes are staged for production

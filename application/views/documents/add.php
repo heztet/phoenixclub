@@ -8,7 +8,7 @@
 
 <?php echo validation_errors('<p class="bg-danger fade-message">'); ?>
 
-<?php echo form_open('newsletter/add', 'class="form-horizontal"'); ?>
+<?php echo form_open('documents/add', 'class="form-horizontal"'); ?>
 	<div class="form-group">
 	    <label for="Title" class="col-sm-2 control-label">Title</label>
 	    <div class="col-sm-10">
