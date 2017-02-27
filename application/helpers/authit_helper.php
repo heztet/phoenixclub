@@ -16,14 +16,22 @@ function logged_in()
 	return $CI->authit->logged_in();
 }
 
-function require_login()
+// Redirects user to login page if not logged in
+// Takes $site_redirect_url to redirect to after a successful login
+function require_login($site_url_redirect = NULL)
 {
 	$CI =& get_instance();
 	$CI->load->library('authit');
 
+	$url = 'auth/login';
+	if (!is_null($site_url_redirect))
+	{
+		$url = $url.'?site_url_redirect='.$site_url_redirect;
+	}
+
 	if(!logged_in())
 	{
-		redirect('auth/login');
+		redirect($url);
 	}
 }
 

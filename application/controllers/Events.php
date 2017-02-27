@@ -13,7 +13,7 @@ class Events extends CI_Controller {
 	// Return all events
 	public function index($success = NULL, $message = NULL)
 	{
-		require_login();
+		require_login($this->router->fetch_class());
 		$data['username'] = username();
 
 		$data['events'] = $this->events_model->get_events();

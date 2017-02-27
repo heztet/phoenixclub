@@ -29,12 +29,25 @@ class Auth extends CI_Controller {
 		redirect('auth/dash');
 	}
 
+	// Takes query string ?site_url_redirect for redirect after successful login
 	public function login()
 	{
 		if(logged_in())
 		{
 			redirect('auth/dash');
 		}
+
+		$site_url_redirect = $this->input->get('site_url_redirect', TRUE);
+		if (!is_null($site_url_redirect))
+		{
+			echo "not null--";
+			echo $site_url_redirect;
+		}
+		else {
+			echo "null";
+		}
+		echo $site_url_redirect;
+		$str = $site_url_redirect;
 
 		// Verify post data
 		$this->load->library('form_validation');
@@ -46,9 +59,13 @@ class Auth extends CI_Controller {
 
 		// Check log in credentials
 		if($this->form_validation->run()){
+			// Successful login
 			if($this->authit->login(set_value('username'), set_value('password'))){
-				// Redirect to your logged in landing page here
-				redirect('auth/dash');
+
+				// Check for alternate redirect
+				//$site_url_redirect = $this->input->get('site_url_redirect', TRUE);
+				log_message('debug', 'redirecting to: '.$str);
+				redirect($site_url_redirect);
 			}
 			else {
 				$data['error'] = 'Your username and/or password is incorrect.';
