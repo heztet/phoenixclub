@@ -12,6 +12,21 @@ class Downloads extends CI_Controller {
 		$this->load->helper('authit');
 	}
 
+	public function index() {
+		require_login();
+		$data['username'] = username();
+
+		$data['title'] = 'Downloads';
+		$data['buttons'] = array('Download all students' => 'downloads/students',
+							     'Download banquet eligible students' => 'downloads/banquet',
+							     'Download all events' => 'downloads/events'
+						   );
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('downloads/index', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
 	// Download all students (excluding PUID)
 	public function students()
 	{

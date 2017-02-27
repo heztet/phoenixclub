@@ -69,6 +69,7 @@ class Auth extends CI_Controller {
 		$this->authit->logout('/');
 	}
 
+	// Dashboard that loads after successful login
 	public function dash()
 	{
 		require_login();

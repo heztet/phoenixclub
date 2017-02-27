@@ -2,8 +2,6 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.3
-- [ ] `downloads` main page
-- [ ] Delete unique title requirement for events (since they're archived and not deleted)
 - [ ] Login redirects to original destination
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
 - [ ] Quick point adder uses `phoenix_records`
@@ -22,7 +20,9 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 - [X] Download student data for specific events
 - [X] Phone number column for `phoenix_students`
 - [X] Show student email/phone on `leaderboard` when logged in
-- [X] Newsletter changes
+- [X] Newsletter to `documents`
+- [X] `downloads` main page
+- [X] Delete unique title requirement for events (since they're archived and not deleted)
 
 # Branch descriptions
 - The `develop` branch is where changes are staged for production

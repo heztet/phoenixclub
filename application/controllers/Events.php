@@ -77,7 +77,7 @@ class Events extends CI_Controller {
 
 		// Validate inputs
 		$this->form_validation->set_rules('Title', 'Title', 
-										  'required|max_length[60]|is_unique[phoenix_events.Title]',
+										  'required|max_length[60]',
 										  array('required' => 'You need to have a %s'),
 										  array('max_length' => '%s can only be 60 characters or less'),
 										  array('is_unique' => 'There\'s already an event with that %s')

@@ -33,6 +33,7 @@
 		<th># Students</th>
 		<th><!-- Check In Button --></th>
 		<th><!-- Close Button --></th>
+		<th><!-- View Event Button --></th>
 	</tr>
 
 	<!-- Items -->
@@ -49,8 +50,8 @@
 		    	<td>Closed</td>
 		    	<td>Closed</td>
 		    <?php endif; ?>
+			<td><a href="<?php echo site_url('events/'.$e['Id']); ?>" type="button" class="btn btn-success	">View</a></td>
 		</tr>
-	    
 	<?php endforeach; ?>
 </table>
 
