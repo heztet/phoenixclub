@@ -3,6 +3,8 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.3
 - [ ] Login redirects to original destination
+- [ ] Don't reset `TotalPoints` on semester reset
+- [ ] Enable public signup option for events
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
 - [ ] Quick point adder uses `phoenix_records`
 - [ ] Ability to edit student (besides PUID)
