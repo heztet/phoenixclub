@@ -32,22 +32,12 @@ class Auth extends CI_Controller {
 	// Takes query string ?site_url_redirect for redirect after successful login
 	public function login()
 	{
+		$this->load->helper('cookie');
+
 		if(logged_in())
 		{
 			redirect('auth/dash');
 		}
-
-		$site_url_redirect = $this->input->get('site_url_redirect', TRUE);
-		if (!is_null($site_url_redirect))
-		{
-			echo "not null--";
-			echo $site_url_redirect;
-		}
-		else {
-			echo "null";
-		}
-		echo $site_url_redirect;
-		$str = $site_url_redirect;
 
 		// Verify post data
 		$this->load->library('form_validation');
@@ -61,11 +51,16 @@ class Auth extends CI_Controller {
 		if($this->form_validation->run()){
 			// Successful login
 			if($this->authit->login(set_value('username'), set_value('password'))){
-
-				// Check for alternate redirect
-				//$site_url_redirect = $this->input->get('site_url_redirect', TRUE);
-				log_message('debug', 'redirecting to: '.$str);
-				redirect($site_url_redirect);
+				// Check for alternate redirect cookie
+				$site_url_redirect = get_cookie('site_url_redirect');
+				if (is_null($site_url_redirect)) 
+				{
+					redirect('auth/dash');
+				}
+				else
+				{
+					redirect($site_url_redirect);
+				}
 			}
 			else {
 				$data['error'] = 'Your username and/or password is incorrect.';
