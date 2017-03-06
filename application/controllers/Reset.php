@@ -13,7 +13,7 @@ class Reset extends CI_Controller {
 	// Return all events
 	public function index($success = NULL)
 	{
-		require_login();
+		require_login($this->router->fetch_class());
         $data['username'] = username();
 
 		$data['title'] = "Reset Tools";
@@ -37,7 +37,7 @@ class Reset extends CI_Controller {
 	// Reset point values
 	public function floors()
 	{
-		require_login();
+		require_login($this->router->fetch_class());
         $data['username'] = username();		
 		
 		try 
@@ -67,7 +67,7 @@ class Reset extends CI_Controller {
 	// Reset semester points
 	public function semester()
 	{
-		require_login();
+		require_login($this->router->fetch_class());
         $data['username'] = username();
 
 		try
@@ -98,7 +98,7 @@ class Reset extends CI_Controller {
 	// Reset year points/students
 	public function year()
 	{
-		require_login();
+		require_login($this->router->fetch_class());
         $data['username'] = username();
 		
 		$data['title'] = "Reset Year";

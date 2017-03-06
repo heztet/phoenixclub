@@ -43,7 +43,6 @@ class Reset_model extends CI_Model {
 
 		banquet_check();
 		update_last_semester_points();
-		reset_student_points();
 		reset_floor_points();
 		archive_events();
 

@@ -2,12 +2,11 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.3
-- [ ] Login redirects to original destination
-- [ ] Don't reset `TotalPoints` on semester reset
 - [ ] Enable public signup option for events
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
 - [ ] Quick point adder uses `phoenix_records`
-- [ ] Ability to edit student (besides PUID)
+- [ ] Ability to edit student (everything but PUID)
+- [ ] Ability to edit events
 - [X] Correctly calculate `BanquetEligible`
 - [X] Check that going to `/banquet` or `/downloads/banquet` will always run `banquet_check`
 - [X] `/database` redirect
@@ -25,6 +24,8 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 - [X] Newsletter to `documents`
 - [X] `downloads` main page
 - [X] Delete unique title requirement for events (since they're archived and not deleted)
+- [X] Login redirects to original destination
+- [X] Don't reset `TotalPoints` on semester reset
 
 # Branch descriptions
 - The `develop` branch is where changes are staged for production

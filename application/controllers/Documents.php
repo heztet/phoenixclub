@@ -47,7 +47,7 @@ class Documents extends CI_Controller {
 	// Create document
 	public function add()
 	{
-		require_login();
+		require_login($this->router->fetch_class());
 		$data['username'] = username();
 		
 		// Helpers

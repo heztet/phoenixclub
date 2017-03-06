@@ -13,7 +13,7 @@ class Students extends CI_Controller {
 	// List all students
 	public function index($success = NULL, $message = NULL)
 	{
-		require_login();
+		require_login($this->router->fetch_class());
 		$data['username'] = username();
 
 		$data['title'] = 'Students';
@@ -37,7 +37,7 @@ class Students extends CI_Controller {
 	// Create a student with the given PUID and an optional eventId they checked into
 	public function create($puid = NULL, $eventId = NULL)
 	{
-		require_login();
+		require_login($this->router->fetch_class());
         $data['username'] = username();
 		
 		// Helpers

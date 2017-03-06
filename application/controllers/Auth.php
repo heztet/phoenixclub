@@ -23,7 +23,7 @@ class Auth extends CI_Controller {
 
 	public function index()
 	{
-		require_login();
+		require_login($this->router->fetch_class());
 		$data['username'] = username();
 		
 		redirect('auth/dash');
@@ -74,7 +74,7 @@ class Auth extends CI_Controller {
 
 	public function logout()
 	{
-		require_login();
+		require_login($this->router->fetch_class());
 		$data['username'] = username();
 
 		// Redirect to your logged out landing page here
@@ -84,7 +84,7 @@ class Auth extends CI_Controller {
 	// Dashboard that loads after successful login
 	public function dash()
 	{
-		require_login();
+		require_login($this->router->fetch_class());
 		$data['username'] = username();
 
 		$data['title'] = 'Dashboard';
