@@ -21,6 +21,11 @@ class Pages extends CI_Controller {
             $this->load->database();
             redirect($this->db->website);
         }
+        // Check for 'rsvp' within timeframe
+        elseif (($page == 'rsvp') and (time() <= strtotime("8 May 2017")))
+        {
+            redirect('http://google.com');
+        }
 		// Check that page exists
 		elseif ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
 		{
