@@ -17,7 +17,7 @@ class Pages extends CI_Controller {
         // Check for 'database'
         if ($page == 'database')
         {
-            require_login();
+            require_login(uri_string());
             $this->load->database();
             redirect($this->db->website);
         }
