@@ -24,7 +24,6 @@
 					<header id="header">
 						<div class="logo">
 							<!-- <span class="icon fa-fire"></span> -->
-							<span class="icon fa-fire"></span>
 						</div>
 						<div class="content">
 							<div class="inner">
