@@ -28,7 +28,7 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Purdue Phoenix Club</h1>
-								<p>Hillenbrand Hall Phoenix Club is devoted to...</p>
+								<p>Hillenbrand Hall Phoenix Club is devoted to building a strong community within our residence hall. See the links below for more information!</p>
 								<?php if (time() <= strtotime("8 May 2017")): ?>
 									<a href="<?php echo site_url('rsvp'); ?>" class="button"> RSVP for the End of Year Banquet</a>
 								<?php endif; ?>
