@@ -24,7 +24,7 @@ class Pages extends CI_Controller {
         // Check for 'rsvp' within timeframe
         elseif (($page == 'rsvp') and (time() <= strtotime("8 May 2017")))
         {
-            redirect('http://google.com');
+            redirect('https://goo.gl/forms/XRpzmPP8GQZXq85r2');
         }
 		// Check that page exists
 		elseif ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
