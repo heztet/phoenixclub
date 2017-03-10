@@ -77,7 +77,7 @@ class Pages extends CI_Controller {
 
     public function banquet($data = NULL)
     {
-        require_login($this->router->fetch_class());
+        require_login(uri_string());
         $data['username'] = username();
 
         $data['title'] = 'Banquet';

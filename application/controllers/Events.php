@@ -13,7 +13,7 @@ class Events extends CI_Controller {
 	// Return all events
 	public function index($success = NULL, $message = NULL)
 	{
-		require_login($this->router->fetch_class());
+		require_login(uri_string());
 		$data['username'] = username();
 
 		$data['events'] = $this->events_model->get_events();
@@ -40,7 +40,7 @@ class Events extends CI_Controller {
 	// Return specific event
 	public function view($Id = NULL)
 	{
-		require_login($this->router->fetch_class());
+		require_login(uri_string());
 		$data['username'] = username();
 
 		// Helpers
@@ -66,7 +66,7 @@ class Events extends CI_Controller {
 	// Create event
 	public function create()
 	{
-		require_login($this->router->fetch_class());
+		require_login(uri_string());
 		$data['username'] = username();
 
 		// Helpers
@@ -107,7 +107,7 @@ class Events extends CI_Controller {
 	// Add student to event
 	public function add($Id = NULL, $AddedStudent = NULL)
 	{
-		require_login($this->router->fetch_class());
+		require_login(uri_string());
 		$data['username'] = username();
 
 		// Helpers
@@ -206,7 +206,7 @@ class Events extends CI_Controller {
 	// Close an event to checking in
 	public function close($Id = NULL)
 	{
-		require_login($this->router->fetch_class());
+		require_login(uri_string());
 		$data['username'] = username();
 
 		// Check that event exists and is open
@@ -250,7 +250,7 @@ class Events extends CI_Controller {
 	// Archive all events (set IsCurrentYear to FALSE)
 	public function archive()
 	{
-		require_login($this->router->fetch_class());
+		require_login(uri_string());
 		$data['username'] = username();
 		
 		// Archive

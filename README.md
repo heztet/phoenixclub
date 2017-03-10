@@ -2,7 +2,6 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.3
-- [ ] RSVP button on homepage (with time/conditional check)
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
 - [ ] Quick point adder uses `phoenix_records`
 - [ ] Ability to edit student (everything but PUID)
@@ -27,6 +26,7 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 - [X] Login redirects to original destination
 - [X] Don't reset `TotalPoints` on semester reset
 - [X] ~~Enable public signup option for events~~
+- [X] RSVP button on homepage (with time/conditional check)
 
 # Branch descriptions
 - The `develop` branch is where changes are staged for production

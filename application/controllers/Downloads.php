@@ -13,7 +13,7 @@ class Downloads extends CI_Controller {
 	}
 
 	public function index() {
-		require_login($this->router->fetch_class());
+		require_login(uri_string());
 		$data['username'] = username();
 
 		$data['title'] = 'Downloads';
@@ -30,7 +30,7 @@ class Downloads extends CI_Controller {
 	// Download all students (excluding PUID)
 	public function students()
 	{
-		require_login($this->router->fetch_class());
+		require_login(uri_string());
 		$data['username'] = username();
 
 		$students = $this->downloads_model->get_all_students();
@@ -41,7 +41,7 @@ class Downloads extends CI_Controller {
 	// Download students that are eligible for banquet (excluding PUID)
 	public function banquet()
 	{
-		require_login($this->router->fetch_class());
+		require_login(uri_string());
 		$data['username'] = username();
 
 		$students = $this->downloads_model->get_banquet_students();
@@ -53,7 +53,7 @@ class Downloads extends CI_Controller {
 	// If $id is given, download student data for that event
 	public function events($id = NULL)
 	{
-		require_login($this->router->fetch_class());
+		require_login(uri_string());
 		$data['username'] = username();
 
 		if (is_null($id))

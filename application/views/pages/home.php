@@ -29,6 +29,7 @@
 								<h1><a href="<?php echo $this->config->item('base_url'); ?>" id="logo">Phoenix Club</a></h1>
 								<hr />
 								<p>Purdue Hillenbrand Hall Phoenix Club</p>
+								<a href="<?php echo site_url('rsvp'); ?>" class="button">RSVP</a>
 							</header>
 						</div>
 
