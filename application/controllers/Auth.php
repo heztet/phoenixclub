@@ -23,14 +23,17 @@ class Auth extends CI_Controller {
 
 	public function index()
 	{
-		require_login();
+		require_login(uri_string());
 		$data['username'] = username();
 		
 		redirect('auth/dash');
 	}
 
+	// Takes query string ?site_url_redirect for redirect after successful login
 	public function login()
 	{
+		$this->load->helper('cookie');
+
 		if(logged_in())
 		{
 			redirect('auth/dash');
@@ -46,9 +49,18 @@ class Auth extends CI_Controller {
 
 		// Check log in credentials
 		if($this->form_validation->run()){
+			// Successful login
 			if($this->authit->login(set_value('username'), set_value('password'))){
-				// Redirect to your logged in landing page here
-				redirect('auth/dash');
+				// Check for alternate redirect cookie
+				$site_url_redirect = get_cookie('site_url_redirect');
+				if (is_null($site_url_redirect)) 
+				{
+					redirect('auth/dash');
+				}
+				else
+				{
+					redirect($site_url_redirect);
+				}
 			}
 			else {
 				$data['error'] = 'Your username and/or password is incorrect.';
@@ -62,30 +74,31 @@ class Auth extends CI_Controller {
 
 	public function logout()
 	{
-		require_login();
+		require_login(uri_string());
 		$data['username'] = username();
 
 		// Redirect to your logged out landing page here
 		$this->authit->logout('/');
 	}
 
+	// Dashboard that loads after successful login
 	public function dash()
 	{
-		require_login();
+		require_login(uri_string());
 		$data['username'] = username();
 
 		$data['title'] = 'Dashboard';
 		$data['buttons'] = array('View events' => 'events',
 							     'Create an event' => 'events/create',
 							     'Record a rollcall winner' => 'rollcall',
-							     'Add a newsletter' => 'newsletter/add',
+							     'Add a document' => 'documents/add',
 							     'View leaderboard' => 'leaderboard',
 							     'Reset for next year or semester' => 'reset'
 						   );
 		$data['links'] = array('events' => 'List of all events',
 							   'events/create' => 'Create a new event',
-							   'newsletter' => 'List of all newsletters',
-							   'newsletter/add' => 'Add a new newsletter',
+							   'documents' => 'List of all documents',
+							   'documents/add' => 'Add a new documents',
 							   'banquet' => 'List of students eligible for the banquet',
 							   'leaderboard' => 'Leaderboard of floors and students',
 							   'reset' => 'Reset floors, semester, or year points',

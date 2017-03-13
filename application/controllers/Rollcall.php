@@ -11,7 +11,7 @@ class Rollcall extends CI_Controller {
 
 	public function index()
 	{
-		require_login();
+		require_login(uri_string());
         $data['username'] = username();
 		
 		// Helpers

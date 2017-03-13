@@ -13,7 +13,7 @@ class Events extends CI_Controller {
 	// Return all events
 	public function index($success = NULL, $message = NULL)
 	{
-		require_login();
+		require_login(uri_string());
 		$data['username'] = username();
 
 		$data['events'] = $this->events_model->get_events();
@@ -40,8 +40,11 @@ class Events extends CI_Controller {
 	// Return specific event
 	public function view($Id = NULL)
 	{
-		require_login();
+		require_login(uri_string());
 		$data['username'] = username();
+
+		// Helpers
+		$this->load->model('students_model');
 
 		$data['events_item'] = $this->events_model->get_events($Id);
 
@@ -53,6 +56,7 @@ class Events extends CI_Controller {
 		$data['Title'] = $data['events_item']['Title'];
 		$data['events_item']['EventId'] = $Id;
 		$data['events_item']['redirectLink'] = 'events/add/'.$Id;
+		$data['students'] = $this->students_model->get_students_for_event($Id);
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('events/view', $data);
@@ -62,7 +66,7 @@ class Events extends CI_Controller {
 	// Create event
 	public function create()
 	{
-		require_login();
+		require_login(uri_string());
 		$data['username'] = username();
 
 		// Helpers
@@ -73,7 +77,7 @@ class Events extends CI_Controller {
 
 		// Validate inputs
 		$this->form_validation->set_rules('Title', 'Title', 
-										  'required|max_length[60]|is_unique[phoenix_events.Title]',
+										  'required|max_length[60]',
 										  array('required' => 'You need to have a %s'),
 										  array('max_length' => '%s can only be 60 characters or less'),
 										  array('is_unique' => 'There\'s already an event with that %s')
@@ -103,7 +107,7 @@ class Events extends CI_Controller {
 	// Add student to event
 	public function add($Id = NULL, $AddedStudent = NULL)
 	{
-		require_login();
+		require_login(uri_string());
 		$data['username'] = username();
 
 		// Helpers
@@ -202,7 +206,7 @@ class Events extends CI_Controller {
 	// Close an event to checking in
 	public function close($Id = NULL)
 	{
-		require_login();
+		require_login(uri_string());
 		$data['username'] = username();
 
 		// Check that event exists and is open
@@ -246,7 +250,7 @@ class Events extends CI_Controller {
 	// Archive all events (set IsCurrentYear to FALSE)
 	public function archive()
 	{
-		require_login();
+		require_login(uri_string());
 		$data['username'] = username();
 		
 		// Archive

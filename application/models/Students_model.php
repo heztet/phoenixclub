@@ -13,29 +13,53 @@ class Students_model extends CI_Model {
 		// Helpers
 		$this->load->helper('puid_helper');
 
-		$puid = format_puid($puid);
+		// Return all students
+		if ($puid == FALSE)
+		{
+			$this->db->order_by('LastName');
+			$query = $this->db->get('phoenix_students');
+			$students = $query->result_array();
+			
+			// Add year string to each student
+			$students = $this->append_year_string($students);
+			return $students;
+		}
 
+		$puid = format_puid($puid);
 		// Return -1 for invalid puid
 		if ($puid == -1)
 		{
 			return -1;
 		}
 
-		if ($puid == FALSE)
-		{
-			$this->db->order_by('LastName');
-			$query = $this->db->get('phoenix_students');
-			return $query->result_array();
-		}
-
 		$this->db->order_by('DateCreated', 'desc');
 		$this->db->where('PUID', $puid);
 		$query = $this->db->get('phoenix_students');
-		$students = $query->row_array();
+		$students = $query->result_array();
 
 		// Add year string to each student
 		$students = $this->append_year_string($students);
 		
+		return $students;
+	}
+
+	// Return all students associated with an event (using records table)
+	public function get_students_for_event($event_id = NULL) {
+		if (is_null($event_id))
+		{
+			return NULL;
+		}
+
+		//$this->db->select('phoenix_students.PUID, phoenix_records.PUID, FirstName, LastName, Email, Floor, Side, Timestamp, Year');
+		$this->db->join('phoenix_records', 'phoenix_students.PUID = phoenix_records.PUID');
+		$this->db->order_by('Timestamp');
+		$this->db->where('EventId', $event_id);
+		$query = $this->db->get('phoenix_students');
+		$students = $query->result_array();
+
+		// Add year string to each student
+		$students = $this->append_year_string($students);
+
 		return $students;
 	}
 
@@ -54,6 +78,7 @@ class Students_model extends CI_Model {
 		$FirstName = $this->input->post('FirstName');
 		$LastName = $this->input->post('LastName');
 		$Email = $this->input->post('Email');
+		$Phone = $this->input->post('Phone');
 		$Year = $this->input->post('Year');
 		$Floor = $this->input->post('Floor');
 		$SideNum = $this->input->post('Side');
@@ -105,6 +130,7 @@ class Students_model extends CI_Model {
 			'FirstName' => $FirstName,
 			'LastName' => $LastName,
 			'Email' => $Email,
+			'Phone' => $Phone,
 			'Floor' => $Floor,
 			'Side' => $Side,
 			'Year' => $Year,

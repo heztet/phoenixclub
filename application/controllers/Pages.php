@@ -12,12 +12,19 @@ class Pages extends CI_Controller {
 
     public function view($page = 'home')
     {
+        $data['username'] = username();
+        
         // Check for 'database'
         if ($page == 'database')
         {
-            require_login();
+            require_login(uri_string());
             $this->load->database();
             redirect($this->db->website);
+        }
+        // Check for 'rsvp' within timeframe
+        elseif (($page == 'rsvp') and (time() <= strtotime("8 May 2017")))
+        {
+            redirect('https://goo.gl/forms/XRpzmPP8GQZXq85r2');
         }
 		// Check that page exists
 		elseif ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
@@ -43,6 +50,8 @@ class Pages extends CI_Controller {
 
     public function leaderboard($data = NULL)
     {
+        $data['username'] = username();
+
         $this->load->model('students_model');
         $this->load->model('events_model');
 
@@ -68,7 +77,7 @@ class Pages extends CI_Controller {
 
     public function banquet($data = NULL)
     {
-        require_login();
+        require_login(uri_string());
         $data['username'] = username();
 
         $data['title'] = 'Banquet';

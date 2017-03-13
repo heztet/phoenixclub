@@ -16,14 +16,30 @@ function logged_in()
 	return $CI->authit->logged_in();
 }
 
-function require_login()
+// Redirects user to login page if not logged in
+// Sets cookie for $site_url_redirect for successful login
+function require_login($site_url_redirect = NULL)
 {
 	$CI =& get_instance();
 	$CI->load->library('authit');
+	$CI->load->helper('cookie');
+
+	$url = 'auth/login';
+	if (!is_null($site_url_redirect))
+	{
+		$cookie = array('name' => 'site_url_redirect',
+						'value' => $site_url_redirect,
+						'expire' => '600',
+						'secure' => TRUE
+						);
+
+		$CI->input->set_cookie($cookie);
+		//$url = $url.'?site_url_redirect='.$site_url_redirect;
+	}
 
 	if(!logged_in())
 	{
-		redirect('auth/login');
+		redirect($url);
 	}
 }
 
@@ -41,6 +57,12 @@ function username($key = '')
 {
 	$CI =& get_instance();
 	$CI->load->library('session');
+
+	// Return nothing if not logged in
+	if (user() == NULL)
+	{
+		return;
+	}
 
 	return (user()->username);
 }

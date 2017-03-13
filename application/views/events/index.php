@@ -33,12 +33,13 @@
 		<th># Students</th>
 		<th><!-- Check In Button --></th>
 		<th><!-- Close Button --></th>
+		<th><!-- View Event Button --></th>
 	</tr>
 
 	<!-- Items -->
 	<?php foreach ($events as $e): ?>
 		<tr>
-			<td><?php echo $e['Title']; ?></td>
+			<td><a href="<?php echo site_url('events/'.$e['Id']); ?>"><?php echo $e['Title']; ?></a></td>
 		    <td><?php echo date_format(date_create($e['DateCreated']), 'm/d/Y g:i A'); ?></td>
 		    <td align="center"><?php echo $e['PointValue']; ?></td>
 		    <td align="center"><?php echo $e['TotalStudents']; ?></td>
@@ -49,8 +50,8 @@
 		    	<td>Closed</td>
 		    	<td>Closed</td>
 		    <?php endif; ?>
+			<td><a href="<?php echo site_url('events/'.$e['Id']); ?>" type="button" class="btn btn-success	">View</a></td>
 		</tr>
-	    
 	<?php endforeach; ?>
 </table>
 

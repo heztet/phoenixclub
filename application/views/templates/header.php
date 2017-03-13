@@ -37,6 +37,8 @@
 				setTimeout(fadeElements, 1500);
 			}
 		</script>
+
+		<link rel="shortcut icon" href="<?php echo $this->config->item('base_url').'images/favicon.ico'; ?>" type="image/x-icon">
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top">
@@ -51,6 +53,7 @@
 					<?php /* Different header options if logged in */ ?>
 					<?php if (isset($username)) : ?>
 					<ul class="nav navbar-nav navbar-left">
+							<li><a href="<?php echo site_url('auth/dash'); ?>">Dashboard</a></li>
 							<li><a href="<?php echo site_url('events/'); ?>">Events</a></li>
 							<li><a href="<?php echo site_url('events/create'); ?>">Create</a></li>
 						</ul>

@@ -43,7 +43,6 @@ class Reset_model extends CI_Model {
 
 		banquet_check();
 		update_last_semester_points();
-		reset_student_points();
 		reset_floor_points();
 		archive_events();
 
@@ -60,14 +59,14 @@ class Reset_model extends CI_Model {
 								  'student',
 								  'event',
 								  'floor',
-								  'newsletter',
+								  'document',
 								  'record')
 		);
 
 		archive_events();
 		delete_students();
 		reset_floor_points();
-		delete_newsletters();
+		delete_documents();
 		delete_records();
 		
 		// Success

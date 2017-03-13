@@ -1,6 +1,5 @@
 <h2><?php echo $title; ?></h2>
 
-<?php /*
 <!-- Students table -->
 <?php if (! empty($message)) : ?>
 	<?php if (empty($success)) : ?>
@@ -18,21 +17,17 @@
 	<!-- Header -->
 	<tr>
 		<th>Name</th>
-		<th>Floor</th>
-		<th>Year</th>
+		<th>Points</th>
+		<th><!-- Button --></th>
 	</tr>
 	
 	<!-- Items -->
 	<?php foreach ($students as $s): ?>
 		<tr>
 			<td><?php echo $s['FirstName'].' '.$s['LastName']; ?></td>
-			<td><?php echo $s['Floor']; ?></td>
-			<td><?php echo $s[0]['YearString']; ?></td>
+			<td><?php echo $s['TotalPoints']; ?></td>
+			<td><a href="<?php echo site_url('students/'.$s['PUID']); ?>">Add points</a></td>
 		</tr>
 
 	<?php endforeach; ?>
 </table>
-
-<?php /*
-	<a href="<?php echo site_url('students/archive'); ?>" type="button" class="btn btn-danger">Archive all students</a>
-*/?>
