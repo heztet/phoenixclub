@@ -6,28 +6,6 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 - [ ] Quick point adder uses `phoenix_records`
 - [ ] Ability to edit student (everything but PUID)
 - [ ] Ability to edit events
-- [X] Correctly calculate `BanquetEligible`
-- [X] Check that going to `/banquet` or `/downloads/banquet` will always run `banquet_check`
-- [X] `/database` redirect
-- [X] List of links on user dash
-- [X] Remove password from rollcalls
-- [X] Rollcall uses `Rollcall` value in `phoenix_globals`
-- [X] Fix footer link
-- [X] Downloads for students have LastSemesterPoints
-- [X] Event viewer
-	- [X] Add student list
-	- [X] Add download button
-- [X] Download student data for specific events
-- [X] Phone number column for `phoenix_students`
-- [X] Show student email/phone on `leaderboard` when logged in
-- [X] Newsletter to `documents`
-- [X] `downloads` main page
-- [X] Delete unique title requirement for events (since they're archived and not deleted)
-- [X] Login redirects to original destination
-- [X] Don't reset `TotalPoints` on semester reset
-- [X] ~~Enable public signup option for events~~
-- [X] RSVP button on homepage (with time/conditional check)
-- [X] Fix point checks (such as banquet) -> currently does `LastSemesterPoints` + `TotalPoints`
 
 # Branch descriptions
 - The `develop` branch is where changes are staged for production
