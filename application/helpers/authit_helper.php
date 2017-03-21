@@ -29,7 +29,7 @@ function require_login($site_url_redirect = NULL)
 	{
 		$cookie = array('name' => 'site_url_redirect',
 						'value' => $site_url_redirect,
-						'expire' => '600',
+						'expire' => '3600',
 						'secure' => TRUE
 						);
 

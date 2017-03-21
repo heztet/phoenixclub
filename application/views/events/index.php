@@ -23,6 +23,12 @@
 		</div>
 	<?php endif; ?>
 <?php endif; ?>
+<div class="row">
+	<div class="col-md-7">
+		<a href="<?php echo site_url('events/create'); ?>" class="btn btn-primary" role="button">Create event</a>
+	</div>
+</div>
+<br />
 <!-- Events table -->
 <table class="table table-hover">
 	<!-- Header -->
@@ -54,7 +60,3 @@
 		</tr>
 	<?php endforeach; ?>
 </table>
-
-<?php /*
-	<a href="<?php echo site_url('events/archive'); ?>" type="button" class="btn btn-danger">Archive all events</a>
-*/?>

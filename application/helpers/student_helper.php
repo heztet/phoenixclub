@@ -48,7 +48,7 @@ if ( ! function_exists('banquet_check'))
         $banquet_min = get_global('BanquetAmount');
 
         // Build query
-        $sql = 'UPDATE phoenix_students SET BanquetEligible=1 WHERE (BanquetEligible=0) AND (TotalPoints >='.$banquet_min.')';
+        $sql = 'UPDATE phoenix_students SET BanquetEligible=1 WHERE ((BanquetEligible=0) AND (TotalPoints >='.$banquet_min.')';
 
         if ($clean_puid)
         {
