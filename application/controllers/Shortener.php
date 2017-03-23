@@ -9,7 +9,7 @@ class Shortener extends CI_Controller {
 		$this->load->helper('authit');
 	}
 
-	// Index does not exist
+	// List all shortened URLs
 	public function index()
 	{
 		show_404();
@@ -21,8 +21,17 @@ class Shortener extends CI_Controller {
 		require_login(uri_string());
 		$data['username'] = username();
 
+		$data['title'] = "URL Shortener";
+
+		// Helpers
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		//$this->form_validation->set_rules('')
+		//$this->form_validation->set_rules('')
+
 		$this->load->view('templates/header', $data);
-		$this->load->view('');
+		$this->load->view('shortener/add');
 		$this->load->view('templates/footer', $data);
 	}
 

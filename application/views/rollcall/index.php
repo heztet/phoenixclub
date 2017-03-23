@@ -4,8 +4,6 @@
 	</div>
 </div>
 
-<h4>Submit this form with the right password to record the rollcall winner of the week.</h4>
-
 <?php echo validation_errors('<p class="bg-danger">'); ?>
 <?php if (!empty($rollFailure) and ($rollFailure == 1)) : ?>
 	<div class="row">
@@ -20,6 +18,7 @@
 		</div>
 	</div>
 <?php endif; ?>
+
 <?php echo form_open('rollcall/index', 'class="form-horizontal"'); ?>
 	<div class="form-group">
 	    <label for='Floor' class="col-sm-2 control-label">Floor</label>

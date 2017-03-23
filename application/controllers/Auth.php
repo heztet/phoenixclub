@@ -53,12 +53,16 @@ class Auth extends CI_Controller {
 			if($this->authit->login(set_value('username'), set_value('password'))){
 				// Check for alternate redirect cookie
 				$site_url_redirect = get_cookie('site_url_redirect');
+				log_message('debug', 'Site redirect cookie: '.$site_url_redirect);
+
 				if (is_null($site_url_redirect)) 
 				{
+					log_message('debug', 'Redirecting to dash');
 					redirect('auth/dash');
 				}
 				else
 				{
+					log_message('debug', 'Redirecting to '.$site_url_redirect);
 					redirect($site_url_redirect);
 				}
 			}
