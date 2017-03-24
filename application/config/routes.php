@@ -83,8 +83,16 @@ $route['downloads/(:any)'] = 'downloads/$1';
 /* AUTH */
 $route['auth'] = 'auth';
 $route['login'] = 'auth/login';
+$route['logout'] = 'auth/logout';
 $route['dash'] = 'auth/dash';
 $route['auth/(:any)'] = 'auth/$1';
+
+/* SHORTENER */
+$route['shortener'] = 'shortener';
+$route['s'] = 'shortener';
+$route['s/add'] = 'shortener/add';
+$route['s/(:any)'] = 'shortener/go/$1';
+$route['shortener/(:any)'] = 'shortener/$1';
 
 /* STANDALONE OR CUSTOM PAGES */
 $route['rollcall'] = 'rollcall';

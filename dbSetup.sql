@@ -87,6 +87,20 @@ INSERT INTO `phoenix_globals` (`Variable`, `Value`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `phoenix_links`
+--
+
+DROP TABLE IF EXISTS `phoenix_links`;
+CREATE TABLE `phoenix_links` (
+  `Id` int(11) NOT NULL,
+  `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Link` varchar(534) NOT NULL,
+  `Lookup` varchar(534) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `phoenix_records`
 --
 
@@ -209,6 +223,12 @@ ALTER TABLE `phoenix_globals`
   ADD PRIMARY KEY (`Variable`);
 
 --
+-- Indexes for table `phoenix_links`
+--
+ALTER TABLE `phoenix_links`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Indexes for table `phoenix_records`
 --
 ALTER TABLE `phoenix_records`
@@ -252,6 +272,11 @@ ALTER TABLE `phoenix_documents`
 -- AUTO_INCREMENT for table `phoenix_events`
 --
 ALTER TABLE `phoenix_events`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `phoenix_links`
+--
+ALTER TABLE `phoenix_links`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `phoenix_records`
