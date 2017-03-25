@@ -8,20 +8,73 @@ class Shortener_model extends CI_Model {
 	}
 
 	// Load links from phoenix_links
-	// Returns an array of all links if $lookup not specified
-	public function get_links($lookup = NULL)
+	public function get_links()
+	{
+		$this->db->order_by('DateCreated', 'desc');
+		$query = $this->db->get('phoenix_links');
+		return $query->result_array();
+	}
+
+	// Returns a phoenix_links record by lookup
+	// Returns NULL if not found
+	public function get_link_by_lookup($lookup = NULL)
 	{
 		if (is_null($lookup))
 		{
-			$this->db->order_by('DateCreated', 'desc');
-			$query = $this->db->get('phoenix_links');
-			return $query->result_array();
+			return NULL;
 		}
 
 		$this->db->order_by('DateCreated', 'desc');
 		$this->db->where('Lookup', $lookup);
 		$query = $this->db->get('phoenix_links');
+
+		if (! is_object($query))
+		{
+			return NULL;
+		}
+
 		return $query->row_array();
+	}
+
+	// Returns a phoenix_links record by id
+	// Returns NULL if not found
+	public function get_link_by_id($id = NULL)
+	{
+		if (is_null($id))
+		{
+			return NULL;
+		}
+
+		$this->db->order_by('DateCreated', 'desc');
+		$this->db->where('Id', $id);
+		$query = $this->db->get('phoenix_links');
+
+		if (! is_object($query))
+		{
+			return NULL;
+		}
+
+		return $query->row_array();
+	}
+
+	// Returns TRUE or FALSE based on success
+	public function delete_link($id = NULL)
+	{
+		if (is_null($id))
+		{
+			return FALSE;
+		}
+
+		$link = $this->get_link_by_id($id);
+
+		if (is_null($link))
+		{
+			return FALSE;
+		}
+
+		$this->db->where('Id', $id);
+		$this->db->delete('phoenix_links');
+		return TRUE;
 	}
 
 	public function shorten_link()

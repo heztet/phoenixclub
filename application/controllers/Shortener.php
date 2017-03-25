@@ -10,7 +10,7 @@ class Shortener extends CI_Controller {
 	}
 
 	// List all shortened URLs
-	public function index($add_success = NULL)
+	public function index($message = NULL, $message_type = NULL)
 	{
 		require_login(uri_string());
 		$data['username'] = username();
@@ -19,9 +19,10 @@ class Shortener extends CI_Controller {
 		$data['links'] = $this->shortener_model->get_links();
 
 		// Check if redirect from shortener/add
-		if (! is_null($add_success))
+		if (! is_null($message))
 		{
-			$data['success'] = TRUE;
+			$data['message'] = $message;
+			$data['message_type'] = $message_type;
 		}
 
 		$this->load->view('templates/header', $data);
@@ -49,12 +50,14 @@ class Shortener extends CI_Controller {
 		// Add link
 		if ($this->form_validation->run() === TRUE)
 		{
-			$data['success'] = $this->shortener_model->shorten_link();
+			$success = $this->shortener_model->shorten_link();
 
 			// Successful redirect to shortener index
-			if ($data['success'])
+			if ($success)
 			{
-				$this->index($add_success = $data['success']);
+				$message = "Shortened URL added";
+				$message_type = "success";
+				$this->index($message, $message_type);
 				return;
 			}
 		}
@@ -65,10 +68,46 @@ class Shortener extends CI_Controller {
 		return;
 	}
 
-	// Handles .../s/go/[id] redirects
-	public function go($id = NULL)
+	public function delete($id = NULL)
 	{
-		redirect('/');
+		require_login(uri_string());
+		$data['username'] = username();
+
+		$link = $this->shortener_model->get_link_by_id($id);
+
+		if (is_null($link))
+		{
+			show_404();
+		}
+
+		$success = $this->shortener_model->delete_link($id);
+
+		if ($success) 
+		{
+			$message = "Shortened URL successfully deleted";
+			$message_type = "warning";
+		}
+		else
+		{
+			$message = "There was a problem deleting the shortened URL";
+			$message_type = "danger";
+		}
+
+		$this->index($message, $message_type);
+	}
+
+	// Handles .../s/go/[lookup] redirects
+	public function go($lookup = NULL)
+	{
+		log_message('debug', 'Entering /s/go');
+		$link = $this->shortener_model->get_link_by_lookup($lookup);
+
+		if (is_null($link))
+		{
+			show_404();
+		}
+
+		redirect($link['Link']);
 	}
 
 }
