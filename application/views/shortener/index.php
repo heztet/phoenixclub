@@ -20,6 +20,7 @@
 		<tr>
 			<th>Link</th>
 			<th>Shortened Link</th>
+			<th>Visit Count</th>
 			<th><!-- Delete Button --></th>
 		</tr>
 
@@ -32,10 +33,12 @@
 				<td>
 					<div class="input-group">
 	      				<span class="input-group-btn">
-	        				<button class="btn btn-default" type="button">Copy</button>
+	        				<button class="btn btn-default" type="button" id="copybtn-<?php echo $l['Id']; ?>" onclick="copyText(<?php echo $l['Id']; ?>)">Copy</button>
 	      				</span>
-	      				<input type="text" class="form-control" value="<?php echo site_url('s/'.$l['Lookup']); ?>" readonly>
+	      				<?php $url = site_url('s/'.$l['Lookup']); ?>
+	      				<input type="text" class="form-control" id="text-<?php echo $l['Id']; ?>" onclick="copyText(<?php echo $l['Id']; ?>)" onkeyup="resetText(<?php echo $l['Id'].', \''.$url.'\''; ?>)" value="<?php echo $url; ?>">
 	    			</div></td>
+	    		<td><?php echo $l['VisitCount']; ?></td>
 				<td>
 					<a href="<?php echo site_url('shortener/delete/'.$l['Id']); ?>" type="button" class="btn btn-danger">Delete</a>
 				</td>
@@ -46,3 +49,15 @@
 <?php else : ?>
 	<p style="color: #808080;"><i>No links</i></p>	
 <?php endif; ?>
+
+<script>
+	function copyText(id) {
+		var textArea = document.getElementById("text-".concat(id));
+		textArea.select();
+		document.execCommand('copy');
+	}
+	function resetText(id, originalText) {
+		var textArea = document.getElementById("text-".concat(id));
+		textArea.value = originalText;
+	}
+</script>

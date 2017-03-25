@@ -125,4 +125,27 @@ class Shortener_model extends CI_Model {
 		return TRUE;
 	}
 
+	public function increment_visit_count($id = NULL)
+	{
+		// Check for id
+		if ($id == NULL) 
+		{
+			return;
+		}
+
+		// Get link and check that it exists
+		$link = $this->get_link_by_id($id);
+		if ($link == NULL)
+		{
+			return;
+		}
+
+		log_message('debug', 'Got link: '.$link['Id']);
+
+		// Increment link visit count by 1
+		$data = array('VisitCount' => $link['VisitCount'] + 1);
+		$this->db->where('Id', $link['Id']);
+		$this->db->update('phoenix_links', $data);
+	}
+
 }

@@ -99,13 +99,14 @@ class Shortener extends CI_Controller {
 	// Handles .../s/go/[lookup] redirects
 	public function go($lookup = NULL)
 	{
-		log_message('debug', 'Entering /s/go');
 		$link = $this->shortener_model->get_link_by_lookup($lookup);
 
 		if (is_null($link))
 		{
 			show_404();
 		}
+
+		$this->shortener_model->increment_visit_count($link['Id']);
 
 		redirect($link['Link']);
 	}
