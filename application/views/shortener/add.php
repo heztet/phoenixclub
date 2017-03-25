@@ -4,6 +4,22 @@
 	</div>
 </div>
 
+<?php if (! empty($success)) : ?>
+	<?php if ($success == 1) : ?>
+		<div class="row">
+			<div class="col-sm-3">
+				<p class="bg-success fade-message" style="padding: 3px 0px 3px 0px;">URL shortened!</p>
+			</div>
+		</div>
+	<?php else : ?>
+		<div class="row">
+			<div class="col-sm-3">
+				<p class="bg-success fade-message" style="padding: 3px 0px 3px 0px;">There was an error shortening your URL</p>
+			</div>
+		</div>
+	<?php endif; ?>
+<?php endif; ?>
+
 <?php echo validation_errors('<p class="bg-danger fade-message" style="padding: 3px 3px 3px 3px;">'); ?>
 
 <?php echo form_open('shortener/add', 'class="form-horizontal"'); ?>

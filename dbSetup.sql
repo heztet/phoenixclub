@@ -95,7 +95,7 @@ CREATE TABLE `phoenix_links` (
   `Id` int(11) NOT NULL,
   `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Link` varchar(534) NOT NULL,
-  `Lookup` varchar(534) NOT NULL DEFAULT ''
+  `Lookup` varchar(534) NOT NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
