@@ -102,7 +102,7 @@ class Auth extends CI_Controller {
 		$data['links'] = array('events' => 'List of all events',
 							   'events/create' => 'Create a new event',
 							   'documents' => 'List of all documents',
-							   'documents/add' => 'Add a new documents',
+							   'documents/add' => 'Add a new document',
 							   'banquet' => 'List of students eligible for the banquet',
 							   'leaderboard' => 'Leaderboard of floors and students',
 							   'reset' => 'Reset floors, semester, or year points',
