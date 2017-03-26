@@ -21,15 +21,22 @@ class Pages extends CI_Controller {
             $this->load->database();
             redirect($this->db->website);
         }
-        // Check for 'rsvp' within timeframe
-        elseif (($page == 'rsvp') and (time() <= strtotime("8 May 2017")))
-        {
-            redirect('https://goo.gl/forms/XRpzmPP8GQZXq85r2');
-        }
-		// Check that page exists
-		elseif ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
+		// Check that page view exists
+		elseif ( !file_exists(APPPATH.'views/pages/'.$page.'.php'))
 		{
-			show_404();
+            // Last hope: check if page is shortened link
+            $this->load->model('shortener_model');
+            $link = $this->shortener_model->get_link_by_lookup($page);
+
+            // Not a shortened link
+            if (is_null($link))
+            {
+                show_404();
+            }
+
+            // Shortened link
+            $this->shortener_model->increment_visit_count($link['Id']);
+            redirect($link['Link']);
 		}
 
         $data['title'] = ucfirst($page); // Capitalize the first letter

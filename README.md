@@ -2,6 +2,11 @@
 This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # To Do for v2.4
+- [X] Add URL shortener
+- [X] Add delete ability
+- [X] Add functionality to 'Copy' button for URL shortener
+- [X] Have `/pages` check for shortened link
+- [X] Update dash with URL shortener
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
 - [ ] Quick point adder uses `phoenix_records`
 - [ ] Ability to edit student (everything but PUID)
