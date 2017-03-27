@@ -94,8 +94,8 @@ DROP TABLE IF EXISTS `phoenix_links`;
 CREATE TABLE `phoenix_links` (
   `Id` int(11) NOT NULL,
   `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Link` varchar(534) NOT NULL,
-  `Lookup` varchar(534) NOT NULL DEFAULT NULL,
+  `Link` varchar(534) DEFAULT NULL,
+  `Lookup` varchar(534) DEFAULT NULL,
   `VisitCount` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
