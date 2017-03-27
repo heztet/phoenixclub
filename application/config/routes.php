@@ -89,10 +89,12 @@ $route['auth/(:any)'] = 'auth/$1';
 
 /* SHORTENER */
 $route['shortener'] = 'shortener';
+$route['shortener/(:any)'] = 'shortener/$1';
 $route['s'] = 'shortener';
 $route['s/add'] = 'shortener/add';
 $route['s/(:any)'] = 'shortener/go/$1';
-$route['shortener/(:any)'] = 'shortener/$1';
+$route['links'] = 'shortener';
+$route['links/(:any)'] = 'shortener/$1';
 
 /* STANDALONE OR CUSTOM PAGES */
 $route['rollcall'] = 'rollcall';

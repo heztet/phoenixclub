@@ -55,7 +55,9 @@
 					<ul class="nav navbar-nav navbar-left">
 							<li><a href="<?php echo site_url('auth/dash'); ?>">Dashboard</a></li>
 							<li><a href="<?php echo site_url('events/'); ?>">Events</a></li>
-							<li><a href="<?php echo site_url('events/create'); ?>">Create</a></li>
+							<li><a href="<?php echo site_url('documents/'); ?>">Documents</a></li>
+							<li><a href="<?php echo site_url('shorten/'); ?>">Links</a></li>
+							<li><a href="<?php echo site_url('reset/'); ?>">Reset</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li>

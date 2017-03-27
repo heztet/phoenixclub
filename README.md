@@ -10,6 +10,7 @@ This website uses the [CodeIgniter](https://codeigniter.com/) PHP framework, in 
 - [X] Have `/pages` check for shortened link
 - [X] Update dash with URL shortener
 - [X] Delete links on reset year
+- [ ] Rename `shortener` to `links`
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
 - [ ] Quick point adder uses `phoenix_records`
 - [ ] Ability to edit student (everything but PUID)
