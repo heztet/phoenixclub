@@ -1,6 +1,6 @@
 {
   "name": "phoenixclub",
-  "version": "2.1",
+  "version": "2.4",
   "description": "Hillenbrand Hall website",
   "keywords": [
     "phoenixclub",
@@ -13,7 +13,7 @@
   "author": {
     "name": "Nicky Marino",
     "email": "nicky.s.marino@gmail.com",
-    "url": "nickymarino.com"
+    "url": "http://nickymarino.com"
   },
   "repository": "heztet/phoenixclub",
   "license": "MIT",

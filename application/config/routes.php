@@ -87,7 +87,7 @@ $route['logout'] = 'auth/logout';
 $route['dash'] = 'auth/dash';
 $route['auth/(:any)'] = 'auth/$1';
 
-/* SHORTENER */
+/* LINKS */
 $route['s'] = 'links';
 $route['s/(:any)'] = 'links/go/$1';
 $route['links'] = 'links';

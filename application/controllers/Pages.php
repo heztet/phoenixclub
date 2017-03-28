@@ -25,8 +25,8 @@ class Pages extends CI_Controller {
 		elseif ( !file_exists(APPPATH.'views/pages/'.$page.'.php'))
 		{
             // Last hope: check if page is shortened link
-            $this->load->model('shortener_model');
-            $link = $this->shortener_model->get_link_by_lookup($page);
+            $this->load->model('links_model');
+            $link = $this->links_model->get_link_by_lookup($page);
 
             // Not a shortened link
             if (is_null($link))
@@ -35,7 +35,7 @@ class Pages extends CI_Controller {
             }
 
             // Shortened link
-            $this->shortener_model->increment_visit_count($link['Id']);
+            $this->links_model->increment_visit_count($link['Id']);
             redirect($link['Link']);
 		}
 

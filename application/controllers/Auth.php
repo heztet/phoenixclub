@@ -97,7 +97,7 @@ class Auth extends CI_Controller {
 							     'Record a rollcall winner' => 'rollcall',
 							     'Add a document' => 'documents/add',
 							     'View leaderboard' => 'leaderboard',
-							     'Shorten URL' => 'shortener',
+							     'Add a link' => 'links',
 							     'Reset for next year or semester' => 'reset'
 						   );
 		$data['links'] = array('events' => 'List of all events',
@@ -106,7 +106,7 @@ class Auth extends CI_Controller {
 							   'documents/add' => 'Add a new document',
 							   'banquet' => 'List of students eligible for the banquet',
 							   'leaderboard' => 'Leaderboard of floors and students',
-							   'shortener' => 'Shorten a URL',
+							   'links' => 'Add a link',
 							   'rollcall' => 'Record who won a rollcall and add points to that floor',
 							   'reset' => 'Reset floors, semester, or year points',
 							   'students' => 'List of students to add points (upcoming)',

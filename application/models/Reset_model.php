@@ -61,7 +61,7 @@ class Reset_model extends CI_Model {
 								  'floor',
 								  'document',
 								  'record',
-								  'shortener'
+								  'links'
 							));
 
 		archive_events();
