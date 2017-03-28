@@ -83,8 +83,15 @@ $route['downloads/(:any)'] = 'downloads/$1';
 /* AUTH */
 $route['auth'] = 'auth';
 $route['login'] = 'auth/login';
+$route['logout'] = 'auth/logout';
 $route['dash'] = 'auth/dash';
 $route['auth/(:any)'] = 'auth/$1';
+
+/* LINKS */
+$route['s'] = 'links';
+$route['s/(:any)'] = 'links/go/$1';
+$route['links'] = 'links';
+$route['links/(:any)'] = 'links/$1';
 
 /* STANDALONE OR CUSTOM PAGES */
 $route['rollcall'] = 'rollcall';

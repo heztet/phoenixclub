@@ -53,12 +53,16 @@ class Auth extends CI_Controller {
 			if($this->authit->login(set_value('username'), set_value('password'))){
 				// Check for alternate redirect cookie
 				$site_url_redirect = get_cookie('site_url_redirect');
+				log_message('debug', 'Site redirect cookie: '.$site_url_redirect);
+
 				if (is_null($site_url_redirect)) 
 				{
+					log_message('debug', 'Redirecting to dash');
 					redirect('auth/dash');
 				}
 				else
 				{
+					log_message('debug', 'Redirecting to '.$site_url_redirect);
 					redirect($site_url_redirect);
 				}
 			}
@@ -93,16 +97,18 @@ class Auth extends CI_Controller {
 							     'Record a rollcall winner' => 'rollcall',
 							     'Add a document' => 'documents/add',
 							     'View leaderboard' => 'leaderboard',
+							     'Add a link' => 'links',
 							     'Reset for next year or semester' => 'reset'
 						   );
 		$data['links'] = array('events' => 'List of all events',
 							   'events/create' => 'Create a new event',
 							   'documents' => 'List of all documents',
-							   'documents/add' => 'Add a new documents',
+							   'documents/add' => 'Add a new document',
 							   'banquet' => 'List of students eligible for the banquet',
 							   'leaderboard' => 'Leaderboard of floors and students',
-							   'reset' => 'Reset floors, semester, or year points',
+							   'links' => 'Add a link',
 							   'rollcall' => 'Record who won a rollcall and add points to that floor',
+							   'reset' => 'Reset floors, semester, or year points',
 							   'students' => 'List of students to add points (upcoming)',
 							   'downloads/students' => 'Download student data as CSV',
 							   'downloads/banquet' => 'Download banquet-eligible students as CSV',

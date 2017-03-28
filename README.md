@@ -1,7 +1,10 @@
 # Welcome to Phoenix Club!
-This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
+This is the repo for the Purdue Hillenbrand Hall Phoenix Club website, which holds the club's attendance records, event data, documents (bills, meeting minutes, etc.), floor point amounts, and important links.
 
-# To Do for v2.4
+This website uses the [CodeIgniter](https://codeigniter.com/) PHP framework, in part because Purdue University servers only allow PHP web services and because CodeIgniter is easy to implement and install.
+
+# To Do for v2.5
+- [ ] Add ability to edit /links
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
 - [ ] Quick point adder uses `phoenix_records`
 - [ ] Ability to edit student (everything but PUID)
@@ -9,7 +12,7 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website.
 
 # Branch descriptions
 - The `develop` branch is where changes are staged for production
-- The `production` branch is what the Phoenix Club server is currently running
+- The `production` branch is what the Phoenix Club server is currently running (through Purdue University's servers)
 
 # Help! How do I put this in production mode?
 - In `application/config/config.php`, set `$config['log_threshold'] = 1;`
