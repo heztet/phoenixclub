@@ -1,5 +1,5 @@
 <?php
-class Shortener_model extends CI_Model {
+class Links_model extends CI_Model {
 
 	// Load database
 	public function __construct()
@@ -79,7 +79,7 @@ class Shortener_model extends CI_Model {
 
 	public function shorten_link()
 	{
-		//$this->load->helper('shortener');
+		//$this->load->helper('Links');
 
 		// Get POST inputs
 		$link = $this->input->post('LongLink');

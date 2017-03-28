@@ -1,10 +1,10 @@
 <?php
-class Shortener extends CI_Controller {
+class Links extends CI_Controller {
 	// Construct controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('shortener_model');
+		$this->load->model('links_model');
 		$this->load->helper('url');
 		$this->load->helper('authit');
 	}
@@ -14,11 +14,11 @@ class Shortener extends CI_Controller {
 	{
 		require_login(uri_string());
 		$data['username'] = username();
-		$data['title'] = "URL Shortener";
+		$data['title'] = "Links";
 
-		$data['links'] = $this->shortener_model->get_links();
+		$data['links'] = $this->links_model->get_links();
 
-		// Check if redirect from shortener/add
+		// Check if redirect from links/add
 		if (! is_null($message))
 		{
 			$data['message'] = $message;
@@ -26,7 +26,7 @@ class Shortener extends CI_Controller {
 		}
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('shortener/index', $data);
+		$this->load->view('links/index', $data);
 		$this->load->view('templates/footer', $data);
 	}
 
@@ -36,7 +36,7 @@ class Shortener extends CI_Controller {
 		require_login(uri_string());
 		$data['username'] = username();
 
-		$data['title'] = "URL Shortener";
+		$data['title'] = "Links";
 
 		// Helpers
 		$this->load->helper('form');
@@ -50,12 +50,12 @@ class Shortener extends CI_Controller {
 		// Add link
 		if ($this->form_validation->run() === TRUE)
 		{
-			$success = $this->shortener_model->shorten_link();
+			$success = $this->links_model->shorten_link();
 
-			// Successful redirect to shortener index
+			// Successful redirect to links index
 			if ($success)
 			{
-				$message = "Shortened URL added";
+				$message = "Short link added";
 				$message_type = "success";
 				$this->index($message, $message_type);
 				return;
@@ -63,7 +63,7 @@ class Shortener extends CI_Controller {
 		}
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('shortener/add', $data);
+		$this->load->view('links/add', $data);
 		$this->load->view('templates/footer', $data);
 		return;
 	}
@@ -73,23 +73,23 @@ class Shortener extends CI_Controller {
 		require_login(uri_string());
 		$data['username'] = username();
 
-		$link = $this->shortener_model->get_link_by_id($id);
+		$link = $this->links_model->get_link_by_id($id);
 
 		if (is_null($link))
 		{
 			show_404();
 		}
 
-		$success = $this->shortener_model->delete_link($id);
+		$success = $this->links_model->delete_link($id);
 
 		if ($success) 
 		{
-			$message = "Shortened URL successfully deleted";
+			$message = "Link successfully deleted";
 			$message_type = "warning";
 		}
 		else
 		{
-			$message = "There was a problem deleting the shortened URL";
+			$message = "There was a problem deleting the link";
 			$message_type = "danger";
 		}
 
@@ -99,14 +99,14 @@ class Shortener extends CI_Controller {
 	// Handles .../s/go/[lookup] redirects
 	public function go($lookup = NULL)
 	{
-		$link = $this->shortener_model->get_link_by_lookup($lookup);
+		$link = $this->links_model->get_link_by_lookup($lookup);
 
 		if (is_null($link))
 		{
 			show_404();
 		}
 
-		$this->shortener_model->increment_visit_count($link['Id']);
+		$this->links_model->increment_visit_count($link['Id']);
 
 		redirect($link['Link']);
 	}

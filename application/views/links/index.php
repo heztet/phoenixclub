@@ -9,7 +9,7 @@
 <?php endif; ?>
 
 <br />
-<a href="<?php echo site_url('shortener/add'); ?>" type="button" class="btn btn-primary">Shorten URL</a>
+<a href="<?php echo site_url('links/add'); ?>" type="button" class="btn btn-primary">Add link</a>
 <br />
 <br />
 
@@ -40,7 +40,7 @@
 	    			</div></td>
 	    		<td><?php echo $l['VisitCount']; ?></td>
 				<td>
-					<a href="<?php echo site_url('shortener/delete/'.$l['Id']); ?>" type="button" class="btn btn-danger">Delete</a>
+					<a href="<?php echo site_url('links/delete/'.$l['Id']); ?>" type="button" class="btn btn-danger">Delete</a>
 				</td>
 	    </td>
 			</tr>

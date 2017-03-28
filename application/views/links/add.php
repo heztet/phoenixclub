@@ -8,13 +8,13 @@
 	<?php if ($success == 1) : ?>
 		<div class="row">
 			<div class="col-sm-3">
-				<p class="bg-success fade-message" style="padding: 3px 0px 3px 0px;">URL shortened!</p>
+				<p class="bg-success fade-message" style="padding: 3px 0px 3px 0px;">Link added!</p>
 			</div>
 		</div>
 	<?php else : ?>
 		<div class="row">
 			<div class="col-sm-3">
-				<p class="bg-success fade-message" style="padding: 3px 0px 3px 0px;">There was an error shortening your URL</p>
+				<p class="bg-success fade-message" style="padding: 3px 0px 3px 0px;">There was an error adding the link</p>
 			</div>
 		</div>
 	<?php endif; ?>
@@ -22,7 +22,7 @@
 
 <?php echo validation_errors('<p class="bg-danger fade-message" style="padding: 3px 3px 3px 3px;">'); ?>
 
-<?php echo form_open('shortener/add', 'class="form-horizontal"'); ?>
+<?php echo form_open('links/add', 'class="form-horizontal"'); ?>
 	<div class="form-group">
 	    <label for='LongLink' class="col-sm-2 control-label">Long Link</label>
 	    <div class="col-sm-10">		
