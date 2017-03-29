@@ -15,6 +15,7 @@ class Links_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	// Case insensitive
 	// Returns a phoenix_links record by lookup
 	// Returns NULL if not found
 	public function get_link_by_lookup($lookup = NULL)
@@ -25,7 +26,7 @@ class Links_model extends CI_Model {
 		}
 
 		$this->db->order_by('DateCreated', 'desc');
-		$this->db->where('Lookup', $lookup);
+		$this->db->where('Lookup', strtolower($lookup));
 		$query = $this->db->get('phoenix_links');
 
 		if (! is_object($query))
@@ -77,6 +78,7 @@ class Links_model extends CI_Model {
 		return TRUE;
 	}
 
+	// Forces lowercase lookup
 	public function shorten_link()
 	{
 		//$this->load->helper('Links');
@@ -93,7 +95,7 @@ class Links_model extends CI_Model {
 
 		// Insert link into phoenix_links
 		$data = array('Link' => $link,
-			          'Lookup' => $lookup
+			          'Lookup' => strtolower($lookup)
 			          // DateCreated datetime is CURRENTTIME by default
 			          );
 		$this->db->insert('phoenix_links', $data);
