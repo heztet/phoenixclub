@@ -17,8 +17,9 @@ class Auth extends CI_Controller {
 		$this->load->library('authit');
 		$this->load->helper('authit');
 		$this->config->load('authit');
-		$this->load->helper('url');
 		$this->load->model('authit_model');
+		$this->load->helper('url');
+		$this->load->helper('alerts');
 	}
 
 	public function index()
@@ -32,6 +33,7 @@ class Auth extends CI_Controller {
 	// Takes query string ?site_url_redirect for redirect after successful login
 	public function login()
 	{
+		$data['title'] = 'Log in';
 		$this->load->helper('cookie');
 
 		if(logged_in())
@@ -48,14 +50,14 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		// Check log in credentials
-		if($this->form_validation->run()){
+		if($this->form_validation->run() === TRUE){
 			// Successful login
 			if($this->authit->login(set_value('username'), set_value('password'))){
 				// Check for alternate redirect cookie
 				$site_url_redirect = get_cookie('site_url_redirect');
 				log_message('debug', 'Site redirect cookie: '.$site_url_redirect);
 
-				if (is_null($site_url_redirect)) 
+				if ((is_null($site_url_redirect)) || (strcmp($site_url_redirect, 'auth/logout') == 0))
 				{
 					log_message('debug', 'Redirecting to dash');
 					redirect('auth/dash');
@@ -67,10 +69,12 @@ class Auth extends CI_Controller {
 				}
 			}
 			else {
-				$data['error'] = 'Your username and/or password is incorrect.';
+				set_alert('danger', 'Your username and/or password is incorrect', FALSE);
+				redirect('auth/login');
 			}
 		}
 
+		$data['alert'] = get_alert();
 		$this->load->view('templates/header', $data);
 		$this->load->view('auth/login', $data);
 		$this->load->view('templates/footer', $data);
@@ -115,7 +119,7 @@ class Auth extends CI_Controller {
 							   'database' => 'Go to the database'
 						 );
 
-		
+		$data['alert'] = get_alert();		
 		$this->load->view('templates/header', $data);
 		$this->load->view('auth/dash', $data);
 		$this->load->view('templates/footer', $data);

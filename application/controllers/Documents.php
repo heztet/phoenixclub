@@ -8,7 +8,7 @@ class Documents extends CI_Controller {
 		$this->load->model('documents_model');
 		$this->load->helper('url_helper');
 		$this->load->helper('authit');
-
+		$this->load->helper('alerts');
 	}
 
 	// Return all documents
@@ -19,6 +19,7 @@ class Documents extends CI_Controller {
 		$data['documents'] = $this->documents_model->get_documents();
 
 		// Display page
+		$data['alert'] = get_alert();
 		$this->load->view('templates/header', $data);
 		$this->load->view('documents/index', $data);
 		$this->load->view('templates/footer', $data);
@@ -31,7 +32,7 @@ class Documents extends CI_Controller {
 		
 		if ($id == NULL)
 		{
-			redirect('documents/index', 'refresh');
+			show_404();
 		}
 
 		$link = $this->documents_model->get_document_link($id);
@@ -68,18 +69,17 @@ class Documents extends CI_Controller {
 										  array('valid_url' => 'You need a valid url for your %s.')
 										  );
 
-		// Return create view if inputs are invalid
-		if ($this->form_validation->run() === FALSE)
-		{
-			$this->load->view('templates/header', $data);
-			$this->load->view('documents/add', $data);
-			$this->load->view('templates/footer', $data);
-		}
-		// Create document and return to document index
-		else
+		// Return to index if inputs are valid
+		if ($this->form_validation->run() === TRUE)
 		{
 			$result = $this->documents_model->set_document();
-			$this->index();
+			set_alert('success', 'Document added!');
+			redirect('documents');
 		}
+
+		$data['alert'] = get_alert();
+		$this->load->view('templates/header', $data);
+		$this->load->view('documents/add', $data);
+		$this->load->view('templates/footer', $data);
 	}
 }
