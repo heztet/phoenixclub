@@ -10,6 +10,7 @@ class Downloads extends CI_Controller {
 		$this->load->helper('download');
 		$this->load->dbutil();
 		$this->load->helper('authit');
+		$this->load->helper('alerts');
 	}
 
 	public function index() {
@@ -22,6 +23,7 @@ class Downloads extends CI_Controller {
 							     'Download all events' => 'downloads/events'
 						   );
 
+		$data['alert'] = get_alert();
 		$this->load->view('templates/header', $data);
 		$this->load->view('downloads/index', $data);
 		$this->load->view('templates/footer', $data);
