@@ -7,36 +7,31 @@ class Links extends CI_Controller {
 		$this->load->model('links_model');
 		$this->load->helper('url');
 		$this->load->helper('authit');
+		$this->load->helper('alerts');
 	}
 
 	// List all shortened URLs
-	public function index($message = NULL, $message_type = NULL)
+	public function index()
 	{
 		require_login(uri_string());
 		$data['username'] = username();
-		$data['title'] = "Links";
+		$data['alert'] = get_alert();
+		$data['title'] = 'Links';
 
 		$data['links'] = $this->links_model->get_links();
-
-		// Check if redirect from links/add
-		if (! is_null($message))
-		{
-			$data['message'] = $message;
-			$data['message_type'] = $message_type;
-		}
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('links/index', $data);
 		$this->load->view('templates/footer', $data);
 	}
 
-	// Add a new shortened URL
+
+	// Add a new shortened URL and redirect to index
 	public function add()
 	{
 		require_login(uri_string());
 		$data['username'] = username();
-
-		$data['title'] = "Links";
+		$data['title'] = 'Add a link';
 
 		// Helpers
 		$this->load->helper('form');
@@ -55,17 +50,65 @@ class Links extends CI_Controller {
 			// Successful redirect to links index
 			if ($success)
 			{
-				$message = "Short link added";
-				$message_type = "success";
-				$this->index($message, $message_type);
-				return;
+				set_alert('success', 'Successfully added link');
+				redirect('links');
 			}
 		}
 
+		$data['alert'] = get_alert();
 		$this->load->view('templates/header', $data);
 		$this->load->view('links/add', $data);
 		$this->load->view('templates/footer', $data);
 		return;
+	}
+
+	public function edit($id = NULL)
+	{
+		require_login(uri_string());
+		$data['username'] = username();
+		$data['title'] = 'Edit link';
+
+		$data['link'] = $this->links_model->get_link_by_id($id);
+
+		if (is_null($data['link']))
+		{
+			show_404();
+		}
+
+		// Helpers
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		// Form rules
+		$this->form_validation->set_rules('LongLink', 'Link', 'required|prep_url|max_length[534]');
+		$this->form_validation->set_rules('ShortLink', 'Shortened link', 'max_length[534]|alpha_dash|callback_validate_shortlink['.$this->input->post('LinkId').']',
+										  array('alpha_dash' => 'Link can only have alpha-numeric characters, dashes, or underscores',
+										  	    'validate_shortlink' => 'That shortened link was taken. Please choose another one')
+										  );
+
+		// Form is validated
+		if ($this->form_validation->run() === TRUE) 
+		{
+			// Attempt to update link
+			$success = $this->links_model->update_link();
+
+			// Check if update was successful
+			if ($success)
+			{
+				set_alert('success', 'Link was successfully updated');
+			}
+			else
+			{
+				set_alert('danger', 'Link could not be updated');
+			}
+			
+			redirect(uri_string());  // Redirect to force cookie
+		}
+
+		$data['alert'] = get_alert();
+		$this->load->view('templates/header', $data);
+		$this->load->view('links/edit', $data);
+		$this->load->view('templates/footer', $data);
 	}
 
 	public function delete($id = NULL)
@@ -82,18 +125,16 @@ class Links extends CI_Controller {
 
 		$success = $this->links_model->delete_link($id);
 
-		if ($success) 
+		if ($success)
 		{
-			$message = "Link successfully deleted";
-			$message_type = "warning";
+			set_alert('warning', 'Link successfully deleted');
 		}
 		else
 		{
-			$message = "There was a problem deleting the link";
-			$message_type = "danger";
+			set_alert('danger', 'There was a problem deleting the link');
 		}
 
-		$this->index($message, $message_type);
+		redirect('links');
 	}
 
 	// Handles .../s/go/[lookup] redirects
@@ -111,4 +152,17 @@ class Links extends CI_Controller {
 		redirect($link['Link']);
 	}
 
+
+	// Check that the input lookup is either availiable or taken by a link with the input link id
+	public function validate_shortlink($lookup, $id)
+	{
+		$link = $this->links_model->get_link_by_lookup($lookup);
+
+		if (empty($link) || ($link['Id'] == $id))
+		{
+			return TRUE;
+		}
+		
+		return FALSE;
+	}
 }

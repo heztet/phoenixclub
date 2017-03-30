@@ -4,7 +4,8 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website, which hol
 This website uses the [CodeIgniter](https://codeigniter.com/) PHP framework, in part because Purdue University servers only allow PHP web services and because CodeIgniter is easy to implement and install.
 
 # To Do for v2.5
-- [ ] Add ability to edit /links
+- [x] Add ability to edit /links
+- [ ] Fix: match rest of website layout with `/links` (e.g. alert retrieval, title, form validation errors, etc.) (set error delimiters in app/config/form_validation.php)
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
 - [ ] Quick point adder uses `phoenix_records`
 - [ ] Ability to edit student (everything but PUID)

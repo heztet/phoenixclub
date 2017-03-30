@@ -81,8 +81,6 @@ class Links_model extends CI_Model {
 	// Forces lowercase lookup
 	public function shorten_link()
 	{
-		//$this->load->helper('Links');
-
 		// Get POST inputs
 		$link = $this->input->post('LongLink');
 		$lookup = $this->input->post('ShortLink');
@@ -127,6 +125,34 @@ class Links_model extends CI_Model {
 		return TRUE;
 	}
 
+	// Update link with input data
+	// Returns TRUE or FALSE depending on success
+	public function update_link()
+	{
+		// Get POST inputs
+		$id = $this->input->post('LinkId');
+		$link = $this->input->post('LongLink');
+		$lookup = $this->input->post('ShortLink');
+		$lookup = strtolower($lookup);
+
+		// Retrieve link from database
+		$old_link = $this->get_link_by_id($id);
+		log_message('debug', 'Link retrieved');
+
+		if (empty($old_link))
+		{
+			return FALSE;
+		}
+
+		// Update link data
+		$data = array('Link' => $link,
+					  'Lookup' => $lookup
+					  );
+		$this->db->where('Id', $old_link['Id']);
+		$this->db->update('phoenix_links', $data);
+		return TRUE;
+	}
+
 	public function increment_visit_count($id = NULL)
 	{
 		// Check for id
@@ -149,5 +175,4 @@ class Links_model extends CI_Model {
 		$this->db->where('Id', $link['Id']);
 		$this->db->update('phoenix_links', $data);
 	}
-
 }

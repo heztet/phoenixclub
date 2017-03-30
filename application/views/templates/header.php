@@ -79,3 +79,19 @@
     	</nav>
 
     	<div class="container">
+    		<?php /* Title (if exists) */ ?>
+			<?php if (! empty($title)) : ?>
+    			<h2><?php echo $title; ?></h2>
+    		<?php endif; ?>
+
+    		<?php /* Alert (if exists) */ ?>
+    		<?php if (isset($alert) && (! empty($alert))) : ?>
+    			<?php if ($alert['fade'] == TRUE) : ?>
+    				<?php $fade = ' fade-message'; ?>
+    			<?php else : ?>
+    				<?php $fade = ''; ?>
+    			<?php endif; ?>
+				<div class="alert alert-<?php echo $alert['type'].$fade; ?>" role="alert">
+					<?php echo $alert['message']; ?>
+				</div>
+			<?php endif; ?>
