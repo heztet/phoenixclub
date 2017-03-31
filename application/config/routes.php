@@ -69,6 +69,7 @@ $route['events'] = 'events';
 $route['newsletter'] = 'documents';
 $route['documents'] = 'documents';
 $route['documents/add'] = 'documents/add';
+$route['documents/delete/(:num)'] = 'documents/delete/$1';
 $route['documents/(:num)'] = 'documents/view/$1';
 
 /* RESET */

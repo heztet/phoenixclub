@@ -17,7 +17,13 @@
 					<td>
 						<?php echo '<a href="'.prep_url($d['Link']).'">'.$d['Title'].'</a>' ?>
 					</td>
-				</tr>
+				
+				<?php if (isset($username)) : ?>
+					<td>
+						<a href="<?php echo site_url('documents/delete/'.$d['Id']); ?>" class="btn btn-danger">Delete</a>
+					</td>
+				<?php endif; ?>
+				</tr>	
 			<?php endforeach; ?>
 		</table>
 	</div>

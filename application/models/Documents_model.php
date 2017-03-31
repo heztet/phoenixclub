@@ -57,4 +57,30 @@ class Documents_model extends CI_Model {
 			);
 		$this->db->insert('phoenix_documents', $data);
 	}
+
+	// Delete a document with the given id
+	// Returns TRUE or FALSE depending on success
+	public function delete_document($id = NULL)
+	{
+		if (empty($id))
+		{
+			return NULL;
+		}
+
+		log_message('debug', '$id = '.$id);
+
+		$this->db->where('Id', $id);
+		$query = $this->db->get('phoenix_documents');
+
+		if (!is_object($query))
+		{
+			return FALSE;
+		}
+
+		$document = $query->row();
+
+		$this->db->where('Id', $document->Id);
+		$this->db->delete('phoenix_documents');
+		return TRUE;
+	}
 }
