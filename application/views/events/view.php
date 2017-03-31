@@ -1,5 +1,3 @@
-<h2><?php echo $events_item['Title']; ?></h2>
-<br />
 <br />
 
 <!-- Event table -->

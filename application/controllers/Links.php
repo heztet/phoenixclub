@@ -37,8 +37,8 @@ class Links extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->form_validation->set_rules('LongLink', 'Link', 'required|prep_url|max_length[534]');
-		$this->form_validation->set_rules('ShortLink', 'Shortened link', 'is_unique[phoenix_links.Lookup]|max_length[534]|alpha_dash',
+		$this->form_validation->set_rules('LongLink', 'Link', 'required|trim|prep_url|max_length[534]');
+		$this->form_validation->set_rules('ShortLink', 'Shortened link', 'is_unique[phoenix_links.Lookup]|trim|max_length[534]|alpha_dash',
 										  array('alpha_dash' => 'Link can only have alpha-numeric characters, dashes, or underscores')
 										  );
 		
@@ -80,8 +80,8 @@ class Links extends CI_Controller {
 		$this->load->library('form_validation');
 
 		// Form rules
-		$this->form_validation->set_rules('LongLink', 'Link', 'required|prep_url|max_length[534]');
-		$this->form_validation->set_rules('ShortLink', 'Shortened link', 'max_length[534]|alpha_dash|callback_validate_shortlink['.$this->input->post('LinkId').']',
+		$this->form_validation->set_rules('LongLink', 'Link', 'required|trim|prep_url|max_length[534]');
+		$this->form_validation->set_rules('ShortLink', 'Shortened link', 'max_length[534]|trim|alpha_dash|callback_validate_shortlink['.$this->input->post('LinkId').']',
 										  array('alpha_dash' => 'Link can only have alpha-numeric characters, dashes, or underscores',
 										  	    'validate_shortlink' => 'That shortened link was taken. Please choose another one')
 										  );

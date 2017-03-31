@@ -1,12 +1,6 @@
-<div class="row">
-	<div class="col-sm-10">
-		<h2><?php echo $title; ?></h2>
-	</div>
-</div>
-<br />
 <br />
 
-<?php echo validation_errors('<p class="bg-danger">'); ?>
+<?php echo validation_errors(); ?>
 
 <?php echo form_open('events/create', 'class="form-horizontal"'); ?>
 	

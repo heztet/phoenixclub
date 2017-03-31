@@ -14,8 +14,6 @@ function set_alert($display_type = NULL, $message = NULL, $fade = TRUE)
 		return;
 	}
 
-	
-
 	// Set up cookie data in JSON format
 	$data = array('type' => $display_type, 
 				  'message' => $message,
