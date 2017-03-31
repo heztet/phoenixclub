@@ -1,18 +1,3 @@
-<h2><?php echo $title; ?></h2>
-
-<!-- Students table -->
-<?php if (! empty($message)) : ?>
-	<?php if (empty($success)) : ?>
-		<p><?php echo $message; ?></p>
-	<?php elseif ($success == 1) : ?>
-		<p class="bg-success"><?php echo $message; ?></p>
-	<?php elseif ($success == 0) : ?>
-		<p class="bg-danger"><?php echo $message; ?></p>
-	<?php else : ?>
-		<p class="bg-warning"><?php echo $message; ?></p>
-	<?php endif; ?>
-<?php endif; ?>
-
 <table class="table table-hover">
 	<!-- Header -->
 	<tr>

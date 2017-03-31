@@ -64,6 +64,28 @@ CREATE TABLE `phoenix_floors` (
   `TotalPoints` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--   
+-- Dumping data for table `phoenix_floors`    
+--
+
+INSERT INTO `phoenix_floors` (`Floor`, `TotalPoints`) VALUES
+  ('1E', 0),
+  ('1W', 0),
+  ('2E', 0),
+  ('2W', 0),
+  ('3E', 0),
+  ('3W', 0),
+  ('4E', 0),
+  ('4W', 0),
+  ('5E', 0),
+  ('5W', 0),
+  ('6E', 0),
+  ('6W', 0),
+  ('7E', 0),
+  ('7W', 0),
+  ('8E', 0),
+  ('8W', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -81,8 +103,8 @@ CREATE TABLE `phoenix_globals` (
 --
 
 INSERT INTO `phoenix_globals` (`Variable`, `Value`) VALUES
-('BanquetAmount', '5'),
-('RollcallAmount', '5');
+  ('BanquetAmount', '5'),
+  ('RollcallAmount', '5');
 
 -- --------------------------------------------------------
 
@@ -171,7 +193,7 @@ CREATE TABLE `phoenix_users` (
 --
 
 INSERT INTO `phoenix_users` (`id`, `username`, `password`, `created`, `last_login`) VALUES
-(1, 'admin', 'admin', '2017-02-09 04:35:24', '2017-02-10 04:43:02');
+  (1, 'admin', 'admin', '2017-02-09 04:35:24', '2017-02-10 04:43:02');
 
 -- --------------------------------------------------------
 
@@ -190,10 +212,10 @@ CREATE TABLE `phoenix_year_conversion` (
 --
 
 INSERT INTO `phoenix_year_conversion` (`YearNumber`, `YearString`) VALUES
-(1, 'Freshman'),
-(2, 'Sophomore'),
-(3, 'Junior'),
-(4, 'Senior');
+  (1, 'Freshman'),
+  (2, 'Sophomore'),
+  (3, 'Junior'),
+  (4, 'Senior');
 
 --
 -- Indexes for dumped tables
@@ -294,6 +316,7 @@ ALTER TABLE `phoenix_rollcalls`
 --
 ALTER TABLE `phoenix_users`
   MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

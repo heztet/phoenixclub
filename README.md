@@ -7,6 +7,8 @@ This website uses the [CodeIgniter](https://codeigniter.com/) PHP framework, in 
 - [x] Add ability to edit /links
 - [ ] Fix: match rest of website layout with `/links` (e.g. alert retrieval, title, form validation errors, etc.) (set error delimiters in app/config/form_validation.php)
 	- [ ] Auth login error partial for login.php
+- [ ] Fix form validation messages for adding students
+- [ ] Add more details to `/students`
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
 - [ ] Quick point adder uses `phoenix_records`
 - [ ] Ability to edit student (everything but PUID)

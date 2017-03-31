@@ -1,12 +1,6 @@
-<div class="row">
-	<div class="col-sm-10">
-		<h2>Create Student</h2>
-	</div>
-</div>
-<br />
 <br />
 
-<?php echo validation_errors('<p class="bg-danger fade-message" style="padding: 3px 3px 3px 3px;">'); ?>
+<?php echo validation_errors(); ?>
 
 <?php echo form_open($formUrl, 'class="form-horizontal"'); ?>
 	<!-- Hidden Inputs -->

@@ -8,6 +8,7 @@ class Students extends CI_Controller {
 		$this->load->model('students_model');
 		$this->load->helper('url');
 		$this->load->helper('authit');
+		$this->load->helper('alerts');
 	}
 
 	// List all students
@@ -39,6 +40,7 @@ class Students extends CI_Controller {
 	{
 		require_login(uri_string());
         $data['username'] = username();
+        $data['title'] = 'Create student';
 		
 		// Helpers
 		$this->load->helper('puid');
@@ -59,7 +61,6 @@ class Students extends CI_Controller {
 			show_error('This student has already been added');
 		}
 
-		$data['title'] = 'Create student';
 		$data['puid'] = $cleanPuid;
 		
 		// Set totals to 0 if they don't exist
@@ -72,33 +73,39 @@ class Students extends CI_Controller {
 		}
 
 		// Validate inputs (Note: total events/points are handled in create_student)
-		$this->form_validation->set_rules('PUID', 'PUID', 'required');
-		$this->form_validation->set_rules('FirstName', 'First name', 'required');
-		$this->form_validation->set_rules('LastName', 'Last name', 'required');
-		$this->form_validation->set_rules('Email', 'Email', 'valid_email');
-		$this->form_validation->set_rules('Phone', 'Phone number', 'required|regex_match[/^[0-9]{10}$/]'); // 10 digit number
-		$this->form_validation->set_rules('Year', 'Year', 'required');
-		$this->form_validation->set_rules('Floor', 'Floor', 'required');
-		$this->form_validation->set_rules('Side', 'Side', 'required|greater_than[-1]|less_than[3]');
+		$this->form_validation->set_rules('PUID', 'PUID', 'required',
+										  array('required' => 'You must have a %s'));
+		$this->form_validation->set_rules('FirstName', 'first name', 'trim|required',
+										  array('required' => 'You must have a %s'));
+		$this->form_validation->set_rules('LastName', 'last name', 'trim|required',
+										  array('required' => 'You must have a %s'));
+		$this->form_validation->set_rules('Email', 'email address', 'trim|valid_email',
+										  array('required' => 'You must have an %s'));
+		$this->form_validation->set_rules('Phone', 'phone number', 'required|regex_match[/^[0-9]{10}$/]', // 10 digit number
+										  array('required' => 'You must have a %s')); 
+		$this->form_validation->set_rules('Year', 'year', 'required',
+										  array('required' => 'You must have a %s'));
+		$this->form_validation->set_rules('Floor', 'floor', 'required',
+										  array('required' => 'You must have a %s'));
+		$this->form_validation->set_rules('Side', 'side', 'required|greater_than[-1]|less_than[3]',
+										  array('required' => 'You must have a %s'));
 
 		// Create student if validation succeeds
 		if (($this->form_validation->run() === TRUE) and ($cleanPuid != '-1'))
 		{
 			$this->students_model->create_student($eventId);
-
+			
 			// Redirect to event checkin if id is given
 			if ($eventId != NULL)
 			{
-				$data = [];
-				$data['AddedStudent'] = 1;
-				redirect('/events/add/'.$eventId.'/1');
+				set_alert('success', 'Student created successfully and added to event');
+				redirect('/events/add/'.$eventId);
 			}
 			// Else redirect to home page
 			else
 			{
-				$data = [];
-				$data['AddedStudent'] = 0;
-				redirect('/');
+				set_alert('success', 'Student created successfully');
+				redirect('students');
 			}
 		}
 		
