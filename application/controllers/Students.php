@@ -26,6 +26,29 @@ class Students extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+	public function edit($puid = NULL)
+	{
+		require_login(uri_string());
+		$data['username'] = username();
+		$data['title'] = 'Edit student';
+
+		if (is_null($puid))
+		{
+			show_404();
+		}
+
+		$data['student'] = $this->students_model->get_students($puid);
+
+		if (empty($data['student']))
+		{
+			show_404();
+		}
+
+		$data['alert'] = get_alert();
+		$this->load->view('templates/header', $data);
+		$this->load->view('students/edit', $data);
+		$this->load->view('templates/footer', $data);
+	}
 
 	// Create a student with the given PUID and an optional eventId they checked into
 	public function create($puid = NULL, $eventId = NULL)

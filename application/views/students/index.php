@@ -17,7 +17,7 @@
 			<td><?php echo $s['Phone']; ?></td>
 			<td><?php echo $s['Floor'].$s['Side']; ?></td>
 			<td><?php echo $s['TotalPoints']; ?></td>
-			<td><a href="<?php echo site_url('students/edit/'.$s['PUID']); ?>">Edit</a></td>
+			<td><a href="<?php echo site_url('students/edit/'.$s['PUID']); ?>" class="btn btn-primary">Edit</a></td>
 		</tr>
 
 	<?php endforeach; ?>
