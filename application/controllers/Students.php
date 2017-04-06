@@ -26,6 +26,7 @@ class Students extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+
 	// Create a student with the given PUID and an optional eventId they checked into
 	public function create($puid = NULL, $eventId = NULL)
 	{
@@ -73,7 +74,8 @@ class Students extends CI_Controller {
 		$this->form_validation->set_rules('Email', 'email address', 'trim|valid_email',
 										  array('required' => 'You must have an %s'));
 		$this->form_validation->set_rules('Phone', 'phone number', 'required|regex_match[/^[0-9]{10}$/]', // 10 digit number
-										  array('required' => 'You must have a %s')); 
+										  array('required' => 'You must have a %s',
+										  	    'regex_match' => 'Phone number must be a 10 digit number (no hyphens, spaces, or parentheses)')); 
 		$this->form_validation->set_rules('Year', 'year', 'required',
 										  array('required' => 'You must have a %s'));
 		$this->form_validation->set_rules('Floor', 'floor', 'required',
