@@ -8,27 +8,17 @@ class Reset extends CI_Controller {
 		$this->load->model('reset_model');
 		$this->load->helper('url');
 		$this->load->helper('authit');
+		$this->load->helper('alerts');
 	}
 
 	// Return all events
-	public function index($success = NULL)
+	public function index()
 	{
 		require_login(uri_string());
         $data['username'] = username();
-
 		$data['title'] = "Reset Tools";
 
-		if ((!is_null($success)) and ($success))
-		{
-			$data['resetSuccess'] = 1;
-			$data['resetFailure'] = 0;
-		}
-		elseif ((!is_null($success)) and (!$success))
-		{
-			$data['resetSuccess'] = 0;
-			$data['resetFailure'] = 1;			
-		}
-
+		$data['alert'] = get_alert();
 		$this->load->view('templates/header', $data);
 		$this->load->view('reset/index', $data);
 		$this->load->view('templates/footer', $data);
@@ -48,20 +38,19 @@ class Reset extends CI_Controller {
 			// Add success/failure modal to $data
 			if ($result == 0)
 			{
-				$success = TRUE;
+				set_alert('success', 'Floors points reset');
 			}
 			else {
-				$success = FALSE;
+				set_alert('danger', 'There was a problem resetting floor points');
 			}
 		}
 		catch (Exception $e)
 		{
 			log_message('error', 'Reset failure: '.$e->getMessage());
-			$success = FALSE;
 		}
 
 		// Go back to index
-		redirect('reset/index/'.$success);
+		redirect('reset');
 	}
 
 	// Reset semester points
@@ -69,6 +58,7 @@ class Reset extends CI_Controller {
 	{
 		require_login(uri_string());
         $data['username'] = username();
+        $data['title'] = 'Reset semester';
 
 		try
 		{
@@ -78,21 +68,20 @@ class Reset extends CI_Controller {
 			// Add success/failure modal to $data
 			if ($result == 0)
 			{
-				$success = TRUE;
+				set_alert('success', 'Reset for the semester');
 			}
 			else
 			{
-				$success = FALSE;
+				set_alert('danger', 'There was a problem resetting for the semester');
 			}
 		}
 		catch (Exception $e)
 		{
 			log_message('error', 'Reset failure: '.$e->getMessage());
-			$success = FALSE;
 		}
 
 		// Go back to index
-		redirect('reset/index/'.$success);
+		redirect('reset');
 	}
 
 	// Reset year points/students
@@ -100,7 +89,6 @@ class Reset extends CI_Controller {
 	{
 		require_login(uri_string());
         $data['username'] = username();
-		
 		$data['title'] = "Reset Year";
 		
 		try 
@@ -111,19 +99,18 @@ class Reset extends CI_Controller {
 			// Add success/failure modal to $data
 			if ($result == 0)
 			{
-				$success = TRUE;
+				set_alert('success', 'Reset for the year');
 			}
 			else {
-				$success = FALSE;
+				set_alert('danger', 'There was a problem resetting for the year');
 			}
 		}
 		catch (Exception $e)
 		{
 			log_message('error', 'Reset failure: '.$e->getMessage());
-			$success = FALSE;
 		}
 
 		// Go back to index
-		redirect('reset/index/'.$success);
+		redirect('reset');
 	}
 }

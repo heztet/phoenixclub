@@ -12,24 +12,15 @@ class Students extends CI_Controller {
 	}
 
 	// List all students
-	public function index($success = NULL, $message = NULL)
+	public function index()
 	{
 		require_login(uri_string());
 		$data['username'] = username();
-
 		$data['title'] = 'Students';
+
 		$data['students'] = $this->students_model->get_students();
 
-		if ($success != NULL)
-		{
-			$data['success'] = $success;
-		}
-		if ($message != NULL)
-		{
-			$data['message'] = $message;
-		}
-		//echo print_r($data['students']);
-
+		$data['alert'] = get_alert();
 		$this->load->view('templates/header', $data);
 		$this->load->view('students/index', $data);
 		$this->load->view('templates/footer', $data);
@@ -118,6 +109,7 @@ class Students extends CI_Controller {
 		}
 
 		// Display student create form
+		$data['alert'] = get_alert();
 		$this->load->view('templates/header', $data);
 		$this->load->view('students/create', $data);
 		$this->load->view('templates/footer', $data);

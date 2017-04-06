@@ -15,11 +15,11 @@ class Links extends CI_Controller {
 	{
 		require_login(uri_string());
 		$data['username'] = username();
-		$data['alert'] = get_alert();
 		$data['title'] = 'Links';
 
 		$data['links'] = $this->links_model->get_links();
 
+		$data['alert'] = get_alert();
 		$this->load->view('templates/header', $data);
 		$this->load->view('links/index', $data);
 		$this->load->view('templates/footer', $data);

@@ -69,7 +69,6 @@ class Reset_model extends CI_Model {
 		reset_floor_points();
 		delete_documents();
 		delete_records();
-		delete_links();
 		
 		// Success
 		return 0;
