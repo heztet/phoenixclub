@@ -44,6 +44,50 @@ class Students extends CI_Controller {
 			show_404();
 		}
 
+		// Helpers
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		// Validate inputs
+		$this->form_validation->set_rules('PUID', 'PUID', 'required',
+										  array('required' => 'You must have a %s'));
+		$this->form_validation->set_rules('FirstName', 'first name', 'trim|required',
+										  array('required' => 'You must have a %s'));
+		$this->form_validation->set_rules('LastName', 'last name', 'trim|required',
+										  array('required' => 'You must have a %s'));
+		$this->form_validation->set_rules('Email', 'email address', 'trim|valid_email',
+										  array('required' => 'You must have an %s'));
+		$this->form_validation->set_rules('Phone', 'phone number', 'required|regex_match[/^[0-9]{10}$/]', // 10 digit number
+										  array('required' => 'You must have a %s',
+										  	    'regex_match' => 'Phone number must be a 10 digit number (no hyphens, spaces, or parentheses)')); 
+		$this->form_validation->set_rules('Year', 'year', 'required',
+										  array('required' => 'You must have a %s'));
+		$this->form_validation->set_rules('Floor', 'floor', 'required',
+										  array('required' => 'You must have a %s'));
+		$this->form_validation->set_rules('Side', 'side', 'required|regex_match[/[EW]/]',
+										  array('required' => 'You must have a %s',
+										  		'regex_match' => 'You must choose the East or West side'));
+		$this->form_validation->set_rules('TotalPoints', 'TotalPoints', 'required');
+
+		// Form is validated
+		if ($this->form_validation->run() === TRUE) 
+		{
+			// Attempt to update link
+			$success = $this->students_model->update_student();
+
+			// Check if update was successful
+			if ($success)
+			{
+				set_alert('success', 'Student was successfully updated');
+			}
+			else
+			{
+				set_alert('danger', 'Student could not be updated');
+			}
+			
+			redirect(uri_string());  // Redirect to force cookie
+		}
+
 		$data['alert'] = get_alert();
 		$this->load->view('templates/header', $data);
 		$this->load->view('students/edit', $data);

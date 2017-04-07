@@ -35,12 +35,12 @@ class Students_model extends CI_Model {
 		$this->db->order_by('DateCreated', 'desc');
 		$this->db->where('PUID', $puid);
 		$query = $this->db->get('phoenix_students');
-		$students = $query->result_array();
+		$student = $query->result_array();
 
 		// Add year string to each student
-		$students = $this->append_year_string($students);
+		$student = $this->append_year_string($student);
 		
-		return $students;
+		return $student[0];
 	}
 
 	// Return all students associated with an event (using records table)
@@ -155,6 +155,45 @@ class Students_model extends CI_Model {
 			);
 		$this->db->where('Floor', $floorString);
 		$this->db->update('phoenix_floors', $data);
+	}
+
+	// Update student with input data
+	// Returns TRUE or FALSE depending on success
+	public function update_student()
+	{
+		// Get inputs
+		$puid = $this->input->post('PUID');
+		$first_name = $this->input->post('FirstName');
+		$last_name = $this->input->post('LastName');
+		$email = $this->input->post('Email');
+		$phone = $this->input->post('Phone');
+		$year = $this->input->post('Year');
+		$floor = $this->input->post('Floor');
+		$side = $this->input->post('Side');
+		$total_points = $this->input->post('TotalPoints');
+
+		// Get student
+		$old_student = $this->get_students($puid);
+
+		if (empty($old_student))
+		{
+			return FALSE;
+		}
+
+		// Update student data
+		$data = array('PUID' => $puid,
+					  'FirstName' => $first_name,
+					  'LastName' => $last_name,
+					  'Email' => $email,
+					  'Phone' => $phone,
+					  'Year' => $year,
+					  'Floor' => $floor,
+					  'Side' => $side,
+					  'TotalPoints' => $total_points
+					  );
+		$this->db->where('PUID', $old_student['PUID']);
+		$this->db->update('phoenix_students', $data);
+		return TRUE;
 	}
 
 	// Adds each student's year as a string
