@@ -12,7 +12,6 @@ This website uses the [CodeIgniter](https://codeigniter.com/) PHP framework, in 
 	- [X] Auth login error partial for login.php
 - [X] Fix form validation messages for adding students
 - [X] Add more details to `/students`
-- ~[ ] Ability to edit events~
 
 # Branch descriptions
 - The `develop` branch is where changes are staged for production
