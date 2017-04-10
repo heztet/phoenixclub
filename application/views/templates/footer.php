@@ -2,11 +2,19 @@
 
 		<br />
 		<br />
-		<div class="footer navbar navbar-default navbar-fixed-bottom">
+		<div class="footer">
+		<br />
+		<br />
 		<br />
 			<div class="container center-block">
 				<div class="vertical-center">
-					<p class="text-muted"><em>Phoenix Club &copy; <?php echo date("Y");?> | Made with <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> by <a href="http://nickymarino.com">Nicky Marino</a></em></p>
+					<hr />
+					<div class="col-md-6">
+						<p class="text-muted"><em>Phoenix Club &copy; <?php echo date("Y");?></em></p>
+					</div>
+					<div class="cool-md-6">
+						<p class="text-muted text-right"><em>Made with <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> by <a href="http://nickymarino.com">Nicky Marino</a></em></p>
+					</div>
 				</div>
 			</div>
 		</div>

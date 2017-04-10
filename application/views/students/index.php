@@ -13,6 +13,7 @@
 			<th>Floor/Side</th>
 			<th>Points</th>
 			<th><!-- Edit button --></th>
+			<th><!-- Add points --></th>
 		</tr>
 		
 		<!-- Items -->
@@ -24,6 +25,7 @@
 				<td><?php echo $s['Floor'].$s['Side']; ?></td>
 				<td><?php echo $s['TotalPoints']; ?></td>
 				<td><a href="<?php echo site_url('students/edit/'.$s['PUID']); ?>" class="btn btn-primary">Edit</a></td>
+				<td><a href="<?php echo site_url('students/add_points/'.$s['PUID']); ?>" class="btn btn-primary">Add points</a></td>
 			</tr>
 
 		<?php endforeach; ?>
