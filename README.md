@@ -4,6 +4,8 @@ This is the repo for the Purdue Hillenbrand Hall Phoenix Club website, which hol
 This website uses the [CodeIgniter](https://codeigniter.com/) PHP framework, in part because Purdue University servers only allow PHP web services and because CodeIgniter is easy to implement and install.
 
 # To Do for v2.5
+- [ ] Make sure that TotalPoints vs. LastSemesterPoints works properly (just save the latter, always increment the former)
+- [ ] Archive rather than delete students at end of year
 - [ ] Quick point-adder (or link to point-adder) on `/students` if logged in
 - [ ] Quick point adder uses `phoenix_records`
 - [X] Ability to edit student (everything but PUID)
